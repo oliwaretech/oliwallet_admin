@@ -1,0 +1,657 @@
+{
+  "project_info": {
+    "project_number": "347299167774",
+    "firebase_url": "https://o-alone-bank-fintech.firebaseio.com",
+    "project_id": "o-alone-bank-fintech",
+    "storage_bucket": "o-alone-bank-fintech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:4e292fad042687cf50f80f",
+        "android_client_info": {
+          "package_name": "com.example.oliver.oliverbankmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-5kitlp2gfservd656t5tfbsivv9bjb9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oliver.oliverbankmanager",
+            "certificate_hash": "1c5d1fd08812d0dfd619db26314f51733b23a6ba"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:254b46e24cbca08e50f80f",
+        "android_client_info": {
+          "package_name": "com.example.oliver_bank_main_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-ei1g8bpfk909spu0g22tj7bq98qqu7mr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oliver_bank_main_app",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:6ac11b118691eef050f80f",
+        "android_client_info": {
+          "package_name": "com.example.oliver_bank_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-d6sk183e44mt71lnsj41mkgnvbq8pee8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oliver_bank_manager",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:077b6b5ee52ac1d550f80f",
+        "android_client_info": {
+          "package_name": "com.oalonedeveloper.oliver.oalonebankwallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-ft1o6ldmpm019cnq3u6mpio6r5gdcoc6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliver.oalonebankwallet",
+            "certificate_hash": "1c5d1fd08812d0dfd619db26314f51733b23a6ba"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:58fd449741e7e20e50f80f",
+        "android_client_info": {
+          "package_name": "com.oalonedeveloper.oliver.oliverfinanciero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-a7b37mo8b4sdnqjvik8bhlpnvb5f5e0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliver.oliverfinanciero",
+            "certificate_hash": "77f3eadd027b3bf6b4808ceae33fe5710078a1e3"
+          }
+        },
+        {
+          "client_id": "347299167774-kf1f640hm4dbr1oa60kar5kpg2s52vkt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliver.oliverfinanciero",
+            "certificate_hash": "1c5d1fd08812d0dfd619db26314f51733b23a6ba"
+          }
+        },
+        {
+          "client_id": "347299167774-nu1jpbgfhb2j7meke4tce6aec1ecg8jh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliver.oliverfinanciero",
+            "certificate_hash": "e5c3b4896298cf6f4214da6caa34590642fbdc60"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:026fc8ee7aa2f73350f80f",
+        "android_client_info": {
+          "package_name": "com.oalonedeveloper.oliver.oliverfinancieroforfinancialinstitutions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-fl4s257avdv1pccodanm2lqshvluocse.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliver.oliverfinancieroforfinancialinstitutions",
+            "certificate_hash": "1c5d1fd08812d0dfd619db26314f51733b23a6ba"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:2f5612ffbc0868e250f80f",
+        "android_client_info": {
+          "package_name": "com.oalonedeveloper.oliverbankmanagerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-tvjebhdj4kus0kpcvo8iu5qqmd10pcvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oalonedeveloper.oliverbankmanagerapp",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:a4fe3e1c849b749a50f80f",
+        "android_client_info": {
+          "package_name": "com.oliverbank.oalonedeveloper.oliver_bank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-hkdr216erngpujfidmoh8sqs7afj6aup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oliverbank.oalonedeveloper.oliver_bank",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:0334b0ffe461a2dc50f80f",
+        "android_client_info": {
+          "package_name": "com.oliwallet.admin.com.oliwallet_admin_front_end"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:6758dde5d0bd61c550f80f",
+        "android_client_info": {
+          "package_name": "com.oliwallet.olbk.manager.oliwallet_olbk_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-qk27pf1p8k8q3oue6684o3nfel3edli6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oliwallet.olbk.manager.oliwallet_olbk_manager",
+            "certificate_hash": "e392dffc65c541c4cb46445913124a264bc395b1"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:a378fb440a13f48a50f80f",
+        "android_client_info": {
+          "package_name": "com.oliwallet.oliverbank.oliwallet_olbk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-npj8dcsvdva6o89h67ikl13g17fhrbp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oliwallet.oliverbank.oliwallet_olbk",
+            "certificate_hash": "e392dffc65c541c4cb46445913124a264bc395b1"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:02fad23f6831981e50f80f",
+        "android_client_info": {
+          "package_name": "com.oliwallet.oliwallet_client_frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-qavn8atagam7tjs1ru2eo698fbjif66i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oliwallet.oliwallet_client_frontend",
+            "certificate_hash": "e392dffc65c541c4cb46445913124a264bc395b1"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:c0e8f09ba05a400c50f80f",
+        "android_client_info": {
+          "package_name": "com.oliwallet.tech.oliwallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-nlrkj28boqv8v6e0qi163nn1crbhc3lb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oliwallet.tech.oliwallet",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347299167774:android:d5d7e8929d42e309",
+        "android_client_info": {
+          "package_name": "oliver.oalone.oalonedevelopers.oalonebank_fintech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347299167774-3255ud0jd73s7ftucj8oqnfcvnlavq34.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "oliver.oalone.oalonedevelopers.oalonebank_fintech",
+            "certificate_hash": "04c8229896bf9b4aa48dc3fb760ca9833323174e"
+          }
+        },
+        {
+          "client_id": "347299167774-sm7kqh1fh2hsr46vdesr899qtmqg3tqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "oliver.oalone.oalonedevelopers.oalonebank_fintech",
+            "certificate_hash": "453d0bed964c8a9a1009d5bf25e8be842ef3467e"
+          }
+        },
+        {
+          "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZUu7M-VIgtzXLzzYkcxzqBZuGW04RpOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347299167774-nnpsreqscgg8t7tetsilk6cd5d0tabha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347299167774-pitepif8ud1fo0mi55ujf96dra9lqgd9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oliwallet.oliverbank.oliwalletOlbkApp",
+                "app_store_id": "6499453196"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
