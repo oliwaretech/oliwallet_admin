@@ -47,9 +47,7 @@ class LoanDetailScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     OlwFeatureIconButton(
-                      onTap: () {
-
-                      },
+                      onTap: () {},
                       iconPath: IconAssets.deposit,
                       title: appLocalizations.pay,
                     ),

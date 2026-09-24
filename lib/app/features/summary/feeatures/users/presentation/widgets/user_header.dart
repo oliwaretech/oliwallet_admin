@@ -6,9 +6,7 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class UserHeader extends StatelessWidget {
   final UserData userData;
-  const UserHeader({super.key,
-    required this.userData,
-  });
+  const UserHeader({super.key, required this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +32,16 @@ class UserHeader extends StatelessWidget {
                             style: OlwTextStyles.stepTextDescription,
                           ),
                         ),
-                        Text(userData.currentCountryCode, style: OlwTextStyles.textDescription,)
+                        Text(
+                          userData.currentCountryCode,
+                          style: OlwTextStyles.textDescription,
+                        ),
                       ],
                     ),
-                    Text('${userData.documentTypeCode}: ${userData.documentNumber}', style: OlwTextStyles.textDescription,),
+                    Text(
+                      '${userData.documentTypeCode}: ${userData.documentNumber}',
+                      style: OlwTextStyles.textDescription,
+                    ),
                   ],
                 ),
               ),

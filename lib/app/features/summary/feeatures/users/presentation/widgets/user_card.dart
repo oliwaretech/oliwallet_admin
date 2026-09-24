@@ -5,10 +5,7 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class UserCard extends StatelessWidget {
   final UserData user;
   final VoidCallback? onTap;
-  const UserCard({super.key,
-    required this.user,
-    this.onTap,
-  });
+  const UserCard({super.key, required this.user, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +21,22 @@ class UserCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Expanded(child: Text(user.fullName, style: OlwTextStyles.textSubTitle,)),
-                    Text(user.currentCountryCode, style: OlwTextStyles.textDescription,),
+                    Expanded(
+                      child: Text(
+                        user.fullName,
+                        style: OlwTextStyles.textSubTitle,
+                      ),
+                    ),
+                    Text(
+                      user.currentCountryCode,
+                      style: OlwTextStyles.textDescription,
+                    ),
                   ],
                 ),
-                Text('${user.documentTypeCode}: ${user.documentNumber}', style: OlwTextStyles.textDescription,),
+                Text(
+                  '${user.documentTypeCode}: ${user.documentNumber}',
+                  style: OlwTextStyles.textDescription,
+                ),
               ],
             ),
           ),

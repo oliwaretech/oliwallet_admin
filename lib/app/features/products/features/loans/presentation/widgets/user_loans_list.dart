@@ -5,6 +5,7 @@ import 'package:oliwallet_admin_front_end/app/common/widgets/indicators/dot_indi
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/country_loan.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_activation_params.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/screens/loan_approve_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/presentation/screens/loan_activation_screen.dart';
@@ -78,14 +79,17 @@ class _UserLoansListState extends ConsumerState<UserLoansList> {
                       widget.loans[index].accountStatus ==
                           AccountStatus.approved
                       ? LoanApprovedCard(
-                        onTap: () {
-                          context.pushNamed(
-                            LoanActivationScreen.name,
-                            extra: widget.loans[index],
-                          );
-                        },
-                        loanData: widget.loans[index],
-                      )
+                          onTap: () {
+                            context.pushNamed(
+                              LoanActivationScreen.name,
+                              extra: LoanActivationParams(
+                                loanData: widget.loans[index],
+                                userData: widget.userData,
+                              ),
+                            );
+                          },
+                          loanData: widget.loans[index],
+                        )
                       : LoanCard(
                           loanData: widget.loans[index],
                           onTap: () {

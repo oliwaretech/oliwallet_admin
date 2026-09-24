@@ -46,7 +46,6 @@ class _LoanActivationAmountAndInstallmentsStepState
   String? currentUtcTime;
   DateTime? firstPaymentDate;
 
-
   @override
   void initState() {
     selectedAmount = widget.loanData.approvalConditions.approvedAmount;
@@ -345,7 +344,7 @@ class _LoanActivationAmountAndInstallmentsStepState
                           TextSpan(
                             text: paymentSchedule.isNotEmpty
                                 ? DateFormatter.formatFromIso(
-                              firstPaymentDate!.toIso8601String(),
+                                    firstPaymentDate!.toIso8601String(),
                                   )
                                 : appLocalizations.notAvailable,
                             style: OlwTextStyles.stepTextTile,
@@ -483,7 +482,8 @@ class _LoanActivationAmountAndInstallmentsStepState
           paymentSchedule.first.dueDate,
         ).subtract(const Duration(days: 1));
       });
-    } catch (e) {
+    } catch (e, s) {
+      print(s);
       OlwSnackBarNotification.showError(
         title: AppLocalizations.of(context)!.upsItSeemsToBeWeHaveAnError,
       );

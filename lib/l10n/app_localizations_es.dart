@@ -66,7 +66,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get termsAndConditions => 'Términos y condiciones';
 
   @override
-  String get completeSignInData => 'Completa los datos con los que iniciarás sesión.';
+  String get completeSignInData =>
+      'Completa los datos con los que iniciarás sesión.';
 
   @override
   String get continueMessage => 'Continuar';
@@ -93,13 +94,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get mobilePhone => 'Teléfono móvil';
 
   @override
-  String get iHaveAccessToRegisteredEmailAndPhone => 'Tengo acceso al correo y teléfono registrado.';
+  String get iHaveAccessToRegisteredEmailAndPhone =>
+      'Tengo acceso al correo y teléfono registrado.';
 
   @override
   String get enterYourPin => 'Ingresa tu PIN';
 
   @override
-  String get createA4DigitsPinToConfirmYourOperations => 'Crea un PIN de seguridad de 4 dígitos para confirmar tus operaciones.';
+  String get createA4DigitsPinToConfirmYourOperations =>
+      'Crea un PIN de seguridad de 4 dígitos para confirmar tus operaciones.';
 
   @override
   String get confirmYourPin => 'Confirma tu PIN';
@@ -123,7 +126,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get passwordCannotBeEmpty => 'La contraseña no puede estar vacía';
 
   @override
-  String get confirmPasswordCannotBeEmpty => 'La confirmación de contraseña no puede estar vacía';
+  String get confirmPasswordCannotBeEmpty =>
+      'La confirmación de contraseña no puede estar vacía';
 
   @override
   String get passwordsDoNotMatch => 'Las contraseñas no coinciden';
@@ -147,7 +151,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get countryOfResidence => 'País de Residencia';
 
   @override
-  String get selectYourCurrentCountryResidence => 'Selecciona tu país de residencia actual.';
+  String get selectYourCurrentCountryResidence =>
+      'Selecciona tu país de residencia actual.';
 
   @override
   String get select => 'Seleccionar';
@@ -162,7 +167,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectADocumentType => 'Selecciona un tipo de documento.';
 
   @override
-  String get documentNumberCannotBeEmpty => 'El número de documento no puede estar vacío.';
+  String get documentNumberCannotBeEmpty =>
+      'El número de documento no puede estar vacío.';
 
   @override
   String get namesCannotBeEmpty => 'Los nombres no pueden estar vacíos.';
@@ -177,28 +183,34 @@ class AppLocalizationsEs extends AppLocalizations {
   String get contactEmail => 'Correo electrónico de contacto';
 
   @override
-  String get contactEmailCannotBeEmpty => 'El correo electrónico de contacto no puede estar vacío.';
+  String get contactEmailCannotBeEmpty =>
+      'El correo electrónico de contacto no puede estar vacío.';
 
   @override
-  String get mobilePhoneCannotBeEmpty => 'El teléfono móvil no puede estar vacío.';
+  String get mobilePhoneCannotBeEmpty =>
+      'El teléfono móvil no puede estar vacío.';
 
   @override
   String get countryPhoneCode => 'Código de país para el número de teléfono';
 
   @override
-  String get selectCountryCodePhoneNumber => 'Selecciona el código de país para el número de teléfono.';
+  String get selectCountryCodePhoneNumber =>
+      'Selecciona el código de país para el número de teléfono.';
 
   @override
-  String get youMustConfirmThatYouHaveAccessToRegisteredEmailAndPhone => 'Debes confirmar que tienes acceso al correo y teléfono registrado.';
+  String get youMustConfirmThatYouHaveAccessToRegisteredEmailAndPhone =>
+      'Debes confirmar que tienes acceso al correo y teléfono registrado.';
 
   @override
   String get invalidMobilePhone => 'Número de teléfono móvil no válido.';
 
   @override
-  String get securityPinCannotBeEmpty => 'El PIN de seguridad no puede estar vacío.';
+  String get securityPinCannotBeEmpty =>
+      'El PIN de seguridad no puede estar vacío.';
 
   @override
-  String get securityPinMustBe4Digits => 'El PIN de seguridad debe tener 4 dígitos.';
+  String get securityPinMustBe4Digits =>
+      'El PIN de seguridad debe tener 4 dígitos.';
 
   @override
   String get securityPinDoesNotMatch => 'El PIN de seguridad no coincide.';
@@ -210,31 +222,37 @@ class AppLocalizationsEs extends AppLocalizations {
   String get privacyPolicies => 'Políticas de privacidad';
 
   @override
-  String get iAcceptTheTermsAndConditionsAndPrivacyPolicies => 'Acepto los términos y condiciones y las políticas de privacidad';
+  String get iAcceptTheTermsAndConditionsAndPrivacyPolicies =>
+      'Acepto los términos y condiciones y las políticas de privacidad';
 
   @override
   String get startRegistration => 'Iniciar registro';
 
   @override
-  String get youMustAcceptTermsAndConditionsAndPrivacyPolicies => 'Debes aceptar los términos y condiciones y las políticas de privacidad para continuar.';
+  String get youMustAcceptTermsAndConditionsAndPrivacyPolicies =>
+      'Debes aceptar los términos y condiciones y las políticas de privacidad para continuar.';
 
   @override
   String get registrationFailed => 'El registro ha fallado';
 
   @override
-  String get thisEmailHasAlreadyBeenRegistered => 'Este correo electrónico ya ha sido registrado';
+  String get thisEmailHasAlreadyBeenRegistered =>
+      'Este correo electrónico ya ha sido registrado';
 
   @override
-  String get passwordMustBeAtLeast6Characters => 'La contraseña debe tener al menos 6 caracteres';
+  String get passwordMustBeAtLeast6Characters =>
+      'La contraseña debe tener al menos 6 caracteres';
 
   @override
-  String get emailAddressIsInvalid => 'La dirección de correo electrónico es inválida';
+  String get emailAddressIsInvalid =>
+      'La dirección de correo electrónico es inválida';
 
   @override
   String get invalidCredentials => 'Credenciales inválidas';
 
   @override
-  String get doYouThinkThereIsAnErrorInValidation => '¿Crees que hay un error en la validación?';
+  String get doYouThinkThereIsAnErrorInValidation =>
+      '¿Crees que hay un error en la validación?';
 
   @override
   String get contactSupport => 'Contactar soporte';
@@ -243,10 +261,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get returnToRegistration => 'Volver al registro';
 
   @override
-  String get thisDocumentNumberHasAlreadyBeenRegistered => 'Este número de documento ya ha sido registrado';
+  String get thisDocumentNumberHasAlreadyBeenRegistered =>
+      'Este número de documento ya ha sido registrado';
 
   @override
-  String get doYouThinkAnotherPersonIsUsingYourDocumentNumber => '¿Crees que otra persona está usando tu número de documento?';
+  String get doYouThinkAnotherPersonIsUsingYourDocumentNumber =>
+      '¿Crees que otra persona está usando tu número de documento?';
 
   @override
   String get invalidDocumentNumber => 'Número de documento inválido';
@@ -261,7 +281,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get biometricSignIn => 'Inicio de sesión biométrico';
 
   @override
-  String get activateFingerPrintOrFaceIdSignIn => 'Activa el inicio de sesión con huella dactilar o Face ID';
+  String get activateFingerPrintOrFaceIdSignIn =>
+      'Activa el inicio de sesión con huella dactilar o Face ID';
 
   @override
   String get enableBiometrics => 'Habilitar Biometría';
@@ -273,7 +294,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get errorToEnableBiometrics => 'Error al habilitar biometría';
 
   @override
-  String get itSeemsThatYourDeviceDoesNotSupportBiometricSignIn => 'Parece que tu dispositivo no soporta el inicio de sesión biométrico';
+  String get itSeemsThatYourDeviceDoesNotSupportBiometricSignIn =>
+      'Parece que tu dispositivo no soporta el inicio de sesión biométrico';
 
   @override
   String get home => 'Inicio';
@@ -321,7 +343,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enterTheVerificationCode => 'Ingresa el código de verificación';
 
   @override
-  String get ifDataIsCorrectYouWillReceiveAnEmailWithTheVerificationCode => 'Si los datos son correctos recibirás un correo con el código de verificación';
+  String get ifDataIsCorrectYouWillReceiveAnEmailWithTheVerificationCode =>
+      'Si los datos son correctos recibirás un correo con el código de verificación';
 
   @override
   String get newPassword => 'Nueva contraseña';
@@ -360,7 +383,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get notifications => 'Notificaciones';
 
   @override
-  String get notificationsCannotBeLoaded => 'No se pueden cargar las notificaciones';
+  String get notificationsCannotBeLoaded =>
+      'No se pueden cargar las notificaciones';
 
   @override
   String get urgent => 'Urgente';
@@ -411,10 +435,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get documentExpirationDate => 'Fecha de expiración del documento';
 
   @override
-  String get selectADocumentIssuingDate => 'Selecciona una fecha de emisión del documento';
+  String get selectADocumentIssuingDate =>
+      'Selecciona una fecha de emisión del documento';
 
   @override
-  String get selectADocumentExpirationDate => 'Selecciona una fecha de expiración del documento';
+  String get selectADocumentExpirationDate =>
+      'Selecciona una fecha de expiración del documento';
 
   @override
   String get captureImage => 'Capturar imagen';
@@ -432,7 +458,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get finish => 'Finalizar';
 
   @override
-  String get noValidationProcessAvailable => 'No hay proceso de validación disponible';
+  String get noValidationProcessAvailable =>
+      'No hay proceso de validación disponible';
 
   @override
   String get allStepsCompleted => '¡Todos los pasos completados!';
@@ -447,37 +474,46 @@ class AppLocalizationsEs extends AppLocalizations {
   String get completeIdentityValidation => 'Completar validación de identidad';
 
   @override
-  String get weCouldNotCompleteYourIdentityValidation => 'No pudimos completar tu validación de identidad';
+  String get weCouldNotCompleteYourIdentityValidation =>
+      'No pudimos completar tu validación de identidad';
 
   @override
-  String get weHaveReceivedYourRequestToCompleteYourIdentityValidation => 'Hemos recibido tu solicitud para completar tu validación de identidad';
+  String get weHaveReceivedYourRequestToCompleteYourIdentityValidation =>
+      'Hemos recibido tu solicitud para completar tu validación de identidad';
 
   @override
-  String get yourDocumentsAreBeingReviewed => 'Tus documentos están siendo revisados';
+  String get yourDocumentsAreBeingReviewed =>
+      'Tus documentos están siendo revisados';
 
   @override
-  String get weWillNotifyYouOnceTheReviewIsComplete => 'Te notificaremos una vez que la revisión esté completa.';
+  String get weWillNotifyYouOnceTheReviewIsComplete =>
+      'Te notificaremos una vez que la revisión esté completa.';
 
   @override
   String get goBackToHome => 'Volver al inicio';
 
   @override
-  String get yourIdentityHasBeenValidatedSuccessfully => 'Tu identidad ha sido validada con éxito';
+  String get yourIdentityHasBeenValidatedSuccessfully =>
+      'Tu identidad ha sido validada con éxito';
 
   @override
   String get validationCompleted => 'Validación completada';
 
   @override
-  String get nowYouCanAccessAllTheFeatures => 'Ahora puedes acceder a todas las herramientas de Oliwallet.';
+  String get nowYouCanAccessAllTheFeatures =>
+      'Ahora puedes acceder a todas las herramientas de Oliwallet.';
 
   @override
-  String get yourRequestToCompleteYourIdentityValidationHasBeenRejected => 'Tu solicitud para completar tu validación de identidad ha sido rechazada';
+  String get yourRequestToCompleteYourIdentityValidationHasBeenRejected =>
+      'Tu solicitud para completar tu validación de identidad ha sido rechazada';
 
   @override
   String get rejectedRequest => 'Solicitud rechazada';
 
   @override
-  String get weCouldNotCompleteYourIdentityValidationBecauseYourDocumentsDidNotPassTheReview => 'No pudimos completar tu validación de identidad porque tus documentos no pasaron la revisión.';
+  String
+  get weCouldNotCompleteYourIdentityValidationBecauseYourDocumentsDidNotPassTheReview =>
+      'No pudimos completar tu validación de identidad porque tus documentos no pasaron la revisión.';
 
   @override
   String get tryAgain => 'Intentar de nuevo';
@@ -501,13 +537,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get customization => 'Personalización';
 
   @override
-  String get selectTheCurrencyForYourNewAccount => 'Selecciona la moneda para tu nueva cuenta';
+  String get selectTheCurrencyForYourNewAccount =>
+      'Selecciona la moneda para tu nueva cuenta';
 
   @override
   String get pleaseSelectACurrency => 'Por favor, selecciona una moneda';
 
   @override
-  String get selectingACurrencyIsRequiredToContinue => 'Seleccionar una moneda es requerido para continuar';
+  String get selectingACurrencyIsRequiredToContinue =>
+      'Seleccionar una moneda es requerido para continuar';
 
   @override
   String get assignAnAliasToYourAccount => 'Asigna un nombre a tu cuenta';
@@ -519,31 +557,38 @@ class AppLocalizationsEs extends AppLocalizations {
   String get accountName => 'Nombre de la cuenta';
 
   @override
-  String get iAcceptTheTermsAndConditions => 'Acepto los términos y condiciones';
+  String get iAcceptTheTermsAndConditions =>
+      'Acepto los términos y condiciones';
 
   @override
   String get openAccount => 'Abrir cuenta';
 
   @override
-  String get termsAndConditionsNotAccepted => 'Términos y condiciones no aceptados';
+  String get termsAndConditionsNotAccepted =>
+      'Términos y condiciones no aceptados';
 
   @override
-  String get youMustAcceptTermsAndConditionsToContinue => 'Debes aceptar los términos y condiciones para continuar.';
+  String get youMustAcceptTermsAndConditionsToContinue =>
+      'Debes aceptar los términos y condiciones para continuar.';
 
   @override
-  String get somethingWentWrongWhileCreatingYourAccount => 'Algo salió mal al crear tu cuenta';
+  String get somethingWentWrongWhileCreatingYourAccount =>
+      'Algo salió mal al crear tu cuenta';
 
   @override
-  String get yourAccountHasBeenCreatedSuccessfully => 'Tu cuenta ha sido creada con éxito';
+  String get yourAccountHasBeenCreatedSuccessfully =>
+      'Tu cuenta ha sido creada con éxito';
 
   @override
   String get accountCreationCompleted => 'Creación de cuenta completada';
 
   @override
-  String get youCanNowStartUsingYourAccount => 'Ahora puedes empezar a usar tu cuenta';
+  String get youCanNowStartUsingYourAccount =>
+      'Ahora puedes empezar a usar tu cuenta';
 
   @override
-  String get accountNumberCopiedToClipboard => 'Número de cuenta copiado al portapapeles';
+  String get accountNumberCopiedToClipboard =>
+      'Número de cuenta copiado al portapapeles';
 
   @override
   String get myAccount => 'Mi cuenta';
@@ -564,19 +609,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String get depositConfirmation => 'Confirmación de depósito';
 
   @override
-  String get youWillMakeADepositToTheFollowingAccount => 'Realizarás un depósito a la siguiente cuenta:';
+  String get youWillMakeADepositToTheFollowingAccount =>
+      'Realizarás un depósito a la siguiente cuenta:';
 
   @override
   String get changeAccount => 'Cambiar cuenta';
 
   @override
-  String get selectTheAccountYouWantToDepositTo => 'Selecciona la cuenta a la que deseas depositar';
+  String get selectTheAccountYouWantToDepositTo =>
+      'Selecciona la cuenta a la que deseas depositar';
 
   @override
   String get selectAccountToDeposit => 'Seleccionar cuenta para depósito';
 
   @override
-  String get enterTheAmountYouWantToDeposit => 'Ingresa el monto que deseas depositar';
+  String get enterTheAmountYouWantToDeposit =>
+      'Ingresa el monto que deseas depositar';
 
   @override
   String get min => 'Min:';
@@ -597,34 +645,42 @@ class AppLocalizationsEs extends AppLocalizations {
   String get youHaveCopied => 'Has copiado';
 
   @override
-  String get pleaseEnterAnAmountToDeposit => 'Por favor, ingresa un monto para depositar';
+  String get pleaseEnterAnAmountToDeposit =>
+      'Por favor, ingresa un monto para depositar';
 
   @override
-  String get pleaseMakeSureToEnterTheAmountYouWantToDepositBeforeContinuing => 'Por favor, asegúrate de ingresar el monto que deseas depositar antes de continuar.';
+  String get pleaseMakeSureToEnterTheAmountYouWantToDepositBeforeContinuing =>
+      'Por favor, asegúrate de ingresar el monto que deseas depositar antes de continuar.';
 
   @override
   String get invalidAmount => 'Monto inválido';
 
   @override
-  String get pleaseMakeSureToEnterAValidAmountToDepositBeforeContinuing => 'Por favor, asegúrate de ingresar un monto válido para depositar antes de continuar.';
+  String get pleaseMakeSureToEnterAValidAmountToDepositBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto válido para depositar antes de continuar.';
 
   @override
   String get amountTooLow => 'Monto demasiado bajo';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumDepositAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de depósito antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumDepositAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de depósito antes de continuar.';
 
   @override
   String get amountTooHigh => 'Monto demasiado alto';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumDepositAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto menor al monto máximo de depósito antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumDepositAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto menor al monto máximo de depósito antes de continuar.';
 
   @override
   String get selectADepositMethod => 'Selecciona un método de depósito';
 
   @override
-  String get pleaseSelectADepositMethodToContinue => 'Por favor, selecciona un método de depósito para continuar.';
+  String get pleaseSelectADepositMethodToContinue =>
+      'Por favor, selecciona un método de depósito para continuar.';
 
   @override
   String get understood => 'Entendido';
@@ -660,19 +716,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get operationCode => 'Código de operación';
 
   @override
-  String get pleaseEnterTheOperationCodeToContinue => 'Por favor, ingresa el código de la operación para continuar.';
+  String get pleaseEnterTheOperationCodeToContinue =>
+      'Por favor, ingresa el código de la operación para continuar.';
 
   @override
-  String get uploadTheProofOfYourOperation => 'Carga el comprobante de tu operación';
+  String get uploadTheProofOfYourOperation =>
+      'Carga el comprobante de tu operación';
 
   @override
-  String get pleaseUploadTheProofOfYourOperationToContinue => 'Por favor, carga el comprobante de tu operación para continuar.';
+  String get pleaseUploadTheProofOfYourOperationToContinue =>
+      'Por favor, carga el comprobante de tu operación para continuar.';
 
   @override
   String get upload => 'Cargar';
 
   @override
-  String get chooseAMethodToConfirmYourOperation => 'Elige un método para confirmar tu operación';
+  String get chooseAMethodToConfirmYourOperation =>
+      'Elige un método para confirmar tu operación';
 
   @override
   String get processingTime => 'Tiempo de procesamiento';
@@ -702,7 +762,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get confirmAndProcess => 'Confirmar y Procesar';
 
   @override
-  String get somethingWentWrongWhileProcessingYourDeposit => 'Algo salió mal al procesar tu depósito';
+  String get somethingWentWrongWhileProcessingYourDeposit =>
+      'Algo salió mal al procesar tu depósito';
 
   @override
   String get pending => 'Pendiente';
@@ -717,7 +778,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get rejected => 'Rechazado';
 
   @override
-  String get operationRegisteredSuccessfully => 'Operación registrada con éxito';
+  String get operationRegisteredSuccessfully =>
+      'Operación registrada con éxito';
 
   @override
   String get depositInProgress => 'Depósito en progreso';
@@ -753,7 +815,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get withdrawalAccount => 'Cuenta de retiro';
 
   @override
-  String get youWillMakeAWithdrawalFromTheFollowingAccount => 'Realizarás un retiro de la siguiente cuenta:';
+  String get youWillMakeAWithdrawalFromTheFollowingAccount =>
+      'Realizarás un retiro de la siguiente cuenta:';
 
   @override
   String get withdrawalAmount => 'Monto de retiro';
@@ -762,22 +825,31 @@ class AppLocalizationsEs extends AppLocalizations {
   String get withdrawalMethod => 'Método de retiro';
 
   @override
-  String get enterTheAmountYouWantToWithdrawal => 'Ingresa el monto que deseas retirar';
+  String get enterTheAmountYouWantToWithdrawal =>
+      'Ingresa el monto que deseas retirar';
 
   @override
-  String get pleaseEnterAnAmountToWithdrawal => 'Por favor, ingresa un monto para retirar';
+  String get pleaseEnterAnAmountToWithdrawal =>
+      'Por favor, ingresa un monto para retirar';
 
   @override
-  String get pleaseMakeSureToEnterTheAmountYouWantToWithdrawalBeforeContinuing => 'Por favor, asegúrate de ingresar el monto que deseas retirar antes de continuar.';
+  String
+  get pleaseMakeSureToEnterTheAmountYouWantToWithdrawalBeforeContinuing =>
+      'Por favor, asegúrate de ingresar el monto que deseas retirar antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAValidAmountToWithdrawalBeforeContinuing => 'Por favor, asegúrate de ingresar un monto válido para retirar antes de continuar.';
+  String get pleaseMakeSureToEnterAValidAmountToWithdrawalBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto válido para retirar antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumWithdrawalAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de retiro antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumWithdrawalAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de retiro antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumWithdrawalAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto menor al monto máximo de retiro antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumWithdrawalAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto menor al monto máximo de retiro antes de continuar.';
 
   @override
   String get currentBalance => 'Saldo actual';
@@ -792,19 +864,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get freeWithdrawals => 'Retiros gratuitos';
 
   @override
-  String get freeWithdrawalsLeftThisMonth => 'retiros gratuitos restantes este mes';
+  String get freeWithdrawalsLeftThisMonth =>
+      'retiros gratuitos restantes este mes';
 
   @override
-  String get youDoNotHaveMoreFreeWithdrawalsThisMonth => 'No tienes más retiros gratuitos este mes';
+  String get youDoNotHaveMoreFreeWithdrawalsThisMonth =>
+      'No tienes más retiros gratuitos este mes';
 
   @override
   String get withdrawalCost => 'Costo del retiro';
 
   @override
-  String get totalAmountToBeDebitedFromYourAccount => 'Monto total a debitar de tu cuenta';
+  String get totalAmountToBeDebitedFromYourAccount =>
+      'Monto total a debitar de tu cuenta';
 
   @override
-  String get yourCurrentBalanceIsNotSufficientToMakeThisWithdrawal => 'Tu saldo actual no es suficiente para realizar este retiro';
+  String get yourCurrentBalanceIsNotSufficientToMakeThisWithdrawal =>
+      'Tu saldo actual no es suficiente para realizar este retiro';
 
   @override
   String get cancel => 'Cancelar';
@@ -831,46 +907,56 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectAFinancialEntity => 'Selecciona una entidad financiera';
 
   @override
-  String get pleaseSelectAFinancialEntityToContinue => 'Por favor, selecciona una entidad financiera para continuar.';
+  String get pleaseSelectAFinancialEntityToContinue =>
+      'Por favor, selecciona una entidad financiera para continuar.';
 
   @override
   String get selectAnAccountType => 'Selecciona un tipo de cuenta';
 
   @override
-  String get pleaseSelectAnAccountTypeToContinue => 'Por favor, selecciona un tipo de cuenta para continuar.';
+  String get pleaseSelectAnAccountTypeToContinue =>
+      'Por favor, selecciona un tipo de cuenta para continuar.';
 
   @override
   String get enterAnAccountNumber => 'Ingresa un número de cuenta';
 
   @override
-  String get pleaseEnterAnAccountNumberToContinue => 'Por favor, ingresa un número de cuenta para continuar.';
+  String get pleaseEnterAnAccountNumberToContinue =>
+      'Por favor, ingresa un número de cuenta para continuar.';
 
   @override
-  String get enterAnInterbankAccountNumber => 'Ingresa un número de cuenta interbancaria';
+  String get enterAnInterbankAccountNumber =>
+      'Ingresa un número de cuenta interbancaria';
 
   @override
-  String get pleaseEnterAnInterbankAccountNumberToContinue => 'Por favor, ingresa un número de cuenta interbancaria para continuar.';
+  String get pleaseEnterAnInterbankAccountNumberToContinue =>
+      'Por favor, ingresa un número de cuenta interbancaria para continuar.';
 
   @override
   String get enterAValidAccountNumber => 'Ingresa un número de cuenta válido';
 
   @override
-  String get pleaseEnterAValidAccountNumberToContinue => 'Por favor, ingresa un número de cuenta válido para continuar.';
+  String get pleaseEnterAValidAccountNumberToContinue =>
+      'Por favor, ingresa un número de cuenta válido para continuar.';
 
   @override
-  String get enterAValidInterbankAccountNumber => 'Ingresa un número de cuenta interbancaria válido';
+  String get enterAValidInterbankAccountNumber =>
+      'Ingresa un número de cuenta interbancaria válido';
 
   @override
-  String get pleaseEnterAValidInterbankAccountNumberToContinue => 'Por favor, ingresa un número de cuenta interbancaria válido para continuar.';
+  String get pleaseEnterAValidInterbankAccountNumberToContinue =>
+      'Por favor, ingresa un número de cuenta interbancaria válido para continuar.';
 
   @override
-  String get youDoNotHaveRegisteredAccountsYet => 'Aún no tienes cuentas registradas';
+  String get youDoNotHaveRegisteredAccountsYet =>
+      'Aún no tienes cuentas registradas';
 
   @override
   String get registerANewAccount => 'Registrar una nueva cuenta';
 
   @override
-  String get youDoNotHaveRegisteredWalletsYet => 'Aún no tienes billeteras registradas';
+  String get youDoNotHaveRegisteredWalletsYet =>
+      'Aún no tienes billeteras registradas';
 
   @override
   String get registerANewWallet => 'Registrar una nueva billetera';
@@ -891,25 +977,29 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectAWallet => 'Selecciona una billetera';
 
   @override
-  String get pleaseSelectAWalletToContinue => 'Por favor, selecciona una billetera para continuar.';
+  String get pleaseSelectAWalletToContinue =>
+      'Por favor, selecciona una billetera para continuar.';
 
   @override
   String get selectAWalletType => 'Selecciona un tipo de billetera';
 
   @override
-  String get pleaseSelectAWalletTypeToContinue => 'Por favor, selecciona un tipo de billetera para continuar.';
+  String get pleaseSelectAWalletTypeToContinue =>
+      'Por favor, selecciona un tipo de billetera para continuar.';
 
   @override
   String get enterAPhoneNumber => 'Ingresa un número de teléfono';
 
   @override
-  String get pleaseEnterAPhoneNumberToContinue => 'Por favor, ingresa un número de teléfono para continuar.';
+  String get pleaseEnterAPhoneNumberToContinue =>
+      'Por favor, ingresa un número de teléfono para continuar.';
 
   @override
   String get enterAValidPhoneNumber => 'Ingresa un número de teléfono válido';
 
   @override
-  String get pleaseEnterAValidPhoneNumberToContinue => 'Por favor, ingresa un número de teléfono válido para continuar.';
+  String get pleaseEnterAValidPhoneNumberToContinue =>
+      'Por favor, ingresa un número de teléfono válido para continuar.';
 
   @override
   String get registerWallet => 'Registrar billetera';
@@ -918,7 +1008,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectAWithdrawalMethod => 'Selecciona un método de retiro';
 
   @override
-  String get pleaseSelectAWithdrawalMethodToContinue => 'Por favor, selecciona un método de retiro para continuar.';
+  String get pleaseSelectAWithdrawalMethodToContinue =>
+      'Por favor, selecciona un método de retiro para continuar.';
 
   @override
   String get weWillConfirmYourWithdrawalTo => 'Confirmaremos tu retiro a';
@@ -936,13 +1027,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get totalAmountToDebit => 'Monto total a debitar';
 
   @override
-  String get somethingWentWrongWhileProcessingYourWithdrawal => 'Algo salió mal al procesar tu retiro';
+  String get somethingWentWrongWhileProcessingYourWithdrawal =>
+      'Algo salió mal al procesar tu retiro';
 
   @override
   String get insufficientFunds => 'Fondos insuficientes';
 
   @override
-  String get yourAccountBalanceIsNotEnoughToCompleteThisWithdrawal => 'El saldo de tu cuenta no es suficiente para completar este retiro';
+  String get yourAccountBalanceIsNotEnoughToCompleteThisWithdrawal =>
+      'El saldo de tu cuenta no es suficiente para completar este retiro';
 
   @override
   String get withdrawalInProgress => 'Retiro en progreso';
@@ -981,7 +1074,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pleaseEnterAValidAmount => 'Por favor, ingresa un monto válido';
 
   @override
-  String get pleaseEnterAnAmountBetweenMinAndMaxAllowed => 'Por favor, ingresa un monto entre el mínimo y máximo permitido';
+  String get pleaseEnterAnAmountBetweenMinAndMaxAllowed =>
+      'Por favor, ingresa un monto entre el mínimo y máximo permitido';
 
   @override
   String get followTheInstructionsToPay => 'Sigue las instrucciones para pagar';
@@ -993,10 +1087,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectADisbursementMethod => 'Selecciona un método de desembolso';
 
   @override
-  String get pleaseSelectADisbursementMethodToContinue => 'Por favor, selecciona un método de desembolso para continuar.';
+  String get pleaseSelectADisbursementMethodToContinue =>
+      'Por favor, selecciona un método de desembolso para continuar.';
 
   @override
-  String get weWillConfirmYourDisbursementIn => 'Confirmaremos tu desembolso en';
+  String get weWillConfirmYourDisbursementIn =>
+      'Confirmaremos tu desembolso en';
 
   @override
   String get cardEntity => 'Entidad de la tarjeta';
@@ -1005,7 +1101,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get amountPaidWithCard => 'Monto pagado con tarjeta';
 
   @override
-  String get somethingWentWrongWhileProcessingYourOperation => 'Algo salió mal al procesar tu operación';
+  String get somethingWentWrongWhileProcessingYourOperation =>
+      'Algo salió mal al procesar tu operación';
 
   @override
   String get operationConfirmation => 'Confirmación de operación';
@@ -1029,7 +1126,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get linesOfCredit => 'Líneas de crédito';
 
   @override
-  String get youHaveAnApprovedLineOfCredit => 'Tienes una línea de crédito aprobada';
+  String get youHaveAnApprovedLineOfCredit =>
+      'Tienes una línea de crédito aprobada';
 
   @override
   String get seeDetails => 'Ver detalles';
@@ -1050,7 +1148,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get activation => 'Activación';
 
   @override
-  String get youHaveAnApprovedLineOfCreditFor => 'Tienes una línea de crédito aprobada por';
+  String get youHaveAnApprovedLineOfCreditFor =>
+      'Tienes una línea de crédito aprobada por';
 
   @override
   String get aboutYourApprovedLine => 'Acerca de tu línea aprobada';
@@ -1077,7 +1176,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get howThisProductWorks => '¿Cómo funciona este producto?';
 
   @override
-  String get selectTheBillingPeriodAndPaymentDateThatBestSuitsYou => 'Selecciona el período de facturación y la fecha de pago que mejor se adapte a ti';
+  String get selectTheBillingPeriodAndPaymentDateThatBestSuitsYou =>
+      'Selecciona el período de facturación y la fecha de pago que mejor se adapte a ti';
 
   @override
   String get paymentDate => 'Fecha de pago';
@@ -1089,16 +1189,20 @@ class AppLocalizationsEs extends AppLocalizations {
   String get billingEnd => 'Fin de facturación';
 
   @override
-  String get iHaveReadAndAgreeToTheTermsAndConditionsAndTheCreditLineOpeningAgreement => 'He leído y acepto los términos y condiciones y el acuerdo de apertura de línea de crédito';
+  String
+  get iHaveReadAndAgreeToTheTermsAndConditionsAndTheCreditLineOpeningAgreement =>
+      'He leído y acepto los términos y condiciones y el acuerdo de apertura de línea de crédito';
 
   @override
   String get activateLineOfCredit => 'Activar línea de crédito';
 
   @override
-  String get yourLineOfCreditHasBeenActivatedSuccessfully => 'Tu línea de crédito ha sido activada con éxito';
+  String get yourLineOfCreditHasBeenActivatedSuccessfully =>
+      'Tu línea de crédito ha sido activada con éxito';
 
   @override
-  String get youCanNowStartUsingYourLineOfCredit => 'Ahora puedes empezar a usar tu línea de crédito';
+  String get youCanNowStartUsingYourLineOfCredit =>
+      'Ahora puedes empezar a usar tu línea de crédito';
 
   @override
   String get consumed => 'Consumido';
@@ -1134,31 +1238,37 @@ class AppLocalizationsEs extends AppLocalizations {
   String get monthlyInstallment => 'Cuota mensual';
 
   @override
-  String get pleaseMakeSureToEnterTheAmountToDisburse => 'Por favor, asegúrate de ingresar el monto a desembolsar';
+  String get pleaseMakeSureToEnterTheAmountToDisburse =>
+      'Por favor, asegúrate de ingresar el monto a desembolsar';
 
   @override
   String get amountBelowMinimum => 'Monto por debajo del mínimo';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountAboveTheMinimum => 'Por favor, asegúrate de ingresar un monto por encima del mínimo';
+  String get pleaseMakeSureToEnterAnAmountAboveTheMinimum =>
+      'Por favor, asegúrate de ingresar un monto por encima del mínimo';
 
   @override
   String get amountAboveMaximum => 'Monto por encima del máximo';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountBelowTheMaximum => 'Por favor, asegúrate de ingresar un monto por debajo del máximo';
+  String get pleaseMakeSureToEnterAnAmountBelowTheMaximum =>
+      'Por favor, asegúrate de ingresar un monto por debajo del máximo';
 
   @override
   String get almostDone => 'Casi listo';
 
   @override
-  String get theFundsWillBeAvailableInYourAccountImmediatelyAfterYouConfirmTheTransaction => 'Los fondos estarán disponibles en tu cuenta inmediatamente después de que confirmes la transacción.';
+  String
+  get theFundsWillBeAvailableInYourAccountImmediatelyAfterYouConfirmTheTransaction =>
+      'Los fondos estarán disponibles en tu cuenta inmediatamente después de que confirmes la transacción.';
 
   @override
   String get disbursed => 'Desembolsado';
 
   @override
-  String get theFundsAreNowAvailableInYourAccount => 'Los fondos ahora están disponibles en tu cuenta';
+  String get theFundsAreNowAvailableInYourAccount =>
+      'Los fondos ahora están disponibles en tu cuenta';
 
   @override
   String get numberOfInstallments => 'Número de cuotas';
@@ -1167,7 +1277,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get firstPaymentDate => 'Fecha del primer pago';
 
   @override
-  String get yourLineOfCreditBalanceIsNotEnoughToCompleteThisDisbursement => 'El saldo de tu línea de crédito no es suficiente para completar este desembolso';
+  String get yourLineOfCreditBalanceIsNotEnoughToCompleteThisDisbursement =>
+      'El saldo de tu línea de crédito no es suficiente para completar este desembolso';
 
   @override
   String get disbursementInProgress => 'Desembolso en progreso';
@@ -1176,7 +1287,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get disbursementCompleted => 'Desembolso completado';
 
   @override
-  String get theFundsAreAvailableInYourAccountReadyToUse => 'Los fondos están disponibles en tu cuenta, listos para usar';
+  String get theFundsAreAvailableInYourAccountReadyToUse =>
+      'Los fondos están disponibles en tu cuenta, listos para usar';
 
   @override
   String get payable => 'Por pagar';
@@ -1197,7 +1309,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get paymentScheduleDetails => 'Detalles del cronograma de pagos';
 
   @override
-  String get listOfInstallmentsCorrespondingToThePaymentPeriod => 'Lista de cuotas correspondientes al período de pago';
+  String get listOfInstallmentsCorrespondingToThePaymentPeriod =>
+      'Lista de cuotas correspondientes al período de pago';
 
   @override
   String get paymentType => 'Tipo de pago';
@@ -1230,31 +1343,40 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enterTheAmountYouWantToPay => 'Ingresa el monto que deseas pagar';
 
   @override
-  String get pleaseEnterAnAmountToPay => 'Por favor, ingresa un monto para pagar';
+  String get pleaseEnterAnAmountToPay =>
+      'Por favor, ingresa un monto para pagar';
 
   @override
-  String get pleaseMakeSureToEnterTheAmountYouWantToPayBeforeContinuing => 'Por favor, asegúrate de ingresar el monto que deseas pagar antes de continuar.';
+  String get pleaseMakeSureToEnterTheAmountYouWantToPayBeforeContinuing =>
+      'Por favor, asegúrate de ingresar el monto que deseas pagar antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAValidAmountToPayBeforeContinuing => 'Por favor, asegúrate de ingresar un monto válido para pagar antes de continuar.';
+  String get pleaseMakeSureToEnterAValidAmountToPayBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto válido para pagar antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumPaymentAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de pago antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumPaymentAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto mayor al monto mínimo de pago antes de continuar.';
 
   @override
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumPaymentAmountBeforeContinuing => 'Por favor, asegúrate de ingresar un monto menor al monto máximo de pago antes de continuar.';
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumPaymentAmountBeforeContinuing =>
+      'Por favor, asegúrate de ingresar un monto menor al monto máximo de pago antes de continuar.';
 
   @override
   String get selectAPaymentMethod => 'Selecciona un método de pago';
 
   @override
-  String get pleaseSelectAPaymentMethodToContinue => 'Por favor, selecciona un método de pago para continuar.';
+  String get pleaseSelectAPaymentMethodToContinue =>
+      'Por favor, selecciona un método de pago para continuar.';
 
   @override
   String get weWillConfirmYourPaymentIn => 'Confirmaremos tu pago en';
 
   @override
-  String get thePaymentWillBeCompletedAfterYouConfirmTheTransaction => 'El pago se completará después de que confirmes la transacción';
+  String get thePaymentWillBeCompletedAfterYouConfirmTheTransaction =>
+      'El pago se completará después de que confirmes la transacción';
 
   @override
   String get amountToPay => 'Monto a pagar';
@@ -1263,13 +1385,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get totalAmountToPay => 'Monto total a pagar';
 
   @override
-  String get yourAccountBalanceIsNotEnoughToCompleteThisPayment => 'El saldo de tu cuenta no es suficiente para completar este pago';
+  String get yourAccountBalanceIsNotEnoughToCompleteThisPayment =>
+      'El saldo de tu cuenta no es suficiente para completar este pago';
 
   @override
-  String get nothingHereUseYourLineOfCreditToStartLookingAtYourSchedule => '¡Nada por aquí! Usa tu línea de crédito para empezar a ver tu cronograma';
+  String get nothingHereUseYourLineOfCreditToStartLookingAtYourSchedule =>
+      '¡Nada por aquí! Usa tu línea de crédito para empezar a ver tu cronograma';
 
   @override
-  String get youHaveNoOutstandingPaymentsForThisPeriod => 'No tienes pagos pendientes para este período';
+  String get youHaveNoOutstandingPaymentsForThisPeriod =>
+      'No tienes pagos pendientes para este período';
 
   @override
   String get lastDay => 'Último día';
@@ -1284,10 +1409,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get documents => 'Documentos';
 
   @override
-  String get selectTheCurrencyInWhichYouAreRequestingTheLineOfCredit => 'Selecciona la moneda en la que solicitas la línea de crédito';
+  String get selectTheCurrencyInWhichYouAreRequestingTheLineOfCredit =>
+      'Selecciona la moneda en la que solicitas la línea de crédito';
 
   @override
-  String get selectTheProfilesYouIdentifyWith => 'Selecciona los perfiles con los que te identificas';
+  String get selectTheProfilesYouIdentifyWith =>
+      'Selecciona los perfiles con los que te identificas';
 
   @override
   String get somethingIsMissing => 'Falta algo';
@@ -1302,7 +1429,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sendRequest => 'Enviar solicitud';
 
   @override
-  String get youMustComplyWithTheMinimumAndMaximumLimitsForUploadingDocuments => 'Debes cumplir con los límites mínimos y máximos para cargar documentos';
+  String get youMustComplyWithTheMinimumAndMaximumLimitsForUploadingDocuments =>
+      'Debes cumplir con los límites mínimos y máximos para cargar documentos';
 
   @override
   String get requestSentSuccessfully => 'Solicitud enviada con éxito';
@@ -1311,7 +1439,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get whatsNext => '¿Qué sigue?';
 
   @override
-  String get weWillReviewYourRequestAndNotifyYouAsSoonAsWeHaveNews => 'Revisaremos tu solicitud y te notificaremos tan pronto tengamos novedades.';
+  String get weWillReviewYourRequestAndNotifyYouAsSoonAsWeHaveNews =>
+      'Revisaremos tu solicitud y te notificaremos tan pronto tengamos novedades.';
 
   @override
   String get paymentInProgress => 'Pago en progreso';
@@ -1320,7 +1449,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get paymentCompleted => 'Pago completado';
 
   @override
-  String get thePaymentHasBeenCompletedSuccessfully => 'El pago se ha completado con éxito';
+  String get thePaymentHasBeenCompletedSuccessfully =>
+      'El pago se ha completado con éxito';
 
   @override
   String get destinationPaymentAccount => 'Cuenta de pago de destino';
@@ -1362,7 +1492,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get approvedLoan => 'Préstamo aprobado';
 
   @override
-  String get youHaveAnApprovedLoanOfUpTo => 'Tienes un préstamo aprobado de hasta';
+  String get youHaveAnApprovedLoanOfUpTo =>
+      'Tienes un préstamo aprobado de hasta';
 
   @override
   String get aboutYourApprovedLoan => 'Acerca de tu préstamo aprobado';
@@ -1413,7 +1544,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get dailyInstallment => 'Cuota diaria';
 
   @override
-  String get iHaveReadAndAgreeToTheTermsAndConditionsAndTheLoanAgreement => 'He leído y acepto los términos y condiciones y el acuerdo de préstamo';
+  String get iHaveReadAndAgreeToTheTermsAndConditionsAndTheLoanAgreement =>
+      'He leído y acepto los términos y condiciones y el acuerdo de préstamo';
 
   @override
   String get gracePeriod => 'Período de gracia';
@@ -1464,19 +1596,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get amountToRequest => 'Monto a solicitar';
 
   @override
-  String get selectTheCurrencyInWhichYouAreRequestingTheLoan => 'Selecciona la moneda en la que solicitas el préstamo';
+  String get selectTheCurrencyInWhichYouAreRequestingTheLoan =>
+      'Selecciona la moneda en la que solicitas el préstamo';
 
   @override
-  String get selectTheTypeOfLoanYouAreInterestedIn => 'Selecciona el tipo de préstamo que te interesa';
+  String get selectTheTypeOfLoanYouAreInterestedIn =>
+      'Selecciona el tipo de préstamo que te interesa';
 
   @override
-  String get creditApplicationsAreNotAvailableAtThisTime => 'Las solicitudes de crédito no están disponibles en este momento';
+  String get creditApplicationsAreNotAvailableAtThisTime =>
+      'Las solicitudes de crédito no están disponibles en este momento';
 
   @override
   String get thisFeatureIsNotReadyYet => 'Esta función aún no está lista';
 
   @override
-  String get weAreWorkingToMakeItAvailableSoon => 'Estamos trabajando para que esté disponible pronto';
+  String get weAreWorkingToMakeItAvailableSoon =>
+      'Estamos trabajando para que esté disponible pronto';
 
   @override
   String get notVerified => 'No verificado';
@@ -1497,19 +1633,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get signOut => 'Cerrar sesión';
 
   @override
-  String get areYouSureYouWantToDeleteYourAccount => '¿Estás seguro de que deseas eliminar tu cuenta?';
+  String get areYouSureYouWantToDeleteYourAccount =>
+      '¿Estás seguro de que deseas eliminar tu cuenta?';
 
   @override
   String get thisActionCannotBeUndone => 'Esta acción no se puede deshacer';
 
   @override
-  String get deletingYourAccountWillPermanentlyRemoveAllYourDataAndCannotBeRecovered => 'Eliminar tu cuenta eliminará permanentemente todos tus datos y no se podrán recuperar';
+  String
+  get deletingYourAccountWillPermanentlyRemoveAllYourDataAndCannotBeRecovered =>
+      'Eliminar tu cuenta eliminará permanentemente todos tus datos y no se podrán recuperar';
 
   @override
   String get whatIf => '¿Qué pasa si?';
 
   @override
-  String get iHaveFundsInOneOfMyAccounts => 'Tengo fondos en una de mis cuentas';
+  String get iHaveFundsInOneOfMyAccounts =>
+      'Tengo fondos en una de mis cuentas';
 
   @override
   String get iHavePendingTransactions => 'Tengo transacciones pendientes';
@@ -1518,10 +1658,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get iHaveDebtsOrObligations => 'Tengo deudas u obligaciones';
 
   @override
-  String get youCanContactCustomerServiceBeforeDeleteYourAccountToSolveAllThisIssues => 'Puedes contactar al servicio de atención al cliente antes de eliminar tu cuenta para resolver todos estos problemas';
+  String
+  get youCanContactCustomerServiceBeforeDeleteYourAccountToSolveAllThisIssues =>
+      'Puedes contactar al servicio de atención al cliente antes de eliminar tu cuenta para resolver todos estos problemas';
 
   @override
-  String get youAreNotEligibleToDeleteYourAccount => 'No eres elegible para eliminar tu cuenta';
+  String get youAreNotEligibleToDeleteYourAccount =>
+      'No eres elegible para eliminar tu cuenta';
 
   @override
   String get yourAccountHasBeenDeleted => 'Tu cuenta ha sido eliminada';
@@ -1533,7 +1676,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get goBackToLogin => 'Volver al inicio de sesión';
 
   @override
-  String get areYouSureYouWantToSignOut => '¿Estás seguro de que deseas cerrar sesión?';
+  String get areYouSureYouWantToSignOut =>
+      '¿Estás seguro de que deseas cerrar sesión?';
 
   @override
   String get adminPanel => 'Panel de administración';
@@ -1584,28 +1728,37 @@ class AppLocalizationsEs extends AppLocalizations {
   String get configuration => 'Configuración';
 
   @override
-  String get selectTheCurrencyInWhichYouAreApprovingTheLineOfCredit => 'Selecciona la moneda en la que estás aprobando la línea de crédito';
+  String get selectTheCurrencyInWhichYouAreApprovingTheLineOfCredit =>
+      'Selecciona la moneda en la que estás aprobando la línea de crédito';
 
   @override
-  String get enterTheAmountYouAreGoingToApproveForTheLineOfCredit => 'Ingresa el monto que vas a aprobar para la línea de crédito';
+  String get enterTheAmountYouAreGoingToApproveForTheLineOfCredit =>
+      'Ingresa el monto que vas a aprobar para la línea de crédito';
 
   @override
-  String get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLineOfCredit => 'Ingresa la tasa de interés efectiva anual que vas a aprobar para la línea de crédito';
+  String
+  get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLineOfCredit =>
+      'Ingresa la tasa de interés efectiva anual que vas a aprobar para la línea de crédito';
 
   @override
-  String get enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit => 'Ingresa la tasa de interés nominal anual que vas a aprobar para la línea de crédito';
+  String
+  get enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit =>
+      'Ingresa la tasa de interés nominal anual que vas a aprobar para la línea de crédito';
 
   @override
-  String get selectTheApprovedLineOfCreditAccountsType => 'Selecciona los tipos de cuenta de la línea de crédito aprobada';
+  String get selectTheApprovedLineOfCreditAccountsType =>
+      'Selecciona los tipos de cuenta de la línea de crédito aprobada';
 
   @override
-  String get pleaseSelectAtLeastOneAccountType => 'Por favor, selecciona al menos un tipo de cuenta';
+  String get pleaseSelectAtLeastOneAccountType =>
+      'Por favor, selecciona al menos un tipo de cuenta';
 
   @override
   String get defaulterDailyRate => 'Tasa diaria de morosidad';
 
   @override
-  String get enterTheDefaulterDailyRate => 'Ingresa la tasa diaria de morosidad';
+  String get enterTheDefaulterDailyRate =>
+      'Ingresa la tasa diaria de morosidad';
 
   @override
   String get minimumPaymentFactor => 'Factor de pago mínimo';
@@ -1617,13 +1770,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get offerExpirationDate => 'Fecha de expiración de la oferta';
 
   @override
-  String get pleaseFillAllTheFieldsBeforeContinuing => 'Por favor, completa todos los campos antes de continuar';
+  String get pleaseFillAllTheFieldsBeforeContinuing =>
+      'Por favor, completa todos los campos antes de continuar';
 
   @override
-  String get lineOfCreditApprovedSuccessfully => 'Línea de crédito aprobada con éxito';
+  String get lineOfCreditApprovedSuccessfully =>
+      'Línea de crédito aprobada con éxito';
 
   @override
-  String get theUserCanNowActivateTheLineOfCredit => 'El usuario ahora puede activar la línea de crédito';
+  String get theUserCanNowActivateTheLineOfCredit =>
+      'El usuario ahora puede activar la línea de crédito';
 
   @override
   String get currencyAndLoanType => 'Moneda y tipo de préstamo';
@@ -1635,13 +1791,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get approveNewLoan => 'Aprobar nuevo préstamo';
 
   @override
-  String get selectTheCurrencyInWhichYouAreApprovingTheLoan => 'Selecciona la moneda en la que estás aprobando el préstamo';
+  String get selectTheCurrencyInWhichYouAreApprovingTheLoan =>
+      'Selecciona la moneda en la que estás aprobando el préstamo';
 
   @override
-  String get selectTheLoanTypeToApprove => 'Selecciona el tipo de préstamo a aprobar';
+  String get selectTheLoanTypeToApprove =>
+      'Selecciona el tipo de préstamo a aprobar';
 
   @override
-  String get addRangesInWhichTheLoanWillBeApproved => 'Agrega rangos en los que se aprobará el préstamo';
+  String get addRangesInWhichTheLoanWillBeApproved =>
+      'Agrega rangos en los que se aprobará el préstamo';
 
   @override
   String get addNewRange => 'Agregar nuevo rango';
@@ -1656,25 +1815,31 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fromInitialCapitalLetter => 'Desde';
 
   @override
-  String get selectThePeriodsApplicableToThisRange => 'Selecciona los períodos aplicables a este rango';
+  String get selectThePeriodsApplicableToThisRange =>
+      'Selecciona los períodos aplicables a este rango';
 
   @override
-  String get enterTheAmountYouAreGoingToApproveForTheLoan => 'Ingresa el monto que vas a aprobar para el préstamo';
+  String get enterTheAmountYouAreGoingToApproveForTheLoan =>
+      'Ingresa el monto que vas a aprobar para el préstamo';
 
   @override
-  String get enterTheInterestRateYouAreGoingToApproveForTheLoan => 'Ingresa la tasa de interés que vas a aprobar para el préstamo';
+  String get enterTheInterestRateYouAreGoingToApproveForTheLoan =>
+      'Ingresa la tasa de interés que vas a aprobar para el préstamo';
 
   @override
-  String get selectAtLeastOnePaymentFrequencyForTheLoanRange => 'Selecciona al menos una frecuencia de pago para el rango de préstamo';
+  String get selectAtLeastOnePaymentFrequencyForTheLoanRange =>
+      'Selecciona al menos una frecuencia de pago para el rango de préstamo';
 
   @override
-  String get addAtLeastOneLoanRangeToContinue => 'Agrega al menos un rango de préstamo para continuar';
+  String get addAtLeastOneLoanRangeToContinue =>
+      'Agrega al menos un rango de préstamo para continuar';
 
   @override
   String get amountSelectionIntervals => 'Intervalos de selección de monto';
 
   @override
-  String get selectThePeriodApplicableToThisRange => 'Selecciona el período aplicable a este rango';
+  String get selectThePeriodApplicableToThisRange =>
+      'Selecciona el período aplicable a este rango';
 
   @override
   String get minInstallments => 'Cuotas mínimas';
@@ -1686,7 +1851,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get periods => 'Períodos';
 
   @override
-  String get selectAPaymentFrequencyToContinue => 'Selecciona una frecuencia de pago para continuar';
+  String get selectAPaymentFrequencyToContinue =>
+      'Selecciona una frecuencia de pago para continuar';
 
   @override
   String get loanActivation => 'Activación de préstamo';
@@ -1695,7 +1861,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get loanApprovedSuccessfully => 'Préstamo aprobado con éxito';
 
   @override
-  String get theUserCanNowActivateTheLoan => 'El usuario ahora puede activar el préstamo';
+  String get theUserCanNowActivateTheLoan =>
+      'El usuario ahora puede activar el préstamo';
 
   @override
   String get thereAreNotOperationsToShow => 'No hay operaciones para mostrar';
@@ -1725,7 +1892,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get done => 'Hecho';
 
   @override
-  String get operationStatusUpdatedSuccessfully => 'Estado de la operación actualizado con éxito';
+  String get operationStatusUpdatedSuccessfully =>
+      'Estado de la operación actualizado con éxito';
 
   @override
   String get depositDestinationDetails => 'Detalles del destino del depósito';
@@ -1737,7 +1905,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get balanceAfterDeposit => 'Saldo después del depósito';
 
   @override
-  String get depositAmountBeforeTaxesAndFees => 'Monto del depósito antes de impuestos y tarifas';
+  String get depositAmountBeforeTaxesAndFees =>
+      'Monto del depósito antes de impuestos y tarifas';
 
   @override
   String get originAccount => 'Cuenta de origen';
@@ -1746,7 +1915,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get balanceAfterWithdrawal => 'Balance después del retiro';
 
   @override
-  String get withdrawalAmountBeforeTaxesAndFees => 'Monto del retiro antes de impuestos y tarifas';
+  String get withdrawalAmountBeforeTaxesAndFees =>
+      'Monto del retiro antes de impuestos y tarifas';
 
   @override
   String get destinationLineOfCredit => 'Línea de crédito de destino';
@@ -1756,4 +1926,63 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutTheCredit => 'Acerca del crédito';
+
+  @override
+  String get communications => 'Comunicaciones';
+
+  @override
+  String get directEmail => 'Correo electrónico directo';
+
+  @override
+  String get directEmailDescription =>
+      'Envia correos electrónicos directamente a un destinatario.';
+
+  @override
+  String get massiveEmail => 'Correo electrónico masivo';
+
+  @override
+  String get massiveEmailDescription =>
+      'Envia correos electrónicos a múltiples destinatarios al mismo tiempo.';
+
+  @override
+  String get selectTheTypeOfCommunicationYouWantToSend =>
+      'Selecciona el tipo de comunicación que deseas enviar';
+
+  @override
+  String get selectTheCountryAndLanguage => 'Selecciona el país y el idioma';
+
+  @override
+  String get selectTheCountry => 'Selecciona el país';
+
+  @override
+  String get selectTheLanguage => 'Selecciona el idioma';
+
+  @override
+  String get english => 'Inglés';
+
+  @override
+  String get spanish => 'Español';
+
+  @override
+  String get faceValidation => 'Validación facial';
+
+  @override
+  String get markAdVerified => 'Marcar como verificado';
+
+  @override
+  String get requestNewValidation => 'Solicitar nueva validación';
+
+  @override
+  String get markAsRejected => 'Marcar como rechazado';
+
+  @override
+  String get simulators => 'Simuladores';
+
+  @override
+  String get simulate => 'Simular';
+
+  @override
+  String
+  get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan =>
+      'Ingresa la tasa de interés efectiva anual que vas a aprobar para el préstamo';
 }

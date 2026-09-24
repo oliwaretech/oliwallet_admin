@@ -58,10 +58,7 @@ class BillingPeriodCalculator {
     return _BillingRange(start: start, end: end);
   }
 
-  static DateTime _calculateDueDate(
-      DateTime closingDate,
-      int paymentDay,
-      ) {
+  static DateTime _calculateDueDate(DateTime closingDate, int paymentDay) {
     final isNextMonth = paymentDay <= closingDate.day;
 
     return DateTime(

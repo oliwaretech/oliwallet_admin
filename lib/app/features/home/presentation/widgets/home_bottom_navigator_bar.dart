@@ -14,11 +14,12 @@ class HomeBottomNavigatorBar extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<HomeBottomNavigatorBar> createState() => _HomeBottomNavigatorBarState();
+  ConsumerState<HomeBottomNavigatorBar> createState() =>
+      _HomeBottomNavigatorBarState();
 }
 
-class _HomeBottomNavigatorBarState extends ConsumerState<HomeBottomNavigatorBar> {
-
+class _HomeBottomNavigatorBarState
+    extends ConsumerState<HomeBottomNavigatorBar> {
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;

@@ -5,7 +5,8 @@ part 'loan_pay_message_notification_data.freezed.dart';
 part 'loan_pay_message_notification_data.g.dart';
 
 @freezed
-abstract class LoanPayMessageNotificationData with _$LoanPayMessageNotificationData {
+abstract class LoanPayMessageNotificationData
+    with _$LoanPayMessageNotificationData {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LoanPayMessageNotificationData({
     required MessageNotificationItemData rejectedOperation,

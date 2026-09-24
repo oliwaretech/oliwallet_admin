@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/language_codes.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/products_enums.dart';
 
-
 part 'credit_fee.freezed.dart';
 part 'credit_fee.g.dart';
 

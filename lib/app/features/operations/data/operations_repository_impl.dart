@@ -12,8 +12,9 @@ class OperationsRepositoryImpl implements OperationsRepository {
   OperationsRepositoryImpl({required this.supabaseClient, required this.ref});
 
   @override
-  Future <List<TransactionOperation>> getOperations(OperationStatus status) async {
-
+  Future<List<TransactionOperation>> getOperations(
+    OperationStatus status,
+  ) async {
     final results = await Future.wait([
       supabaseClient
           .from(SupabaseTables.linesOfCreditOperations)
@@ -53,7 +54,6 @@ class OperationsRepositoryImpl implements OperationsRepository {
 
   @override
   Future<UserData> getOperationUserData(String userId) async {
-
     final response = await supabaseClient
         .from(SupabaseTables.users)
         .select()
@@ -64,7 +64,11 @@ class OperationsRepositoryImpl implements OperationsRepository {
   }
 
   @override
-  Future<void> updateOperationStatus(String operationId, OperationStatus status, String supabaseTable) async {
+  Future<void> updateOperationStatus(
+    String operationId,
+    OperationStatus status,
+    String supabaseTable,
+  ) async {
     await supabaseClient
         .from(supabaseTable)
         .update({'status': status.name})

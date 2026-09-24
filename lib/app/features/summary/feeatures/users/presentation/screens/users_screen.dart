@@ -41,16 +41,13 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
   void _onSearchChanged() {
     _debounce?.cancel();
 
-    _debounce = Timer(
-      const Duration(milliseconds: 400),
-          () {
-        if (!mounted) return;
+    _debounce = Timer(const Duration(milliseconds: 400), () {
+      if (!mounted) return;
 
-        setState(() {
-          search = searchController.text.trim();
-        });
-      },
-    );
+      setState(() {
+        search = searchController.text.trim();
+      });
+    });
   }
 
   @override
@@ -96,26 +93,27 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
 
                 Expanded(
                   child: usersAsync.when(
-                    loading: () => const Center(
-                      child: OlwLoadingSpinner(),
-                    ),
-                    error: (error, stackTrace){
+                    loading: () => const Center(child: OlwLoadingSpinner()),
+                    error: (error, stackTrace) {
                       print('Error fetching users: $stackTrace');
-                      return Center(
-                        child: Text('Error: $error'),
-                      );
+                      return Center(child: Text('Error: $error'));
                     },
                     data: (users) {
-
-                      if(search.isEmpty) {
+                      if (search.isEmpty) {
                         return Center(
-                          child: Text(appLocalizations.startSearchingSomething, style: OlwTextStyles.stepTextDescription,),
+                          child: Text(
+                            appLocalizations.startSearchingSomething,
+                            style: OlwTextStyles.stepTextDescription,
+                          ),
                         );
                       }
 
                       if (users.isEmpty) {
                         return Center(
-                          child: Text(appLocalizations.noResultsFound, style: OlwTextStyles.stepTextDescription,),
+                          child: Text(
+                            appLocalizations.noResultsFound,
+                            style: OlwTextStyles.stepTextDescription,
+                          ),
                         );
                       }
 
@@ -125,17 +123,21 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                           final user = users[index];
 
                           return UserCard(
-                              onTap: (){
-                                ref.read(currentSelectedUserDataProvider.notifier).state = user;
-                                ref.invalidate(getUserAccountsProvider);
-                                ref.invalidate(getUserLinesOfCreditProvider);
-                                ref.invalidate(getUserLoansProvider);
-                                context.pushNamed(
-                                 UserDetail.name,
-                                  extra: user,
-                                );
-                              },
-                              user: user);
+                            onTap: () {
+                              ref
+                                      .read(
+                                        currentSelectedUserDataProvider
+                                            .notifier,
+                                      )
+                                      .state =
+                                  user;
+                              ref.invalidate(getUserAccountsProvider);
+                              ref.invalidate(getUserLinesOfCreditProvider);
+                              ref.invalidate(getUserLoansProvider);
+                              context.pushNamed(UserDetail.name, extra: user);
+                            },
+                            user: user,
+                          );
                         },
                       );
                     },

@@ -6,37 +6,29 @@ import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/pro
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/transactions/transaction_operation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-final currentOperationTabProvider = StateProvider<OperationStatus>((ref) => OperationStatus.pending);
-final currentDetailScreenIsLoadingProvider = StateProvider<bool>((ref) => false);
+final currentOperationTabProvider = StateProvider<OperationStatus>(
+  (ref) => OperationStatus.pending,
+);
+final currentDetailScreenIsLoadingProvider = StateProvider<bool>(
+  (ref) => false,
+);
 
-final operationsRepositoryProvider = Provider<OperationsRepository>((
-    ref,
-    ) {
+final operationsRepositoryProvider = Provider<OperationsRepository>((ref) {
   final supabase = Supabase.instance.client;
   return OperationsRepositoryImpl(ref: ref, supabaseClient: supabase);
 });
 
 final getOperationsProvider = FutureProvider.family
     .autoDispose<List<TransactionOperation>, OperationStatus>((
-    ref,
-    status,
+      ref,
+      status,
     ) async {
-  final operationsRepository = ref.read(
-    operationsRepositoryProvider,
-  );
-  return await operationsRepository.getOperations(
-    status,
-  );
-});
+      final operationsRepository = ref.read(operationsRepositoryProvider);
+      return await operationsRepository.getOperations(status);
+    });
 
-final getUserOperationDataProvider = FutureProvider.family.autoDispose<UserData, String>((
-    ref,
-    userId,
-    ) async {
-  final operationsRepository = ref.read(
-    operationsRepositoryProvider,
-  );
-  return await operationsRepository.getOperationUserData(
-    userId,
-  );
-});
+final getUserOperationDataProvider = FutureProvider.family
+    .autoDispose<UserData, String>((ref, userId) async {
+      final operationsRepository = ref.read(operationsRepositoryProvider);
+      return await operationsRepository.getOperationUserData(userId);
+    });

@@ -27,7 +27,11 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class LineOfCreditUseScreen extends ConsumerWidget {
   final LineOfCreditData lineOfCreditData;
   final UserData userData;
-  const LineOfCreditUseScreen({super.key, required this.lineOfCreditData, required this.userData});
+  const LineOfCreditUseScreen({
+    super.key,
+    required this.lineOfCreditData,
+    required this.userData,
+  });
   static const String route = '/line_of_credit_use';
   static const String name = 'line_of_credit_use';
 
@@ -161,7 +165,7 @@ class LineOfCreditUseScreen extends ConsumerWidget {
               onBackButtonPressed: () => context.pop(),
               showBackButton: true,
               title:
-              '${lineOfCreditData.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} ${appLocalizations.use}',
+                  '${lineOfCreditData.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} ${appLocalizations.use}',
             ),
             body: SafeArea(
               child: Padding(
@@ -183,11 +187,11 @@ class LineOfCreditUseScreen extends ConsumerWidget {
                               allowStepTap: true,
                               onStepTapped: (currentStep) {
                                 ref
-                                    .read(
-                                  currentLineOfCreditUseStepProvider
-                                      .notifier,
-                                )
-                                    .state =
+                                        .read(
+                                          currentLineOfCreditUseStepProvider
+                                              .notifier,
+                                        )
+                                        .state =
                                     currentStep;
                               },
                               currentStep: currentLineOfCreditUseStep,

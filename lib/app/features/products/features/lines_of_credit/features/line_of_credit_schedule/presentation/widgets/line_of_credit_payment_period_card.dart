@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oliwallet_admin_front_end/app/common/data/data_source/supabase/supabase_tables.dart';
-import 'package:oliwallet_admin_front_end/app/common/helpers/formatters.dart' show BigIntParser, DateFormatter;
+import 'package:oliwallet_admin_front_end/app/common/helpers/formatters.dart'
+    show BigIntParser, DateFormatter;
 import 'package:oliwallet_admin_front_end/app/common/widgets/indicators/operation_status_indicator.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/products_enums.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/domain/models/line_of_credit_data.dart';

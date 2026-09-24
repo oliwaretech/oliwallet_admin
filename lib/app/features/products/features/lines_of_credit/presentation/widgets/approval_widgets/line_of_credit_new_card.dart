@@ -6,17 +6,14 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LineOfCreditNewCard extends StatelessWidget {
   final VoidCallback? onTap;
-  const LineOfCreditNewCard({
-    super.key,
-    this.onTap,
-  });
+  const LineOfCreditNewCard({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
     return GestureDetector(
-      onTap:  onTap,
+      onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Container(
         height: 130,
@@ -29,16 +26,16 @@ class LineOfCreditNewCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 4,
             children: [
-                SvgPicture.asset(
-                  package: 'oliwallet_design_system',
-                  IconAssets.add,
-                  width: 24,
-                  height: 24,
-                ),
-                Text(
-                  appLocalizations.approveNewLineOfCredit,
-                  style: OlwTextStyles.textListTileTitle,
-                ),
+              SvgPicture.asset(
+                package: 'oliwallet_design_system',
+                IconAssets.add,
+                width: 24,
+                height: 24,
+              ),
+              Text(
+                appLocalizations.approveNewLineOfCredit,
+                style: OlwTextStyles.textListTileTitle,
+              ),
             ],
           ),
         ),

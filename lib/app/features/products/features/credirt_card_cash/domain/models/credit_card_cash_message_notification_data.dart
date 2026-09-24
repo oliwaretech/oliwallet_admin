@@ -5,13 +5,15 @@ part 'credit_card_cash_message_notification_data.freezed.dart';
 part 'credit_card_cash_message_notification_data.g.dart';
 
 @freezed
-abstract class CreditCardCashMessageNotificationData with _$CreditCardCashMessageNotificationData {
+abstract class CreditCardCashMessageNotificationData
+    with _$CreditCardCashMessageNotificationData {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory CreditCardCashMessageNotificationData({
     required MessageNotificationItemData rejectedOperation,
     required MessageNotificationItemData completedOperation,
   }) = _CreditCardCashMessageNotificationData;
 
-  factory CreditCardCashMessageNotificationData.fromJson(Map<String, dynamic> json) =>
-      _$CreditCardCashMessageNotificationDataFromJson(json);
+  factory CreditCardCashMessageNotificationData.fromJson(
+    Map<String, dynamic> json,
+  ) => _$CreditCardCashMessageNotificationDataFromJson(json);
 }

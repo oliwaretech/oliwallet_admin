@@ -9,21 +9,19 @@ class AccountRepositoryImpl implements AccountRepository {
   AccountRepositoryImpl({required this.supabaseClient, required this.ref});
 
   @override
-  Future<List<UserData>> getUserByNameOrDocument(String search,) async {
+  Future<List<UserData>> getUserByNameOrDocument(String search) async {
     final response = await supabaseClient
         .from('users')
         .select()
         .or(
-      'name.ilike.%$search%,'
+          'name.ilike.%$search%,'
           'surname.ilike.%$search%,'
           'full_name.ilike.%$search%,'
           'document_number.ilike.%$search%',
-    )
+        )
         .order('created_at', ascending: false)
         .limit(20);
 
-    return response
-        .map((json) => UserData.fromJson(json))
-        .toList();
+    return response.map((json) => UserData.fromJson(json)).toList();
   }
 }

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:oliwallet_admin_front_end/app/features/account/domain/models/user_data_validation_form_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/device_detail_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_preferences_data.dart';
 part 'user_data.freezed.dart';
 part 'user_data.g.dart';
 
@@ -29,6 +30,7 @@ abstract class UserData with _$UserData {
     required IdentificationStatus identificationStatus,
     DeviceDetailData? deviceDetails,
     UserDataValidationFormData? userValidationData,
+    UserPreferencesData? userPreferencesData,
   }) = _UserData;
 
   factory UserData.fromJson(Map<String, dynamic> json) =>

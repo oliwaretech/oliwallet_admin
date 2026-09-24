@@ -7,14 +7,13 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final accountRepositoryProvider = Provider<AccountRepository>((ref) {
   final supabase = Supabase.instance.client;
 
-  return AccountRepositoryImpl(
-    supabaseClient: supabase,
-    ref: ref,
-  );
+  return AccountRepositoryImpl(supabaseClient: supabase, ref: ref);
 });
 
-final searchUsersProvider =
-FutureProvider.family<List<UserData>, String>((ref, search) async {
+final searchUsersProvider = FutureProvider.family<List<UserData>, String>((
+  ref,
+  search,
+) async {
   if (search.trim().isEmpty) {
     return [];
   }

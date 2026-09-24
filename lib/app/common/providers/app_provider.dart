@@ -27,6 +27,8 @@ final appFeaturesRepositoryProvider = Provider<AppFeaturesRepository>((ref) {
   return AppFeaturesRepositoryImpl(supabaseClient: supabase);
 });
 
-final pushNotificationServiceProvider = Provider<PushNotificationService>((ref) {
+final pushNotificationServiceProvider = Provider<PushNotificationService>((
+  ref,
+) {
   return PushNotificationService(ref);
 });

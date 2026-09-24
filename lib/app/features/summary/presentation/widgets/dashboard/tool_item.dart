@@ -6,7 +6,8 @@ class ToolItem extends StatelessWidget {
   final String title;
   final String iconPath;
   final VoidCallback? onTap;
-  const ToolItem({super.key,
+  const ToolItem({
+    super.key,
     required this.title,
     required this.iconPath,
     this.onTap,
@@ -29,12 +30,9 @@ class ToolItem extends StatelessWidget {
                 package: 'oliwallet_design_system',
               ),
               Expanded(
-                child: Text(
-                  title,
-                  style: OlwTextStyles.stepTextDescription,
-                ),
+                child: Text(title, style: OlwTextStyles.stepTextDescription),
               ),
-              if(onTap != null)
+              if (onTap != null)
                 Icon(
                   Icons.arrow_forward_ios,
                   size: 16,

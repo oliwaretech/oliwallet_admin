@@ -14,16 +14,18 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class RegisterNewApproveLoanRangeContent extends ConsumerStatefulWidget {
   final CountryLoan countryLoan;
-  const RegisterNewApproveLoanRangeContent({super.key,
+  const RegisterNewApproveLoanRangeContent({
+    super.key,
     required this.countryLoan,
   });
 
   @override
-  ConsumerState<RegisterNewApproveLoanRangeContent> createState() => _RegisterNewApproveLoanRangeContentState();
+  ConsumerState<RegisterNewApproveLoanRangeContent> createState() =>
+      _RegisterNewApproveLoanRangeContentState();
 }
 
-class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNewApproveLoanRangeContent> {
-
+class _RegisterNewApproveLoanRangeContentState
+    extends ConsumerState<RegisterNewApproveLoanRangeContent> {
   List<LoanRangePaymentFrequency> selectedPaymentFrequencies = [];
   final amountFromController = OlwCurrencyTextEditingController();
   final amountUntilController = OlwCurrencyTextEditingController();
@@ -33,9 +35,7 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     if (loanApprove.loanRanges?.isNotEmpty ?? false) {
       _initializeFromLoanRange(loanApprove.loanRanges!.last);
@@ -54,12 +54,16 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
                   spacing: 8,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("${appLocalizations.fromInitialCapitalLetter} (${loanApprove.currencyData!.currencySymbol})", style: OlwTextStyles.textCardTitle),
+                    Text(
+                      "${appLocalizations.fromInitialCapitalLetter} (${loanApprove.currencyData!.currencySymbol})",
+                      style: OlwTextStyles.textCardTitle,
+                    ),
                     OlwTextField(
                       controller: amountFromController,
-                        keyboardType: TextInputType.number,
-                        hintText: appLocalizations.fromInitialCapitalLetter,
-                        label: appLocalizations.fromInitialCapitalLetter),
+                      keyboardType: TextInputType.number,
+                      hintText: appLocalizations.fromInitialCapitalLetter,
+                      label: appLocalizations.fromInitialCapitalLetter,
+                    ),
                   ],
                 ),
               ),
@@ -68,49 +72,63 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
                   spacing: 8,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text("${appLocalizations.until} (${loanApprove.currencyData!.currencySymbol})", style: OlwTextStyles.textCardTitle),
+                    Text(
+                      "${appLocalizations.until} (${loanApprove.currencyData!.currencySymbol})",
+                      style: OlwTextStyles.textCardTitle,
+                    ),
                     OlwTextField(
                       controller: amountUntilController,
-                        keyboardType: TextInputType.number,
-                        hintText: appLocalizations.until,
-                        label: appLocalizations.until),
+                      keyboardType: TextInputType.number,
+                      hintText: appLocalizations.until,
+                      label: appLocalizations.until,
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Column(
             spacing: 16,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if(widget.countryLoan.approvalConfig.interestRateType == InterestRateType.effective)
+              if (widget.countryLoan.approvalConfig.interestRateType ==
+                  InterestRateType.effective)
                 Text(
-                  "${appLocalizations
-                      .enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLineOfCredit} (%)",
+                  "${appLocalizations.enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan} (%)",
                   style: OlwTextStyles.textCardTitle,
                   textAlign: TextAlign.start,
                 ),
-              if(widget.countryLoan.approvalConfig.interestRateType == InterestRateType.nominal)
+              if (widget.countryLoan.approvalConfig.interestRateType ==
+                  InterestRateType.nominal)
                 Text(
-                  "${appLocalizations
-                      .enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit} (%)",
+                  "${appLocalizations.enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit} (%)",
                   style: OlwTextStyles.textCardTitle,
                   textAlign: TextAlign.start,
                 ),
               OlwTextField(
                 controller: interestRateController,
                 keyboardType: TextInputType.number,
-                hintText: widget.countryLoan.approvalConfig.interestRateType == InterestRateType.effective ?
-                appLocalizations.annualEffectiveInterestRate : appLocalizations.annualNominalInterestRate,
-                label: widget.countryLoan.approvalConfig.interestRateType == InterestRateType.effective ?
-                appLocalizations.annualEffectiveInterestRate : appLocalizations.annualNominalInterestRate,),
+                hintText:
+                    widget.countryLoan.approvalConfig.interestRateType ==
+                        InterestRateType.effective
+                    ? appLocalizations.annualEffectiveInterestRate
+                    : appLocalizations.annualNominalInterestRate,
+                label:
+                    widget.countryLoan.approvalConfig.interestRateType ==
+                        InterestRateType.effective
+                    ? appLocalizations.annualEffectiveInterestRate
+                    : appLocalizations.annualNominalInterestRate,
+              ),
             ],
           ),
           Column(
             spacing: 16,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(appLocalizations.addPeriodsToThisRange, style: OlwTextStyles.textCardTitle),
+              Text(
+                appLocalizations.addPeriodsToThisRange,
+                style: OlwTextStyles.textCardTitle,
+              ),
               Row(
                 children: [
                   Expanded(
@@ -127,12 +145,18 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
                           context: context,
                           title: appLocalizations.addPeriodsToThisRange,
                           content: RegisterApproveLoanPeriodContent(
-                            onAdd: (LoanRangePaymentFrequency newPaymentFrequency){
-                              setState(() {
-                                selectedPaymentFrequencies.add(newPaymentFrequency);
-                              });
-                            },
-                              countryLoan: widget.countryLoan)
+                            onAdd:
+                                (
+                                  LoanRangePaymentFrequency newPaymentFrequency,
+                                ) {
+                                  setState(() {
+                                    selectedPaymentFrequencies.add(
+                                      newPaymentFrequency,
+                                    );
+                                  });
+                                },
+                            countryLoan: widget.countryLoan,
+                          ),
                         );
                       },
                       isSmall: true,
@@ -144,53 +168,65 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
               ),
               Wrap(
                 runSpacing: 16,
-                children: selectedPaymentFrequencies.map(
-                  (paymentFrequency) => LoanApproveRangePaymentFrequencyCard(
-                    loanRangePaymentFrequency: paymentFrequency,
-                  ),
-                ).toList(
-              ))
+                children: selectedPaymentFrequencies
+                    .map(
+                      (paymentFrequency) =>
+                          LoanApproveRangePaymentFrequencyCard(
+                            loanRangePaymentFrequency: paymentFrequency,
+                          ),
+                    )
+                    .toList(),
+              ),
             ],
           ),
           OlwPrimaryButton(
-              onPressed: (){
-                if(amountFromController.text.isEmpty || amountUntilController.text.isEmpty){
-                  OlwSnackBarNotification.showInfo(
-                      title: appLocalizations.somethingIsMissing,
-                      message: appLocalizations.enterTheAmountYouAreGoingToApproveForTheLoan
-                  );
-                  return;
-                }
-                if(interestRateController.text.isEmpty){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.enterTheInterestRateYouAreGoingToApproveForTheLoan
-                  );
-                  return;
-                }
-                if(selectedPaymentFrequencies.isEmpty){
-                  OlwSnackBarNotification.showInfo(
-                      title: appLocalizations.somethingIsMissing,
-                      message: appLocalizations.selectAtLeastOnePaymentFrequencyForTheLoanRange
-                  );
-                  return;
-                }
-      
-                final newLoanRange = LoanRange(
-                  paymentFrequencies: selectedPaymentFrequencies,
-                  maxAmount: BigIntParser.fromDouble(double.parse(amountUntilController.cleanValue)),
-                  minAmount: BigIntParser.fromDouble(double.parse(amountFromController.cleanValue)),
-                  annualInterestRate: double.parse(interestRateController.text),
+            onPressed: () {
+              if (amountFromController.text.isEmpty ||
+                  amountUntilController.text.isEmpty) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations
+                      .enterTheAmountYouAreGoingToApproveForTheLoan,
                 );
-      
-                ref.read(loanApproveProvider.notifier).updateLoanRanges([
-                  ...loanApprove.loanRanges ?? [],
-                  newLoanRange
-                ]);
-      
-                Navigator.pop(context);
-              },
-              text: appLocalizations.registerNewLoanRange)
+                return;
+              }
+              if (interestRateController.text.isEmpty) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations
+                      .enterTheInterestRateYouAreGoingToApproveForTheLoan,
+                );
+                return;
+              }
+              if (selectedPaymentFrequencies.isEmpty) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations
+                      .selectAtLeastOnePaymentFrequencyForTheLoanRange,
+                );
+                return;
+              }
+
+              final newLoanRange = LoanRange(
+                paymentFrequencies: selectedPaymentFrequencies,
+                maxAmount: BigIntParser.fromDouble(
+                  double.parse(amountUntilController.cleanValue),
+                ),
+                minAmount: BigIntParser.fromDouble(
+                  double.parse(amountFromController.cleanValue),
+                ),
+                annualInterestRate: double.parse(interestRateController.text),
+              );
+
+              ref.read(loanApproveProvider.notifier).updateLoanRanges([
+                ...loanApprove.loanRanges ?? [],
+                newLoanRange,
+              ]);
+
+              Navigator.pop(context);
+            },
+            text: appLocalizations.registerNewLoanRange,
+          ),
         ],
       ),
     );
@@ -199,15 +235,14 @@ class _RegisterNewApproveLoanRangeContentState extends ConsumerState<RegisterNew
   void _initializeFromLoanRange(LoanRange loanRange) {
     if (initialized) return;
 
-    amountFromController.text =
-        BigIntParser.toDouble(
-          loanRange.maxAmount + BigIntParser.fromDouble(0.01),
-        ).toStringAsFixed(2);
+    amountFromController.text = BigIntParser.toDouble(
+      loanRange.maxAmount + BigIntParser.fromDouble(0.01),
+    ).toStringAsFixed(2);
 
-    interestRateController.text =
-        loanRange.annualInterestRate.toStringAsFixed(2);
+    interestRateController.text = loanRange.annualInterestRate.toStringAsFixed(
+      2,
+    );
 
     initialized = true;
   }
-
 }

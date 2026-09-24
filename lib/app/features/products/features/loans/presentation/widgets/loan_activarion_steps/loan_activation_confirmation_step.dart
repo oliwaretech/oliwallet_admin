@@ -32,7 +32,6 @@ class LoanActivationConfirmationStep extends ConsumerWidget {
       loanActivationOperation.paymentPeriods!.first.dueDate,
     ).subtract(const Duration(days: 1));
 
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: Constants.regularPaddingFromBorders,

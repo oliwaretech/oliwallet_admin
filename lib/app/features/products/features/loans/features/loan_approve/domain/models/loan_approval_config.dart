@@ -7,8 +7,7 @@ part 'loan_approval_config.freezed.dart';
 part 'loan_approval_config.g.dart';
 
 @freezed
-abstract class LoanApprovalConfig
-    with _$LoanApprovalConfig {
+abstract class LoanApprovalConfig with _$LoanApprovalConfig {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LoanApprovalConfig({
     required int rangeSteps,

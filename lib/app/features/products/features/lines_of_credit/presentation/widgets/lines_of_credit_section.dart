@@ -16,7 +16,11 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class LinesOfCreditSection extends ConsumerWidget {
   final AppConfig appConfig;
   final UserData userData;
-  const LinesOfCreditSection({super.key, required this.appConfig, required this.userData});
+  const LinesOfCreditSection({
+    super.key,
+    required this.appConfig,
+    required this.userData,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -69,7 +73,6 @@ class LinesOfCreditSection extends ConsumerWidget {
           },
           loading: () => const CreditProductSectionSkeleton(),
           error: (error, stackTrace) {
-
             print('Error fetching user lines of credit: $error');
             print('Stack trace: $stackTrace');
 

@@ -13,7 +13,8 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
   final CountryLineOfCredit countryLineOfCredit;
   final VoidCallback onConfirm;
-  const LineOfCreditApproveConfigurationStep({super.key,
+  const LineOfCreditApproveConfigurationStep({
+    super.key,
     required this.countryLineOfCredit,
     required this.onConfirm,
   });
@@ -25,12 +26,16 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
     final defaulterDailyRateController = TextEditingController();
     final minimumPaymentFactorController = TextEditingController();
 
-    defaulterDailyRateController.text = countryLineOfCredit.approvalConfig.dailyDefaulterRate.toString();
-    minimumPaymentFactorController.text = countryLineOfCredit.approvalConfig.minimumPaymentFactor.toString();
+    defaulterDailyRateController.text = countryLineOfCredit
+        .approvalConfig
+        .dailyDefaulterRate
+        .toString();
+    minimumPaymentFactorController.text = countryLineOfCredit
+        .approvalConfig
+        .minimumPaymentFactor
+        .toString();
 
-    final lineOfCreditApprove = ref.watch(
-      lineOfCreditApproveProvider,
-    );
+    final lineOfCreditApprove = ref.watch(lineOfCreditApproveProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -54,7 +59,7 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 hintText: appLocalizations.enterTheDefaulterDailyRate,
                 label: appLocalizations.defaulterDailyRate,
-              )
+              ),
             ],
           ),
           Column(
@@ -71,7 +76,7 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 hintText: appLocalizations.enterTheMinimumPaymentFactor,
                 label: appLocalizations.minimumPaymentFactor,
-              )
+              ),
             ],
           ),
           Column(
@@ -86,9 +91,9 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
               OlwDropdown(
                 selectedValue: lineOfCreditApprove.offerExpirationDate != null
                     ? DateFormatter.formatFromIso(
-                  lineOfCreditApprove.offerExpirationDate!,
-                  locale: appLocalizations.localeName,
-                )
+                        lineOfCreditApprove.offerExpirationDate!,
+                        locale: appLocalizations.localeName,
+                      )
                     : null,
                 onTap: () {
                   showCupertinoModalPopup(
@@ -96,7 +101,6 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
                     builder: (_) => DatePicker(
                       initialDate: DateTime.now(),
                       onDateSelected: (date) {
-
                         ref
                             .read(lineOfCreditApproveProvider.notifier)
                             .updateOfferExpirationDate(date.toIso8601String());
@@ -110,22 +114,41 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
             ],
           ),
           OlwPrimaryButton(
-              onPressed: (){
-                if(defaulterDailyRateController.text.isEmpty || minimumPaymentFactorController.text.isEmpty || lineOfCreditApprove.offerExpirationDate == null){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.pleaseFillAllTheFieldsBeforeContinuing,
+            onPressed: () {
+              if (defaulterDailyRateController.text.isEmpty ||
+                  minimumPaymentFactorController.text.isEmpty ||
+                  lineOfCreditApprove.offerExpirationDate == null) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message:
+                      appLocalizations.pleaseFillAllTheFieldsBeforeContinuing,
+                );
+                return;
+              }
+              ref
+                  .read(lineOfCreditApproveProvider.notifier)
+                  .updateDailyDefaulterRate(
+                    double.parse(defaulterDailyRateController.text),
                   );
-                  return;
-                }
-                ref.read(lineOfCreditApproveProvider.notifier).updateDailyDefaulterRate(double.parse(defaulterDailyRateController.text));
-                ref.read(lineOfCreditApproveProvider.notifier).updateMinimumPaymentFactor(double.parse(minimumPaymentFactorController.text));
-                ref.read(currentLineOfCreditApproveStepProvider.notifier).state = 2;
-                ref.read(lineOfCreditApproveConfigurationStepIsCompletedProvider.notifier).state = true;
+              ref
+                  .read(lineOfCreditApproveProvider.notifier)
+                  .updateMinimumPaymentFactor(
+                    double.parse(minimumPaymentFactorController.text),
+                  );
+              ref.read(currentLineOfCreditApproveStepProvider.notifier).state =
+                  2;
+              ref
+                      .read(
+                        lineOfCreditApproveConfigurationStepIsCompletedProvider
+                            .notifier,
+                      )
+                      .state =
+                  true;
 
-                onConfirm();
-              },
-              text: appLocalizations.approveNewLineOfCredit)
+              onConfirm();
+            },
+            text: appLocalizations.approveNewLineOfCredit,
+          ),
         ],
       ),
     );

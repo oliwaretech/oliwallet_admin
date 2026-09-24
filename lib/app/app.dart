@@ -21,7 +21,6 @@ class App extends ConsumerStatefulWidget {
 }
 
 class _AppState extends ConsumerState<App> {
-
   @override
   void initState() {
     final supabaseClient = Supabase.instance.client;
@@ -31,8 +30,7 @@ class _AppState extends ConsumerState<App> {
       final router = ref.read(routerProvider);
       if (event == AuthChangeEvent.signedIn && session != null) {
         redirectUserBasedOnBiometricPreference(router);
-        ref.read(pushNotificationServiceProvider)
-            .initialize();
+        ref.read(pushNotificationServiceProvider).initialize();
       } else if (event == AuthChangeEvent.signedOut) {
         router.goNamed(LoginScreen.name);
       }
@@ -72,11 +70,10 @@ class _AppState extends ConsumerState<App> {
     final lastSkippedBiometricAuthDate = prefs.getString(
       'last_skipped_biometric_auth_date',
     );
-    if (biometricActivated != null &&
-        biometricActivated) {
-      router.goNamed(SummaryPage.name);
-    } else if (biometricActivated != null && !biometricActivated) {
+    if (biometricActivated != null && biometricActivated) {
       router.goNamed(BiometricAuthScreen.name);
+    } else if (biometricActivated != null && !biometricActivated) {
+      router.goNamed(SummaryPage.name);
     } else if (lastSkippedBiometricAuthDate != null) {
       final lastSkippedDate = DateTime.parse(lastSkippedBiometricAuthDate);
       final now = DateTime.now();
@@ -87,13 +84,6 @@ class _AppState extends ConsumerState<App> {
         router.goNamed(SummaryPage.name);
       }
     } else {
-      if(lastSkippedBiometricAuthDate == null) {
-        final now = DateTime.now();
-        await prefs.setString(
-          'last_skipped_biometric_auth_date',
-          now.toIso8601String(),
-        );
-      }
       router.goNamed(BiometricAuthScreen.name);
     }
   }

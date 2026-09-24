@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:oliwallet_admin_front_end/app/common/styles/container_styles.dart' show ContainerStyles;
+import 'package:oliwallet_admin_front_end/app/common/styles/container_styles.dart'
+    show ContainerStyles;
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
 import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 

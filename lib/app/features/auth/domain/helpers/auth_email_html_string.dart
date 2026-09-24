@@ -1,4 +1,3 @@
-
 import 'package:oliwallet_admin_front_end/app/common/domain/models/item_data.dart';
 
 class AuthEmailHtmlString {

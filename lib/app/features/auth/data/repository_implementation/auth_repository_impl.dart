@@ -130,7 +130,6 @@ class AuthRepositoryImpl implements AuthRepository {
     return false;
   }
 
-
   @override
   Future<void> updateUserData(UserData userData) async {
     final data = userData.toJson()

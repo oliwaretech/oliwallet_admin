@@ -38,6 +38,11 @@ _UserData _$UserDataFromJson(Map<String, dynamic> json) => _UserData(
       : UserDataValidationFormData.fromJson(
           json['user_validation_data'] as Map<String, dynamic>,
         ),
+  userPreferencesData: json['user_preferences_data'] == null
+      ? null
+      : UserPreferencesData.fromJson(
+          json['user_preferences_data'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$UserDataToJson(_UserData instance) => <String, dynamic>{
@@ -62,6 +67,7 @@ Map<String, dynamic> _$UserDataToJson(_UserData instance) => <String, dynamic>{
       _$IdentificationStatusEnumMap[instance.identificationStatus]!,
   'device_details': instance.deviceDetails,
   'user_validation_data': instance.userValidationData,
+  'user_preferences_data': instance.userPreferencesData,
 };
 
 const _$AccountStatusEnumMap = {

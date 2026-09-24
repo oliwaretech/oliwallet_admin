@@ -5,7 +5,8 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveRangePaymentFrequencyCard extends StatelessWidget {
   final LoanRangePaymentFrequency loanRangePaymentFrequency;
-  const LoanApproveRangePaymentFrequencyCard({super.key,
+  const LoanApproveRangePaymentFrequencyCard({
+    super.key,
     required this.loanRangePaymentFrequency,
   });
 
@@ -23,13 +24,24 @@ class LoanApproveRangePaymentFrequencyCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child:  Text(loanRangePaymentFrequency.name.getLocalized(appLocalizations.localeName),style: OlwTextStyles.textListTileTitle,),
+                  child: Text(
+                    loanRangePaymentFrequency.name.getLocalized(
+                      appLocalizations.localeName,
+                    ),
+                    style: OlwTextStyles.textListTileTitle,
+                  ),
                 ),
-                OlwIconButton(iconPath: IconAssets.delete)
+                OlwIconButton(iconPath: IconAssets.delete),
               ],
             ),
-            Text('${appLocalizations.installments}: ${loanRangePaymentFrequency.minInstallments} - ${loanRangePaymentFrequency.maxInstallments}', style: OlwTextStyles.textSubTitle,),
-            Text('${appLocalizations.gracePeriod}: ${loanRangePaymentFrequency.gracePeriods.map((e) => e.toString()).join(', ')}', style: OlwTextStyles.textSubTitle,),
+            Text(
+              '${appLocalizations.installments}: ${loanRangePaymentFrequency.minInstallments} - ${loanRangePaymentFrequency.maxInstallments}',
+              style: OlwTextStyles.textSubTitle,
+            ),
+            Text(
+              '${appLocalizations.gracePeriod}: ${loanRangePaymentFrequency.gracePeriods.map((e) => e.toString()).join(', ')}',
+              style: OlwTextStyles.textSubTitle,
+            ),
           ],
         ),
       ),

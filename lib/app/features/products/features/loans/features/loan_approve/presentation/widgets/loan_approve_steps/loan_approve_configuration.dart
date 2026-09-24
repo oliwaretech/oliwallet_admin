@@ -12,28 +12,34 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveConfiguration extends ConsumerWidget {
   final CountryLoan countryLoan;
-  final VoidCallback onConfirm;
-  const LoanApproveConfiguration({super.key,
+  final VoidCallback onConfirm, onSimulate;
+  const LoanApproveConfiguration({
+    super.key,
     required this.countryLoan,
     required this.onConfirm,
+    required this.onSimulate,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final appLocalizations = AppLocalizations.of(context)!;
 
     final defaulterDailyRateController = TextEditingController();
     final minimumPaymentFactorController = TextEditingController();
     final stepNumberController = TextEditingController();
 
-    defaulterDailyRateController.text = countryLoan.approvalConfig.dailyDefaulterRate.toString();
-    minimumPaymentFactorController.text = countryLoan.approvalConfig.minimumPaymentFactor.toString();
-    stepNumberController.text = countryLoan.approvalConfig.rangeSteps.toString();
+    defaulterDailyRateController.text = countryLoan
+        .approvalConfig
+        .dailyDefaulterRate
+        .toString();
+    minimumPaymentFactorController.text = countryLoan
+        .approvalConfig
+        .minimumPaymentFactor
+        .toString();
+    stepNumberController.text = countryLoan.approvalConfig.rangeSteps
+        .toString();
 
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -57,7 +63,7 @@ class LoanApproveConfiguration extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 hintText: appLocalizations.enterTheDefaulterDailyRate,
                 label: appLocalizations.defaulterDailyRate,
-              )
+              ),
             ],
           ),
           Column(
@@ -74,7 +80,7 @@ class LoanApproveConfiguration extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 hintText: appLocalizations.enterTheDefaulterDailyRate,
                 label: appLocalizations.defaulterDailyRate,
-              )
+              ),
             ],
           ),
           Column(
@@ -91,7 +97,7 @@ class LoanApproveConfiguration extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 hintText: appLocalizations.enterTheMinimumPaymentFactor,
                 label: appLocalizations.minimumPaymentFactor,
-              )
+              ),
             ],
           ),
           Column(
@@ -106,9 +112,9 @@ class LoanApproveConfiguration extends ConsumerWidget {
               OlwDropdown(
                 selectedValue: loanApprove.offerExpirationDate != null
                     ? DateFormatter.formatFromIso(
-                  loanApprove.offerExpirationDate!,
-                  locale: appLocalizations.localeName,
-                )
+                        loanApprove.offerExpirationDate!,
+                        locale: appLocalizations.localeName,
+                      )
                     : null,
                 onTap: () {
                   showCupertinoModalPopup(
@@ -116,7 +122,6 @@ class LoanApproveConfiguration extends ConsumerWidget {
                     builder: (_) => DatePicker(
                       initialDate: DateTime.now(),
                       onDateSelected: (date) {
-
                         ref
                             .read(loanApproveProvider.notifier)
                             .updateOfferExpirationDate(date.toIso8601String());
@@ -129,24 +134,73 @@ class LoanApproveConfiguration extends ConsumerWidget {
               ),
             ],
           ),
-          OlwPrimaryButton(
-              onPressed: (){
-                if(defaulterDailyRateController.text.isEmpty || minimumPaymentFactorController.text.isEmpty || loanApprove.offerExpirationDate == null){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.pleaseFillAllTheFieldsBeforeContinuing,
+          OlwSecondaryButton(
+            onPressed: () {
+              if (defaulterDailyRateController.text.isEmpty ||
+                  minimumPaymentFactorController.text.isEmpty ||
+                  loanApprove.offerExpirationDate == null) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message:
+                      appLocalizations.pleaseFillAllTheFieldsBeforeContinuing,
+                );
+                return;
+              }
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateRangeSteps(int.parse(stepNumberController.text));
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateDailyDefaulterRate(
+                    double.parse(defaulterDailyRateController.text),
                   );
-                  return;
-                }
-                ref.read(loanApproveProvider.notifier).updateRangeSteps(int.parse(stepNumberController.text));
-                ref.read(loanApproveProvider.notifier).updateDailyDefaulterRate(double.parse(defaulterDailyRateController.text));
-                ref.read(loanApproveProvider.notifier).updateMinimumPaymentFactor(num.parse(minimumPaymentFactorController.text));
-                ref.read(currentLoanApproveStepProvider.notifier).state = 2;
-                ref.read(loanApproveConfigurationStepIsCompletedProvider.notifier).state = true;
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateMinimumPaymentFactor(
+                    num.parse(minimumPaymentFactorController.text),
+                  );
+              onSimulate();
+            },
+            text: appLocalizations.simulate,
+          ),
+          OlwPrimaryButton(
+            onPressed: () {
+              if (defaulterDailyRateController.text.isEmpty ||
+                  minimumPaymentFactorController.text.isEmpty ||
+                  loanApprove.offerExpirationDate == null) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message:
+                      appLocalizations.pleaseFillAllTheFieldsBeforeContinuing,
+                );
+                return;
+              }
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateRangeSteps(int.parse(stepNumberController.text));
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateDailyDefaulterRate(
+                    double.parse(defaulterDailyRateController.text),
+                  );
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateMinimumPaymentFactor(
+                    num.parse(minimumPaymentFactorController.text),
+                  );
+              ref.read(currentLoanApproveStepProvider.notifier).state = 2;
+              ref
+                      .read(
+                        loanApproveConfigurationStepIsCompletedProvider
+                            .notifier,
+                      )
+                      .state =
+                  true;
 
-                onConfirm();
-              },
-              text: appLocalizations.approveNewLoan)
+              onConfirm();
+            },
+            text: appLocalizations.approveNewLoan,
+          ),
         ],
       ),
     );

@@ -6,8 +6,7 @@ part 'line_of_credit_approval_config.freezed.dart';
 part 'line_of_credit_approval_config.g.dart';
 
 @freezed
-abstract class LineOfCreditApprovalConfig
-    with _$LineOfCreditApprovalConfig {
+abstract class LineOfCreditApprovalConfig with _$LineOfCreditApprovalConfig {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LineOfCreditApprovalConfig({
     required bool isRevolving,

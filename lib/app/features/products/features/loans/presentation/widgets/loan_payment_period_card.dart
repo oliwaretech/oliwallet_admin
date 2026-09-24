@@ -31,9 +31,7 @@ class LoanPaymentPeriodCard extends StatelessWidget {
         final utcTime =
             snapshot.data ?? DateTime.now().toUtc().toIso8601String();
 
-        final expirationDate = DateTime.parse(
-          paymentPeriodData.dueDate,
-        );
+        final expirationDate = DateTime.parse(paymentPeriodData.dueDate);
 
         if (paymentPeriodData.remainingMinimumPayment > BigInt.zero) {
           paymentStatus = PaymentStatus.payable;
@@ -55,27 +53,27 @@ class LoanPaymentPeriodCard extends StatelessWidget {
 
         final operationStatusIndicator = paymentStatus == PaymentStatus.payable
             ? OperationStatusIndicator(
-          text: appLocalizations.payable,
-          iconPath: IconAssets.pending,
-          color: OlwColors.darkBlue,
-        )
+                text: appLocalizations.payable,
+                iconPath: IconAssets.pending,
+                color: OlwColors.darkBlue,
+              )
             : paymentStatus == PaymentStatus.overdue
             ? OperationStatusIndicator(
-          text: appLocalizations.overdue,
-          iconPath: IconAssets.close,
-          color: OlwColors.error,
-        )
+                text: appLocalizations.overdue,
+                iconPath: IconAssets.close,
+                color: OlwColors.error,
+              )
             : paymentStatus == PaymentStatus.partiallyPaid
             ? OperationStatusIndicator(
-          text: appLocalizations.partiallyPaid,
-          iconPath: IconAssets.check,
-          color: OlwColors.success,
-        )
+                text: appLocalizations.partiallyPaid,
+                iconPath: IconAssets.check,
+                color: OlwColors.success,
+              )
             : OperationStatusIndicator(
-          text: appLocalizations.paid,
-          iconPath: IconAssets.check,
-          color: OlwColors.success,
-        );
+                text: appLocalizations.paid,
+                iconPath: IconAssets.check,
+                color: OlwColors.success,
+              );
 
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),

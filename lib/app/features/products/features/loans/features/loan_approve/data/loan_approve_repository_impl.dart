@@ -7,10 +7,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class LoanApproveRepositoryImpl extends LoanApproveRepository {
   final SupabaseClient supabaseClient;
   final Ref ref;
-  LoanApproveRepositoryImpl({
-    required this.supabaseClient,
-    required this.ref,
-  });
+  LoanApproveRepositoryImpl({required this.supabaseClient, required this.ref});
 
   @override
   Future<void> approveLoan(LoanData loanData) async {

@@ -5,13 +5,15 @@ part 'line_of_credit_request_message_notification_data.freezed.dart';
 part 'line_of_credit_request_message_notification_data.g.dart';
 
 @freezed
-abstract class LineOfCreditRequestMessageNotificationData with _$LineOfCreditRequestMessageNotificationData {
+abstract class LineOfCreditRequestMessageNotificationData
+    with _$LineOfCreditRequestMessageNotificationData {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LineOfCreditRequestMessageNotificationData({
     required MessageNotificationItemData requestRejected,
     required MessageNotificationItemData requestApproved,
   }) = _LineOfCreditRequestMessageNotificationData;
 
-  factory LineOfCreditRequestMessageNotificationData.fromJson(Map<String, dynamic> json) =>
-      _$LineOfCreditRequestMessageNotificationDataFromJson(json);
+  factory LineOfCreditRequestMessageNotificationData.fromJson(
+    Map<String, dynamic> json,
+  ) => _$LineOfCreditRequestMessageNotificationDataFromJson(json);
 }

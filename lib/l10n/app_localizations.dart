@@ -62,7 +62,8 @@ import 'app_localizations_es.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -70,7 +71,8 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -82,17 +84,18 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('es')
+    Locale('es'),
   ];
 
   /// No description provided for @emailAddress.
@@ -1035,7 +1038,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'We could not complete your identity validation because your documents did not pass the review.'**
-  String get weCouldNotCompleteYourIdentityValidationBecauseYourDocumentsDidNotPassTheReview;
+  String
+  get weCouldNotCompleteYourIdentityValidationBecauseYourDocumentsDidNotPassTheReview;
 
   /// No description provided for @tryAgain.
   ///
@@ -1305,7 +1309,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount higher than the minimum deposit amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumDepositAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumDepositAmountBeforeContinuing;
 
   /// No description provided for @amountTooHigh.
   ///
@@ -1317,7 +1322,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount lower than the maximum deposit amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumDepositAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumDepositAmountBeforeContinuing;
 
   /// No description provided for @selectADepositMethod.
   ///
@@ -1629,13 +1635,15 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount higher than the minimum withdrawal amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumWithdrawalAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumWithdrawalAmountBeforeContinuing;
 
   /// No description provided for @pleaseMakeSureToEnterAnAmountLowerThanTheMaximumWithdrawalAmountBeforeContinuing.
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount lower than the maximum withdrawal amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumWithdrawalAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumWithdrawalAmountBeforeContinuing;
 
   /// No description provided for @currentBalance.
   ///
@@ -2259,7 +2267,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'I have read and agree to the terms and conditions and the credit line opening agreement'**
-  String get iHaveReadAndAgreeToTheTermsAndConditionsAndTheCreditLineOpeningAgreement;
+  String
+  get iHaveReadAndAgreeToTheTermsAndConditionsAndTheCreditLineOpeningAgreement;
 
   /// No description provided for @activateLineOfCredit.
   ///
@@ -2385,7 +2394,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'The funds will be available in your account immediately after you confirm the transaction.'**
-  String get theFundsWillBeAvailableInYourAccountImmediatelyAfterYouConfirmTheTransaction;
+  String
+  get theFundsWillBeAvailableInYourAccountImmediatelyAfterYouConfirmTheTransaction;
 
   /// No description provided for @disbursed.
   ///
@@ -2559,13 +2569,15 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount higher than the minimum payment amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumPaymentAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountHigherThanTheMinimumPaymentAmountBeforeContinuing;
 
   /// No description provided for @pleaseMakeSureToEnterAnAmountLowerThanTheMaximumPaymentAmountBeforeContinuing.
   ///
   /// In en, this message translates to:
   /// **'Please make sure to enter an amount lower than the maximum payment amount before continuing.'**
-  String get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumPaymentAmountBeforeContinuing;
+  String
+  get pleaseMakeSureToEnterAnAmountLowerThanTheMaximumPaymentAmountBeforeContinuing;
 
   /// No description provided for @selectAPaymentMethod.
   ///
@@ -3087,7 +3099,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Deleting your account will permanently remove all your data and cannot be recovered.'**
-  String get deletingYourAccountWillPermanentlyRemoveAllYourDataAndCannotBeRecovered;
+  String
+  get deletingYourAccountWillPermanentlyRemoveAllYourDataAndCannotBeRecovered;
 
   /// No description provided for @whatIf.
   ///
@@ -3117,7 +3130,8 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'You can contact customer service before delete your account to solve all this issues.'**
-  String get youCanContactCustomerServiceBeforeDeleteYourAccountToSolveAllThisIssues;
+  String
+  get youCanContactCustomerServiceBeforeDeleteYourAccountToSolveAllThisIssues;
 
   /// No description provided for @youAreNotEligibleToDeleteYourAccount.
   ///
@@ -3261,13 +3275,15 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Enter the annual effective interest rate you are going to approve for the line of credit'**
-  String get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLineOfCredit;
+  String
+  get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLineOfCredit;
 
   /// No description provided for @enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit.
   ///
   /// In en, this message translates to:
   /// **'Enter the annual nominal interest rate you are going to approve for the line of credit'**
-  String get enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit;
+  String
+  get enterTheAnnualNominalInterestRateYouAreGoingToApproveForTheLineOfCredit;
 
   /// No description provided for @selectTheApprovedLineOfCreditAccountsType.
   ///
@@ -3592,9 +3608,118 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About the credit'**
   String get aboutTheCredit;
+
+  /// No description provided for @communications.
+  ///
+  /// In en, this message translates to:
+  /// **'Communications'**
+  String get communications;
+
+  /// No description provided for @directEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct email'**
+  String get directEmail;
+
+  /// No description provided for @directEmailDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Send emails directly to the registered email of the user.'**
+  String get directEmailDescription;
+
+  /// No description provided for @massiveEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Massive email'**
+  String get massiveEmail;
+
+  /// No description provided for @massiveEmailDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Send emails to multiple users at once.'**
+  String get massiveEmailDescription;
+
+  /// No description provided for @selectTheTypeOfCommunicationYouWantToSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the type of communication you want to send'**
+  String get selectTheTypeOfCommunicationYouWantToSend;
+
+  /// No description provided for @selectTheCountryAndLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the country and language'**
+  String get selectTheCountryAndLanguage;
+
+  /// No description provided for @selectTheCountry.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the country'**
+  String get selectTheCountry;
+
+  /// No description provided for @selectTheLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the language'**
+  String get selectTheLanguage;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @spanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get spanish;
+
+  /// No description provided for @faceValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Face validation'**
+  String get faceValidation;
+
+  /// No description provided for @markAdVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as verified'**
+  String get markAdVerified;
+
+  /// No description provided for @requestNewValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Request new validation'**
+  String get requestNewValidation;
+
+  /// No description provided for @markAsRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as rejected'**
+  String get markAsRejected;
+
+  /// No description provided for @simulators.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulators'**
+  String get simulators;
+
+  /// No description provided for @simulate.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulate'**
+  String get simulate;
+
+  /// No description provided for @enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the annual effective interest rate you are going to approve for the loan'**
+  String get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -3603,25 +3728,26 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return AppLocalizationsEn();
-    case 'es': return AppLocalizationsEs();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }

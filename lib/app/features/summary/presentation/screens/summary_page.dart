@@ -19,13 +19,14 @@ class SummaryPage extends ConsumerWidget {
         return Column(
           children: [
             SummaryHeader(userData: userData),
-            Expanded(child: ToolsList()), // Replace with actual UserProductsScreen when available
+            Expanded(
+              child: ToolsList(),
+            ), // Replace with actual UserProductsScreen when available
           ],
         );
       },
       loading: () => const Center(child: OlwLoadingSpinner()),
       error: (error, stackTrace) {
-        print('Error fetching user data: $stackTrace');
         return OlwErrorScreen(
           onPrimaryButtonPressed: () {
             ref.invalidate(getCurrentUserDataProvider);

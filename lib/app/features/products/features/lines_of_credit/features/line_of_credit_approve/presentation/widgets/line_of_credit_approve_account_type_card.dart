@@ -8,7 +8,8 @@ class LineOfCreditApproveAccountTypeCard extends StatelessWidget {
   final LineOfCreditType lineOfCreditType;
   final bool isSelected;
   final Function(bool)? onSelected;
-  const LineOfCreditApproveAccountTypeCard({super.key,
+  const LineOfCreditApproveAccountTypeCard({
+    super.key,
     required this.lineOfCreditType,
     this.isSelected = false,
     this.onSelected,
@@ -31,28 +32,37 @@ class LineOfCreditApproveAccountTypeCard extends StatelessWidget {
             spacing: 8,
             children: [
               OlwCheckbox(
-                  isChecked: isSelected,
-                  onChanged: (val){
-                    if (onSelected != null) {
-                      onSelected!(val!);
-                    }
-                  }),
+                isChecked: isSelected,
+                onChanged: (val) {
+                  if (onSelected != null) {
+                    onSelected!(val!);
+                  }
+                },
+              ),
               Expanded(
                 child: Column(
                   spacing: 8,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(lineOfCreditType.accountTypeName.getLocalized(appLocalizations.localeName), style: OlwTextStyles.stepTextDescription,),
+                    Text(
+                      lineOfCreditType.accountTypeName.getLocalized(
+                        appLocalizations.localeName,
+                      ),
+                      style: OlwTextStyles.stepTextDescription,
+                    ),
                     Wrap(
                       children: lineOfCreditType.openingDetails.map((detail) {
-
                         return OperationDetailTile(
-                            showDivider: false,
-                            item: detail.itemName.getLocalized(appLocalizations.localeName),
-                            value: detail.itemValue.getLocalized(appLocalizations.localeName),
+                          showDivider: false,
+                          item: detail.itemName.getLocalized(
+                            appLocalizations.localeName,
+                          ),
+                          value: detail.itemValue.getLocalized(
+                            appLocalizations.localeName,
+                          ),
                         );
                       }).toList(),
-                    )
+                    ),
                   ],
                 ),
               ),

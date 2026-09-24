@@ -5,13 +5,15 @@ part 'withdrawal_message_notification_data.freezed.dart';
 part 'withdrawal_message_notification_data.g.dart';
 
 @freezed
-abstract class WithdrawalMessageNotificationData with _$WithdrawalMessageNotificationData {
+abstract class WithdrawalMessageNotificationData
+    with _$WithdrawalMessageNotificationData {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory WithdrawalMessageNotificationData({
     required MessageNotificationItemData rejectedOperation,
     required MessageNotificationItemData completedOperation,
   }) = _WithdrawalMessageNotificationData;
 
-  factory WithdrawalMessageNotificationData.fromJson(Map<String, dynamic> json) =>
-      _$WithdrawalMessageNotificationDataFromJson(json);
+  factory WithdrawalMessageNotificationData.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WithdrawalMessageNotificationDataFromJson(json);
 }

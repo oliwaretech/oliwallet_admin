@@ -5,7 +5,7 @@ import 'package:oliwallet_admin_front_end/app_initializer.dart';
 
 void main() {
   final WidgetsBinding widgetsBinding =
-  WidgetsFlutterBinding.ensureInitialized();
+      WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   appInitializer(() => const App());
 }

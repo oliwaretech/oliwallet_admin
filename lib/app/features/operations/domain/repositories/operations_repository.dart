@@ -4,7 +4,11 @@ import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/pro
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/transactions/transaction_operation.dart';
 
 abstract class OperationsRepository {
-  Future <List<TransactionOperation>> getOperations(OperationStatus status);
+  Future<List<TransactionOperation>> getOperations(OperationStatus status);
   Future<UserData> getOperationUserData(String userId);
-  Future<void> updateOperationStatus(String operationId, OperationStatus status, String supabaseTable);
+  Future<void> updateOperationStatus(
+    String operationId,
+    OperationStatus status,
+    String supabaseTable,
+  );
 }

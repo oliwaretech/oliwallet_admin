@@ -104,7 +104,7 @@ class _UserLinesOfCreditListState extends ConsumerState<UserLinesOfCreditList> {
                     left: _currentIndex != 0 ? 8.0 : 0.00,
                   ),
                   child: LineOfCreditNewCard(
-                    onTap: (){
+                    onTap: () {
                       context.pushNamed(
                         LineOfCreditApproveScreen.name,
                         extra: widget.userData,

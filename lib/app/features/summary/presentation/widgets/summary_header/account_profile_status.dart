@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oliwallet_admin_front_end/app/common/helpers/formatters.dart';
 import 'package:oliwallet_admin_front_end/app/common/widgets/indicators/status_indicator.dart';
-import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart' show IdentificationStatus;
+import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart'
+    show IdentificationStatus;
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
 import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 

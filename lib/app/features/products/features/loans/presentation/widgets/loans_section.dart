@@ -16,7 +16,9 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class LoansSection extends ConsumerWidget {
   final AppConfig appConfig;
   final UserData userData;
-  const LoansSection({super.key, required this.appConfig,
+  const LoansSection({
+    super.key,
+    required this.appConfig,
     required this.userData,
   });
 
@@ -46,8 +48,7 @@ class LoansSection extends ConsumerWidget {
             if (userLoansList.isEmpty) {
               return ApproveNewLoanCard(
                 onTap: () {
-                  context.pushNamed(LoanApproveScreen.name,
-                      extra: userData);
+                  context.pushNamed(LoanApproveScreen.name, extra: userData);
                 },
               );
             }
@@ -69,7 +70,7 @@ class LoansSection extends ConsumerWidget {
               child: Text(appLocalizations.upsItSeemsToBeWeHaveAnError),
             );
           },
-        )
+        ),
       ],
     );
   }

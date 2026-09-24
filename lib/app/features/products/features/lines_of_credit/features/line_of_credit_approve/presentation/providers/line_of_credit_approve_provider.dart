@@ -6,24 +6,23 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/lines_o
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final currentLineOfCreditApproveStepProvider = StateProvider<int>((ref) => 0);
-final lineOfCreditApproveCurrencyAmountAndRateStepIsCompletedProvider = StateProvider<bool>(
-      (ref) => false,
-);
-final lineOfCreditApproveAccountTypesStepIsCompletedProvider = StateProvider<bool>(
-      (ref) => false,
-);
+final lineOfCreditApproveCurrencyAmountAndRateStepIsCompletedProvider =
+    StateProvider<bool>((ref) => false);
+final lineOfCreditApproveAccountTypesStepIsCompletedProvider =
+    StateProvider<bool>((ref) => false);
 final lineOfCreditApproveConfigurationStepIsCompletedProvider =
-StateProvider<bool>((ref) => false);
+    StateProvider<bool>((ref) => false);
 
 final lineOfCreditApproveProvider =
-StateNotifierProvider<
-    LineOfCreditApproveNotifier,
-    LineOfCreditApproveData
->((ref) => LineOfCreditApproveNotifier());
+    StateNotifierProvider<LineOfCreditApproveNotifier, LineOfCreditApproveData>(
+      (ref) => LineOfCreditApproveNotifier(),
+    );
 
-final lineOfCreditApproveRepositoryProvider = Provider<LineOfCreditApproveRepository>((
-    ref,
-    ) {
-  final supabase = Supabase.instance.client;
-  return LineOfCreditApproveRepositoryImpl(ref: ref, supabaseClient: supabase);
-});
+final lineOfCreditApproveRepositoryProvider =
+    Provider<LineOfCreditApproveRepository>((ref) {
+      final supabase = Supabase.instance.client;
+      return LineOfCreditApproveRepositoryImpl(
+        ref: ref,
+        supabaseClient: supabase,
+      );
+    });

@@ -6,24 +6,21 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/loans/f
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final currentLoanApproveStepProvider = StateProvider<int>((ref) => 0);
-final loanApproveCurrencyAndLoanTypeStepIsCompletedProvider = StateProvider<bool>(
-      (ref) => false,
-);
+final loanApproveCurrencyAndLoanTypeStepIsCompletedProvider =
+    StateProvider<bool>((ref) => false);
 final loanApproveRangesStepIsCompletedProvider = StateProvider<bool>(
-      (ref) => false,
+  (ref) => false,
 );
-final loanApproveConfigurationStepIsCompletedProvider =
-StateProvider<bool>((ref) => false);
+final loanApproveConfigurationStepIsCompletedProvider = StateProvider<bool>(
+  (ref) => false,
+);
 
 final loanApproveProvider =
-StateNotifierProvider<
-    LoanApproveNotifier,
-    LoanApproveData
->((ref) => LoanApproveNotifier());
+    StateNotifierProvider<LoanApproveNotifier, LoanApproveData>(
+      (ref) => LoanApproveNotifier(),
+    );
 
-final loanApproveRepositoryProvider = Provider<LoanApproveRepository>((
-    ref,
-    ) {
+final loanApproveRepositoryProvider = Provider<LoanApproveRepository>((ref) {
   final supabase = Supabase.instance.client;
   return LoanApproveRepositoryImpl(ref: ref, supabaseClient: supabase);
 });

@@ -13,9 +13,7 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class UserDetail extends ConsumerWidget {
   final UserData user;
-  const UserDetail({super.key,
-    required this.user,
-  });
+  const UserDetail({super.key, required this.user});
   static const String route = '/user_detail';
   static const String name = 'user_detail';
 
@@ -45,10 +43,13 @@ class UserDetail extends ConsumerWidget {
                     spacing: 32,
                     children: [
                       UserHeader(userData: user),
-                      IdentityManagementSection(),
-                      AccountsSection(appConfig: appConfig, userData: user,),
-                      LinesOfCreditSection(appConfig: appConfig, userData: user,),
-                      LoansSection(appConfig: appConfig,  userData: user,)
+                      IdentityManagementSection(userData: user),
+                      AccountsSection(appConfig: appConfig, userData: user),
+                      LinesOfCreditSection(
+                        appConfig: appConfig,
+                        userData: user,
+                      ),
+                      LoansSection(appConfig: appConfig, userData: user),
                     ],
                   ),
                 ),
@@ -58,7 +59,6 @@ class UserDetail extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) {
-        print('Error fetching app config: $stackTrace');
         return OlwErrorScreen(
           errorMessage: appLocalizations.upsItSeemsToBeWeHaveAnError,
           primaryButton: appLocalizations.retry,

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:oliwallet_admin_front_end/app/common/widgets/buttons/icon_text_card_button.dart';
+import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/features/identity_management/presentation/widgets/bottom_sheets/identity_verification_details_content.dart';
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
 import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class IdentityManagementSection extends StatelessWidget {
-  const IdentityManagementSection({super.key});
+  final UserData userData;
+  const IdentityManagementSection({super.key, required this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,10 @@ class IdentityManagementSection extends StatelessWidget {
       spacing: 16,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(appLocalizations.identityManagement, style: OlwTextStyles.textListTileTitle),
+        Text(
+          appLocalizations.identityManagement,
+          style: OlwTextStyles.textListTileTitle,
+        ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -23,27 +29,30 @@ class IdentityManagementSection extends StatelessWidget {
               IconTextCardButton(
                 iconPath: IconAssets.update,
                 text: appLocalizations.updateStatus,
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
               IconTextCardButton(
                 iconPath: IconAssets.form,
                 text: appLocalizations.checkValidation,
                 onTap: () {
-
+                  showOlwBottomSheet(
+                    isFullScreen: true,
+                    context: context,
+                    title: appLocalizations.checkValidation,
+                    content: IdentityVerificationDetailsContent(
+                      userDataValidationFormData: userData.userValidationData,
+                    ),
+                  );
                 },
               ),
               IconTextCardButton(
                 iconPath: IconAssets.update,
                 text: appLocalizations.updateData,
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

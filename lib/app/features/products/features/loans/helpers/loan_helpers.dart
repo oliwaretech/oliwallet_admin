@@ -14,11 +14,9 @@ class LoanPaymentDateCalculator {
     final targetYear =
         normalizedDate.year + ((normalizedDate.month + months - 1) ~/ 12);
 
-    final targetMonth =
-        ((normalizedDate.month + months - 1) % 12) + 1;
+    final targetMonth = ((normalizedDate.month + months - 1) % 12) + 1;
 
-    final lastDayOfMonth =
-        DateTime(targetYear, targetMonth + 1, 0).day;
+    final lastDayOfMonth = DateTime(targetYear, targetMonth + 1, 0).day;
 
     return DateTime(
       targetYear,
@@ -28,11 +26,11 @@ class LoanPaymentDateCalculator {
   }
 
   static PaymentPeriodDates calculate(
-      DateTime operationDate,
-      int installmentNumber,
-      Frequency frequency,
-      int gracePeriod,
-      ) {
+    DateTime operationDate,
+    int installmentNumber,
+    Frequency frequency,
+    int gracePeriod,
+  ) {
     final normalizedOperationDate = _startOfDay(operationDate);
 
     final startDate = _calculateDate(
@@ -56,10 +54,10 @@ class LoanPaymentDateCalculator {
   }
 
   static DateTime _calculateDate(
-      DateTime operationDate,
-      int periods,
-      Frequency frequency,
-      ) {
+    DateTime operationDate,
+    int periods,
+    Frequency frequency,
+  ) {
     final normalizedDate = _startOfDay(operationDate);
 
     switch (frequency) {

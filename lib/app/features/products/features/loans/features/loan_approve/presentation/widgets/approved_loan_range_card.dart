@@ -11,7 +11,8 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class ApprovedLoanRangeCard extends ConsumerWidget {
   final LoanRange loanRange;
   final CountryLoan countryLoan;
-  const ApprovedLoanRangeCard({super.key,
+  const ApprovedLoanRangeCard({
+    super.key,
     required this.loanRange,
     required this.countryLoan,
   });
@@ -19,9 +20,7 @@ class ApprovedLoanRangeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     return OlwCard(
       child: Padding(
@@ -33,27 +32,30 @@ class ApprovedLoanRangeCard extends ConsumerWidget {
             Row(
               children: [
                 Expanded(
-                  child: Text('${OlwFormatter.currency(
-                      BigIntParser.toDouble(loanRange.minAmount),
-                      symbol: loanApprove.currencyData!.currencySymbol
-                  )} - ${OlwFormatter.currency(
-                      BigIntParser.toDouble(loanRange.maxAmount),
-                      symbol: loanApprove.currencyData!.currencySymbol
-                  )}', style: OlwTextStyles.textListTileTitle,),
+                  child: Text(
+                    '${OlwFormatter.currency(BigIntParser.toDouble(loanRange.minAmount), symbol: loanApprove.currencyData!.currencySymbol)} - ${OlwFormatter.currency(BigIntParser.toDouble(loanRange.maxAmount), symbol: loanApprove.currencyData!.currencySymbol)}',
+                    style: OlwTextStyles.textListTileTitle,
+                  ),
                 ),
-                OlwIconButton(iconPath: IconAssets.delete)
+                OlwIconButton(iconPath: IconAssets.delete),
               ],
             ),
             Text(
-              '${countryLoan.approvalConfig.interestRateType == InterestRateType.effective
-                  ? appLocalizations.annualEffectiveInterestRate : appLocalizations.annualNominalInterestRate}: ${OlwFormatter.currency(loanRange.annualInterestRate,symbol: '')}%', style: OlwTextStyles.textSubTitle,
+              '${countryLoan.approvalConfig.interestRateType == InterestRateType.effective ? appLocalizations.annualEffectiveInterestRate : appLocalizations.annualNominalInterestRate}: ${OlwFormatter.currency(loanRange.annualInterestRate, symbol: '')}%',
+              style: OlwTextStyles.textSubTitle,
             ),
             Row(
               spacing: 8,
-              children: loanRange.paymentFrequencies.map((paymentFrequency) => OlwTag(label: paymentFrequency.name.getLocalized(appLocalizations.localeName),
-
-               )).toList(
-            ))
+              children: loanRange.paymentFrequencies
+                  .map(
+                    (paymentFrequency) => OlwTag(
+                      label: paymentFrequency.name.getLocalized(
+                        appLocalizations.localeName,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
           ],
         ),
       ),

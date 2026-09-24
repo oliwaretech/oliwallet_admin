@@ -11,8 +11,7 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/lines_o
 
 class LineOfCreditApproveNotifier
     extends StateNotifier<LineOfCreditApproveData> {
-  LineOfCreditApproveNotifier()
-      : super(const LineOfCreditApproveData());
+  LineOfCreditApproveNotifier() : super(const LineOfCreditApproveData());
 
   void updateUserId(String? userId) {
     state = state.copyWith(userId: userId);
@@ -26,7 +25,9 @@ class LineOfCreditApproveNotifier
     state = state.copyWith(accountType: accountType);
   }
 
-  void updateSelectedAccountTypes(List<LineOfCreditType>? selectedAccountTypes) {
+  void updateSelectedAccountTypes(
+    List<LineOfCreditType>? selectedAccountTypes,
+  ) {
     state = state.copyWith(selectedAccountTypes: selectedAccountTypes ?? []);
   }
 
@@ -58,7 +59,9 @@ class LineOfCreditApproveNotifier
     state = state.copyWith(accountColors: accountColors);
   }
 
-  void updateApprovalConditions(LineOfCreditApprovalConditions? approvalConditions) {
+  void updateApprovalConditions(
+    LineOfCreditApprovalConditions? approvalConditions,
+  ) {
     state = state.copyWith(approvalConditions: approvalConditions);
   }
 
@@ -66,7 +69,9 @@ class LineOfCreditApproveNotifier
     state = state.copyWith(billingPeriod: billingPeriod);
   }
 
-  void updateLineOfCreditCurrencyData(LineOfCreditCurrencyData? lineOfCreditCurrencyData) {
+  void updateLineOfCreditCurrencyData(
+    LineOfCreditCurrencyData? lineOfCreditCurrencyData,
+  ) {
     state = state.copyWith(lineOfCreditCurrencyData: lineOfCreditCurrencyData);
   }
 

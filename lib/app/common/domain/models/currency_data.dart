@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/language_codes.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/currency_name.dart';
 
-
 part 'currency_data.freezed.dart';
 part 'currency_data.g.dart';
 

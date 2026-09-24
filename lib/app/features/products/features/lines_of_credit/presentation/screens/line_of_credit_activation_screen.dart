@@ -88,7 +88,7 @@ class LineOfCreditActivationScreen extends ConsumerWidget {
           ),
           LineOfCreditActivationTypeStep(
             availableLineOfCreditTypes:
-            lineOfCreditData.approvalConditions.lineOfCreditTypes,
+                lineOfCreditData.approvalConditions.lineOfCreditTypes,
           ),
           LineOfCreditActivationBillingPeriodStep(),
           LineOfCreditActivationConfirmationStep(
@@ -123,11 +123,11 @@ class LineOfCreditActivationScreen extends ConsumerWidget {
                       allowStepTap: true,
                       onStepTapped: (currentStep) {
                         ref
-                            .read(
-                          currentLineOfCreditActivationStepProvider
-                              .notifier,
-                        )
-                            .state =
+                                .read(
+                                  currentLineOfCreditActivationStepProvider
+                                      .notifier,
+                                )
+                                .state =
                             currentStep;
                       },
                       currentStep: currentLineOfCreditActivationStep,

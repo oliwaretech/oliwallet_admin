@@ -61,7 +61,9 @@ class LoanCard extends ConsumerWidget {
                                 currentPayment.remainingAmount > BigInt.zero)
                               FutureBuilder<int>(
                                 future: getDaysLeft(
-                                  DateTime.parse(currentPayment.dueDate).subtract(const Duration(days: 1)),
+                                  DateTime.parse(
+                                    currentPayment.dueDate,
+                                  ).subtract(const Duration(days: 1)),
                                 ),
                                 builder: (context, snapshot) {
                                   final daysLeft = snapshot.data;
@@ -69,7 +71,7 @@ class LoanCard extends ConsumerWidget {
                                   return RichText(
                                     text: TextSpan(
                                       text:
-                                      '${appLocalizations.nextPaymentIn}: \n',
+                                          '${appLocalizations.nextPaymentIn}: \n',
                                       style: OlwTextStyles.textDescription,
                                       children: [
                                         if (daysLeft != null && daysLeft == 0)
@@ -80,20 +82,20 @@ class LoanCard extends ConsumerWidget {
                                         if (daysLeft != null && daysLeft >= 1)
                                           TextSpan(
                                             text:
-                                            '$daysLeft ${appLocalizations.days}',
+                                                '$daysLeft ${appLocalizations.days}',
                                             style: OlwTextStyles.textCardTitle,
                                           ),
                                         if (daysLeft != null &&
                                             daysLeft < 0 &&
                                             currentPayment
-                                                .remainingMinimumPayment >
+                                                    .remainingMinimumPayment >
                                                 BigInt.zero)
                                           TextSpan(
                                             text: appLocalizations.overdue,
                                             style: OlwTextStyles.textCardTitle
                                                 .copyWith(
-                                              color: OlwColors.error,
-                                            ),
+                                                  color: OlwColors.error,
+                                                ),
                                           ),
                                       ],
                                     ),

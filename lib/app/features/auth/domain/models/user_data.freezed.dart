@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserData {
 
- String? get userId; String get email; String get password; String get name; String get surname; String get fullName; String get currentCountryCode; String get documentTypeCode; String get documentTypeId; String get documentNumber; String get dateOfBirth; String get contactEmail; String get contactPhone; String get pinCode; String get registrationDate; String get lastLoginDate; AccountStatus get accountStatus; IdentificationStatus get identificationStatus; DeviceDetailData? get deviceDetails; UserDataValidationFormData? get userValidationData;
+ String? get userId; String get email; String get password; String get name; String get surname; String get fullName; String get currentCountryCode; String get documentTypeCode; String get documentTypeId; String get documentNumber; String get dateOfBirth; String get contactEmail; String get contactPhone; String get pinCode; String get registrationDate; String get lastLoginDate; AccountStatus get accountStatus; IdentificationStatus get identificationStatus; DeviceDetailData? get deviceDetails; UserDataValidationFormData? get userValidationData; UserPreferencesData? get userPreferencesData;
 /// Create a copy of UserData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserDataCopyWith<UserData> get copyWith => _$UserDataCopyWithImpl<UserData>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserData&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.surname, surname) || other.surname == surname)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.currentCountryCode, currentCountryCode) || other.currentCountryCode == currentCountryCode)&&(identical(other.documentTypeCode, documentTypeCode) || other.documentTypeCode == documentTypeCode)&&(identical(other.documentTypeId, documentTypeId) || other.documentTypeId == documentTypeId)&&(identical(other.documentNumber, documentNumber) || other.documentNumber == documentNumber)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.contactEmail, contactEmail) || other.contactEmail == contactEmail)&&(identical(other.contactPhone, contactPhone) || other.contactPhone == contactPhone)&&(identical(other.pinCode, pinCode) || other.pinCode == pinCode)&&(identical(other.registrationDate, registrationDate) || other.registrationDate == registrationDate)&&(identical(other.lastLoginDate, lastLoginDate) || other.lastLoginDate == lastLoginDate)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.identificationStatus, identificationStatus) || other.identificationStatus == identificationStatus)&&(identical(other.deviceDetails, deviceDetails) || other.deviceDetails == deviceDetails)&&(identical(other.userValidationData, userValidationData) || other.userValidationData == userValidationData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserData&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.surname, surname) || other.surname == surname)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.currentCountryCode, currentCountryCode) || other.currentCountryCode == currentCountryCode)&&(identical(other.documentTypeCode, documentTypeCode) || other.documentTypeCode == documentTypeCode)&&(identical(other.documentTypeId, documentTypeId) || other.documentTypeId == documentTypeId)&&(identical(other.documentNumber, documentNumber) || other.documentNumber == documentNumber)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.contactEmail, contactEmail) || other.contactEmail == contactEmail)&&(identical(other.contactPhone, contactPhone) || other.contactPhone == contactPhone)&&(identical(other.pinCode, pinCode) || other.pinCode == pinCode)&&(identical(other.registrationDate, registrationDate) || other.registrationDate == registrationDate)&&(identical(other.lastLoginDate, lastLoginDate) || other.lastLoginDate == lastLoginDate)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.identificationStatus, identificationStatus) || other.identificationStatus == identificationStatus)&&(identical(other.deviceDetails, deviceDetails) || other.deviceDetails == deviceDetails)&&(identical(other.userValidationData, userValidationData) || other.userValidationData == userValidationData)&&(identical(other.userPreferencesData, userPreferencesData) || other.userPreferencesData == userPreferencesData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,userId,email,password,name,surname,fullName,currentCountryCode,documentTypeCode,documentTypeId,documentNumber,dateOfBirth,contactEmail,contactPhone,pinCode,registrationDate,lastLoginDate,accountStatus,identificationStatus,deviceDetails,userValidationData]);
+int get hashCode => Object.hashAll([runtimeType,userId,email,password,name,surname,fullName,currentCountryCode,documentTypeCode,documentTypeId,documentNumber,dateOfBirth,contactEmail,contactPhone,pinCode,registrationDate,lastLoginDate,accountStatus,identificationStatus,deviceDetails,userValidationData,userPreferencesData]);
 
 @override
 String toString() {
-  return 'UserData(userId: $userId, email: $email, password: $password, name: $name, surname: $surname, fullName: $fullName, currentCountryCode: $currentCountryCode, documentTypeCode: $documentTypeCode, documentTypeId: $documentTypeId, documentNumber: $documentNumber, dateOfBirth: $dateOfBirth, contactEmail: $contactEmail, contactPhone: $contactPhone, pinCode: $pinCode, registrationDate: $registrationDate, lastLoginDate: $lastLoginDate, accountStatus: $accountStatus, identificationStatus: $identificationStatus, deviceDetails: $deviceDetails, userValidationData: $userValidationData)';
+  return 'UserData(userId: $userId, email: $email, password: $password, name: $name, surname: $surname, fullName: $fullName, currentCountryCode: $currentCountryCode, documentTypeCode: $documentTypeCode, documentTypeId: $documentTypeId, documentNumber: $documentNumber, dateOfBirth: $dateOfBirth, contactEmail: $contactEmail, contactPhone: $contactPhone, pinCode: $pinCode, registrationDate: $registrationDate, lastLoginDate: $lastLoginDate, accountStatus: $accountStatus, identificationStatus: $identificationStatus, deviceDetails: $deviceDetails, userValidationData: $userValidationData, userPreferencesData: $userPreferencesData)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $UserDataCopyWith<$Res>  {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) _then) = _$UserDataCopyWithImpl;
 @useResult
 $Res call({
- String? userId, String email, String password, String name, String surname, String fullName, String currentCountryCode, String documentTypeCode, String documentTypeId, String documentNumber, String dateOfBirth, String contactEmail, String contactPhone, String pinCode, String registrationDate, String lastLoginDate, AccountStatus accountStatus, IdentificationStatus identificationStatus, DeviceDetailData? deviceDetails, UserDataValidationFormData? userValidationData
+ String? userId, String email, String password, String name, String surname, String fullName, String currentCountryCode, String documentTypeCode, String documentTypeId, String documentNumber, String dateOfBirth, String contactEmail, String contactPhone, String pinCode, String registrationDate, String lastLoginDate, AccountStatus accountStatus, IdentificationStatus identificationStatus, DeviceDetailData? deviceDetails, UserDataValidationFormData? userValidationData, UserPreferencesData? userPreferencesData
 });
 
 
-$DeviceDetailDataCopyWith<$Res>? get deviceDetails;$UserDataValidationFormDataCopyWith<$Res>? get userValidationData;
+$DeviceDetailDataCopyWith<$Res>? get deviceDetails;$UserDataValidationFormDataCopyWith<$Res>? get userValidationData;$UserPreferencesDataCopyWith<$Res>? get userPreferencesData;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$UserDataCopyWithImpl<$Res>
 
 /// Create a copy of UserData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userId = freezed,Object? email = null,Object? password = null,Object? name = null,Object? surname = null,Object? fullName = null,Object? currentCountryCode = null,Object? documentTypeCode = null,Object? documentTypeId = null,Object? documentNumber = null,Object? dateOfBirth = null,Object? contactEmail = null,Object? contactPhone = null,Object? pinCode = null,Object? registrationDate = null,Object? lastLoginDate = null,Object? accountStatus = null,Object? identificationStatus = null,Object? deviceDetails = freezed,Object? userValidationData = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userId = freezed,Object? email = null,Object? password = null,Object? name = null,Object? surname = null,Object? fullName = null,Object? currentCountryCode = null,Object? documentTypeCode = null,Object? documentTypeId = null,Object? documentNumber = null,Object? dateOfBirth = null,Object? contactEmail = null,Object? contactPhone = null,Object? pinCode = null,Object? registrationDate = null,Object? lastLoginDate = null,Object? accountStatus = null,Object? identificationStatus = null,Object? deviceDetails = freezed,Object? userValidationData = freezed,Object? userPreferencesData = freezed,}) {
   return _then(_self.copyWith(
 userId: freezed == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String?,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,8 @@ as String,accountStatus: null == accountStatus ? _self.accountStatus : accountSt
 as AccountStatus,identificationStatus: null == identificationStatus ? _self.identificationStatus : identificationStatus // ignore: cast_nullable_to_non_nullable
 as IdentificationStatus,deviceDetails: freezed == deviceDetails ? _self.deviceDetails : deviceDetails // ignore: cast_nullable_to_non_nullable
 as DeviceDetailData?,userValidationData: freezed == userValidationData ? _self.userValidationData : userValidationData // ignore: cast_nullable_to_non_nullable
-as UserDataValidationFormData?,
+as UserDataValidationFormData?,userPreferencesData: freezed == userPreferencesData ? _self.userPreferencesData : userPreferencesData // ignore: cast_nullable_to_non_nullable
+as UserPreferencesData?,
   ));
 }
 /// Create a copy of UserData
@@ -113,6 +114,18 @@ $UserDataValidationFormDataCopyWith<$Res>? get userValidationData {
 
   return $UserDataValidationFormDataCopyWith<$Res>(_self.userValidationData!, (value) {
     return _then(_self.copyWith(userValidationData: value));
+  });
+}/// Create a copy of UserData
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UserPreferencesDataCopyWith<$Res>? get userPreferencesData {
+    if (_self.userPreferencesData == null) {
+    return null;
+  }
+
+  return $UserPreferencesDataCopyWith<$Res>(_self.userPreferencesData!, (value) {
+    return _then(_self.copyWith(userPreferencesData: value));
   });
 }
 }
@@ -196,10 +209,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData,  UserPreferencesData? userPreferencesData)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserData() when $default != null:
-return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData);case _:
+return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData,_that.userPreferencesData);case _:
   return orElse();
 
 }
@@ -217,10 +230,10 @@ return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData,  UserPreferencesData? userPreferencesData)  $default,) {final _that = this;
 switch (_that) {
 case _UserData():
-return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData);case _:
+return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData,_that.userPreferencesData);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -237,10 +250,10 @@ return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? userId,  String email,  String password,  String name,  String surname,  String fullName,  String currentCountryCode,  String documentTypeCode,  String documentTypeId,  String documentNumber,  String dateOfBirth,  String contactEmail,  String contactPhone,  String pinCode,  String registrationDate,  String lastLoginDate,  AccountStatus accountStatus,  IdentificationStatus identificationStatus,  DeviceDetailData? deviceDetails,  UserDataValidationFormData? userValidationData,  UserPreferencesData? userPreferencesData)?  $default,) {final _that = this;
 switch (_that) {
 case _UserData() when $default != null:
-return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData);case _:
+return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname,_that.fullName,_that.currentCountryCode,_that.documentTypeCode,_that.documentTypeId,_that.documentNumber,_that.dateOfBirth,_that.contactEmail,_that.contactPhone,_that.pinCode,_that.registrationDate,_that.lastLoginDate,_that.accountStatus,_that.identificationStatus,_that.deviceDetails,_that.userValidationData,_that.userPreferencesData);case _:
   return null;
 
 }
@@ -252,7 +265,7 @@ return $default(_that.userId,_that.email,_that.password,_that.name,_that.surname
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _UserData implements UserData {
-  const _UserData({this.userId, required this.email, required this.password, required this.name, required this.surname, required this.fullName, required this.currentCountryCode, required this.documentTypeCode, required this.documentTypeId, required this.documentNumber, required this.dateOfBirth, required this.contactEmail, required this.contactPhone, required this.pinCode, required this.registrationDate, required this.lastLoginDate, required this.accountStatus, required this.identificationStatus, this.deviceDetails, this.userValidationData});
+  const _UserData({this.userId, required this.email, required this.password, required this.name, required this.surname, required this.fullName, required this.currentCountryCode, required this.documentTypeCode, required this.documentTypeId, required this.documentNumber, required this.dateOfBirth, required this.contactEmail, required this.contactPhone, required this.pinCode, required this.registrationDate, required this.lastLoginDate, required this.accountStatus, required this.identificationStatus, this.deviceDetails, this.userValidationData, this.userPreferencesData});
   factory _UserData.fromJson(Map<String, dynamic> json) => _$UserDataFromJson(json);
 
 @override final  String? userId;
@@ -275,6 +288,7 @@ class _UserData implements UserData {
 @override final  IdentificationStatus identificationStatus;
 @override final  DeviceDetailData? deviceDetails;
 @override final  UserDataValidationFormData? userValidationData;
+@override final  UserPreferencesData? userPreferencesData;
 
 /// Create a copy of UserData
 /// with the given fields replaced by the non-null parameter values.
@@ -289,16 +303,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserData&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.surname, surname) || other.surname == surname)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.currentCountryCode, currentCountryCode) || other.currentCountryCode == currentCountryCode)&&(identical(other.documentTypeCode, documentTypeCode) || other.documentTypeCode == documentTypeCode)&&(identical(other.documentTypeId, documentTypeId) || other.documentTypeId == documentTypeId)&&(identical(other.documentNumber, documentNumber) || other.documentNumber == documentNumber)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.contactEmail, contactEmail) || other.contactEmail == contactEmail)&&(identical(other.contactPhone, contactPhone) || other.contactPhone == contactPhone)&&(identical(other.pinCode, pinCode) || other.pinCode == pinCode)&&(identical(other.registrationDate, registrationDate) || other.registrationDate == registrationDate)&&(identical(other.lastLoginDate, lastLoginDate) || other.lastLoginDate == lastLoginDate)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.identificationStatus, identificationStatus) || other.identificationStatus == identificationStatus)&&(identical(other.deviceDetails, deviceDetails) || other.deviceDetails == deviceDetails)&&(identical(other.userValidationData, userValidationData) || other.userValidationData == userValidationData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserData&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.surname, surname) || other.surname == surname)&&(identical(other.fullName, fullName) || other.fullName == fullName)&&(identical(other.currentCountryCode, currentCountryCode) || other.currentCountryCode == currentCountryCode)&&(identical(other.documentTypeCode, documentTypeCode) || other.documentTypeCode == documentTypeCode)&&(identical(other.documentTypeId, documentTypeId) || other.documentTypeId == documentTypeId)&&(identical(other.documentNumber, documentNumber) || other.documentNumber == documentNumber)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.contactEmail, contactEmail) || other.contactEmail == contactEmail)&&(identical(other.contactPhone, contactPhone) || other.contactPhone == contactPhone)&&(identical(other.pinCode, pinCode) || other.pinCode == pinCode)&&(identical(other.registrationDate, registrationDate) || other.registrationDate == registrationDate)&&(identical(other.lastLoginDate, lastLoginDate) || other.lastLoginDate == lastLoginDate)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.identificationStatus, identificationStatus) || other.identificationStatus == identificationStatus)&&(identical(other.deviceDetails, deviceDetails) || other.deviceDetails == deviceDetails)&&(identical(other.userValidationData, userValidationData) || other.userValidationData == userValidationData)&&(identical(other.userPreferencesData, userPreferencesData) || other.userPreferencesData == userPreferencesData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,userId,email,password,name,surname,fullName,currentCountryCode,documentTypeCode,documentTypeId,documentNumber,dateOfBirth,contactEmail,contactPhone,pinCode,registrationDate,lastLoginDate,accountStatus,identificationStatus,deviceDetails,userValidationData]);
+int get hashCode => Object.hashAll([runtimeType,userId,email,password,name,surname,fullName,currentCountryCode,documentTypeCode,documentTypeId,documentNumber,dateOfBirth,contactEmail,contactPhone,pinCode,registrationDate,lastLoginDate,accountStatus,identificationStatus,deviceDetails,userValidationData,userPreferencesData]);
 
 @override
 String toString() {
-  return 'UserData(userId: $userId, email: $email, password: $password, name: $name, surname: $surname, fullName: $fullName, currentCountryCode: $currentCountryCode, documentTypeCode: $documentTypeCode, documentTypeId: $documentTypeId, documentNumber: $documentNumber, dateOfBirth: $dateOfBirth, contactEmail: $contactEmail, contactPhone: $contactPhone, pinCode: $pinCode, registrationDate: $registrationDate, lastLoginDate: $lastLoginDate, accountStatus: $accountStatus, identificationStatus: $identificationStatus, deviceDetails: $deviceDetails, userValidationData: $userValidationData)';
+  return 'UserData(userId: $userId, email: $email, password: $password, name: $name, surname: $surname, fullName: $fullName, currentCountryCode: $currentCountryCode, documentTypeCode: $documentTypeCode, documentTypeId: $documentTypeId, documentNumber: $documentNumber, dateOfBirth: $dateOfBirth, contactEmail: $contactEmail, contactPhone: $contactPhone, pinCode: $pinCode, registrationDate: $registrationDate, lastLoginDate: $lastLoginDate, accountStatus: $accountStatus, identificationStatus: $identificationStatus, deviceDetails: $deviceDetails, userValidationData: $userValidationData, userPreferencesData: $userPreferencesData)';
 }
 
 
@@ -309,11 +323,11 @@ abstract mixin class _$UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res>
   factory _$UserDataCopyWith(_UserData value, $Res Function(_UserData) _then) = __$UserDataCopyWithImpl;
 @override @useResult
 $Res call({
- String? userId, String email, String password, String name, String surname, String fullName, String currentCountryCode, String documentTypeCode, String documentTypeId, String documentNumber, String dateOfBirth, String contactEmail, String contactPhone, String pinCode, String registrationDate, String lastLoginDate, AccountStatus accountStatus, IdentificationStatus identificationStatus, DeviceDetailData? deviceDetails, UserDataValidationFormData? userValidationData
+ String? userId, String email, String password, String name, String surname, String fullName, String currentCountryCode, String documentTypeCode, String documentTypeId, String documentNumber, String dateOfBirth, String contactEmail, String contactPhone, String pinCode, String registrationDate, String lastLoginDate, AccountStatus accountStatus, IdentificationStatus identificationStatus, DeviceDetailData? deviceDetails, UserDataValidationFormData? userValidationData, UserPreferencesData? userPreferencesData
 });
 
 
-@override $DeviceDetailDataCopyWith<$Res>? get deviceDetails;@override $UserDataValidationFormDataCopyWith<$Res>? get userValidationData;
+@override $DeviceDetailDataCopyWith<$Res>? get deviceDetails;@override $UserDataValidationFormDataCopyWith<$Res>? get userValidationData;@override $UserPreferencesDataCopyWith<$Res>? get userPreferencesData;
 
 }
 /// @nodoc
@@ -326,7 +340,7 @@ class __$UserDataCopyWithImpl<$Res>
 
 /// Create a copy of UserData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userId = freezed,Object? email = null,Object? password = null,Object? name = null,Object? surname = null,Object? fullName = null,Object? currentCountryCode = null,Object? documentTypeCode = null,Object? documentTypeId = null,Object? documentNumber = null,Object? dateOfBirth = null,Object? contactEmail = null,Object? contactPhone = null,Object? pinCode = null,Object? registrationDate = null,Object? lastLoginDate = null,Object? accountStatus = null,Object? identificationStatus = null,Object? deviceDetails = freezed,Object? userValidationData = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? userId = freezed,Object? email = null,Object? password = null,Object? name = null,Object? surname = null,Object? fullName = null,Object? currentCountryCode = null,Object? documentTypeCode = null,Object? documentTypeId = null,Object? documentNumber = null,Object? dateOfBirth = null,Object? contactEmail = null,Object? contactPhone = null,Object? pinCode = null,Object? registrationDate = null,Object? lastLoginDate = null,Object? accountStatus = null,Object? identificationStatus = null,Object? deviceDetails = freezed,Object? userValidationData = freezed,Object? userPreferencesData = freezed,}) {
   return _then(_UserData(
 userId: freezed == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String?,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
@@ -348,7 +362,8 @@ as String,accountStatus: null == accountStatus ? _self.accountStatus : accountSt
 as AccountStatus,identificationStatus: null == identificationStatus ? _self.identificationStatus : identificationStatus // ignore: cast_nullable_to_non_nullable
 as IdentificationStatus,deviceDetails: freezed == deviceDetails ? _self.deviceDetails : deviceDetails // ignore: cast_nullable_to_non_nullable
 as DeviceDetailData?,userValidationData: freezed == userValidationData ? _self.userValidationData : userValidationData // ignore: cast_nullable_to_non_nullable
-as UserDataValidationFormData?,
+as UserDataValidationFormData?,userPreferencesData: freezed == userPreferencesData ? _self.userPreferencesData : userPreferencesData // ignore: cast_nullable_to_non_nullable
+as UserPreferencesData?,
   ));
 }
 
@@ -375,6 +390,18 @@ $UserDataValidationFormDataCopyWith<$Res>? get userValidationData {
 
   return $UserDataValidationFormDataCopyWith<$Res>(_self.userValidationData!, (value) {
     return _then(_self.copyWith(userValidationData: value));
+  });
+}/// Create a copy of UserData
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UserPreferencesDataCopyWith<$Res>? get userPreferencesData {
+    if (_self.userPreferencesData == null) {
+    return null;
+  }
+
+  return $UserPreferencesDataCopyWith<$Res>(_self.userPreferencesData!, (value) {
+    return _then(_self.copyWith(userPreferencesData: value));
   });
 }
 }

@@ -11,16 +11,15 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveCurrencyAndLoanTypesStep extends ConsumerWidget {
   final CountryLoan countryLoan;
-  const LoanApproveCurrencyAndLoanTypesStep({super.key,
+  const LoanApproveCurrencyAndLoanTypesStep({
+    super.key,
     required this.countryLoan,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -35,8 +34,7 @@ class LoanApproveCurrencyAndLoanTypesStep extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                appLocalizations
-                    .selectTheCurrencyInWhichYouAreApprovingTheLoan,
+                appLocalizations.selectTheCurrencyInWhichYouAreApprovingTheLoan,
                 style: OlwTextStyles.textCardTitle,
               ),
               Wrap(
@@ -44,80 +42,93 @@ class LoanApproveCurrencyAndLoanTypesStep extends ConsumerWidget {
                 children: countryLoan.approvalConfig.currencies
                     .map(
                       (currency) => CurrencyDataRadioButton(
-                    onChanged: () {
-                      ref
-                          .read(loanApproveProvider.notifier)
-                          .updateCurrencyData(currency);
+                        onChanged: () {
+                          ref
+                              .read(loanApproveProvider.notifier)
+                              .updateCurrencyData(currency);
 
-                      switch (currency.currencyCode) {
-                        case 'PEN':
-                          ref.read(loanApproveProvider.notifier).updateLoanCurrencyData(
-                              countryLoan.currency.pen
-                          );
-                          break;
-                        case 'USD':
-                          ref.read(loanApproveProvider.notifier).updateLoanCurrencyData(
-                              countryLoan.currency.usd
-                          );
-                        case 'EUR':
-                          ref.read(loanApproveProvider.notifier).updateLoanCurrencyData(
-                              countryLoan.currency.eur
-                          );
-                          break;
-                        default:
-                      }
-
-                    },
-                    groupValue: loanApprove.currencyData,
-                    currency: currency,
-                  ),
-                )
+                          switch (currency.currencyCode) {
+                            case 'PEN':
+                              ref
+                                  .read(loanApproveProvider.notifier)
+                                  .updateLoanCurrencyData(
+                                    countryLoan.currency.pen,
+                                  );
+                              break;
+                            case 'USD':
+                              ref
+                                  .read(loanApproveProvider.notifier)
+                                  .updateLoanCurrencyData(
+                                    countryLoan.currency.usd,
+                                  );
+                            case 'EUR':
+                              ref
+                                  .read(loanApproveProvider.notifier)
+                                  .updateLoanCurrencyData(
+                                    countryLoan.currency.eur,
+                                  );
+                              break;
+                            default:
+                          }
+                        },
+                        groupValue: loanApprove.currencyData,
+                        currency: currency,
+                      ),
+                    )
                     .toList(),
               ),
             ],
           ),
-          if(loanApprove.currencyData != null)
-          Column(
-            spacing: 8,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                appLocalizations
-                    .selectTheLoanTypeToApprove,
-                style: OlwTextStyles.textCardTitle,
-              ),
-              Wrap(
+          if (loanApprove.currencyData != null)
+            Column(
+              spacing: 8,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  appLocalizations.selectTheLoanTypeToApprove,
+                  style: OlwTextStyles.textCardTitle,
+                ),
+                Wrap(
                   runSpacing: 8,
-                children: loanApprove.loanCurrencyData!.loanTypes!.map(
-                      (loanType) => LoanApproveAccountTypeCard(
-                    loanType: loanType,
-                  ),
-                ).toList(
-              ))
-            ],
-          ),
+                  children: loanApprove.loanCurrencyData!.loanTypes!
+                      .map(
+                        (loanType) =>
+                            LoanApproveAccountTypeCard(loanType: loanType),
+                      )
+                      .toList(),
+                ),
+              ],
+            ),
           OlwPrimaryButton(
-              onPressed: (){
-                if(loanApprove.currencyData == null){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.selectTheCurrencyInWhichYouAreApprovingTheLoan,
-                  );
-                  return;
-                }
+            onPressed: () {
+              if (loanApprove.currencyData == null) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations
+                      .selectTheCurrencyInWhichYouAreApprovingTheLoan,
+                );
+                return;
+              }
 
-                if(loanApprove.selectedAccountType == null){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.selectTheLoanTypeToApprove,
-                  );
-                  return;
-                }
+              if (loanApprove.selectedAccountType == null) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations.selectTheLoanTypeToApprove,
+                );
+                return;
+              }
 
-                ref.read(currentLoanApproveStepProvider.notifier).state = 1;
-                ref.read(loanApproveCurrencyAndLoanTypeStepIsCompletedProvider.notifier).state = true;
-              },
-              text: appLocalizations.continueMessage),
+              ref.read(currentLoanApproveStepProvider.notifier).state = 1;
+              ref
+                      .read(
+                        loanApproveCurrencyAndLoanTypeStepIsCompletedProvider
+                            .notifier,
+                      )
+                      .state =
+                  true;
+            },
+            text: appLocalizations.continueMessage,
+          ),
         ],
       ),
     );

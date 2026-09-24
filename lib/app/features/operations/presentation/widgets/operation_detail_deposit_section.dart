@@ -21,7 +21,8 @@ class OperationDetailDepositSection extends ConsumerWidget {
   final TransactionOperation operation;
   final AppConfig appConfig;
   final UserData userData;
-  const OperationDetailDepositSection({super.key,
+  const OperationDetailDepositSection({
+    super.key,
     required this.operation,
     required this.appConfig,
     required this.userData,
@@ -31,16 +32,18 @@ class OperationDetailDepositSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
     final depositOperationData = operation.depositOperationData!;
-    final currentDetailScreenIsLoading = ref.watch(currentDetailScreenIsLoadingProvider);
+    final currentDetailScreenIsLoading = ref.watch(
+      currentDetailScreenIsLoadingProvider,
+    );
 
     BigInt? totalFees = BigInt.zero;
     BigInt? totalTaxes = BigInt.zero;
 
-    for(var fee in depositOperationData.fees!) {
+    for (var fee in depositOperationData.fees!) {
       totalFees = totalFees! + fee.value;
     }
 
-    for(var tax in depositOperationData.taxes!) {
+    for (var tax in depositOperationData.taxes!) {
       totalTaxes = totalTaxes! + tax.value;
     }
 
@@ -54,8 +57,17 @@ class OperationDetailDepositSection extends ConsumerWidget {
             child: Column(
               spacing: 2,
               children: [
-                Text(appLocalizations.totalToDepositOnTheAccount, style: OlwTextStyles.textSubTitle,),
-                Text(OlwFormatter.currency(BigIntParser.toDouble(depositOperationData.totalAmount!), symbol: operation.currencySymbol), style: OlwTextStyles.textTitle,),
+                Text(
+                  appLocalizations.totalToDepositOnTheAccount,
+                  style: OlwTextStyles.textSubTitle,
+                ),
+                Text(
+                  OlwFormatter.currency(
+                    BigIntParser.toDouble(depositOperationData.totalAmount!),
+                    symbol: operation.currencySymbol,
+                  ),
+                  style: OlwTextStyles.textTitle,
+                ),
               ],
             ),
           ),
@@ -67,149 +79,224 @@ class OperationDetailDepositSection extends ConsumerWidget {
               spacing: 2,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(appLocalizations.confirmationMethod, style: OlwTextStyles.textSubTitle,),
-                if(depositOperationData.confirmationMethod == OperationConfirmationMethod.code)
+                Text(
+                  appLocalizations.confirmationMethod,
+                  style: OlwTextStyles.textSubTitle,
+                ),
+                if (depositOperationData.confirmationMethod ==
+                    OperationConfirmationMethod.code)
                   Column(
                     spacing: 2,
                     children: [
-                      Text(appLocalizations.operationCode, style: OlwTextStyles.textDescription,),
-                      Text(depositOperationData.operationCode!, style: OlwTextStyles.textCardTitle,),
+                      Text(
+                        appLocalizations.operationCode,
+                        style: OlwTextStyles.textDescription,
+                      ),
+                      Text(
+                        depositOperationData.operationCode!,
+                        style: OlwTextStyles.textCardTitle,
+                      ),
                     ],
                   ),
-                if(depositOperationData.confirmationMethod == OperationConfirmationMethod.upload)
+                if (depositOperationData.confirmationMethod ==
+                    OperationConfirmationMethod.upload)
                   OlwSecondaryButton(
-                    onPressed: (){
+                    onPressed: () {
                       showOlwBottomSheet(
-                          isFullScreen: true,
-                          context: context,
-                          title: appLocalizations.proof,
-                          content: InteractiveViewer(
-                              minScale: 1.0,
-                              maxScale: 4.0,
-                              child: Image.network(depositOperationData.proofImageUrl!, fit: BoxFit.contain,)));
+                        isFullScreen: true,
+                        context: context,
+                        title: appLocalizations.proof,
+                        content: InteractiveViewer(
+                          minScale: 1.0,
+                          maxScale: 4.0,
+                          child: Image.network(
+                            depositOperationData.proofImageUrl!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      );
                     },
-                      isSmall: true,
-                      text: appLocalizations.openProofOfOperation)
+                    isSmall: true,
+                    text: appLocalizations.openProofOfOperation,
+                  ),
               ],
             ),
           ),
         ),
-        Text(appLocalizations.destinationAccount, style: OlwTextStyles.textSubTitle,),
+        Text(
+          appLocalizations.destinationAccount,
+          style: OlwTextStyles.textSubTitle,
+        ),
         Column(
           children: [
             OperationDetailTile(
-                item: appLocalizations.accountName,
-                value: depositOperationData.accountData!.accountNickname,
+              item: appLocalizations.accountName,
+              value: depositOperationData.accountData!.accountNickname,
             ),
             OperationDetailTile(
-                item: appLocalizations.accountNumber,
-                value: depositOperationData.accountData!.accountNumber
+              item: appLocalizations.accountNumber,
+              value: depositOperationData.accountData!.accountNumber,
             ),
-              OperationDetailTile(
-                  item: appLocalizations.previousBalance,
-                  value: OlwFormatter.currency(BigIntParser.toDouble(depositOperationData.accountData!.balance), symbol: operation.currencySymbol)
+            OperationDetailTile(
+              item: appLocalizations.previousBalance,
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(
+                  depositOperationData.accountData!.balance,
+                ),
+                symbol: operation.currencySymbol,
               ),
+            ),
             OperationDetailTile(
-                item: appLocalizations.balanceAfterDeposit,
-                value: OlwFormatter.currency(BigIntParser.toDouble(depositOperationData.accountData!.balance + depositOperationData.totalAmount!), symbol: operation.currencySymbol)
+              item: appLocalizations.balanceAfterDeposit,
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(
+                  depositOperationData.accountData!.balance +
+                      depositOperationData.totalAmount!,
+                ),
+                symbol: operation.currencySymbol,
+              ),
             ),
           ],
         ),
-        Text(appLocalizations.depositDestinationDetails, style: OlwTextStyles.textSubTitle,),
+        Text(
+          appLocalizations.depositDestinationDetails,
+          style: OlwTextStyles.textSubTitle,
+        ),
         Column(
           children: [
             OperationDetailTile(
-                item: appLocalizations.financialEntity,
-                value: depositOperationData.method!.methodName.getLocalized(appLocalizations.localeName)
+              item: appLocalizations.financialEntity,
+              value: depositOperationData.method!.methodName.getLocalized(
+                appLocalizations.localeName,
+              ),
             ),
             OperationDetailTile(
-                item: depositOperationData.method!.methodNumberName.getLocalized(appLocalizations.localeName),
-                value: depositOperationData.method!.methodNumber
+              item: depositOperationData.method!.methodNumberName.getLocalized(
+                appLocalizations.localeName,
+              ),
+              value: depositOperationData.method!.methodNumber,
             ),
-            if(depositOperationData.method!.methodSecondaryNumber != null && depositOperationData.method!.methodSecondaryNumberName != null)
-            OperationDetailTile(
-                item: depositOperationData.method!.methodSecondaryNumberName!.getLocalized(appLocalizations.localeName),
-                value: depositOperationData.method!.methodSecondaryNumber!
-            ),
+            if (depositOperationData.method!.methodSecondaryNumber != null &&
+                depositOperationData.method!.methodSecondaryNumberName != null)
+              OperationDetailTile(
+                item: depositOperationData.method!.methodSecondaryNumberName!
+                    .getLocalized(appLocalizations.localeName),
+                value: depositOperationData.method!.methodSecondaryNumber!,
+              ),
           ],
         ),
-        Text(appLocalizations.calculationDetails, style: OlwTextStyles.textSubTitle,),
+        Text(
+          appLocalizations.calculationDetails,
+          style: OlwTextStyles.textSubTitle,
+        ),
         Column(
           children: [
             OperationDetailTile(
               item: appLocalizations.depositAmountBeforeTaxesAndFees,
-              value: OlwFormatter.currency(BigIntParser.toDouble(depositOperationData.amount!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(depositOperationData.amount!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
               item: appLocalizations.costOfDeposit,
-              value: OlwFormatter.currency(BigIntParser.toDouble(totalFees!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(totalFees!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
               item: appLocalizations.totalTaxes,
-              value: OlwFormatter.currency(BigIntParser.toDouble(totalTaxes!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(totalTaxes!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
-                isWidget: true,
-                showDivider: false,
-                item: appLocalizations.amountToDeposit,
-                valueWidget: OlwTag(label: OlwFormatter.currency(BigIntParser.toDouble(depositOperationData.totalAmount!), symbol: operation.currencySymbol))),
+              isWidget: true,
+              showDivider: false,
+              item: appLocalizations.amountToDeposit,
+              valueWidget: OlwTag(
+                label: OlwFormatter.currency(
+                  BigIntParser.toDouble(depositOperationData.totalAmount!),
+                  symbol: operation.currencySymbol,
+                ),
+              ),
+            ),
           ],
         ),
-        if(currentDetailScreenIsLoading)
+        if (currentDetailScreenIsLoading)
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 16.0),
             child: OlwLoadingSpinner(),
           ),
-        if(!currentDetailScreenIsLoading)
+        if (!currentDetailScreenIsLoading)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Column(
               spacing: 16,
               children: [
                 OlwPrimaryButton(
-                    onPressed: () {
-                      updateOperationStatus(
-                          ref,
-                          operation.id!,
-                          OperationStatus.completed,
-                          context,
-                          userData,
-                          depositOperationData,
-                          userData.currentCountryCode == 'PE' ? appConfig.messageNotificationConfig.pe.deposit : appConfig.messageNotificationConfig.hr!.deposit,
-                          appLocalizations
-                      );
-                    },
-                    text: appLocalizations.confirmOperation),
+                  onPressed: () {
+                    updateOperationStatus(
+                      ref,
+                      operation.id!,
+                      OperationStatus.completed,
+                      context,
+                      userData,
+                      depositOperationData,
+                      userData.currentCountryCode == 'PE'
+                          ? appConfig.messageNotificationConfig.pe.deposit
+                          : appConfig.messageNotificationConfig.hr!.deposit,
+                      appLocalizations,
+                    );
+                  },
+                  text: appLocalizations.confirmOperation,
+                ),
                 OlwSecondaryButton(
-                    onPressed: () {
-                      updateOperationStatus(
-                          ref,
-                          operation.id!,
-                          OperationStatus.rejected,
-                          context,
-                          userData,
-                          depositOperationData,
-                          userData.currentCountryCode == 'PE' ? appConfig.messageNotificationConfig.pe.deposit : appConfig.messageNotificationConfig.hr!.deposit,
-                          appLocalizations
-                      );
-                    },
-                    text: appLocalizations.rejectOperation)
+                  onPressed: () {
+                    updateOperationStatus(
+                      ref,
+                      operation.id!,
+                      OperationStatus.rejected,
+                      context,
+                      userData,
+                      depositOperationData,
+                      userData.currentCountryCode == 'PE'
+                          ? appConfig.messageNotificationConfig.pe.deposit
+                          : appConfig.messageNotificationConfig.hr!.deposit,
+                      appLocalizations,
+                    );
+                  },
+                  text: appLocalizations.rejectOperation,
+                ),
               ],
             ),
-          )
+          ),
       ],
     );
   }
 
-  Future<void> updateOperationStatus(WidgetRef ref,
-      String operationId,
-      OperationStatus status,
-      BuildContext context,
-      UserData userData,
-      DepositOperationData depositOperationData,
-      DepositMessageNotificationData messageNotificationData,
-      AppLocalizations appLocalizations) async {
+  Future<void> updateOperationStatus(
+    WidgetRef ref,
+    String operationId,
+    OperationStatus status,
+    BuildContext context,
+    UserData userData,
+    DepositOperationData depositOperationData,
+    DepositMessageNotificationData messageNotificationData,
+    AppLocalizations appLocalizations,
+  ) async {
     try {
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = true;
-      await ref.read(operationsRepositoryProvider).updateOperationStatus(operationId, status, SupabaseTables.transactionOperations);
-      if(!context.mounted) return;
+      await ref
+          .read(operationsRepositoryProvider)
+          .updateOperationStatus(
+            operationId,
+            status,
+            SupabaseTables.transactionOperations,
+          );
+      if (!context.mounted) return;
       OlwSnackBarNotification.showSuccess(
         title: appLocalizations.done,
         message: appLocalizations.operationStatusUpdatedSuccessfully,
@@ -218,65 +305,70 @@ class OperationDetailDepositSection extends ConsumerWidget {
 
       String? messageContent;
 
-      if(status == OperationStatus.completed){
-        if(userData.currentCountryCode == 'PE'){
+      if (status == OperationStatus.completed) {
+        if (userData.userPreferencesData?.languageCode == 'es') {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operación Completada',
-                userId: userData.userId!,
-                body: '${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname}',
-                type: PushNotificationTypes.creditCardCashRequest,
-              )
+            PushNotificationData(
+              title: 'Operación Completada',
+              userId: userData.userId!,
+              body:
+                  '${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname}',
+              type: PushNotificationTypes.creditCardCashRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.completedOperation.greeting.es} ${userData.name}, ${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.completedOperation.greeting.es} ${userData.name}, ${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operation Completed',
-                userId: userData.userId!,
-                body: '${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname}',
-                type: PushNotificationTypes.creditCardCashRequest,
-              )
+            PushNotificationData(
+              title: 'Operation Completed',
+              userId: userData.userId!,
+              body:
+                  '${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname}',
+              type: PushNotificationTypes.creditCardCashRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.completedOperation.greeting.en} ${userData.name}, ${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.completedOperation.greeting.en} ${userData.name}, ${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }
-      } else if(status == OperationStatus.rejected){
-        if(userData.currentCountryCode == 'PE'){
+      } else if (status == OperationStatus.rejected) {
+        if (userData.userPreferencesData?.languageCode == 'es') {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operación Rechazada',
-                userId: userData.userId!,
-                body: '${messageNotificationData.rejectedOperation.body.es}',
-                type: PushNotificationTypes.creditCardCashRequest,
-              )
+            PushNotificationData(
+              title: 'Operación Rechazada',
+              userId: userData.userId!,
+              body: '${messageNotificationData.rejectedOperation.body.es}',
+              type: PushNotificationTypes.creditCardCashRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.rejectedOperation.greeting.es} ${userData.name}, ${messageNotificationData.rejectedOperation.body.es} ${messageNotificationData.rejectedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.rejectedOperation.greeting.es} ${userData.name}, ${messageNotificationData.rejectedOperation.body.es} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operation Rejected',
-                userId: userData.userId!,
-                body: '${messageNotificationData.rejectedOperation.body.en}',
-                type: PushNotificationTypes.creditCardCashRequest,
-              )
+            PushNotificationData(
+              title: 'Operation Rejected',
+              userId: userData.userId!,
+              body: messageNotificationData.rejectedOperation.body.en,
+              type: PushNotificationTypes.creditCardCashRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.rejectedOperation.greeting.en} ${userData.name}, ${messageNotificationData.rejectedOperation.body.en} ${messageNotificationData.rejectedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.rejectedOperation.greeting.en} ${userData.name}, ${messageNotificationData.rejectedOperation.body.en} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }
       }
 
       final uri = Uri.parse(
-        'https://wa.me/${userData.contactPhone}''?text=${Uri.encodeComponent(messageContent!)}',
+        'https://wa.me/${userData.contactPhone}'
+        '?text=${Uri.encodeComponent(messageContent!)}',
       );
       await appFeaturesRepository.openUrl(uri.toString());
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = false;
-      if(context.mounted){
+      if (context.mounted) {
         ref.invalidate(getOperationsProvider);
 
         Navigator.pop(context);
       }
-    } catch (e, s) {
-      print('Error updating operation status: $e');
-      print('Stack trace: $s');
+    } catch (e) {
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = false;
       OlwSnackBarNotification.showInfo(
         title: 'Error',

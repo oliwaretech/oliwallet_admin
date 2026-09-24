@@ -22,9 +22,7 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LineOfCreditApproveScreen extends ConsumerWidget {
   final UserData userData;
-  const LineOfCreditApproveScreen({super.key,
-    required this.userData,
-  });
+  const LineOfCreditApproveScreen({super.key, required this.userData});
   static const String route = '/line_of_credit_approve';
   static const String name = 'line_of_credit_approve';
 
@@ -45,7 +43,8 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
     );
     final getAppConfigAsyncValue = ref.watch(getAppConfigProvider);
 
-    bool allStepsCompleted = lineOfCreditApproveCurrencyAmountAndRateStepIsCompleted &&
+    bool allStepsCompleted =
+        lineOfCreditApproveCurrencyAmountAndRateStepIsCompleted &&
         lineOfCreditApproveAccountTypesStepIsCompleted &&
         lineOfCreditApproveConfigurationStepIsCompleted;
 
@@ -70,7 +69,7 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
       ),
     ];
 
-    if(allStepsCompleted){
+    if (allStepsCompleted) {
       return OlwLoadingScreen();
     }
 
@@ -95,14 +94,13 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
           LineOfCreditApproveCurrencyAmountAndRateStep(
             countryLineOfCredit: countryLineOfCredit!,
           ),
-          LineOfCreditApproveAccountTypesStep(
-          ),
+          LineOfCreditApproveAccountTypesStep(),
           LineOfCreditApproveConfigurationStep(
             countryLineOfCredit: countryLineOfCredit,
-            onConfirm: (){
+            onConfirm: () {
               approveLineOfCredit(ref, countryLineOfCredit, context, appConfig);
             },
-          )
+          ),
         ];
 
         return Container(
@@ -129,11 +127,11 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
                               allowStepTap: true,
                               onStepTapped: (currentStep) {
                                 ref
-                                    .read(
-                                  currentLineOfCreditApproveStepProvider
-                                      .notifier,
-                                )
-                                    .state =
+                                        .read(
+                                          currentLineOfCreditApproveStepProvider
+                                              .notifier,
+                                        )
+                                        .state =
                                     currentStep;
                               },
                               currentStep: currentLineOfCreditApproveStep,
@@ -163,65 +161,75 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
     );
   }
 
-  Future<void> approveLineOfCredit (WidgetRef ref, CountryLineOfCredit? countryLineOfCredit, BuildContext context, AppConfig appConfig) async {
+  Future<void> approveLineOfCredit(
+    WidgetRef ref,
+    CountryLineOfCredit? countryLineOfCredit,
+    BuildContext context,
+    AppConfig appConfig,
+  ) async {
     try {
-      final lineOfCreditApprove = ref.watch(
-        lineOfCreditApproveProvider,
-      );
+      final lineOfCreditApprove = ref.watch(lineOfCreditApproveProvider);
 
       final appFeaturesRepository = ref.watch(appFeaturesRepositoryProvider);
 
       final approvalConditions = LineOfCreditApprovalConditions(
-          currency: lineOfCreditApprove.currencyData!,
-          approvedAmount: lineOfCreditApprove.approvedAmount!,
-          annualInterestRate: lineOfCreditApprove.interestRate!,
-          lineOfCreditTypes: lineOfCreditApprove.selectedAccountTypes,
-          about: lineOfCreditApprove.lineOfCreditCurrencyData!.about,
-          isRevolving: countryLineOfCredit!.approvalConfig.isRevolving,
-          interestRateType: countryLineOfCredit.approvalConfig.interestRateType,
-          capitalizationFrequency: countryLineOfCredit.approvalConfig.capitalizationFrequency,
-          amortizationSystem: countryLineOfCredit.approvalConfig.amortizationSystem,
-          approvalExpirationDate: lineOfCreditApprove.offerExpirationDate!,
-          dailyDefaulterRate: lineOfCreditApprove.dailyDefaulterRate!,
-          minimumPaymentFactor: lineOfCreditApprove.minimumPaymentFactor!
+        currency: lineOfCreditApprove.currencyData!,
+        approvedAmount: lineOfCreditApprove.approvedAmount!,
+        annualInterestRate: lineOfCreditApprove.interestRate!,
+        lineOfCreditTypes: lineOfCreditApprove.selectedAccountTypes,
+        about: lineOfCreditApprove.lineOfCreditCurrencyData!.about,
+        isRevolving: countryLineOfCredit!.approvalConfig.isRevolving,
+        interestRateType: countryLineOfCredit.approvalConfig.interestRateType,
+        capitalizationFrequency:
+            countryLineOfCredit.approvalConfig.capitalizationFrequency,
+        amortizationSystem:
+            countryLineOfCredit.approvalConfig.amortizationSystem,
+        approvalExpirationDate: lineOfCreditApprove.offerExpirationDate!,
+        dailyDefaulterRate: lineOfCreditApprove.dailyDefaulterRate!,
+        minimumPaymentFactor: lineOfCreditApprove.minimumPaymentFactor!,
       );
 
       final lineOfCreditData = LineOfCreditData(
-          isEnabled: true,
-          currency: lineOfCreditApprove.lineOfCreditCurrencyData!,
-          accountNickname: '',
-          accountColors: [],
-          createdAt: '',
-          accountNumber: '',
-          accountStatus: AccountStatus.approved,
-          isPayEnabled: true,
-          isUseEnabled: true,
-          isScheduleEnabled: true,
-          balance: BigInt.zero,
-          userId: userData.userId!,
-          approvalConditions: approvalConditions);
+        isEnabled: true,
+        currency: lineOfCreditApprove.lineOfCreditCurrencyData!,
+        accountNickname: '',
+        accountColors: [],
+        createdAt: '',
+        accountNumber: '',
+        accountStatus: AccountStatus.approved,
+        isPayEnabled: true,
+        isUseEnabled: true,
+        isScheduleEnabled: true,
+        balance: BigInt.zero,
+        userId: userData.userId!,
+        approvalConditions: approvalConditions,
+      );
 
-      final lineOfCreditApproveRepository = ref.watch(lineOfCreditApproveRepositoryProvider);
+      final lineOfCreditApproveRepository = ref.watch(
+        lineOfCreditApproveRepositoryProvider,
+      );
 
       await lineOfCreditApproveRepository.approveLineOfCredit(lineOfCreditData);
 
-      if(userData.currentCountryCode == 'PE'){
+      if (userData.currentCountryCode == 'PE') {
         await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Linea de Crédito Aprobada',
-              userId: userData.userId!,
-              body: '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
-              type: PushNotificationTypes.lineOfCreditRequest,
-            )
+          PushNotificationData(
+            title: 'Linea de Crédito Aprobada',
+            userId: userData.userId!,
+            body:
+                '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
+            type: PushNotificationTypes.lineOfCreditRequest,
+          ),
         );
       } else {
         await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Line of Credit Approved',
-              userId: userData.userId!,
-              body: '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
-              type: PushNotificationTypes.lineOfCreditRequest,
-            )
+          PushNotificationData(
+            title: 'Line of Credit Approved',
+            userId: userData.userId!,
+            body:
+                '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
+            type: PushNotificationTypes.lineOfCreditRequest,
+          ),
         );
       }
 
@@ -229,21 +237,41 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
       ref.invalidate(getUserLinesOfCreditProvider);
 
       ref.read(currentLineOfCreditApproveStepProvider.notifier).state = 0;
-      ref.read(lineOfCreditApproveCurrencyAmountAndRateStepIsCompletedProvider.notifier).state = false;
-      ref.read(lineOfCreditApproveAccountTypesStepIsCompletedProvider.notifier).state = false;
-      ref.read(lineOfCreditApproveConfigurationStepIsCompletedProvider.notifier).state = false;
+      ref
+              .read(
+                lineOfCreditApproveCurrencyAmountAndRateStepIsCompletedProvider
+                    .notifier,
+              )
+              .state =
+          false;
+      ref
+              .read(
+                lineOfCreditApproveAccountTypesStepIsCompletedProvider.notifier,
+              )
+              .state =
+          false;
+      ref
+              .read(
+                lineOfCreditApproveConfigurationStepIsCompletedProvider
+                    .notifier,
+              )
+              .state =
+          false;
       ref.read(lineOfCreditApproveProvider.notifier).clear();
 
       if (context.mounted) {
-        context.goNamed(
-          LineOfCreditApprovedConfirmationScreen.name,
-        );
+        context.goNamed(LineOfCreditApprovedConfirmationScreen.name);
       }
-
-    } catch (e, s){
+    } catch (e, s) {
       print('Error approving line of credit: $e');
       print('Stack trace: $s');
-      ref.read(lineOfCreditApproveConfigurationStepIsCompletedProvider.notifier).state = false;
+      ref
+              .read(
+                lineOfCreditApproveConfigurationStepIsCompletedProvider
+                    .notifier,
+              )
+              .state =
+          false;
     }
   }
 }

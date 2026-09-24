@@ -97,7 +97,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             ),
                           ),
                         ),
-                        Text(appLocalizations.adminPanel, style: OlwTextStyles.textTitle),
+                        Text(
+                          appLocalizations.adminPanel,
+                          style: OlwTextStyles.textTitle,
+                        ),
                         OlwTextField(
                           errorText: emailErrorMessage,
                           hasError: emailErrorMessage != null,
@@ -130,12 +133,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         ),
                         OlwPrimaryButton(
                           onPressed: _handleLogin,
-                          text: appLocalizations.login,
-                        ),
-                        OlwSecondaryButton(
-                          onPressed: (){
-                            showLicensePage(context: context);
-                          },
                           text: appLocalizations.login,
                         ),
                       ],

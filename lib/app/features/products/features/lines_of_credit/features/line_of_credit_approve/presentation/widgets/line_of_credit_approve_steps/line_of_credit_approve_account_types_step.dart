@@ -9,19 +9,15 @@ import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
 import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LineOfCreditApproveAccountTypesStep extends ConsumerWidget {
-  const LineOfCreditApproveAccountTypesStep({super.key,
-  });
+  const LineOfCreditApproveAccountTypesStep({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
 
-    final lineOfCreditApprove = ref.watch(
-      lineOfCreditApproveProvider,
-    );
+    final lineOfCreditApprove = ref.watch(lineOfCreditApproveProvider);
 
-    final selectedAccountTypes =
-        lineOfCreditApprove.selectedAccountTypes;
+    final selectedAccountTypes = lineOfCreditApprove.selectedAccountTypes;
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -32,58 +28,65 @@ class LineOfCreditApproveAccountTypesStep extends ConsumerWidget {
         spacing: 24,
         children: [
           Text(
-            appLocalizations
-                .selectTheApprovedLineOfCreditAccountsType,
+            appLocalizations.selectTheApprovedLineOfCreditAccountsType,
             style: OlwTextStyles.textCardTitle,
           ),
           Wrap(
             children: lineOfCreditApprove
                 .lineOfCreditCurrencyData!
                 .lineOfCreditTypes!
-                .map(
-                  (lineOfCreditType) {
-                final isSelected =
-                selectedAccountTypes.contains(lineOfCreditType);
+                .map((lineOfCreditType) {
+                  final isSelected = selectedAccountTypes.contains(
+                    lineOfCreditType,
+                  );
 
-                return LineOfCreditApproveAccountTypeCard(
-                  lineOfCreditType: lineOfCreditType,
-                  isSelected: isSelected,
-                  onSelected: (bool isSelected) {
-                    final notifier =
-                    ref.read(lineOfCreditApproveProvider.notifier);
+                  return LineOfCreditApproveAccountTypeCard(
+                    lineOfCreditType: lineOfCreditType,
+                    isSelected: isSelected,
+                    onSelected: (bool isSelected) {
+                      final notifier = ref.read(
+                        lineOfCreditApproveProvider.notifier,
+                      );
 
-                    final currentSelected =
-                    List<LineOfCreditType>.from(
-                      lineOfCreditApprove.selectedAccountTypes,
-                    );
+                      final currentSelected = List<LineOfCreditType>.from(
+                        lineOfCreditApprove.selectedAccountTypes,
+                      );
 
-                    if (isSelected) {
-                      if (!currentSelected.contains(lineOfCreditType)) {
-                        currentSelected.add(lineOfCreditType);
+                      if (isSelected) {
+                        if (!currentSelected.contains(lineOfCreditType)) {
+                          currentSelected.add(lineOfCreditType);
+                        }
+                      } else {
+                        currentSelected.remove(lineOfCreditType);
                       }
-                    } else {
-                      currentSelected.remove(lineOfCreditType);
-                    }
 
-                    notifier.updateSelectedAccountTypes(currentSelected);
-                  },
-                );
-              },
-            ).toList(),
+                      notifier.updateSelectedAccountTypes(currentSelected);
+                    },
+                  );
+                })
+                .toList(),
           ),
           OlwPrimaryButton(
-              onPressed: (){
-                if(selectedAccountTypes.isEmpty){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.pleaseSelectAtLeastOneAccountType,
-                  );
-                  return;
-                }
-                ref.read(currentLineOfCreditApproveStepProvider.notifier).state = 2;
-                ref.read(lineOfCreditApproveAccountTypesStepIsCompletedProvider.notifier).state = true;
-              },
-              text: appLocalizations.continueMessage)
+            onPressed: () {
+              if (selectedAccountTypes.isEmpty) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations.pleaseSelectAtLeastOneAccountType,
+                );
+                return;
+              }
+              ref.read(currentLineOfCreditApproveStepProvider.notifier).state =
+                  2;
+              ref
+                      .read(
+                        lineOfCreditApproveAccountTypesStepIsCompletedProvider
+                            .notifier,
+                      )
+                      .state =
+                  true;
+            },
+            text: appLocalizations.continueMessage,
+          ),
         ],
       ),
     );

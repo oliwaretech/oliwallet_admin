@@ -7,16 +7,12 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class OpenUrlCard extends ConsumerWidget {
   final String title;
   final String url;
-  const OpenUrlCard({
-    super.key,
-    required this.title,
-    required this.url,
-  });
+  const OpenUrlCard({super.key, required this.title, required this.url});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         openUrl(ref, url);
       },
       child: OlwCard(

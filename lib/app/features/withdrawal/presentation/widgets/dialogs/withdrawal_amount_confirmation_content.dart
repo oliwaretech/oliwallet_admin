@@ -233,9 +233,7 @@ class _WithdrawalAmountConfirmationContentState
 
     final int currentMonthWithdrawalCount = await supabaseClient.rpc(
       SupabaseRemoteProcedureCall.getCurrentMonthWithdrawalCount,
-      params: {
-        'p_user_account_id': currentAccountSelected.id,
-      },
+      params: {'p_user_account_id': currentAccountSelected.id},
     );
 
     final itfTax = widget.countryTaxes.allTransactions.firstWhere(

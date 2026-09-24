@@ -6,7 +6,8 @@ class IconTextCardButton extends StatelessWidget {
   final String iconPath;
   final String text;
   final VoidCallback? onTap;
-  const IconTextCardButton({super.key,
+  const IconTextCardButton({
+    super.key,
     required this.iconPath,
     required this.text,
     this.onTap,
@@ -14,21 +15,24 @@ class IconTextCardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OlwCard(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          spacing: 8,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-             iconPath,
-              height: 24,
-              width: 24,
-              package: 'oliwallet_design_system',
-            ),
-            Text(text, style: OlwTextStyles.textListTileTitle),
-          ],
+    return GestureDetector(
+      onTap: onTap,
+      child: OlwCard(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            spacing: 8,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                iconPath,
+                height: 24,
+                width: 24,
+                package: 'oliwallet_design_system',
+              ),
+              Text(text, style: OlwTextStyles.textListTileTitle),
+            ],
+          ),
         ),
       ),
     );

@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/language_codes.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/products_enums.dart';
-import 'package:oliwallet_admin_front_end/app/features/products/domain/models/charges_values.dart' show ChargesValues;
+import 'package:oliwallet_admin_front_end/app/features/products/domain/models/charges_values.dart'
+    show ChargesValues;
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/transactions/method.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/transactions/transaction_method.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/accounts/domain/models/account_data.dart';

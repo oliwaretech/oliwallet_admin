@@ -15,7 +15,9 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 class AccountsSection extends ConsumerWidget {
   final AppConfig appConfig;
   final UserData userData;
-  const AccountsSection({super.key, required this.appConfig,
+  const AccountsSection({
+    super.key,
+    required this.appConfig,
     required this.userData,
   });
 
@@ -34,12 +36,10 @@ class AccountsSection extends ConsumerWidget {
           data: (userAccountsList) {
             switch (userData.currentCountryCode) {
               case 'PE':
-                accountsConfiguration =
-                    appConfig.productsConfig.pe.accounts;
+                accountsConfiguration = appConfig.productsConfig.pe.accounts;
                 break;
               case 'HR':
-                accountsConfiguration =
-                    appConfig.productsConfig.hr.accounts;
+                accountsConfiguration = appConfig.productsConfig.hr.accounts;
                 break;
               default:
             }
@@ -53,24 +53,21 @@ class AccountsSection extends ConsumerWidget {
                         isFullScreen: true,
                         context: context,
                         title: appLocalizations.createNewAccount,
-                        content: CreateNewAccountContent(
-                          appConfig: appConfig,
-                        ),
+                        content: CreateNewAccountContent(appConfig: appConfig),
                       );
                       ref
-                          .read(
-                        currentCreateNewAccountStepProvider
-                            .notifier,
-                      )
-                          .state =
-                      0;
+                              .read(
+                                currentCreateNewAccountStepProvider.notifier,
+                              )
+                              .state =
+                          0;
                       ref
-                          .read(
-                        createAccountCurrencyStepIsCompletedProvider
-                            .notifier,
-                      )
-                          .state =
-                      false;
+                              .read(
+                                createAccountCurrencyStepIsCompletedProvider
+                                    .notifier,
+                              )
+                              .state =
+                          false;
                       ref
                           .read(accountCreationDataProvider.notifier)
                           .clearAccountCreationData();

@@ -59,8 +59,8 @@ class TransactionItemCard extends ConsumerWidget {
         amountSymbol = '-';
       case OperationType.loanPay:
         amountSymbol = '+';
-        case OperationType.maintenance:
-          amountSymbol = '-';
+      case OperationType.maintenance:
+        amountSymbol = '-';
       case OperationType.interest:
         amountSymbol = '+';
     }

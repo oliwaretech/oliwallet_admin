@@ -30,9 +30,12 @@ class LineOfCreditUseConfirmationScreen extends ConsumerWidget {
 
     return getLineOfCreditOperationByExternalReference.when(
       data: (transaction) {
-
         final firstPaymentDate = DateTime.parse(
-          transaction.lineOfCreditUseOperationData!.paymentPeriods!.first.dueDate,
+          transaction
+              .lineOfCreditUseOperationData!
+              .paymentPeriods!
+              .first
+              .dueDate,
         ).subtract(const Duration(days: 1));
 
         return Container(
@@ -74,71 +77,71 @@ class LineOfCreditUseConfirmationScreen extends ConsumerWidget {
                           : appLocalizations.disbursementInProgress,
                       description: transaction.status == OperationStatus.pending
                           ? RichText(
-                        text: TextSpan(
-                          text: appLocalizations
-                              .weWillConfirmYourDisbursementIn,
-                          style: OlwTextStyles.textDescription,
-                          children: [
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.entityName!.getLocalized(appLocalizations.localeName)} ',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: appLocalizations.between),
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.min.getLocalized(appLocalizations.localeName)} ',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: appLocalizations.to),
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.max.getLocalized(appLocalizations.localeName)}.',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      )
+                              text: TextSpan(
+                                text: appLocalizations
+                                    .weWillConfirmYourDisbursementIn,
+                                style: OlwTextStyles.textDescription,
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.entityName!.getLocalized(appLocalizations.localeName)} ',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(text: appLocalizations.between),
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.min.getLocalized(appLocalizations.localeName)} ',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(text: appLocalizations.to),
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.max.getLocalized(appLocalizations.localeName)}.',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )
                           : transaction.status == OperationStatus.completed
                           ? RichText(
-                        text: TextSpan(
-                          text: appLocalizations
-                              .theFundsAreAvailableInYourAccountReadyToUse,
-                          style: OlwTextStyles.textDescription,
-                        ),
-                      )
+                              text: TextSpan(
+                                text: appLocalizations
+                                    .theFundsAreAvailableInYourAccountReadyToUse,
+                                style: OlwTextStyles.textDescription,
+                              ),
+                            )
                           : RichText(
-                        text: TextSpan(
-                          text: appLocalizations
-                              .weWillConfirmYourDisbursementIn,
-                          style: OlwTextStyles.textDescription,
-                          children: [
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.entityName!.getLocalized(appLocalizations.localeName)} ',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
+                              text: TextSpan(
+                                text: appLocalizations
+                                    .weWillConfirmYourDisbursementIn,
+                                style: OlwTextStyles.textDescription,
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.entityName!.getLocalized(appLocalizations.localeName)} ',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(text: appLocalizations.between),
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.min.getLocalized(appLocalizations.localeName)} ',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(text: appLocalizations.to),
+                                  TextSpan(
+                                    text:
+                                        ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.max.getLocalized(appLocalizations.localeName)}.',
+                                    style: OlwTextStyles.textDescription
+                                        .copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
                             ),
-                            TextSpan(text: appLocalizations.between),
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.min.getLocalized(appLocalizations.localeName)} ',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: appLocalizations.to),
-                            TextSpan(
-                              text:
-                              ' ${transaction.lineOfCreditUseOperationData!.externalMethod!.timing!.max.getLocalized(appLocalizations.localeName)}.',
-                              style: OlwTextStyles.textDescription
-                                  .copyWith(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     Column(
                       spacing: 2,
@@ -160,18 +163,18 @@ class LineOfCreditUseConfirmationScreen extends ConsumerWidget {
                           ),
                         ),
                         if ((transaction
-                            .lineOfCreditUseOperationData!
-                            .transactionMethod!
-                            .value ==
-                            ExternalMethodType.banks ||
+                                        .lineOfCreditUseOperationData!
+                                        .transactionMethod!
+                                        .value ==
+                                    ExternalMethodType.banks ||
+                                transaction
+                                        .lineOfCreditUseOperationData!
+                                        .transactionMethod!
+                                        .value ==
+                                    ExternalMethodType.wallets) &&
                             transaction
-                                .lineOfCreditUseOperationData!
-                                .transactionMethod!
-                                .value ==
-                                ExternalMethodType.wallets) &&
-                            transaction
-                                .lineOfCreditUseOperationData!
-                                .externalMethod !=
+                                    .lineOfCreditUseOperationData!
+                                    .externalMethod !=
                                 null) ...[
                           OperationDetailTile(
                             item: appLocalizations.destinationEntity,
@@ -182,39 +185,39 @@ class LineOfCreditUseConfirmationScreen extends ConsumerWidget {
                                 .getLocalized(appLocalizations.localeName),
                           ),
                           if (transaction
-                              .lineOfCreditUseOperationData!
-                              .transactionMethod!
-                              .value ==
+                                  .lineOfCreditUseOperationData!
+                                  .transactionMethod!
+                                  .value ==
                               ExternalMethodType.banks)
                             OperationDetailTile(
                               item: appLocalizations.destinationAccount,
                               value:
-                              '${transaction.lineOfCreditUseOperationData!.externalMethod!.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} (${transaction.lineOfCreditUseOperationData!.externalMethod!.accountNumber!.substring(transaction.lineOfCreditUseOperationData!.externalMethod!.accountNumber!.length - 4)})',
+                                  '${transaction.lineOfCreditUseOperationData!.externalMethod!.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} (${transaction.lineOfCreditUseOperationData!.externalMethod!.accountNumber!.substring(transaction.lineOfCreditUseOperationData!.externalMethod!.accountNumber!.length - 4)})',
                             ),
                           if (transaction
-                              .lineOfCreditUseOperationData!
-                              .transactionMethod!
-                              .value ==
+                                  .lineOfCreditUseOperationData!
+                                  .transactionMethod!
+                                  .value ==
                               ExternalMethodType.wallets)
                             OperationDetailTile(
                               item: appLocalizations.destinationWallet,
                               value:
-                              '${transaction.lineOfCreditUseOperationData!.externalMethod!.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} (${transaction.lineOfCreditUseOperationData!.externalMethod!.phoneNumber!.substring(transaction.lineOfCreditUseOperationData!.externalMethod!.phoneNumber!.length - 4)})',
+                                  '${transaction.lineOfCreditUseOperationData!.externalMethod!.accountType!.accountTypeName.getLocalized(appLocalizations.localeName)} (${transaction.lineOfCreditUseOperationData!.externalMethod!.phoneNumber!.substring(transaction.lineOfCreditUseOperationData!.externalMethod!.phoneNumber!.length - 4)})',
                             ),
                         ],
                         if ((transaction
-                            .lineOfCreditUseOperationData!
-                            .transactionMethod!
-                            .value ==
-                            ExternalMethodType.oliwalletAccounts) &&
+                                    .lineOfCreditUseOperationData!
+                                    .transactionMethod!
+                                    .value ==
+                                ExternalMethodType.oliwalletAccounts) &&
                             transaction
-                                .lineOfCreditUseOperationData!
-                                .withdrawalAccountData !=
+                                    .lineOfCreditUseOperationData!
+                                    .withdrawalAccountData !=
                                 null) ...[
                           OperationDetailTile(
                             item: appLocalizations.destinationAccount,
                             value:
-                            '${transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNickname} (${transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNumber.substring(transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNumber.length - 4)})',
+                                '${transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNickname} (${transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNumber.substring(transaction.lineOfCreditUseOperationData!.withdrawalAccountData!.accountNumber.length - 4)})',
                           ),
                         ],
                         OperationDetailTile(
@@ -252,32 +255,32 @@ class LineOfCreditUseConfirmationScreen extends ConsumerWidget {
                           isWidget: true,
                           item: appLocalizations.currentStatus,
                           valueWidget:
-                          transaction.status == OperationStatus.pending
+                              transaction.status == OperationStatus.pending
                               ? OperationStatusIndicator.pending(
-                            appLocalizations,
-                          )
+                                  appLocalizations,
+                                )
                               : transaction.status == OperationStatus.completed
                               ? OperationStatusIndicator.completed(
-                            appLocalizations,
-                          )
+                                  appLocalizations,
+                                )
                               : OperationStatusIndicator.pending(
-                            appLocalizations,
-                          ),
+                                  appLocalizations,
+                                ),
                         ),
                         Wrap(
                           children:
-                          transaction.taxes?.map((taxes) {
-                            return OperationDetailTile(
-                              item: taxes.name.getLocalized(
-                                appLocalizations.localeName,
-                              ),
-                              value: OlwFormatter.currency(
-                                BigIntParser.toDouble(taxes.value),
-                                locale: appLocalizations.localeName,
-                                symbol: transaction.currencySymbol,
-                              ),
-                            );
-                          }).toList() ??
+                              transaction.taxes?.map((taxes) {
+                                return OperationDetailTile(
+                                  item: taxes.name.getLocalized(
+                                    appLocalizations.localeName,
+                                  ),
+                                  value: OlwFormatter.currency(
+                                    BigIntParser.toDouble(taxes.value),
+                                    locale: appLocalizations.localeName,
+                                    symbol: transaction.currencySymbol,
+                                  ),
+                                );
+                              }).toList() ??
                               [const SizedBox()],
                         ),
                         OperationDetailTile(

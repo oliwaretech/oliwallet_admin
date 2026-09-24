@@ -8,20 +8,18 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveAccountTypeCard extends ConsumerWidget {
   final LoanType loanType;
-  const LoanApproveAccountTypeCard({super.key,
-    required this.loanType,
-  });
+  const LoanApproveAccountTypeCard({super.key, required this.loanType});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     return GestureDetector(
       onTap: () {
-        ref.read(loanApproveProvider.notifier).updateSelectedAccountType(loanType);
+        ref
+            .read(loanApproveProvider.notifier)
+            .updateSelectedAccountType(loanType);
       },
       child: OlwCard(
         child: Padding(
@@ -32,7 +30,9 @@ class LoanApproveAccountTypeCard extends ConsumerWidget {
               OlwRadioButton(
                 value: loanType,
                 onChanged: (value) {
-                  ref.read(loanApproveProvider.notifier).updateSelectedAccountType(loanType);
+                  ref
+                      .read(loanApproveProvider.notifier)
+                      .updateSelectedAccountType(loanType);
                 },
                 groupValue: loanApprove.selectedAccountType,
               ),
@@ -41,17 +41,24 @@ class LoanApproveAccountTypeCard extends ConsumerWidget {
                   spacing: 8,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(loanType.accountTypeName.getLocalized(appLocalizations.localeName), style: OlwTextStyles.stepTextDescription,),
+                    Text(
+                      loanType.accountTypeName.getLocalized(
+                        appLocalizations.localeName,
+                      ),
+                      style: OlwTextStyles.stepTextDescription,
+                    ),
                     Wrap(
                       children: loanType.useFees.map((detail) {
-
                         return OperationDetailTile(
                           showDivider: false,
-                          item: detail.name.getLocalized(appLocalizations.localeName),
-                          value: "${loanApprove.currencyData!.currencySymbol} ${detail.feeValue}",
+                          item: detail.name.getLocalized(
+                            appLocalizations.localeName,
+                          ),
+                          value:
+                              "${loanApprove.currencyData!.currencySymbol} ${detail.feeValue}",
                         );
                       }).toList(),
-                    )
+                    ),
                   ],
                 ),
               ),

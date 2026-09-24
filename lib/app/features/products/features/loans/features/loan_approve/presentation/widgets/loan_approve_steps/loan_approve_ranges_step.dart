@@ -11,16 +11,12 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveRangesStep extends ConsumerWidget {
   final CountryLoan? countryLoan;
-  const LoanApproveRangesStep({super.key,
-    this.countryLoan,
-  });
+  const LoanApproveRangesStep({super.key, this.countryLoan});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final loanApprove = ref.watch(
-      loanApproveProvider,
-    );
+    final loanApprove = ref.watch(loanApproveProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -31,8 +27,7 @@ class LoanApproveRangesStep extends ConsumerWidget {
         spacing: 24,
         children: [
           Text(
-            appLocalizations
-                .addRangesInWhichTheLoanWillBeApproved,
+            appLocalizations.addRangesInWhichTheLoanWillBeApproved,
             style: OlwTextStyles.textCardTitle,
           ),
           Row(
@@ -64,28 +59,38 @@ class LoanApproveRangesStep extends ConsumerWidget {
           ),
           Wrap(
             runSpacing: 16,
-            children: loanApprove.loanRanges?.map(
-              (loanRange) => ApprovedLoanRangeCard(
-                loanRange: loanRange,
-                countryLoan: countryLoan!,
-              ),
-            ).toList() ?? [],
+            children:
+                loanApprove.loanRanges
+                    ?.map(
+                      (loanRange) => ApprovedLoanRangeCard(
+                        loanRange: loanRange,
+                        countryLoan: countryLoan!,
+                      ),
+                    )
+                    .toList() ??
+                [],
           ),
           OlwPrimaryButton(
-              onPressed: (){
-                if(loanApprove.loanRanges?.isEmpty ?? true){
-                  OlwSnackBarNotification.showInfo(
-                    title: appLocalizations.somethingIsMissing,
-                    message: appLocalizations.addAtLeastOneLoanRangeToContinue
-                  );
-                  return;
-                }
+            onPressed: () {
+              if (loanApprove.loanRanges?.isEmpty ?? true) {
+                OlwSnackBarNotification.showInfo(
+                  title: appLocalizations.somethingIsMissing,
+                  message: appLocalizations.addAtLeastOneLoanRangeToContinue,
+                );
+                return;
+              }
 
-                ref.read(loanApproveProvider.notifier).updateApprovedAmount(loanApprove.loanRanges!.last.maxAmount);
-                ref.read(currentLoanApproveStepProvider.notifier).state = 2;
-                ref.read(loanApproveRangesStepIsCompletedProvider.notifier).state = true;
-              },
-              text: appLocalizations.continueMessage)
+              ref
+                  .read(loanApproveProvider.notifier)
+                  .updateApprovedAmount(loanApprove.loanRanges!.last.maxAmount);
+              ref.read(currentLoanApproveStepProvider.notifier).state = 2;
+              ref
+                      .read(loanApproveRangesStepIsCompletedProvider.notifier)
+                      .state =
+                  true;
+            },
+            text: appLocalizations.continueMessage,
+          ),
         ],
       ),
     );

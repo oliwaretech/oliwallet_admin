@@ -22,25 +22,29 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
   final TransactionOperation operation;
   final AppConfig appConfig;
   final UserData userData;
-  const OperationDetailLoanUseSection({super.key,
+  const OperationDetailLoanUseSection({
+    super.key,
     required this.operation,
     required this.appConfig,
-    required this.userData,});
+    required this.userData,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
     final loanUseOperationData = operation.loanUseOperationData!;
-    final currentDetailScreenIsLoading = ref.watch(currentDetailScreenIsLoadingProvider);
+    final currentDetailScreenIsLoading = ref.watch(
+      currentDetailScreenIsLoadingProvider,
+    );
 
     BigInt? totalFees = BigInt.zero;
     BigInt? totalTaxes = BigInt.zero;
 
-    for(var fee in loanUseOperationData.fees ?? []) {
+    for (var fee in loanUseOperationData.fees ?? []) {
       totalFees = totalFees! + fee.value;
     }
 
-    for(var tax in loanUseOperationData.taxes ?? []) {
+    for (var tax in loanUseOperationData.taxes ?? []) {
       totalTaxes = totalTaxes! + tax.value;
     }
 
@@ -54,12 +58,22 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
             child: Column(
               spacing: 2,
               children: [
-                Text(appLocalizations.withdrawalAmount, style: OlwTextStyles.textSubTitle,),
-                Text(OlwFormatter.currency(BigIntParser.toDouble(loanUseOperationData.totalAmount!), symbol: operation.currencySymbol), style: OlwTextStyles.textTitle,),
-                SizedBox(
-                  height: 8,
+                Text(
+                  appLocalizations.withdrawalAmount,
+                  style: OlwTextStyles.textSubTitle,
                 ),
-                Text(appLocalizations.destinationEntity, style: OlwTextStyles.textSubTitle,),
+                Text(
+                  OlwFormatter.currency(
+                    BigIntParser.toDouble(loanUseOperationData.totalAmount!),
+                    symbol: operation.currencySymbol,
+                  ),
+                  style: OlwTextStyles.textTitle,
+                ),
+                SizedBox(height: 8),
+                Text(
+                  appLocalizations.destinationEntity,
+                  style: OlwTextStyles.textSubTitle,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
@@ -80,72 +94,133 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
                           Row(
                             spacing: 8,
                             children: [
-                              Text(loanUseOperationData.externalMethod!.entityName!.getLocalized(appLocalizations.localeName), style: OlwTextStyles.textCardTitle,),
-                              if(loanUseOperationData.externalMethod!.accountType != null)
-                                Text(loanUseOperationData.externalMethod!.accountType!.accountTypeName.getLocalized(appLocalizations.localeName), style: OlwTextStyles.textDescription,),
+                              Text(
+                                loanUseOperationData.externalMethod!.entityName!
+                                    .getLocalized(appLocalizations.localeName),
+                                style: OlwTextStyles.textCardTitle,
+                              ),
+                              if (loanUseOperationData
+                                      .externalMethod!
+                                      .accountType !=
+                                  null)
+                                Text(
+                                  loanUseOperationData
+                                      .externalMethod!
+                                      .accountType!
+                                      .accountTypeName
+                                      .getLocalized(
+                                        appLocalizations.localeName,
+                                      ),
+                                  style: OlwTextStyles.textDescription,
+                                ),
                             ],
                           ),
-                          if(loanUseOperationData.externalMethod!.accountNumber != null)
+                          if (loanUseOperationData
+                                  .externalMethod!
+                                  .accountNumber !=
+                              null)
                             Row(
                               children: [
-                                Text('A.C: ', style: OlwTextStyles.textDescription,),
-                                Text(loanUseOperationData.externalMethod!.accountNumber!, style: OlwTextStyles.textDescription,),
-                                SizedBox(width: 8,),
+                                Text(
+                                  'A.C: ',
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                Text(
+                                  loanUseOperationData
+                                      .externalMethod!
+                                      .accountNumber!,
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                SizedBox(width: 8),
                                 OlwIconButton(
-                                    onPressed: () {
-                                      copyToClipboard(
-                                        title:
-                                        '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
-                                        loanUseOperationData.externalMethod!.accountNumber!,
-                                      );
-                                    },
-                                    iconPath: IconAssets.copy)
+                                  onPressed: () {
+                                    copyToClipboard(
+                                      title:
+                                          '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
+                                      loanUseOperationData
+                                          .externalMethod!
+                                          .accountNumber!,
+                                    );
+                                  },
+                                  iconPath: IconAssets.copy,
+                                ),
                               ],
                             ),
-                          if(loanUseOperationData.externalMethod!.interbankAccountNumber != null)
+                          if (loanUseOperationData
+                                  .externalMethod!
+                                  .interbankAccountNumber !=
+                              null)
                             Row(
                               children: [
-                                Text('CCI: ', style: OlwTextStyles.textDescription,),
-                                Text(loanUseOperationData.externalMethod!.interbankAccountNumber!, style: OlwTextStyles.textDescription,),
-                                SizedBox(width: 8,),
+                                Text(
+                                  'CCI: ',
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                Text(
+                                  loanUseOperationData
+                                      .externalMethod!
+                                      .interbankAccountNumber!,
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                SizedBox(width: 8),
                                 OlwIconButton(
-                                    onPressed: () {
-                                      copyToClipboard(
-                                        title:
-                                        '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
-                                        loanUseOperationData.externalMethod!.interbankAccountNumber!,
-                                      );
-                                    },
-                                    iconPath: IconAssets.copy)
+                                  onPressed: () {
+                                    copyToClipboard(
+                                      title:
+                                          '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
+                                      loanUseOperationData
+                                          .externalMethod!
+                                          .interbankAccountNumber!,
+                                    );
+                                  },
+                                  iconPath: IconAssets.copy,
+                                ),
                               ],
                             ),
-                          if(loanUseOperationData.externalMethod!.phoneNumber != null)
+                          if (loanUseOperationData
+                                  .externalMethod!
+                                  .phoneNumber !=
+                              null)
                             Row(
                               children: [
-                                Text('${appLocalizations.mobilePhone}: ', style: OlwTextStyles.textDescription,),
-                                Text(loanUseOperationData.externalMethod!.phoneNumber!, style: OlwTextStyles.textDescription,),
-                                SizedBox(width: 8,),
+                                Text(
+                                  '${appLocalizations.mobilePhone}: ',
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                Text(
+                                  loanUseOperationData
+                                      .externalMethod!
+                                      .phoneNumber!,
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                SizedBox(width: 8),
                                 OlwIconButton(
-                                    onPressed: () {
-                                      copyToClipboard(
-                                        title:
-                                        '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
-                                        loanUseOperationData.externalMethod!.phoneNumber!,
-                                      );
-                                    },
-                                    iconPath: IconAssets.copy)
+                                  onPressed: () {
+                                    copyToClipboard(
+                                      title:
+                                          '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
+                                      loanUseOperationData
+                                          .externalMethod!
+                                          .phoneNumber!,
+                                    );
+                                  },
+                                  iconPath: IconAssets.copy,
+                                ),
                               ],
                             ),
                         ],
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
         ),
-        Text(appLocalizations.aboutTheCredit, style: OlwTextStyles.textSubTitle,),
+        Text(
+          appLocalizations.aboutTheCredit,
+          style: OlwTextStyles.textSubTitle,
+        ),
         Column(
           children: [
             OperationDetailTile(
@@ -154,95 +229,144 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
             ),
             OperationDetailTile(
               item: appLocalizations.installmentValue,
-              value:  OlwFormatter.currency(BigIntParser.toDouble(loanUseOperationData.paymentPeriods!.first.totalPayment), symbol: operation.currencySymbol),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(
+                  loanUseOperationData.paymentPeriods!.first.totalPayment,
+                ),
+                symbol: operation.currencySymbol,
+              ),
             ),
             OperationDetailTile(
-                item: appLocalizations.previousBalance,
-                value: OlwFormatter.currency(BigIntParser.toDouble(operation.previousBalance!), symbol: operation.currencySymbol)
+              item: appLocalizations.previousBalance,
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(operation.previousBalance!),
+                symbol: operation.currencySymbol,
+              ),
             ),
             OperationDetailTile(
-                item: appLocalizations.balanceAfterWithdrawal,
-                value: OlwFormatter.currency(BigIntParser.toDouble(operation.previousBalance! - loanUseOperationData.totalAmount!), symbol: operation.currencySymbol)
+              item: appLocalizations.balanceAfterWithdrawal,
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(
+                  operation.previousBalance! -
+                      loanUseOperationData.totalAmount!,
+                ),
+                symbol: operation.currencySymbol,
+              ),
             ),
           ],
         ),
-        Text(appLocalizations.calculationDetails, style: OlwTextStyles.textSubTitle,),
+        Text(
+          appLocalizations.calculationDetails,
+          style: OlwTextStyles.textSubTitle,
+        ),
         Column(
           children: [
             OperationDetailTile(
               item: appLocalizations.withdrawalAmountBeforeTaxesAndFees,
-              value: OlwFormatter.currency(BigIntParser.toDouble(loanUseOperationData.amount!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(loanUseOperationData.amount!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
               item: appLocalizations.costOfWithdrawal,
-              value: OlwFormatter.currency(BigIntParser.toDouble(totalFees!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(totalFees!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
               item: appLocalizations.totalTaxes,
-              value: OlwFormatter.currency(BigIntParser.toDouble(totalTaxes!), symbol: operation.currencySymbol),),
+              value: OlwFormatter.currency(
+                BigIntParser.toDouble(totalTaxes!),
+                symbol: operation.currencySymbol,
+              ),
+            ),
             OperationDetailTile(
-                isWidget: true,
-                showDivider: false,
-                item: appLocalizations.amountToWithdrawal,
-                valueWidget: OlwTag(label: OlwFormatter.currency(BigIntParser.toDouble(loanUseOperationData.totalAmount!), symbol: operation.currencySymbol))),
+              isWidget: true,
+              showDivider: false,
+              item: appLocalizations.amountToWithdrawal,
+              valueWidget: OlwTag(
+                label: OlwFormatter.currency(
+                  BigIntParser.toDouble(loanUseOperationData.totalAmount!),
+                  symbol: operation.currencySymbol,
+                ),
+              ),
+            ),
           ],
         ),
-        if(currentDetailScreenIsLoading)
+        if (currentDetailScreenIsLoading)
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 16.0),
             child: OlwLoadingSpinner(),
           ),
-        if(!currentDetailScreenIsLoading)
+        if (!currentDetailScreenIsLoading)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Column(
               spacing: 16,
               children: [
                 OlwPrimaryButton(
-                    onPressed: () {
-                      updateOperationStatus(
-                          ref,
-                          operation.id!,
-                          OperationStatus.completed,
-                          context,
-                          userData,
-                          loanUseOperationData,
-                          userData.currentCountryCode == 'PE' ? appConfig.messageNotificationConfig.pe.loanUse : appConfig.messageNotificationConfig.hr!.loanUse,
-                          appLocalizations
-                      );
-                    },
-                    text: appLocalizations.confirmOperation),
+                  onPressed: () {
+                    updateOperationStatus(
+                      ref,
+                      operation.id!,
+                      OperationStatus.completed,
+                      context,
+                      userData,
+                      loanUseOperationData,
+                      userData.currentCountryCode == 'PE'
+                          ? appConfig.messageNotificationConfig.pe.loanUse
+                          : appConfig.messageNotificationConfig.hr!.loanUse,
+                      appLocalizations,
+                    );
+                  },
+                  text: appLocalizations.confirmOperation,
+                ),
                 OlwSecondaryButton(
-                    onPressed: () {
-                      updateOperationStatus(
-                          ref,
-                          operation.id!,
-                          OperationStatus.rejected,
-                          context,
-                          userData,
-                          loanUseOperationData,
-                          userData.currentCountryCode == 'PE' ? appConfig.messageNotificationConfig.pe.loanUse : appConfig.messageNotificationConfig.hr!.loanUse,
-                          appLocalizations
-                      );
-                    },
-                    text: appLocalizations.rejectOperation)
+                  onPressed: () {
+                    updateOperationStatus(
+                      ref,
+                      operation.id!,
+                      OperationStatus.rejected,
+                      context,
+                      userData,
+                      loanUseOperationData,
+                      userData.currentCountryCode == 'PE'
+                          ? appConfig.messageNotificationConfig.pe.loanUse
+                          : appConfig.messageNotificationConfig.hr!.loanUse,
+                      appLocalizations,
+                    );
+                  },
+                  text: appLocalizations.rejectOperation,
+                ),
               ],
             ),
-          )
+          ),
       ],
     );
   }
 
-  Future<void> updateOperationStatus(WidgetRef ref,
-      String operationId,
-      OperationStatus status,
-      BuildContext context,
-      UserData userData,
-      LoanActivationOperationData loantUseOperationData,
-      LoanUseMessageNotificationData messageNotificationData,
-      AppLocalizations appLocalizations) async {
+  Future<void> updateOperationStatus(
+    WidgetRef ref,
+    String operationId,
+    OperationStatus status,
+    BuildContext context,
+    UserData userData,
+    LoanActivationOperationData loantUseOperationData,
+    LoanUseMessageNotificationData messageNotificationData,
+    AppLocalizations appLocalizations,
+  ) async {
     try {
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = true;
-      await ref.read(operationsRepositoryProvider).updateOperationStatus(operationId, status, SupabaseTables.loansOperations);
-      if(!context.mounted) return;
+      await ref
+          .read(operationsRepositoryProvider)
+          .updateOperationStatus(
+            operationId,
+            status,
+            SupabaseTables.loansOperations,
+          );
+      if (!context.mounted) return;
       OlwSnackBarNotification.showSuccess(
         title: appLocalizations.done,
         message: appLocalizations.operationStatusUpdatedSuccessfully,
@@ -251,65 +375,70 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
 
       String? messageContent;
 
-      if(status == OperationStatus.completed){
-        if(userData.currentCountryCode == 'PE'){
+      if (status == OperationStatus.completed) {
+        if (userData.userPreferencesData?.languageCode == 'es') {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operación Completada',
-                userId: userData.userId!,
-                body: '${messageNotificationData.completedOperation.body.es} ${loantUseOperationData.externalMethod!.entityName!.es}',
-                type: PushNotificationTypes.loanUseRequest,
-              )
+            PushNotificationData(
+              title: 'Operación Completada',
+              userId: userData.userId!,
+              body:
+                  '${messageNotificationData.completedOperation.body.es} ${loantUseOperationData.externalMethod!.entityName!.es}',
+              type: PushNotificationTypes.loanUseRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.completedOperation.greeting.es} ${userData.name}, ${messageNotificationData.completedOperation.body.es} ${loantUseOperationData.externalMethod!.entityName!.es} ${messageNotificationData.completedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.completedOperation.greeting.es} ${userData.name}, ${messageNotificationData.completedOperation.body.es} ${loantUseOperationData.externalMethod!.entityName!.es} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operation Completed',
-                userId: userData.userId!,
-                body: '${messageNotificationData.completedOperation.body.en} ${loantUseOperationData.externalMethod!.entityName!.en}',
-                type: PushNotificationTypes.loanUseRequest,
-              )
+            PushNotificationData(
+              title: 'Operation Completed',
+              userId: userData.userId!,
+              body:
+                  '${messageNotificationData.completedOperation.body.en} ${loantUseOperationData.externalMethod!.entityName!.en}',
+              type: PushNotificationTypes.loanUseRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.completedOperation.greeting.en} ${userData.name}, ${messageNotificationData.completedOperation.body.en} ${loantUseOperationData.externalMethod!.entityName!.en} ${messageNotificationData.completedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.completedOperation.greeting.en} ${userData.name}, ${messageNotificationData.completedOperation.body.en} ${loantUseOperationData.externalMethod!.entityName!.en} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }
-      } else if(status == OperationStatus.rejected){
-        if(userData.currentCountryCode == 'PE'){
+      } else if (status == OperationStatus.rejected) {
+        if (userData.userPreferencesData?.languageCode == 'es') {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operación Rechazada',
-                userId: userData.userId!,
-                body: '${messageNotificationData.rejectedOperation.body.es}',
-                type: PushNotificationTypes.loanUseRequest,
-              )
+            PushNotificationData(
+              title: 'Operación Rechazada',
+              userId: userData.userId!,
+              body: '${messageNotificationData.rejectedOperation.body.es}',
+              type: PushNotificationTypes.loanUseRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.rejectedOperation.greeting.es} ${userData.name}, ${messageNotificationData.rejectedOperation.body.es} ${messageNotificationData.rejectedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.rejectedOperation.greeting.es} ${userData.name}, ${messageNotificationData.rejectedOperation.body.es} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
           await appFeaturesRepository.createPushNotification(
-              PushNotificationData(
-                title: 'Operation Rejected',
-                userId: userData.userId!,
-                body: messageNotificationData.rejectedOperation.body.en,
-                type: PushNotificationTypes.loanUseRequest,
-              )
+            PushNotificationData(
+              title: 'Operation Rejected',
+              userId: userData.userId!,
+              body: messageNotificationData.rejectedOperation.body.en,
+              type: PushNotificationTypes.loanUseRequest,
+            ),
           );
-          messageContent = '${messageNotificationData.rejectedOperation.greeting.en} ${userData.name}, ${messageNotificationData.rejectedOperation.body.en} ${messageNotificationData.rejectedOperation.suffix}';
+          messageContent =
+              '${messageNotificationData.rejectedOperation.greeting.en} ${userData.name}, ${messageNotificationData.rejectedOperation.body.en} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }
       }
 
       final uri = Uri.parse(
-        'https://wa.me/${userData.contactPhone}''?text=${Uri.encodeComponent(messageContent!)}',
+        'https://wa.me/${userData.contactPhone}'
+        '?text=${Uri.encodeComponent(messageContent!)}',
       );
       await appFeaturesRepository.openUrl(uri.toString());
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = false;
-      if(context.mounted){
+      if (context.mounted) {
         ref.invalidate(getOperationsProvider);
 
         Navigator.pop(context);
       }
-    } catch (e, s) {
-      print('Error updating operation status: $e');
-      print('Stack trace: $s');
+    } catch (e) {
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = false;
       OlwSnackBarNotification.showInfo(
         title: 'Error',

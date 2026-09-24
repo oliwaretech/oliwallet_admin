@@ -22,15 +22,20 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/lines_o
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/presentation/screens/line_of_credit_activated_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/presentation/screens/line_of_credit_activation_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/presentation/screens/line_of_credit_detail_screen.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_activation_params.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/screens/loan_approve_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/screens/loan_approved_confirmation_screen.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/presentation/screens/loan_activation_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/settings/presentation/screens/settings_page.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/communications/presentation/screens/communications_direct_email_screen.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/communications/presentation/screens/communications_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/screens/user_detail.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/screens/users_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/presentation/screens/summary_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-final routerProvider = Provider<GoRouter>((ref){
+final routerProvider = Provider<GoRouter>((ref) {
   final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'rootKey');
   final rootNavigatorSummaryKey = GlobalKey<NavigatorState>(
     debugLabel: 'shellSummary',
@@ -71,9 +76,7 @@ final routerProvider = Provider<GoRouter>((ref){
       GoRoute(
         path: UserDetail.route,
         name: UserDetail.name,
-        builder: (context, state) => UserDetail(
-          user: state.extra as UserData
-        ),
+        builder: (context, state) => UserDetail(user: state.extra as UserData),
       ),
       GoRoute(
         path: LineOfCreditActivationScreen.route,
@@ -136,9 +139,8 @@ final routerProvider = Provider<GoRouter>((ref){
       GoRoute(
         path: LineOfCreditApproveScreen.route,
         name: LineOfCreditApproveScreen.name,
-        builder: (context, state) => LineOfCreditApproveScreen(
-          userData: state.extra as UserData,
-        ),
+        builder: (context, state) =>
+            LineOfCreditApproveScreen(userData: state.extra as UserData),
       ),
       GoRoute(
         path: LineOfCreditApprovedConfirmationScreen.route,
@@ -148,9 +150,8 @@ final routerProvider = Provider<GoRouter>((ref){
       GoRoute(
         path: LoanApproveScreen.route,
         name: LoanApproveScreen.name,
-        builder: (context, state) => LoanApproveScreen(
-          userData: state.extra as UserData,
-        ),
+        builder: (context, state) =>
+            LoanApproveScreen(userData: state.extra as UserData),
       ),
       GoRoute(
         path: LoanApprovedConfirmationScreen.route,
@@ -163,6 +164,28 @@ final routerProvider = Provider<GoRouter>((ref){
         builder: (context, state) => OperationDetailScreen(
           operation: state.extra as TransactionOperation,
         ),
+      ),
+      GoRoute(
+        path: CommunicationsScreen.route,
+        name: CommunicationsScreen.name,
+        builder: (context, state) => CommunicationsScreen(),
+      ),
+      GoRoute(
+        path: CommunicationsDirectEmailScreen.route,
+        name: CommunicationsDirectEmailScreen.name,
+        builder: (context, state) => CommunicationsDirectEmailScreen(),
+      ),
+      GoRoute(
+        path: LoanActivationScreen.route,
+        name: LoanActivationScreen.name,
+        builder: (context, state) {
+          final extra = state.extra as LoanActivationParams;
+
+          return LoanActivationScreen(
+            loanData: extra.loanData,
+            userData: extra.userData,
+          );
+        },
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

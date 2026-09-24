@@ -6,17 +6,14 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class ApproveNewLoanCard extends StatelessWidget {
   final VoidCallback? onTap;
-  const ApproveNewLoanCard({
-    super.key,
-    this.onTap,
-  });
+  const ApproveNewLoanCard({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
 
     return GestureDetector(
-      onTap:  onTap,
+      onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: Container(
         height: 130,

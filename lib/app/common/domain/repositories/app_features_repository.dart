@@ -10,5 +10,7 @@ abstract class AppFeaturesRepository {
 
   Future<void> saveFcmToken(String token);
 
-  Future<void> createPushNotification(PushNotificationData pushNotificationData);
+  Future<void> createPushNotification(
+    PushNotificationData pushNotificationData,
+  );
 }

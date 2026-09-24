@@ -28,10 +28,7 @@ class AppFeaturesRepositoryImpl implements AppFeaturesRepository {
   Future<void> openUrl(String url) async {
     final uri = Uri.parse(url);
 
-    final launched = await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    );
+    final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
 
     if (!launched) {
       throw Exception('Could not launch $url');
@@ -42,23 +39,20 @@ class AppFeaturesRepositoryImpl implements AppFeaturesRepository {
   Future<void> saveFcmToken(String token) async {
     final user = supabaseClient.auth.currentUser;
 
-    await supabaseClient.from(SupabaseTables.userDevices).upsert(
-      {
-        'user_id': user?.id,
-        'fcm_token': token,
-        'platform': Platform.isIOS ? 'ios' : 'android',
-        'is_enabled': true,
-      },
-      onConflict: 'user_id,fcm_token',
-    );
+    await supabaseClient.from(SupabaseTables.userDevices).upsert({
+      'user_id': user?.id,
+      'fcm_token': token,
+      'platform': Platform.isIOS ? 'ios' : 'android',
+      'is_enabled': true,
+    }, onConflict: 'user_id,fcm_token');
   }
 
   @override
-  Future<void> createPushNotification(PushNotificationData pushNotificationData) async {
+  Future<void> createPushNotification(
+    PushNotificationData pushNotificationData,
+  ) async {
     final data = pushNotificationData.toJson();
 
-    await supabaseClient
-        .from(SupabaseTables.notifications)
-        .insert(data);
+    await supabaseClient.from(SupabaseTables.notifications).insert(data);
   }
 }

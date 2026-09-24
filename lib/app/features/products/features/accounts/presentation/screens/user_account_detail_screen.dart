@@ -95,9 +95,7 @@ class UserAccountDetailScreen extends ConsumerWidget {
                         itemBuilder: (context, index) {
                           final transactionOperation = transaction[index];
                           return TransactionItemCard(
-                            onTap: () {
-
-                            },
+                            onTap: () {},
                             transactionOperation: transactionOperation,
                             accountColor: hexToColor(
                               currentAccountSelected.accountColor,

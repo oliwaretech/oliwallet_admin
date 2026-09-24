@@ -11,8 +11,7 @@ part 'loan_approve_data.freezed.dart';
 part 'loan_approve_data.g.dart';
 
 @freezed
-abstract class LoanApproveData
-    with _$LoanApproveData {
+abstract class LoanApproveData with _$LoanApproveData {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory LoanApproveData({
     String? userId,

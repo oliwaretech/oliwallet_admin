@@ -5,10 +5,12 @@ import 'package:oliwallet_admin_front_end/app/common/domain/enums/common_enums.d
 import 'package:oliwallet_admin_front_end/app/common/domain/models/app_config.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/push_notifications/push_notification_data.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/taxes/country_taxes.dart';
+import 'package:oliwallet_admin_front_end/app/common/helpers/olw_snack_bar_notification.dart';
 import 'package:oliwallet_admin_front_end/app/common/providers/app_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/country_loan.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_activation_params.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_approval_conditions.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/providers/loan_approve_provider.dart';
@@ -17,23 +19,20 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/loans/f
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/widgets/loan_approve_steps/loan_approve_currency_and_loan_types_step.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/presentation/widgets/loan_approve_steps/loan_approve_ranges_step.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/presentation/providers/loans_provider.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/features/loans/presentation/screens/loan_activation_screen.dart';
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
 import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanApproveScreen extends ConsumerWidget {
   final UserData userData;
-  const LoanApproveScreen({super.key,
-    required this.userData,
-  });
+  const LoanApproveScreen({super.key, required this.userData});
   static const String route = '/loan_approve';
   static const String name = 'loan_approve';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
-    final currentLoanApproveStep = ref.watch(
-      currentLoanApproveStepProvider,
-    );
+    final currentLoanApproveStep = ref.watch(currentLoanApproveStepProvider);
 
     final loanApproveCurrencyAndLoanTypeStepIsCompleted = ref.watch(
       loanApproveCurrencyAndLoanTypeStepIsCompletedProvider,
@@ -46,7 +45,8 @@ class LoanApproveScreen extends ConsumerWidget {
     );
     final getAppConfigAsyncValue = ref.watch(getAppConfigProvider);
 
-    bool allStepsCompleted = loanApproveCurrencyAndLoanTypeStepIsCompleted &&
+    bool allStepsCompleted =
+        loanApproveCurrencyAndLoanTypeStepIsCompleted &&
         loanApproveRangesStepIsCompleted &&
         loanApproveConfigurationStepIsCompleted;
 
@@ -71,7 +71,7 @@ class LoanApproveScreen extends ConsumerWidget {
       ),
     ];
 
-    if(allStepsCompleted){
+    if (allStepsCompleted) {
       return OlwLoadingScreen();
     }
 
@@ -93,18 +93,29 @@ class LoanApproveScreen extends ConsumerWidget {
         }
 
         List<Widget> loanApproveSteps = [
-          LoanApproveCurrencyAndLoanTypesStep(
-            countryLoan: countryLoan!,
-          ),
-          LoanApproveRangesStep(
-              countryLoan: countryLoan
-          ),
+          LoanApproveCurrencyAndLoanTypesStep(countryLoan: countryLoan!),
+          LoanApproveRangesStep(countryLoan: countryLoan),
           LoanApproveConfiguration(
             countryLoan: countryLoan,
-            onConfirm: (){
-              approveLoan(ref, countryLoan, context, appLocalizations, appConfig);
+            onConfirm: () {
+              approveLoan(
+                ref,
+                countryLoan,
+                context,
+                appLocalizations,
+                appConfig,
+              );
             },
-          )
+            onSimulate: () {
+              simulateLoan(
+                ref,
+                countryLoan,
+                context,
+                appLocalizations,
+                appConfig,
+              );
+            },
+          ),
         ];
 
         return Container(
@@ -131,11 +142,11 @@ class LoanApproveScreen extends ConsumerWidget {
                               allowStepTap: true,
                               onStepTapped: (currentStep) {
                                 ref
-                                    .read(
-                                  currentLoanApproveStepProvider
-                                      .notifier,
-                                )
-                                    .state =
+                                        .read(
+                                          currentLoanApproveStepProvider
+                                              .notifier,
+                                        )
+                                        .state =
                                     currentStep;
                               },
                               currentStep: currentLoanApproveStep,
@@ -165,68 +176,149 @@ class LoanApproveScreen extends ConsumerWidget {
     );
   }
 
-  Future<void> approveLoan (WidgetRef ref, CountryLoan? countryLoan, BuildContext context, AppLocalizations appLocalizations, AppConfig appConfig) async {
+  Future<void> simulateLoan(
+    WidgetRef ref,
+    CountryLoan? countryLoan,
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    AppConfig appConfig,
+  ) async {
     try {
-      final loanApprove = ref.watch(
-        loanApproveProvider,
-      );
-      final appFeaturesRepository = ref.watch(appFeaturesRepositoryProvider);
+      final loanApprove = ref.watch(loanApproveProvider);
 
       final approvalConditions = LoanApprovalConditions(
-          currency: loanApprove.currencyData!,
-          approvedAmount: loanApprove.approvedAmount!,
-          about: loanApprove.selectedAccountType!.about,
-          interestRateType: countryLoan!.approvalConfig.interestRateType,
-          capitalizationFrequency: loanApprove.loanRanges!.last.paymentFrequencies.last.frequency,
-          amortizationSystem: countryLoan.approvalConfig.amortizationSystem,
-          approvalExpirationDate: loanApprove.offerExpirationDate!,
-          dailyDefaulterRate: loanApprove.dailyDefaulterRate!,
-          minimumPaymentFactor: loanApprove.minimumPaymentFactor!,
-          rangeSteps: loanApprove.rangeSteps!,
-          loanRanges: loanApprove.loanRanges!,
-          minAnnualInterestRate: loanApprove.loanRanges!.last.annualInterestRate,
-          loanType: loanApprove.selectedAccountType!,
-          maxInstallments: loanApprove.loanRanges!.last.paymentFrequencies.last.maxInstallments,
+        currency: loanApprove.currencyData!,
+        approvedAmount: loanApprove.approvedAmount!,
+        about: loanApprove.selectedAccountType!.about,
+        interestRateType: countryLoan!.approvalConfig.interestRateType,
+        capitalizationFrequency:
+            loanApprove.loanRanges!.last.paymentFrequencies.last.frequency,
+        amortizationSystem: countryLoan.approvalConfig.amortizationSystem,
+        approvalExpirationDate: loanApprove.offerExpirationDate!,
+        dailyDefaulterRate: loanApprove.dailyDefaulterRate!,
+        minimumPaymentFactor: loanApprove.minimumPaymentFactor!,
+        rangeSteps: loanApprove.rangeSteps!,
+        loanRanges: loanApprove.loanRanges!,
+        minAnnualInterestRate: loanApprove.loanRanges!.last.annualInterestRate,
+        loanType: loanApprove.selectedAccountType!,
+        maxInstallments: loanApprove
+            .loanRanges!
+            .last
+            .paymentFrequencies
+            .last
+            .maxInstallments,
       );
 
       final loanData = LoanData(
-          isEnabled: true,
-          currency: loanApprove.loanCurrencyData!,
-          accountNickname: loanApprove.selectedAccountType!.accountTypeName.getLocalized(appLocalizations.localeName),
-          accountType: loanApprove.selectedAccountType!,
-          accountTypeId: loanApprove.selectedAccountType!.id,
-          accountColors: loanApprove.selectedAccountType!.availableColors.first,
-          createdAt: '',
-          accountNumber: '',
-          accountStatus: AccountStatus.approved,
-          isPayEnabled: true,
-          isUseEnabled: true,
-          isScheduleEnabled: true,
-          balance: BigInt.zero,
-          userId: userData.userId!,
-          approvalConditions: approvalConditions);
+        isEnabled: true,
+        currency: loanApprove.loanCurrencyData!,
+        accountNickname: loanApprove.selectedAccountType!.accountTypeName
+            .getLocalized(appLocalizations.localeName),
+        accountType: loanApprove.selectedAccountType!,
+        accountTypeId: loanApprove.selectedAccountType!.id,
+        accountColors: loanApprove.selectedAccountType!.availableColors.first,
+        createdAt: '',
+        accountNumber: '',
+        accountStatus: AccountStatus.approved,
+        isPayEnabled: true,
+        isUseEnabled: true,
+        isScheduleEnabled: true,
+        balance: BigInt.zero,
+        userId: userData.userId!,
+        id: 'simulation',
+        approvalConditions: approvalConditions,
+      );
 
-      final lineOfCreditApproveRepository = ref.watch(loanApproveRepositoryProvider);
+      context.pushNamed(
+        LoanActivationScreen.name,
+        extra: LoanActivationParams(loanData: loanData, userData: userData),
+      );
+    } catch (e, s) {
+      OlwSnackBarNotification.showError(
+        title: appLocalizations.upsItSeemsToBeWeHaveAnError,
+        message: e.toString(),
+      );
+    }
+  }
+
+  Future<void> approveLoan(
+    WidgetRef ref,
+    CountryLoan? countryLoan,
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    AppConfig appConfig,
+  ) async {
+    try {
+      final loanApprove = ref.watch(loanApproveProvider);
+      final appFeaturesRepository = ref.watch(appFeaturesRepositoryProvider);
+
+      final approvalConditions = LoanApprovalConditions(
+        currency: loanApprove.currencyData!,
+        approvedAmount: loanApprove.approvedAmount!,
+        about: loanApprove.selectedAccountType!.about,
+        interestRateType: countryLoan!.approvalConfig.interestRateType,
+        capitalizationFrequency:
+            loanApprove.loanRanges!.last.paymentFrequencies.last.frequency,
+        amortizationSystem: countryLoan.approvalConfig.amortizationSystem,
+        approvalExpirationDate: loanApprove.offerExpirationDate!,
+        dailyDefaulterRate: loanApprove.dailyDefaulterRate!,
+        minimumPaymentFactor: loanApprove.minimumPaymentFactor!,
+        rangeSteps: loanApprove.rangeSteps!,
+        loanRanges: loanApprove.loanRanges!,
+        minAnnualInterestRate: loanApprove.loanRanges!.last.annualInterestRate,
+        loanType: loanApprove.selectedAccountType!,
+        maxInstallments: loanApprove
+            .loanRanges!
+            .last
+            .paymentFrequencies
+            .last
+            .maxInstallments,
+      );
+
+      final loanData = LoanData(
+        isEnabled: true,
+        currency: loanApprove.loanCurrencyData!,
+        accountNickname: loanApprove.selectedAccountType!.accountTypeName
+            .getLocalized(appLocalizations.localeName),
+        accountType: loanApprove.selectedAccountType!,
+        accountTypeId: loanApprove.selectedAccountType!.id,
+        accountColors: loanApprove.selectedAccountType!.availableColors.first,
+        createdAt: '',
+        accountNumber: '',
+        accountStatus: AccountStatus.approved,
+        isPayEnabled: true,
+        isUseEnabled: true,
+        isScheduleEnabled: true,
+        balance: BigInt.zero,
+        userId: userData.userId!,
+        approvalConditions: approvalConditions,
+      );
+
+      final lineOfCreditApproveRepository = ref.watch(
+        loanApproveRepositoryProvider,
+      );
 
       await lineOfCreditApproveRepository.approveLoan(loanData);
 
-      if(userData.currentCountryCode == 'PE'){
+      if (userData.currentCountryCode == 'PE') {
         await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Préstamo Aprobado',
-              userId: userData.userId!,
-              body: '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
-              type: PushNotificationTypes.loanRequest,
-            )
+          PushNotificationData(
+            title: 'Préstamo Aprobado',
+            userId: userData.userId!,
+            body:
+                '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
+            type: PushNotificationTypes.loanRequest,
+          ),
         );
       } else {
         await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Loan Approved',
-              userId: userData.userId!,
-              body: '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
-              type: PushNotificationTypes.loanRequest,
-            )
+          PushNotificationData(
+            title: 'Loan Approved',
+            userId: userData.userId!,
+            body:
+                '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
+            type: PushNotificationTypes.loanRequest,
+          ),
         );
       }
 
@@ -234,20 +326,25 @@ class LoanApproveScreen extends ConsumerWidget {
       ref.invalidate(getUserLoansProvider);
 
       ref.read(currentLoanApproveStepProvider.notifier).state = 0;
-      ref.read(loanApproveCurrencyAndLoanTypeStepIsCompletedProvider.notifier).state = false;
+      ref
+              .read(
+                loanApproveCurrencyAndLoanTypeStepIsCompletedProvider.notifier,
+              )
+              .state =
+          false;
       ref.read(loanApproveRangesStepIsCompletedProvider.notifier).state = false;
-      ref.read(loanApproveConfigurationStepIsCompletedProvider.notifier).state = false;
+      ref.read(loanApproveConfigurationStepIsCompletedProvider.notifier).state =
+          false;
       ref.read(loanApproveProvider.notifier).clear();
 
       if (context.mounted) {
-        context.goNamed(
-          LoanApprovedConfirmationScreen.name,
-        );
+        context.goNamed(LoanApprovedConfirmationScreen.name);
       }
-
-    } catch (e, s){
-      print('Error approving loan: $e');
-      print('Stack trace: $s');
+    } catch (e) {
+      OlwSnackBarNotification.showError(
+        title: appLocalizations.upsItSeemsToBeWeHaveAnError,
+        message: e.toString(),
+      );
     }
   }
 }

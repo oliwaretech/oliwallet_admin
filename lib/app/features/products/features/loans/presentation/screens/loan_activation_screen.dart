@@ -26,7 +26,12 @@ import 'package:oliwallet_design_system/oliwallet_design_system.dart';
 
 class LoanActivationScreen extends ConsumerWidget {
   final LoanData loanData;
-  const LoanActivationScreen({super.key, required this.loanData});
+  final UserData userData;
+  const LoanActivationScreen({
+    super.key,
+    required this.loanData,
+    required this.userData,
+  });
   static const String route = '/loan-activation';
   static const String name = 'loan-activation';
 
@@ -49,7 +54,6 @@ class LoanActivationScreen extends ConsumerWidget {
       loanActivationConfirmationStepIsCompletedProvider,
     );
 
-    final getCurrentUserDataAsyncValue = ref.watch(getCurrentUserDataProvider);
     final getAppConfigAsyncValue = ref.watch(getAppConfigProvider);
 
     bool allStepsCompleted =
@@ -89,126 +93,106 @@ class LoanActivationScreen extends ConsumerWidget {
       return OlwLoadingScreen();
     }
 
-    print('All steps completed: $allStepsCompleted');
-
-    return getCurrentUserDataAsyncValue.when(
-      data: (userData) {
-        return getAppConfigAsyncValue.when(
-          data: (appConfig) {
-            CountryLoan? countryLoan;
-            LoanCurrencyData? loanCurrencyData;
-            CountryTaxes? countryTaxes;
-            switch (userData.currentCountryCode) {
-              case 'PE':
-                countryTaxes = appConfig.taxesConfig.pe;
-                countryLoan = appConfig.loanConfig.pe;
-                switch (loanData.currency.currencyCode) {
-                  case 'PEN':
-                    loanCurrencyData = countryLoan.currency.pen;
-                    break;
-                  case 'USD':
-                    loanCurrencyData = countryLoan.currency.usd;
-                    break;
-                  case 'EUR':
-                    loanCurrencyData = countryLoan.currency.eur;
-                    break;
-                  default:
-                    loanCurrencyData = null;
-                }
+    return getAppConfigAsyncValue.when(
+      data: (appConfig) {
+        CountryLoan? countryLoan;
+        LoanCurrencyData? loanCurrencyData;
+        CountryTaxes? countryTaxes;
+        switch (userData.currentCountryCode) {
+          case 'PE':
+            countryTaxes = appConfig.taxesConfig.pe;
+            countryLoan = appConfig.loanConfig.pe;
+            switch (loanData.currency.currencyCode) {
+              case 'PEN':
+                loanCurrencyData = countryLoan.currency.pen;
                 break;
-              case 'HR':
-                countryTaxes = appConfig.taxesConfig.pe;
-                countryLoan = appConfig.loanConfig.hr;
-                switch (loanData.currency.currencyCode) {
-                  case 'PEN':
-                    loanCurrencyData = countryLoan!.currency.pen;
-                    break;
-                  case 'USD':
-                    loanCurrencyData = countryLoan!.currency.usd;
-                    break;
-                  case 'EUR':
-                    loanCurrencyData = countryLoan!.currency.eur;
-                    break;
-                  default:
-                    loanCurrencyData = null;
-                }
+              case 'USD':
+                loanCurrencyData = countryLoan.currency.usd;
+                break;
+              case 'EUR':
+                loanCurrencyData = countryLoan.currency.eur;
                 break;
               default:
-                countryLoan = null;
                 loanCurrencyData = null;
             }
+            break;
+          case 'HR':
+            countryTaxes = appConfig.taxesConfig.pe;
+            countryLoan = appConfig.loanConfig.hr;
+            switch (loanData.currency.currencyCode) {
+              case 'PEN':
+                loanCurrencyData = countryLoan!.currency.pen;
+                break;
+              case 'USD':
+                loanCurrencyData = countryLoan!.currency.usd;
+                break;
+              case 'EUR':
+                loanCurrencyData = countryLoan!.currency.eur;
+                break;
+              default:
+                loanCurrencyData = null;
+            }
+            break;
+          default:
+            countryLoan = null;
+            loanCurrencyData = null;
+        }
 
-            List<Widget> loanActivationSteps = [
-              LoanActivationIntroductionStep(loanData: loanData),
-              LoanActivationAmountAndInstallmentsStep(
-                loanData: loanData,
-                loanCurrencyData: loanCurrencyData!,
-              ),
-              LoanActivationWithdrawalMethodStep(
-                loanCurrencyData: loanCurrencyData,
-                loanData: loanData,
-                appConfig: appConfig,
-                countryTaxes: countryTaxes!,
-              ),
-              LoanActivationConfirmationStep(
-                loanData: loanData,
-                onActivateLoan: () => activateLineOfCredit(
-                  ref,
-                  loanData,
-                  appLocalizations,
-                  context,
-                ),
-              ),
-            ];
+        List<Widget> loanActivationSteps = [
+          LoanActivationIntroductionStep(loanData: loanData),
+          LoanActivationAmountAndInstallmentsStep(
+            loanData: loanData,
+            loanCurrencyData: loanCurrencyData!,
+          ),
+          LoanActivationWithdrawalMethodStep(
+            loanCurrencyData: loanCurrencyData,
+            loanData: loanData,
+            appConfig: appConfig,
+            countryTaxes: countryTaxes!,
+          ),
+          LoanActivationConfirmationStep(
+            loanData: loanData,
+            onActivateLoan: () =>
+                activateLineOfCredit(ref, loanData, appLocalizations, context),
+          ),
+        ];
 
-            return Container(
-              decoration: OlwContainerStyles.appBackground,
-              child: Scaffold(
-                backgroundColor: Colors.transparent,
-                appBar: OlwAppBar(
-                  onBackButtonPressed: () => context.pop(),
-                  showBackButton: true,
-                  title: appLocalizations.approvedLoan,
-                ),
-                body: SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        spacing: 32,
-                        children: [
-                          OlwStepper(
-                            allowStepTap: true,
-                            onStepTapped: (currentStep) {
-                              ref
-                                      .read(
-                                        currentLoanActivationStepProvider
-                                            .notifier,
-                                      )
-                                      .state =
-                                  currentStep;
-                            },
-                            currentStep: currentLoanActivationStep,
-                            steps: loanActivationSteps,
-                            stepsData: loanActivationStepData,
-                          ),
-                        ],
+        return Container(
+          decoration: OlwContainerStyles.appBackground,
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: OlwAppBar(
+              onBackButtonPressed: () => context.pop(),
+              showBackButton: true,
+              title: appLocalizations.approvedLoan,
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    spacing: 32,
+                    children: [
+                      OlwStepper(
+                        allowStepTap: true,
+                        onStepTapped: (currentStep) {
+                          ref
+                                  .read(
+                                    currentLoanActivationStepProvider.notifier,
+                                  )
+                                  .state =
+                              currentStep;
+                        },
+                        currentStep: currentLoanActivationStep,
+                        steps: loanActivationSteps,
+                        stepsData: loanActivationStepData,
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
-            );
-          },
-          error: (error, stackTrace) {
-            return OlwErrorScreen(
-              errorMessage: appLocalizations.upsItSeemsToBeWeHaveAnError,
-              primaryButton: appLocalizations.retry,
-              secondaryButton: appLocalizations.reportToSupport,
-              onPrimaryButtonPressed: () => ref.refresh(getAppConfigProvider),
-            );
-          },
-          loading: () => const OlwLoadingScreen(),
+            ),
+          ),
         );
       },
       error: (error, stackTrace) {
@@ -216,7 +200,7 @@ class LoanActivationScreen extends ConsumerWidget {
           errorMessage: appLocalizations.upsItSeemsToBeWeHaveAnError,
           primaryButton: appLocalizations.retry,
           secondaryButton: appLocalizations.reportToSupport,
-          onPrimaryButtonPressed: () => ref.refresh(getCurrentUserDataProvider),
+          onPrimaryButtonPressed: () => ref.refresh(getAppConfigProvider),
         );
       },
       loading: () => const OlwLoadingScreen(),

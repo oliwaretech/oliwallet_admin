@@ -8,10 +8,8 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/loans/d
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/domain/models/loan_type.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/features/loan_approve/domain/models/loan_approve_data.dart';
 
-class LoanApproveNotifier
-    extends StateNotifier<LoanApproveData> {
-  LoanApproveNotifier()
-      : super(const LoanApproveData());
+class LoanApproveNotifier extends StateNotifier<LoanApproveData> {
+  LoanApproveNotifier() : super(const LoanApproveData());
 
   void updateUserId(String? userId) {
     state = state.copyWith(userId: userId);

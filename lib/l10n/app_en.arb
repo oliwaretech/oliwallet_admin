@@ -582,5 +582,24 @@
   "withdrawalAmountBeforeTaxesAndFees": "Withdrawal amount before taxes and fees",
   "destinationLineOfCredit" : "Destination line of credit",
   "balanceAfterPayment": "Balance after payment",
-  "aboutTheCredit" : "About the credit"
+  "aboutTheCredit" : "About the credit",
+  "communications" : "Communications",
+  "directEmail" : "Direct email",
+  "directEmailDescription": "Send emails directly to the registered email of the user.",
+  "massiveEmail" : "Massive email",
+  "massiveEmailDescription": "Send emails to multiple users at once.",
+  "selectTheTypeOfCommunicationYouWantToSend": "Select the type of communication you want to send",
+  "selectTheCountryAndLanguage" : "Select the country and language",
+  "selectTheCountry" : "Select the country",
+  "selectTheLanguage" : "Select the language",
+  "english" : "English",
+  "spanish" : "Spanish",
+  "faceValidation" : "Face validation",
+  "markAdVerified" : "Mark as verified",
+  "requestNewValidation" : "Request new validation",
+  "markAsRejected" : "Mark as rejected",
+  "simulators": "Simulators",
+  "simulate" : "Simulate",
+  "enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan" : "Enter the annual effective interest rate you are going to approve for the loan"
+
 }
