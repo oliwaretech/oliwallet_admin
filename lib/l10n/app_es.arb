@@ -600,5 +600,16 @@
   "markAsRejected" : "Marcar como rechazado",
   "simulators": "Simuladores",
   "simulate" : "Simular",
-  "enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan" : "Ingresa la tasa de interés efectiva anual que vas a aprobar para el préstamo"
+  "enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan" : "Ingresa la tasa de interés efectiva anual que vas a aprobar para el préstamo",
+  "communicationManagement": "Gestión de comunicaciones",
+  "whatsAppMessage" : "Mensaje de WhatsApp",
+  "emailMessage" : "Mensaje de correo electrónico",
+  "notificationMessage" : "Mensaje de notificación",
+  "notificationTitle" : "Título de la notificación",
+  "notificationDescription" : "Descripción de la notificación",
+  "sendMessage" : "Enviar mensaje",
+  "fillAllFieldsToSendTheMessage" : "Completa todos los campos para enviar el mensaje",
+  "notificationMessageSent" : "Mensaje de notificación enviado",
+  "notificationMessageSentSuccessfully" : "Mensaje de notificación enviado con éxito",
+  "notificationMessageNotSent" : "Mensaje de notificación no enviado"
 }

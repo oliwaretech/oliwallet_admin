@@ -600,6 +600,16 @@
   "markAsRejected" : "Mark as rejected",
   "simulators": "Simulators",
   "simulate" : "Simulate",
-  "enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan" : "Enter the annual effective interest rate you are going to approve for the loan"
-
+  "enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan" : "Enter the annual effective interest rate you are going to approve for the loan",
+  "communicationManagement": "Communication management",
+  "whatsAppMessage" : "WhatsApp message",
+  "emailMessage" : "Email message",
+  "notificationMessage" : "Notification message",
+  "notificationTitle" : "Notification title",
+  "notificationDescription" : "Notification description",
+  "sendMessage" : "Send message",
+  "fillAllFieldsToSendTheMessage" : "Fill all fields to send the message",
+  "notificationMessageSent" : "Notification message sent",
+  "notificationMessageSentSuccessfully" : "Notification message sent successfully",
+  "notificationMessageNotSent" : "Notification message not sent"
 }

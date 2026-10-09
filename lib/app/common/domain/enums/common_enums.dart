@@ -21,4 +21,7 @@ enum PushNotificationTypes {
   creditCardCashRequest,
   lineOfCreditRequest,
   loanRequest,
+  personal,
 }
+
+enum ScreenType { mobile, tablet, desktop }

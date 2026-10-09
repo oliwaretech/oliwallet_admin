@@ -6,6 +6,7 @@ import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_d
 import 'package:oliwallet_admin_front_end/app/features/products/features/accounts/presentation/widgets/accounts_section.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/presentation/widgets/lines_of_credit_section.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/loans/presentation/widgets/loans_section.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/features/identity_management/presentation/widgets/communication_management_section.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/features/identity_management/presentation/widgets/identity_management_section.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/widgets/user_header.dart';
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
@@ -44,6 +45,7 @@ class UserDetail extends ConsumerWidget {
                     children: [
                       UserHeader(userData: user),
                       IdentityManagementSection(userData: user),
+                      CommunicationManagementSection(userData: user),
                       AccountsSection(appConfig: appConfig, userData: user),
                       LinesOfCreditSection(
                         appConfig: appConfig,

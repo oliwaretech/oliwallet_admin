@@ -1974,4 +1974,39 @@ class AppLocalizationsEn extends AppLocalizations {
   String
   get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan =>
       'Enter the annual effective interest rate you are going to approve for the loan';
+
+  @override
+  String get communicationManagement => 'Communication management';
+
+  @override
+  String get whatsAppMessage => 'WhatsApp message';
+
+  @override
+  String get emailMessage => 'Email message';
+
+  @override
+  String get notificationMessage => 'Notification message';
+
+  @override
+  String get notificationTitle => 'Notification title';
+
+  @override
+  String get notificationDescription => 'Notification description';
+
+  @override
+  String get sendMessage => 'Send message';
+
+  @override
+  String get fillAllFieldsToSendTheMessage =>
+      'Fill all fields to send the message';
+
+  @override
+  String get notificationMessageSent => 'Notification message sent';
+
+  @override
+  String get notificationMessageSentSuccessfully =>
+      'Notification message sent successfully';
+
+  @override
+  String get notificationMessageNotSent => 'Notification message not sent';
 }

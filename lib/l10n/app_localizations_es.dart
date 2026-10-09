@@ -1985,4 +1985,39 @@ class AppLocalizationsEs extends AppLocalizations {
   String
   get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan =>
       'Ingresa la tasa de interés efectiva anual que vas a aprobar para el préstamo';
+
+  @override
+  String get communicationManagement => 'Gestión de comunicaciones';
+
+  @override
+  String get whatsAppMessage => 'Mensaje de WhatsApp';
+
+  @override
+  String get emailMessage => 'Mensaje de correo electrónico';
+
+  @override
+  String get notificationMessage => 'Mensaje de notificación';
+
+  @override
+  String get notificationTitle => 'Título de la notificación';
+
+  @override
+  String get notificationDescription => 'Descripción de la notificación';
+
+  @override
+  String get sendMessage => 'Enviar mensaje';
+
+  @override
+  String get fillAllFieldsToSendTheMessage =>
+      'Completa todos los campos para enviar el mensaje';
+
+  @override
+  String get notificationMessageSent => 'Mensaje de notificación enviado';
+
+  @override
+  String get notificationMessageSentSuccessfully =>
+      'Mensaje de notificación enviado con éxito';
+
+  @override
+  String get notificationMessageNotSent => 'Mensaje de notificación no enviado';
 }

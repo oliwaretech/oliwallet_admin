@@ -102,31 +102,30 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<bool> checkBiometricsAndSaveCredentials() async {
     final localAuth = LocalAuthentication();
-    const storage = FlutterSecureStorage();
-    final hasUsername = await storage.containsKey(key: 'username');
-    final hasPassword = await storage.containsKey(key: 'password');
 
     final hasBiometrics = await localAuth.canCheckBiometrics;
     final isDeviceSupported = await localAuth.isDeviceSupported();
-    bool isBiometricAvailable =
-        (hasBiometrics || isDeviceSupported) && hasUsername && hasPassword;
-    if (isBiometricAvailable) {
-      final availableBiometrics = await localAuth.getAvailableBiometrics();
-      if (availableBiometrics.isNotEmpty) {
-        final didAuthenticate = await localAuth.authenticate(
-          localizedReason: 'Use your fingerprint or Face ID to log in',
-          options: const AuthenticationOptions(biometricOnly: true),
-        );
 
-        if (didAuthenticate) {
-          final prefs = await SharedPreferences.getInstance();
-          await prefs.setBool('biometric_activated', true);
-          return true;
-        } else {
-          return false;
-        }
-      }
+    if (!hasBiometrics || !isDeviceSupported) {
+      return false;
     }
+
+    final availableBiometrics = await localAuth.getAvailableBiometrics();
+    if (availableBiometrics.isEmpty) {
+      return false;
+    }
+
+    final didAuthenticate = await localAuth.authenticate(
+      localizedReason: 'Use your fingerprint or Face ID to log in',
+      options: const AuthenticationOptions(biometricOnly: true),
+    );
+
+    if (didAuthenticate) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('biometric_activated', true);
+      return true;
+    }
+
     return false;
   }
 

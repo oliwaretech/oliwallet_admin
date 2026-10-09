@@ -35,4 +35,5 @@ const _$PushNotificationTypesEnumMap = {
   PushNotificationTypes.creditCardCashRequest: 'creditCardCashRequest',
   PushNotificationTypes.lineOfCreditRequest: 'lineOfCreditRequest',
   PushNotificationTypes.loanRequest: 'loanRequest',
+  PushNotificationTypes.personal: 'personal',
 };

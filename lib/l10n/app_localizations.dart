@@ -3716,6 +3716,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter the annual effective interest rate you are going to approve for the loan'**
   String get enterTheAnnualEffectiveInterestRateYouAreGoingToApproveForTheLoan;
+
+  /// No description provided for @communicationManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Communication management'**
+  String get communicationManagement;
+
+  /// No description provided for @whatsAppMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'WhatsApp message'**
+  String get whatsAppMessage;
+
+  /// No description provided for @emailMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Email message'**
+  String get emailMessage;
+
+  /// No description provided for @notificationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification message'**
+  String get notificationMessage;
+
+  /// No description provided for @notificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification title'**
+  String get notificationTitle;
+
+  /// No description provided for @notificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification description'**
+  String get notificationDescription;
+
+  /// No description provided for @sendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send message'**
+  String get sendMessage;
+
+  /// No description provided for @fillAllFieldsToSendTheMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill all fields to send the message'**
+  String get fillAllFieldsToSendTheMessage;
+
+  /// No description provided for @notificationMessageSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification message sent'**
+  String get notificationMessageSent;
+
+  /// No description provided for @notificationMessageSentSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification message sent successfully'**
+  String get notificationMessageSentSuccessfully;
+
+  /// No description provided for @notificationMessageNotSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification message not sent'**
+  String get notificationMessageNotSent;
 }
 
 class _AppLocalizationsDelegate

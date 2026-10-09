@@ -156,40 +156,55 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         email,
         password,
       );
+
+      // Save credentials separately - don't let storage errors affect login success
       if (authResponse.user != null) {
-        await storage.write(key: 'username', value: email);
-        await storage.write(key: 'password', value: password);
+        try {
+          await storage.write(key: 'username', value: email);
+          await storage.write(key: 'password', value: password);
+        } catch (storageError) {
+          print('Failed to save credentials to secure storage: $storageError');
+          // Don't show error to user since login was successful
+        }
       }
-      setState(() {
-        isLoading = false;
-      });
+
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
       return authResponse;
     } on AuthException catch (e) {
-      final errorType = AuthErrorMapper.map(e);
-      final message = errorType.localized(appLocalizations);
-      if (errorType == AuthErrorType.wrongCredentials) {
+      if (mounted) {
+        final errorType = AuthErrorMapper.map(e);
+        final message = errorType.localized(appLocalizations);
+        if (errorType == AuthErrorType.wrongCredentials) {
+          OlwSnackBarNotification.showError(
+            title: appLocalizations.signInFailed,
+            message: appLocalizations.wrongCredentials,
+          );
+        } else {
+          OlwSnackBarNotification.showError(
+            title: appLocalizations.signInFailed,
+            message: message,
+          );
+        }
+        setState(() {
+          isLoading = false;
+        });
+      }
+      rethrow;
+    } catch (e) {
+      // Only show error if login actually failed
+      if (mounted) {
         OlwSnackBarNotification.showError(
           title: appLocalizations.signInFailed,
           message: appLocalizations.wrongCredentials,
         );
-      } else {
-        OlwSnackBarNotification.showError(
-          title: appLocalizations.signInFailed,
-          message: message,
-        );
+        setState(() {
+          isLoading = false;
+        });
       }
-      setState(() {
-        isLoading = false;
-      });
-      rethrow;
-    } catch (e) {
-      OlwSnackBarNotification.showError(
-        title: appLocalizations.signInFailed,
-        message: appLocalizations.wrongCredentials,
-      );
-      setState(() {
-        isLoading = false;
-      });
       rethrow;
     }
   }

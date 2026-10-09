@@ -27,49 +27,52 @@ class _HomeBottomNavigatorBarState
 
     const double baseHeight = 70;
 
-    return Container(
-      width: double.infinity,
-      height: baseHeight + bottomPadding,
-      padding: EdgeInsets.only(bottom: bottomPadding),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [OlwColors.primaryBlue, OlwColors.darkBlue],
+    return Padding(
+      padding: const EdgeInsets.only(right: 16.0, left: 16.0, bottom: 24.0),
+      child: Container(
+        width: double.infinity,
+        height: 80,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              OlwColors.darkBlue.withAlpha(1000),
+              OlwColors.primaryBlue.withAlpha(200),
+              OlwColors.primaryBlue.withAlpha(200),
+            ],
+          ),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
+        child: Row(
+          children: [
+            Expanded(
+              child: HomeBottomTab(
+                iconPath: ImageAssets.home,
+                iconPathDisabled: ImageAssets.home,
+                isActive: widget.currentIndex == 0,
+                tabName: appLocalizations.home,
+                onTap: () => widget.updateIndex(0),
+              ),
+            ),
+            Expanded(
+              child: HomeBottomTab(
+                iconPath: ImageAssets.transfer,
+                iconPathDisabled: ImageAssets.transfer,
+                isActive: widget.currentIndex == 1,
+                tabName: appLocalizations.operations,
+                onTap: () => widget.updateIndex(1),
+              ),
+            ),
+            Expanded(
+              child: HomeBottomTab(
+                iconPath: ImageAssets.account,
+                iconPathDisabled: ImageAssets.account,
+                isActive: widget.currentIndex == 2,
+                tabName: appLocalizations.account,
+                onTap: () => widget.updateIndex(2),
+              ),
+            ),
+          ],
         ),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: HomeBottomTab(
-              iconPath: IconAssets.home,
-              iconPathDisabled: IconAssets.homeDisabled,
-              isActive: widget.currentIndex == 0,
-              tabName: appLocalizations.home,
-              onTap: () => widget.updateIndex(0),
-            ),
-          ),
-          Expanded(
-            child: HomeBottomTab(
-              iconPath: IconAssets.confirmation,
-              iconPathDisabled: IconAssets.confirmationDisabled,
-              isActive: widget.currentIndex == 1,
-              tabName: appLocalizations.operations,
-              onTap: () => widget.updateIndex(1),
-            ),
-          ),
-          Expanded(
-            child: HomeBottomTab(
-              iconPath: IconAssets.settings,
-              iconPathDisabled: IconAssets.settingsDisabled,
-              isActive: widget.currentIndex == 2,
-              tabName: appLocalizations.settings,
-              onTap: () => widget.updateIndex(2),
-            ),
-          ),
-        ],
       ),
     );
   }
