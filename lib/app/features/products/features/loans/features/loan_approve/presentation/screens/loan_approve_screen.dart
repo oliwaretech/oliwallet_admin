@@ -306,7 +306,7 @@ class LoanApproveScreen extends ConsumerWidget {
             title: 'Préstamo Aprobado',
             userId: userData.userId!,
             body:
-                '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
+                '${appConfig.messageNotificationConfig.pe.loanRequest.requestApproved.body.es}',
             type: PushNotificationTypes.loanRequest,
           ),
         );
@@ -316,7 +316,7 @@ class LoanApproveScreen extends ConsumerWidget {
             title: 'Loan Approved',
             userId: userData.userId!,
             body:
-                '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
+                '${appConfig.messageNotificationConfig.hr!.loanRequest.requestApproved.body.es}',
             type: PushNotificationTypes.loanRequest,
           ),
         );

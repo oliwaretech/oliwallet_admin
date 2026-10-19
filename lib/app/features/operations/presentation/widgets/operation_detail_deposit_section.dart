@@ -32,6 +32,9 @@ class OperationDetailDepositSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appLocalizations = AppLocalizations.of(context)!;
     final depositOperationData = operation.depositOperationData!;
+    final sendNotificationCheckboxIsChecked = ref.watch(
+      sendNotificationCheckboxIsCheckedProvider,
+    );
     final currentDetailScreenIsLoading = ref.watch(
       currentDetailScreenIsLoadingProvider,
     );
@@ -236,6 +239,19 @@ class OperationDetailDepositSection extends ConsumerWidget {
             child: Column(
               spacing: 16,
               children: [
+                OlwCheckbox(
+                  label: appLocalizations.sendNotificationMessage,
+                  isChecked: sendNotificationCheckboxIsChecked,
+                  onChanged: (bool? value) {
+                    ref
+                            .read(
+                              sendNotificationCheckboxIsCheckedProvider
+                                  .notifier,
+                            )
+                            .state =
+                        value ?? false;
+                  },
+                ),
                 OlwPrimaryButton(
                   onPressed: () {
                     updateOperationStatus(
@@ -288,6 +304,9 @@ class OperationDetailDepositSection extends ConsumerWidget {
     AppLocalizations appLocalizations,
   ) async {
     try {
+      final sendNotificationCheckboxIsChecked = ref.read(
+        sendNotificationCheckboxIsCheckedProvider,
+      );
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = true;
       await ref
           .read(operationsRepositoryProvider)
@@ -307,51 +326,59 @@ class OperationDetailDepositSection extends ConsumerWidget {
 
       if (status == OperationStatus.completed) {
         if (userData.userPreferencesData?.languageCode == 'es') {
-          await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Operación Completada',
-              userId: userData.userId!,
-              body:
-                  '${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname}',
-              type: PushNotificationTypes.creditCardCashRequest,
-            ),
-          );
+          if (sendNotificationCheckboxIsChecked) {
+            await appFeaturesRepository.createPushNotification(
+              PushNotificationData(
+                title: 'Operación Completada',
+                userId: userData.userId!,
+                body:
+                    '${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname}',
+                type: PushNotificationTypes.creditCardCashRequest,
+              ),
+            );
+          }
           messageContent =
               '${messageNotificationData.completedOperation.greeting.es} ${userData.name}, ${messageNotificationData.completedOperation.body.es} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
-          await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Operation Completed',
-              userId: userData.userId!,
-              body:
-                  '${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname}',
-              type: PushNotificationTypes.creditCardCashRequest,
-            ),
-          );
+          if (sendNotificationCheckboxIsChecked) {
+            await appFeaturesRepository.createPushNotification(
+              PushNotificationData(
+                title: 'Operation Completed',
+                userId: userData.userId!,
+                body:
+                    '${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname}',
+                type: PushNotificationTypes.creditCardCashRequest,
+              ),
+            );
+          }
           messageContent =
               '${messageNotificationData.completedOperation.greeting.en} ${userData.name}, ${messageNotificationData.completedOperation.body.en} ${depositOperationData.accountData!.accountNickname} ${messageNotificationData.completedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }
       } else if (status == OperationStatus.rejected) {
         if (userData.userPreferencesData?.languageCode == 'es') {
-          await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Operación Rechazada',
-              userId: userData.userId!,
-              body: '${messageNotificationData.rejectedOperation.body.es}',
-              type: PushNotificationTypes.creditCardCashRequest,
-            ),
-          );
+          if (sendNotificationCheckboxIsChecked) {
+            await appFeaturesRepository.createPushNotification(
+              PushNotificationData(
+                title: 'Operación Rechazada',
+                userId: userData.userId!,
+                body: '${messageNotificationData.rejectedOperation.body.es}',
+                type: PushNotificationTypes.creditCardCashRequest,
+              ),
+            );
+          }
           messageContent =
               '${messageNotificationData.rejectedOperation.greeting.es} ${userData.name}, ${messageNotificationData.rejectedOperation.body.es} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         } else {
-          await appFeaturesRepository.createPushNotification(
-            PushNotificationData(
-              title: 'Operation Rejected',
-              userId: userData.userId!,
-              body: messageNotificationData.rejectedOperation.body.en,
-              type: PushNotificationTypes.creditCardCashRequest,
-            ),
-          );
+          if (sendNotificationCheckboxIsChecked) {
+            await appFeaturesRepository.createPushNotification(
+              PushNotificationData(
+                title: 'Operation Rejected',
+                userId: userData.userId!,
+                body: messageNotificationData.rejectedOperation.body.en,
+                type: PushNotificationTypes.creditCardCashRequest,
+              ),
+            );
+          }
           messageContent =
               '${messageNotificationData.rejectedOperation.greeting.en} ${userData.name}, ${messageNotificationData.rejectedOperation.body.en} ${messageNotificationData.rejectedOperation.suffix.getLocalized(appLocalizations.localeName)}';
         }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/communications/presentation/screens/communications_screen.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/credit_requests/presentation/screens/credit_requests_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/screens/users_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/presentation/widgets/dashboard/tool_item.dart';
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
@@ -28,6 +29,9 @@ class ToolsList extends StatelessWidget {
           ToolItem(
             title: appLocalizations.creditRequests,
             iconPath: IconAssets.form,
+            onTap: () {
+              context.pushNamed(CreditRequestsScreen.name);
+            },
           ),
           ToolItem(
             title: appLocalizations.communications,

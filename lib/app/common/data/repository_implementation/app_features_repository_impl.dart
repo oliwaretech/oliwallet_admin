@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:oliwallet_admin_front_end/app/common/data/data_source/supabase/supabase_tables.dart';
+import 'package:oliwallet_admin_front_end/app/common/domain/models/emails/send_email_payload.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/push_notifications/push_notification_data.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/repositories/app_features_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -54,5 +55,21 @@ class AppFeaturesRepositoryImpl implements AppFeaturesRepository {
     final data = pushNotificationData.toJson();
 
     await supabaseClient.from(SupabaseTables.notifications).insert(data);
+  }
+
+  @override
+  Future<void> sendEmailNotification(SendEmailPayload sendEmailPayload) async {
+    final response = await supabaseClient.functions.invoke(
+      'send-emails',
+      body: {
+        'to': sendEmailPayload.emailAddress,
+        'subject': sendEmailPayload.subject,
+        'html': sendEmailPayload.body,
+      },
+    );
+
+    if (response.status != 200) {
+      throw Exception('No se pudo enviar el correo');
+    }
   }
 }

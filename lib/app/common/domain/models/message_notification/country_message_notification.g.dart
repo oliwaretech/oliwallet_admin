@@ -33,6 +33,9 @@ _CountryMessageNotification _$CountryMessageNotificationFromJson(
   lineOfCreditRequest: LineOfCreditRequestMessageNotificationData.fromJson(
     json['line_of_credit_request'] as Map<String, dynamic>,
   ),
+  loanRequest: LineOfCreditRequestMessageNotificationData.fromJson(
+    json['loan_request'] as Map<String, dynamic>,
+  ),
 );
 
 Map<String, dynamic> _$CountryMessageNotificationToJson(
@@ -46,4 +49,5 @@ Map<String, dynamic> _$CountryMessageNotificationToJson(
   'loan_pay': instance.loanPay,
   'loan_use': instance.loanUse,
   'line_of_credit_request': instance.lineOfCreditRequest,
+  'loan_request': instance.loanRequest,
 };

@@ -1,4 +1,5 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:oliwallet_admin_front_end/app/common/domain/models/emails/send_email_payload.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/push_notifications/push_notification_data.dart';
 
 abstract class AppFeaturesRepository {
@@ -13,4 +14,6 @@ abstract class AppFeaturesRepository {
   Future<void> createPushNotification(
     PushNotificationData pushNotificationData,
   );
+
+  Future<void> sendEmailNotification(SendEmailPayload sendEmailPayload);
 }

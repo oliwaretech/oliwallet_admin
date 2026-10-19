@@ -70,149 +70,162 @@ class OperationDetailLoanUseSection extends ConsumerWidget {
                   style: OlwTextStyles.textTitle,
                 ),
                 SizedBox(height: 8),
-                Text(
-                  appLocalizations.destinationEntity,
-                  style: OlwTextStyles.textSubTitle,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    spacing: 8,
-                    children: [
-                      ClipOval(
-                        child: Image.network(
-                          loanUseOperationData.externalMethod!.entityImageUrl!,
-                          width: 40,
-                          height: 40,
-                          fit: BoxFit.fill,
+                if (loanUseOperationData.externalMethod == null)
+                  Text(
+                    appLocalizations.withoutCashDisbursement,
+                    style: OlwTextStyles.textSubTitle,
+                  ),
+                if (loanUseOperationData.externalMethod != null)
+                  Text(
+                    appLocalizations.destinationEntity,
+                    style: OlwTextStyles.textSubTitle,
+                  ),
+                if (loanUseOperationData.externalMethod != null)
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      spacing: 8,
+                      children: [
+                        ClipOval(
+                          child: Image.network(
+                            loanUseOperationData
+                                .externalMethod!
+                                .entityImageUrl!,
+                            width: 40,
+                            height: 40,
+                            fit: BoxFit.fill,
+                          ),
                         ),
-                      ),
-                      Column(
-                        spacing: 2,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            spacing: 8,
-                            children: [
-                              Text(
-                                loanUseOperationData.externalMethod!.entityName!
-                                    .getLocalized(appLocalizations.localeName),
-                                style: OlwTextStyles.textCardTitle,
-                              ),
-                              if (loanUseOperationData
-                                      .externalMethod!
-                                      .accountType !=
-                                  null)
+                        Column(
+                          spacing: 2,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              spacing: 8,
+                              children: [
                                 Text(
                                   loanUseOperationData
                                       .externalMethod!
-                                      .accountType!
-                                      .accountTypeName
+                                      .entityName!
                                       .getLocalized(
                                         appLocalizations.localeName,
                                       ),
-                                  style: OlwTextStyles.textDescription,
+                                  style: OlwTextStyles.textCardTitle,
                                 ),
-                            ],
-                          ),
-                          if (loanUseOperationData
-                                  .externalMethod!
-                                  .accountNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  'A.C: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  loanUseOperationData
-                                      .externalMethod!
-                                      .accountNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
-                                      loanUseOperationData
-                                          .externalMethod!
-                                          .accountNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
+                                if (loanUseOperationData
+                                        .externalMethod!
+                                        .accountType !=
+                                    null)
+                                  Text(
+                                    loanUseOperationData
+                                        .externalMethod!
+                                        .accountType!
+                                        .accountTypeName
+                                        .getLocalized(
+                                          appLocalizations.localeName,
+                                        ),
+                                    style: OlwTextStyles.textDescription,
+                                  ),
                               ],
                             ),
-                          if (loanUseOperationData
-                                  .externalMethod!
-                                  .interbankAccountNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  'CCI: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  loanUseOperationData
-                                      .externalMethod!
-                                      .interbankAccountNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
-                                      loanUseOperationData
-                                          .externalMethod!
-                                          .interbankAccountNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
-                              ],
-                            ),
-                          if (loanUseOperationData
-                                  .externalMethod!
-                                  .phoneNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  '${appLocalizations.mobilePhone}: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  loanUseOperationData
-                                      .externalMethod!
-                                      .phoneNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
-                                      loanUseOperationData
-                                          .externalMethod!
-                                          .phoneNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
-                              ],
-                            ),
-                        ],
-                      ),
-                    ],
+                            if (loanUseOperationData
+                                    .externalMethod!
+                                    .accountNumber !=
+                                null)
+                              Row(
+                                children: [
+                                  Text(
+                                    'A.C: ',
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  Text(
+                                    loanUseOperationData
+                                        .externalMethod!
+                                        .accountNumber!,
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  SizedBox(width: 8),
+                                  OlwIconButton(
+                                    onPressed: () {
+                                      copyToClipboard(
+                                        title:
+                                            '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
+                                        loanUseOperationData
+                                            .externalMethod!
+                                            .accountNumber!,
+                                      );
+                                    },
+                                    iconPath: IconAssets.copy,
+                                  ),
+                                ],
+                              ),
+                            if (loanUseOperationData
+                                    .externalMethod!
+                                    .interbankAccountNumber !=
+                                null)
+                              Row(
+                                children: [
+                                  Text(
+                                    'CCI: ',
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  Text(
+                                    loanUseOperationData
+                                        .externalMethod!
+                                        .interbankAccountNumber!,
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  SizedBox(width: 8),
+                                  OlwIconButton(
+                                    onPressed: () {
+                                      copyToClipboard(
+                                        title:
+                                            '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
+                                        loanUseOperationData
+                                            .externalMethod!
+                                            .interbankAccountNumber!,
+                                      );
+                                    },
+                                    iconPath: IconAssets.copy,
+                                  ),
+                                ],
+                              ),
+                            if (loanUseOperationData
+                                    .externalMethod!
+                                    .phoneNumber !=
+                                null)
+                              Row(
+                                children: [
+                                  Text(
+                                    '${appLocalizations.mobilePhone}: ',
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  Text(
+                                    loanUseOperationData
+                                        .externalMethod!
+                                        .phoneNumber!,
+                                    style: OlwTextStyles.textDescription,
+                                  ),
+                                  SizedBox(width: 8),
+                                  OlwIconButton(
+                                    onPressed: () {
+                                      copyToClipboard(
+                                        title:
+                                            '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
+                                        loanUseOperationData
+                                            .externalMethod!
+                                            .phoneNumber!,
+                                      );
+                                    },
+                                    iconPath: IconAssets.copy,
+                                  ),
+                                ],
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
               ],
             ),
           ),

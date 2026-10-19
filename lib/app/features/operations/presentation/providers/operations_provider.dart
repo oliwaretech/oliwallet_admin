@@ -13,6 +13,10 @@ final currentDetailScreenIsLoadingProvider = StateProvider<bool>(
   (ref) => false,
 );
 
+final sendNotificationCheckboxIsCheckedProvider = StateProvider<bool>(
+  (ref) => true,
+);
+
 final operationsRepositoryProvider = Provider<OperationsRepository>((ref) {
   final supabase = Supabase.instance.client;
   return OperationsRepositoryImpl(ref: ref, supabaseClient: supabase);

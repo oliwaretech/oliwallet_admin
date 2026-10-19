@@ -70,9 +70,10 @@ class _AppState extends ConsumerState<App> {
     final lastSkippedBiometricAuthDate = prefs.getString(
       'last_skipped_biometric_auth_date',
     );
-    if (biometricActivated != null && biometricActivated) {
+    if ((biometricActivated != null && !biometricActivated) ||
+        biometricActivated == null) {
       router.goNamed(BiometricAuthScreen.name);
-    } else if (biometricActivated != null && !biometricActivated) {
+    } else if (biometricActivated) {
       router.goNamed(SummaryPage.name);
     } else if (lastSkippedBiometricAuthDate != null) {
       final lastSkippedDate = DateTime.parse(lastSkippedBiometricAuthDate);

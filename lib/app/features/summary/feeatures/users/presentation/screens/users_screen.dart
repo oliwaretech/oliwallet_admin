@@ -95,7 +95,6 @@ class _UsersScreenState extends ConsumerState<UsersScreen> {
                   child: usersAsync.when(
                     loading: () => const Center(child: OlwLoadingSpinner()),
                     error: (error, stackTrace) {
-                      print('Error fetching users: $stackTrace');
                       return Center(child: Text('Error: $error'));
                     },
                     data: (users) {

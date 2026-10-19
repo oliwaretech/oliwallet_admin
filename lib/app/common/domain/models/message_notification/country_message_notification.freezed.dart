@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CountryMessageNotification {
 
- CreditCardCashMessageNotificationData get creditCardCash; DepositMessageNotificationData get deposit; WithdrawalMessageNotificationData get withdrawal; LineOfCreditPayMessageNotificationData get lineOfCreditPay; LineOfCreditUseMessageNotificationData get lineOfCreditUse; LoanPayMessageNotificationData get loanPay; LoanUseMessageNotificationData get loanUse; LineOfCreditRequestMessageNotificationData get lineOfCreditRequest;
+ CreditCardCashMessageNotificationData get creditCardCash; DepositMessageNotificationData get deposit; WithdrawalMessageNotificationData get withdrawal; LineOfCreditPayMessageNotificationData get lineOfCreditPay; LineOfCreditUseMessageNotificationData get lineOfCreditUse; LoanPayMessageNotificationData get loanPay; LoanUseMessageNotificationData get loanUse; LineOfCreditRequestMessageNotificationData get lineOfCreditRequest; LineOfCreditRequestMessageNotificationData get loanRequest;
 /// Create a copy of CountryMessageNotification
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CountryMessageNotificationCopyWith<CountryMessageNotification> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CountryMessageNotification&&(identical(other.creditCardCash, creditCardCash) || other.creditCardCash == creditCardCash)&&(identical(other.deposit, deposit) || other.deposit == deposit)&&(identical(other.withdrawal, withdrawal) || other.withdrawal == withdrawal)&&(identical(other.lineOfCreditPay, lineOfCreditPay) || other.lineOfCreditPay == lineOfCreditPay)&&(identical(other.lineOfCreditUse, lineOfCreditUse) || other.lineOfCreditUse == lineOfCreditUse)&&(identical(other.loanPay, loanPay) || other.loanPay == loanPay)&&(identical(other.loanUse, loanUse) || other.loanUse == loanUse)&&(identical(other.lineOfCreditRequest, lineOfCreditRequest) || other.lineOfCreditRequest == lineOfCreditRequest));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CountryMessageNotification&&(identical(other.creditCardCash, creditCardCash) || other.creditCardCash == creditCardCash)&&(identical(other.deposit, deposit) || other.deposit == deposit)&&(identical(other.withdrawal, withdrawal) || other.withdrawal == withdrawal)&&(identical(other.lineOfCreditPay, lineOfCreditPay) || other.lineOfCreditPay == lineOfCreditPay)&&(identical(other.lineOfCreditUse, lineOfCreditUse) || other.lineOfCreditUse == lineOfCreditUse)&&(identical(other.loanPay, loanPay) || other.loanPay == loanPay)&&(identical(other.loanUse, loanUse) || other.loanUse == loanUse)&&(identical(other.lineOfCreditRequest, lineOfCreditRequest) || other.lineOfCreditRequest == lineOfCreditRequest)&&(identical(other.loanRequest, loanRequest) || other.loanRequest == loanRequest));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,creditCardCash,deposit,withdrawal,lineOfCreditPay,lineOfCreditUse,loanPay,loanUse,lineOfCreditRequest);
+int get hashCode => Object.hash(runtimeType,creditCardCash,deposit,withdrawal,lineOfCreditPay,lineOfCreditUse,loanPay,loanUse,lineOfCreditRequest,loanRequest);
 
 @override
 String toString() {
-  return 'CountryMessageNotification(creditCardCash: $creditCardCash, deposit: $deposit, withdrawal: $withdrawal, lineOfCreditPay: $lineOfCreditPay, lineOfCreditUse: $lineOfCreditUse, loanPay: $loanPay, loanUse: $loanUse, lineOfCreditRequest: $lineOfCreditRequest)';
+  return 'CountryMessageNotification(creditCardCash: $creditCardCash, deposit: $deposit, withdrawal: $withdrawal, lineOfCreditPay: $lineOfCreditPay, lineOfCreditUse: $lineOfCreditUse, loanPay: $loanPay, loanUse: $loanUse, lineOfCreditRequest: $lineOfCreditRequest, loanRequest: $loanRequest)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $CountryMessageNotificationCopyWith<$Res>  {
   factory $CountryMessageNotificationCopyWith(CountryMessageNotification value, $Res Function(CountryMessageNotification) _then) = _$CountryMessageNotificationCopyWithImpl;
 @useResult
 $Res call({
- CreditCardCashMessageNotificationData creditCardCash, DepositMessageNotificationData deposit, WithdrawalMessageNotificationData withdrawal, LineOfCreditPayMessageNotificationData lineOfCreditPay, LineOfCreditUseMessageNotificationData lineOfCreditUse, LoanPayMessageNotificationData loanPay, LoanUseMessageNotificationData loanUse, LineOfCreditRequestMessageNotificationData lineOfCreditRequest
+ CreditCardCashMessageNotificationData creditCardCash, DepositMessageNotificationData deposit, WithdrawalMessageNotificationData withdrawal, LineOfCreditPayMessageNotificationData lineOfCreditPay, LineOfCreditUseMessageNotificationData lineOfCreditUse, LoanPayMessageNotificationData loanPay, LoanUseMessageNotificationData loanUse, LineOfCreditRequestMessageNotificationData lineOfCreditRequest, LineOfCreditRequestMessageNotificationData loanRequest
 });
 
 
-$CreditCardCashMessageNotificationDataCopyWith<$Res> get creditCardCash;$DepositMessageNotificationDataCopyWith<$Res> get deposit;$WithdrawalMessageNotificationDataCopyWith<$Res> get withdrawal;$LineOfCreditPayMessageNotificationDataCopyWith<$Res> get lineOfCreditPay;$LineOfCreditUseMessageNotificationDataCopyWith<$Res> get lineOfCreditUse;$LoanPayMessageNotificationDataCopyWith<$Res> get loanPay;$LoanUseMessageNotificationDataCopyWith<$Res> get loanUse;$LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditRequest;
+$CreditCardCashMessageNotificationDataCopyWith<$Res> get creditCardCash;$DepositMessageNotificationDataCopyWith<$Res> get deposit;$WithdrawalMessageNotificationDataCopyWith<$Res> get withdrawal;$LineOfCreditPayMessageNotificationDataCopyWith<$Res> get lineOfCreditPay;$LineOfCreditUseMessageNotificationDataCopyWith<$Res> get lineOfCreditUse;$LoanPayMessageNotificationDataCopyWith<$Res> get loanPay;$LoanUseMessageNotificationDataCopyWith<$Res> get loanUse;$LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditRequest;$LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get loanRequest;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$CountryMessageNotificationCopyWithImpl<$Res>
 
 /// Create a copy of CountryMessageNotification
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? creditCardCash = null,Object? deposit = null,Object? withdrawal = null,Object? lineOfCreditPay = null,Object? lineOfCreditUse = null,Object? loanPay = null,Object? loanUse = null,Object? lineOfCreditRequest = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? creditCardCash = null,Object? deposit = null,Object? withdrawal = null,Object? lineOfCreditPay = null,Object? lineOfCreditUse = null,Object? loanPay = null,Object? loanUse = null,Object? lineOfCreditRequest = null,Object? loanRequest = null,}) {
   return _then(_self.copyWith(
 creditCardCash: null == creditCardCash ? _self.creditCardCash : creditCardCash // ignore: cast_nullable_to_non_nullable
 as CreditCardCashMessageNotificationData,deposit: null == deposit ? _self.deposit : deposit // ignore: cast_nullable_to_non_nullable
@@ -75,6 +75,7 @@ as LineOfCreditPayMessageNotificationData,lineOfCreditUse: null == lineOfCreditU
 as LineOfCreditUseMessageNotificationData,loanPay: null == loanPay ? _self.loanPay : loanPay // ignore: cast_nullable_to_non_nullable
 as LoanPayMessageNotificationData,loanUse: null == loanUse ? _self.loanUse : loanUse // ignore: cast_nullable_to_non_nullable
 as LoanUseMessageNotificationData,lineOfCreditRequest: null == lineOfCreditRequest ? _self.lineOfCreditRequest : lineOfCreditRequest // ignore: cast_nullable_to_non_nullable
+as LineOfCreditRequestMessageNotificationData,loanRequest: null == loanRequest ? _self.loanRequest : loanRequest // ignore: cast_nullable_to_non_nullable
 as LineOfCreditRequestMessageNotificationData,
   ));
 }
@@ -149,6 +150,15 @@ $LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditReques
   
   return $LineOfCreditRequestMessageNotificationDataCopyWith<$Res>(_self.lineOfCreditRequest, (value) {
     return _then(_self.copyWith(lineOfCreditRequest: value));
+  });
+}/// Create a copy of CountryMessageNotification
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get loanRequest {
+  
+  return $LineOfCreditRequestMessageNotificationDataCopyWith<$Res>(_self.loanRequest, (value) {
+    return _then(_self.copyWith(loanRequest: value));
   });
 }
 }
@@ -232,10 +242,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest,  LineOfCreditRequestMessageNotificationData loanRequest)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CountryMessageNotification() when $default != null:
-return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest);case _:
+return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest,_that.loanRequest);case _:
   return orElse();
 
 }
@@ -253,10 +263,10 @@ return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOf
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest,  LineOfCreditRequestMessageNotificationData loanRequest)  $default,) {final _that = this;
 switch (_that) {
 case _CountryMessageNotification():
-return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest);case _:
+return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest,_that.loanRequest);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -273,10 +283,10 @@ return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOf
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( CreditCardCashMessageNotificationData creditCardCash,  DepositMessageNotificationData deposit,  WithdrawalMessageNotificationData withdrawal,  LineOfCreditPayMessageNotificationData lineOfCreditPay,  LineOfCreditUseMessageNotificationData lineOfCreditUse,  LoanPayMessageNotificationData loanPay,  LoanUseMessageNotificationData loanUse,  LineOfCreditRequestMessageNotificationData lineOfCreditRequest,  LineOfCreditRequestMessageNotificationData loanRequest)?  $default,) {final _that = this;
 switch (_that) {
 case _CountryMessageNotification() when $default != null:
-return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest);case _:
+return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOfCreditPay,_that.lineOfCreditUse,_that.loanPay,_that.loanUse,_that.lineOfCreditRequest,_that.loanRequest);case _:
   return null;
 
 }
@@ -288,7 +298,7 @@ return $default(_that.creditCardCash,_that.deposit,_that.withdrawal,_that.lineOf
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _CountryMessageNotification implements CountryMessageNotification {
-  const _CountryMessageNotification({required this.creditCardCash, required this.deposit, required this.withdrawal, required this.lineOfCreditPay, required this.lineOfCreditUse, required this.loanPay, required this.loanUse, required this.lineOfCreditRequest});
+  const _CountryMessageNotification({required this.creditCardCash, required this.deposit, required this.withdrawal, required this.lineOfCreditPay, required this.lineOfCreditUse, required this.loanPay, required this.loanUse, required this.lineOfCreditRequest, required this.loanRequest});
   factory _CountryMessageNotification.fromJson(Map<String, dynamic> json) => _$CountryMessageNotificationFromJson(json);
 
 @override final  CreditCardCashMessageNotificationData creditCardCash;
@@ -299,6 +309,7 @@ class _CountryMessageNotification implements CountryMessageNotification {
 @override final  LoanPayMessageNotificationData loanPay;
 @override final  LoanUseMessageNotificationData loanUse;
 @override final  LineOfCreditRequestMessageNotificationData lineOfCreditRequest;
+@override final  LineOfCreditRequestMessageNotificationData loanRequest;
 
 /// Create a copy of CountryMessageNotification
 /// with the given fields replaced by the non-null parameter values.
@@ -313,16 +324,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CountryMessageNotification&&(identical(other.creditCardCash, creditCardCash) || other.creditCardCash == creditCardCash)&&(identical(other.deposit, deposit) || other.deposit == deposit)&&(identical(other.withdrawal, withdrawal) || other.withdrawal == withdrawal)&&(identical(other.lineOfCreditPay, lineOfCreditPay) || other.lineOfCreditPay == lineOfCreditPay)&&(identical(other.lineOfCreditUse, lineOfCreditUse) || other.lineOfCreditUse == lineOfCreditUse)&&(identical(other.loanPay, loanPay) || other.loanPay == loanPay)&&(identical(other.loanUse, loanUse) || other.loanUse == loanUse)&&(identical(other.lineOfCreditRequest, lineOfCreditRequest) || other.lineOfCreditRequest == lineOfCreditRequest));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CountryMessageNotification&&(identical(other.creditCardCash, creditCardCash) || other.creditCardCash == creditCardCash)&&(identical(other.deposit, deposit) || other.deposit == deposit)&&(identical(other.withdrawal, withdrawal) || other.withdrawal == withdrawal)&&(identical(other.lineOfCreditPay, lineOfCreditPay) || other.lineOfCreditPay == lineOfCreditPay)&&(identical(other.lineOfCreditUse, lineOfCreditUse) || other.lineOfCreditUse == lineOfCreditUse)&&(identical(other.loanPay, loanPay) || other.loanPay == loanPay)&&(identical(other.loanUse, loanUse) || other.loanUse == loanUse)&&(identical(other.lineOfCreditRequest, lineOfCreditRequest) || other.lineOfCreditRequest == lineOfCreditRequest)&&(identical(other.loanRequest, loanRequest) || other.loanRequest == loanRequest));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,creditCardCash,deposit,withdrawal,lineOfCreditPay,lineOfCreditUse,loanPay,loanUse,lineOfCreditRequest);
+int get hashCode => Object.hash(runtimeType,creditCardCash,deposit,withdrawal,lineOfCreditPay,lineOfCreditUse,loanPay,loanUse,lineOfCreditRequest,loanRequest);
 
 @override
 String toString() {
-  return 'CountryMessageNotification(creditCardCash: $creditCardCash, deposit: $deposit, withdrawal: $withdrawal, lineOfCreditPay: $lineOfCreditPay, lineOfCreditUse: $lineOfCreditUse, loanPay: $loanPay, loanUse: $loanUse, lineOfCreditRequest: $lineOfCreditRequest)';
+  return 'CountryMessageNotification(creditCardCash: $creditCardCash, deposit: $deposit, withdrawal: $withdrawal, lineOfCreditPay: $lineOfCreditPay, lineOfCreditUse: $lineOfCreditUse, loanPay: $loanPay, loanUse: $loanUse, lineOfCreditRequest: $lineOfCreditRequest, loanRequest: $loanRequest)';
 }
 
 
@@ -333,11 +344,11 @@ abstract mixin class _$CountryMessageNotificationCopyWith<$Res> implements $Coun
   factory _$CountryMessageNotificationCopyWith(_CountryMessageNotification value, $Res Function(_CountryMessageNotification) _then) = __$CountryMessageNotificationCopyWithImpl;
 @override @useResult
 $Res call({
- CreditCardCashMessageNotificationData creditCardCash, DepositMessageNotificationData deposit, WithdrawalMessageNotificationData withdrawal, LineOfCreditPayMessageNotificationData lineOfCreditPay, LineOfCreditUseMessageNotificationData lineOfCreditUse, LoanPayMessageNotificationData loanPay, LoanUseMessageNotificationData loanUse, LineOfCreditRequestMessageNotificationData lineOfCreditRequest
+ CreditCardCashMessageNotificationData creditCardCash, DepositMessageNotificationData deposit, WithdrawalMessageNotificationData withdrawal, LineOfCreditPayMessageNotificationData lineOfCreditPay, LineOfCreditUseMessageNotificationData lineOfCreditUse, LoanPayMessageNotificationData loanPay, LoanUseMessageNotificationData loanUse, LineOfCreditRequestMessageNotificationData lineOfCreditRequest, LineOfCreditRequestMessageNotificationData loanRequest
 });
 
 
-@override $CreditCardCashMessageNotificationDataCopyWith<$Res> get creditCardCash;@override $DepositMessageNotificationDataCopyWith<$Res> get deposit;@override $WithdrawalMessageNotificationDataCopyWith<$Res> get withdrawal;@override $LineOfCreditPayMessageNotificationDataCopyWith<$Res> get lineOfCreditPay;@override $LineOfCreditUseMessageNotificationDataCopyWith<$Res> get lineOfCreditUse;@override $LoanPayMessageNotificationDataCopyWith<$Res> get loanPay;@override $LoanUseMessageNotificationDataCopyWith<$Res> get loanUse;@override $LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditRequest;
+@override $CreditCardCashMessageNotificationDataCopyWith<$Res> get creditCardCash;@override $DepositMessageNotificationDataCopyWith<$Res> get deposit;@override $WithdrawalMessageNotificationDataCopyWith<$Res> get withdrawal;@override $LineOfCreditPayMessageNotificationDataCopyWith<$Res> get lineOfCreditPay;@override $LineOfCreditUseMessageNotificationDataCopyWith<$Res> get lineOfCreditUse;@override $LoanPayMessageNotificationDataCopyWith<$Res> get loanPay;@override $LoanUseMessageNotificationDataCopyWith<$Res> get loanUse;@override $LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditRequest;@override $LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get loanRequest;
 
 }
 /// @nodoc
@@ -350,7 +361,7 @@ class __$CountryMessageNotificationCopyWithImpl<$Res>
 
 /// Create a copy of CountryMessageNotification
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? creditCardCash = null,Object? deposit = null,Object? withdrawal = null,Object? lineOfCreditPay = null,Object? lineOfCreditUse = null,Object? loanPay = null,Object? loanUse = null,Object? lineOfCreditRequest = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? creditCardCash = null,Object? deposit = null,Object? withdrawal = null,Object? lineOfCreditPay = null,Object? lineOfCreditUse = null,Object? loanPay = null,Object? loanUse = null,Object? lineOfCreditRequest = null,Object? loanRequest = null,}) {
   return _then(_CountryMessageNotification(
 creditCardCash: null == creditCardCash ? _self.creditCardCash : creditCardCash // ignore: cast_nullable_to_non_nullable
 as CreditCardCashMessageNotificationData,deposit: null == deposit ? _self.deposit : deposit // ignore: cast_nullable_to_non_nullable
@@ -360,6 +371,7 @@ as LineOfCreditPayMessageNotificationData,lineOfCreditUse: null == lineOfCreditU
 as LineOfCreditUseMessageNotificationData,loanPay: null == loanPay ? _self.loanPay : loanPay // ignore: cast_nullable_to_non_nullable
 as LoanPayMessageNotificationData,loanUse: null == loanUse ? _self.loanUse : loanUse // ignore: cast_nullable_to_non_nullable
 as LoanUseMessageNotificationData,lineOfCreditRequest: null == lineOfCreditRequest ? _self.lineOfCreditRequest : lineOfCreditRequest // ignore: cast_nullable_to_non_nullable
+as LineOfCreditRequestMessageNotificationData,loanRequest: null == loanRequest ? _self.loanRequest : loanRequest // ignore: cast_nullable_to_non_nullable
 as LineOfCreditRequestMessageNotificationData,
   ));
 }
@@ -435,6 +447,15 @@ $LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get lineOfCreditReques
   
   return $LineOfCreditRequestMessageNotificationDataCopyWith<$Res>(_self.lineOfCreditRequest, (value) {
     return _then(_self.copyWith(lineOfCreditRequest: value));
+  });
+}/// Create a copy of CountryMessageNotification
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LineOfCreditRequestMessageNotificationDataCopyWith<$Res> get loanRequest {
+  
+  return $LineOfCreditRequestMessageNotificationDataCopyWith<$Res>(_self.loanRequest, (value) {
+    return _then(_self.copyWith(loanRequest: value));
   });
 }
 }

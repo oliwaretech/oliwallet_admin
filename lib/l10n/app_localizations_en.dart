@@ -2009,4 +2009,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationMessageNotSent => 'Notification message not sent';
+
+  @override
+  String get subject => 'Subject';
+
+  @override
+  String get body => 'Body';
+
+  @override
+  String get sendEmail => 'Send email';
+
+  @override
+  String get sendNotificationMessage => 'Send notification message';
+
+  @override
+  String get withoutCashDisbursement => 'Without cash disbursement';
+
+  @override
+  String get thereAreNotLoanRequestsToShow =>
+      'No hay solicitudes de préstamo para mostrar';
+
+  @override
+  String get thereAreNotCreditLineRequestsToShow =>
+      'No hay solicitudes de línea de crédito para mostrar';
 }

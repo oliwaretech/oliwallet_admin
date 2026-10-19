@@ -3782,6 +3782,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notification message not sent'**
   String get notificationMessageNotSent;
+
+  /// No description provided for @subject.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get subject;
+
+  /// No description provided for @body.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get body;
+
+  /// No description provided for @sendEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Send email'**
+  String get sendEmail;
+
+  /// No description provided for @sendNotificationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send notification message'**
+  String get sendNotificationMessage;
+
+  /// No description provided for @withoutCashDisbursement.
+  ///
+  /// In en, this message translates to:
+  /// **'Without cash disbursement'**
+  String get withoutCashDisbursement;
+
+  /// No description provided for @thereAreNotLoanRequestsToShow.
+  ///
+  /// In en, this message translates to:
+  /// **'No hay solicitudes de préstamo para mostrar'**
+  String get thereAreNotLoanRequestsToShow;
+
+  /// No description provided for @thereAreNotCreditLineRequestsToShow.
+  ///
+  /// In en, this message translates to:
+  /// **'No hay solicitudes de línea de crédito para mostrar'**
+  String get thereAreNotCreditLineRequestsToShow;
 }
 
 class _AppLocalizationsDelegate

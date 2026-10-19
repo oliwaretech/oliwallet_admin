@@ -23,6 +23,7 @@ abstract class CountryMessageNotification with _$CountryMessageNotification {
     required LoanPayMessageNotificationData loanPay,
     required LoanUseMessageNotificationData loanUse,
     required LineOfCreditRequestMessageNotificationData lineOfCreditRequest,
+    required LineOfCreditRequestMessageNotificationData loanRequest,
   }) = _CountryMessageNotification;
 
   factory CountryMessageNotification.fromJson(Map<String, dynamic> json) =>

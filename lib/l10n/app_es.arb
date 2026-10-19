@@ -611,5 +611,12 @@
   "fillAllFieldsToSendTheMessage" : "Completa todos los campos para enviar el mensaje",
   "notificationMessageSent" : "Mensaje de notificación enviado",
   "notificationMessageSentSuccessfully" : "Mensaje de notificación enviado con éxito",
-  "notificationMessageNotSent" : "Mensaje de notificación no enviado"
+  "notificationMessageNotSent" : "Mensaje de notificación no enviado",
+  "subject" : "Asunto",
+  "body" : "Cuerpo del mensaje",
+  "sendEmail" : "Enviar correo electrónico",
+  "sendNotificationMessage" : "Enviar mensaje de notificación",
+  "withoutCashDisbursement" : "Sin desembolso de efectivo",
+  "thereAreNotLoanRequestsToShow": "No hay solicitudes de préstamo para mostrar",
+  "thereAreNotCreditLineRequestsToShow": "No hay solicitudes de línea de crédito para mostrar",
 }

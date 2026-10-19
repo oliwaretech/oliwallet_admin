@@ -1,0 +1,1 @@
+enum CreditRequestType { lineOfCredit, loan }

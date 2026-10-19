@@ -32,6 +32,7 @@ import 'package:oliwallet_admin_front_end/app/features/products/features/loans/p
 import 'package:oliwallet_admin_front_end/app/features/settings/presentation/screens/settings_page.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/communications/presentation/screens/communications_direct_email_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/communications/presentation/screens/communications_screen.dart';
+import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/credit_requests/presentation/screens/credit_requests_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/screens/user_detail.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/feeatures/users/presentation/screens/users_screen.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/presentation/screens/summary_page.dart';
@@ -200,6 +201,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: LoanScheduleScreen.name,
         builder: (context, state) =>
             LoanScheduleScreen(loanData: state.extra as LoanData),
+      ),
+      GoRoute(
+        path: CreditRequestsScreen.route,
+        name: CreditRequestsScreen.name,
+        builder: (context, state) => CreditRequestsScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

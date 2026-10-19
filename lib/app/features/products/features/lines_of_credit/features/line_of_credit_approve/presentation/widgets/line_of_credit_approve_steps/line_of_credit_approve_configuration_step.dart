@@ -5,6 +5,7 @@ import 'package:oliwallet_admin_front_end/app/common/constants/constants.dart';
 import 'package:oliwallet_admin_front_end/app/common/helpers/formatters.dart';
 import 'package:oliwallet_admin_front_end/app/common/helpers/olw_snack_bar_notification.dart';
 import 'package:oliwallet_admin_front_end/app/common/widgets/date_pickers/date_picker.dart';
+import 'package:oliwallet_admin_front_end/app/features/operations/presentation/providers/operations_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/domain/models/country_line_of_credit.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/features/line_of_credit_approve/presentation/providers/line_of_credit_approve_provider.dart';
 import 'package:oliwallet_admin_front_end/l10n/app_localizations.dart';
@@ -25,6 +26,9 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
 
     final defaulterDailyRateController = TextEditingController();
     final minimumPaymentFactorController = TextEditingController();
+    final sendNotificationCheckboxIsChecked = ref.watch(
+      sendNotificationCheckboxIsCheckedProvider,
+    );
 
     defaulterDailyRateController.text = countryLineOfCredit
         .approvalConfig
@@ -112,6 +116,16 @@ class LineOfCreditApproveConfigurationStep extends ConsumerWidget {
                 label: appLocalizations.offerExpirationDate,
               ),
             ],
+          ),
+          OlwCheckbox(
+            label: appLocalizations.sendNotificationMessage,
+            isChecked: sendNotificationCheckboxIsChecked,
+            onChanged: (bool? value) {
+              ref
+                      .read(sendNotificationCheckboxIsCheckedProvider.notifier)
+                      .state =
+                  value ?? false;
+            },
           ),
           OlwPrimaryButton(
             onPressed: () {

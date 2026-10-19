@@ -18,6 +18,7 @@ abstract class LoanType with _$LoanType {
     required List<AccountsDocumentation> documentation,
     required List<List<String>> availableColors,
     required LanguageCodes accountTypeName,
+    required bool isDisbursementRequired,
     required LanguageCodes accountTypeDescription,
     required List<CreditFee> useFees,
     required bool isWarrantyRequired,

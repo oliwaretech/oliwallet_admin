@@ -8,6 +8,7 @@ import 'package:oliwallet_admin_front_end/app/common/domain/models/taxes/country
 import 'package:oliwallet_admin_front_end/app/common/providers/app_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/enums/auth_enums.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/operations/presentation/providers/operations_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/domain/models/country_line_of_credit.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/domain/models/line_of_credit_approval_conditions.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/lines_of_credit/domain/models/line_of_credit_data.dart';
@@ -169,6 +170,9 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
   ) async {
     try {
       final lineOfCreditApprove = ref.watch(lineOfCreditApproveProvider);
+      final sendNotificationCheckboxIsChecked = ref.watch(
+        sendNotificationCheckboxIsCheckedProvider,
+      );
 
       final appFeaturesRepository = ref.watch(appFeaturesRepositoryProvider);
 
@@ -212,25 +216,29 @@ class LineOfCreditApproveScreen extends ConsumerWidget {
       await lineOfCreditApproveRepository.approveLineOfCredit(lineOfCreditData);
 
       if (userData.currentCountryCode == 'PE') {
-        await appFeaturesRepository.createPushNotification(
-          PushNotificationData(
-            title: 'Linea de Crédito Aprobada',
-            userId: userData.userId!,
-            body:
-                '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
-            type: PushNotificationTypes.lineOfCreditRequest,
-          ),
-        );
+        if (sendNotificationCheckboxIsChecked) {
+          await appFeaturesRepository.createPushNotification(
+            PushNotificationData(
+              title: 'Linea de Crédito Aprobada',
+              userId: userData.userId!,
+              body:
+                  '${appConfig.messageNotificationConfig.pe.lineOfCreditRequest.requestApproved.body.es}',
+              type: PushNotificationTypes.lineOfCreditRequest,
+            ),
+          );
+        }
       } else {
-        await appFeaturesRepository.createPushNotification(
-          PushNotificationData(
-            title: 'Line of Credit Approved',
-            userId: userData.userId!,
-            body:
-                '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
-            type: PushNotificationTypes.lineOfCreditRequest,
-          ),
-        );
+        if (sendNotificationCheckboxIsChecked) {
+          await appFeaturesRepository.createPushNotification(
+            PushNotificationData(
+              title: 'Line of Credit Approved',
+              userId: userData.userId!,
+              body:
+                  '${appConfig.messageNotificationConfig.hr!.lineOfCreditRequest.requestApproved.body.es}',
+              type: PushNotificationTypes.lineOfCreditRequest,
+            ),
+          );
+        }
       }
 
       ref.invalidate(lineOfCreditApproveProvider);

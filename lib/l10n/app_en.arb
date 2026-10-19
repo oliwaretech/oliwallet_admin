@@ -611,5 +611,12 @@
   "fillAllFieldsToSendTheMessage" : "Fill all fields to send the message",
   "notificationMessageSent" : "Notification message sent",
   "notificationMessageSentSuccessfully" : "Notification message sent successfully",
-  "notificationMessageNotSent" : "Notification message not sent"
+  "notificationMessageNotSent" : "Notification message not sent",
+  "subject" : "Subject",
+  "body" : "Body",
+  "sendEmail" : "Send email",
+  "sendNotificationMessage" : "Send notification message",
+  "withoutCashDisbursement" : "Without cash disbursement",
+  "thereAreNotLoanRequestsToShow": "No hay solicitudes de préstamo para mostrar",
+  "thereAreNotCreditLineRequestsToShow": "No hay solicitudes de línea de crédito para mostrar"
 }

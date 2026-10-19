@@ -22,6 +22,7 @@ _LoanType _$LoanTypeFromJson(Map<String, dynamic> json) => _LoanType(
   accountTypeName: LanguageCodes.fromJson(
     json['account_type_name'] as Map<String, dynamic>,
   ),
+  isDisbursementRequired: json['is_disbursement_required'] as bool,
   accountTypeDescription: LanguageCodes.fromJson(
     json['account_type_description'] as Map<String, dynamic>,
   ),
@@ -39,6 +40,7 @@ Map<String, dynamic> _$LoanTypeToJson(_LoanType instance) => <String, dynamic>{
   'documentation': instance.documentation,
   'available_colors': instance.availableColors,
   'account_type_name': instance.accountTypeName,
+  'is_disbursement_required': instance.isDisbursementRequired,
   'account_type_description': instance.accountTypeDescription,
   'use_fees': instance.useFees,
   'is_warranty_required': instance.isWarrantyRequired,

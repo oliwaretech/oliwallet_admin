@@ -2020,4 +2020,27 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get notificationMessageNotSent => 'Mensaje de notificación no enviado';
+
+  @override
+  String get subject => 'Asunto';
+
+  @override
+  String get body => 'Cuerpo del mensaje';
+
+  @override
+  String get sendEmail => 'Enviar correo electrónico';
+
+  @override
+  String get sendNotificationMessage => 'Enviar mensaje de notificación';
+
+  @override
+  String get withoutCashDisbursement => 'Sin desembolso de efectivo';
+
+  @override
+  String get thereAreNotLoanRequestsToShow =>
+      'No hay solicitudes de préstamo para mostrar';
+
+  @override
+  String get thereAreNotCreditLineRequestsToShow =>
+      'No hay solicitudes de línea de crédito para mostrar';
 }
