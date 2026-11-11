@@ -9,6 +9,7 @@ part of 'app_config.dart';
 _AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => _AppConfig(
   languages: LanguageConfig.fromJson(json['languages'] as Map<String, dynamic>),
   appStatus: json['app_status'] as String,
+  appConfig: AppConfigData.fromJson(json['app_config'] as Map<String, dynamic>),
   documentTypes: DocumentTypes.fromJson(
     json['document_types'] as Map<String, dynamic>,
   ),
@@ -49,6 +50,7 @@ Map<String, dynamic> _$AppConfigToJson(_AppConfig instance) =>
     <String, dynamic>{
       'languages': instance.languages,
       'app_status': instance.appStatus,
+      'app_config': instance.appConfig,
       'document_types': instance.documentTypes,
       'countries': instance.countries,
       'email_content': instance.emailContent,

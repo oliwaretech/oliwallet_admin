@@ -83,6 +83,8 @@ class ProductsRepositoryImpl implements ProductsRepository {
             operationDate.day,
           );
           break;
+
+        case Frequency.transaction:
       }
     }
 
@@ -207,6 +209,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
       Frequency.weekly => 52,
       Frequency.monthly => 12,
       Frequency.annually => 1,
+      Frequency.transaction => 1,
     };
 
     switch (interestRateType) {
@@ -239,6 +242,8 @@ class ProductsRepositoryImpl implements ProductsRepository {
         case FeeApplication.capital:
           baseAmount = principal.toDouble();
           break;
+
+        case FeeApplication.netProfit:
       }
 
       late double value;

@@ -11,7 +11,13 @@ _CountryTaxes _$CountryTaxesFromJson(Map<String, dynamic> json) =>
       allTransactions: (json['all_transactions'] as List<dynamic>)
           .map((e) => TaxData.fromJson(e as Map<String, dynamic>))
           .toList(),
+      serviceFees: (json['service_fees'] as List<dynamic>?)
+          ?.map((e) => TaxData.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$CountryTaxesToJson(_CountryTaxes instance) =>
-    <String, dynamic>{'all_transactions': instance.allTransactions};
+    <String, dynamic>{
+      'all_transactions': instance.allTransactions,
+      'service_fees': instance.serviceFees,
+    };

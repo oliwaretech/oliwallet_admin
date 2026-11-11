@@ -1,4 +1,4 @@
-enum Frequency { daily, weekly, monthly, annually }
+enum Frequency { daily, weekly, monthly, annually, transaction }
 
 enum OperationConfirmationMethod { code, upload }
 
@@ -33,7 +33,7 @@ enum DisbursementType { external, account }
 
 enum FeeType { fixed, percent }
 
-enum FeeApplication { installment, capital }
+enum FeeApplication { installment, capital, netProfit }
 
 enum InterestRateType { effective, nominal }
 

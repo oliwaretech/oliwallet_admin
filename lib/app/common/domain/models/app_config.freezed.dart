@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppConfig {
 
- LanguageConfig get languages; String get appStatus; DocumentTypes get documentTypes; List<Country> get countries; EmailContentData get emailContent; NotificationContentData get notificationContent; ProductsConfig get productsConfig; DepositConfig get depositConfig; WithdrawalConfig get withdrawalConfig; TaxesConfig get taxesConfig; CreditCardCashConfig get creditCardCashConfig; LineOfCreditConfig get lineOfCreditConfig; LoanConfig get loanConfig; MessageNotificationConfig get messageNotificationConfig;
+ LanguageConfig get languages; String get appStatus; AppConfigData get appConfig; DocumentTypes get documentTypes; List<Country> get countries; EmailContentData get emailContent; NotificationContentData get notificationContent; ProductsConfig get productsConfig; DepositConfig get depositConfig; WithdrawalConfig get withdrawalConfig; TaxesConfig get taxesConfig; CreditCardCashConfig get creditCardCashConfig; LineOfCreditConfig get lineOfCreditConfig; LoanConfig get loanConfig; MessageNotificationConfig get messageNotificationConfig;
 /// Create a copy of AppConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $AppConfigCopyWith<AppConfig> get copyWith => _$AppConfigCopyWithImpl<AppConfig>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppConfig&&(identical(other.languages, languages) || other.languages == languages)&&(identical(other.appStatus, appStatus) || other.appStatus == appStatus)&&(identical(other.documentTypes, documentTypes) || other.documentTypes == documentTypes)&&const DeepCollectionEquality().equals(other.countries, countries)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.notificationContent, notificationContent) || other.notificationContent == notificationContent)&&(identical(other.productsConfig, productsConfig) || other.productsConfig == productsConfig)&&(identical(other.depositConfig, depositConfig) || other.depositConfig == depositConfig)&&(identical(other.withdrawalConfig, withdrawalConfig) || other.withdrawalConfig == withdrawalConfig)&&(identical(other.taxesConfig, taxesConfig) || other.taxesConfig == taxesConfig)&&(identical(other.creditCardCashConfig, creditCardCashConfig) || other.creditCardCashConfig == creditCardCashConfig)&&(identical(other.lineOfCreditConfig, lineOfCreditConfig) || other.lineOfCreditConfig == lineOfCreditConfig)&&(identical(other.loanConfig, loanConfig) || other.loanConfig == loanConfig)&&(identical(other.messageNotificationConfig, messageNotificationConfig) || other.messageNotificationConfig == messageNotificationConfig));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppConfig&&(identical(other.languages, languages) || other.languages == languages)&&(identical(other.appStatus, appStatus) || other.appStatus == appStatus)&&(identical(other.appConfig, appConfig) || other.appConfig == appConfig)&&(identical(other.documentTypes, documentTypes) || other.documentTypes == documentTypes)&&const DeepCollectionEquality().equals(other.countries, countries)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.notificationContent, notificationContent) || other.notificationContent == notificationContent)&&(identical(other.productsConfig, productsConfig) || other.productsConfig == productsConfig)&&(identical(other.depositConfig, depositConfig) || other.depositConfig == depositConfig)&&(identical(other.withdrawalConfig, withdrawalConfig) || other.withdrawalConfig == withdrawalConfig)&&(identical(other.taxesConfig, taxesConfig) || other.taxesConfig == taxesConfig)&&(identical(other.creditCardCashConfig, creditCardCashConfig) || other.creditCardCashConfig == creditCardCashConfig)&&(identical(other.lineOfCreditConfig, lineOfCreditConfig) || other.lineOfCreditConfig == lineOfCreditConfig)&&(identical(other.loanConfig, loanConfig) || other.loanConfig == loanConfig)&&(identical(other.messageNotificationConfig, messageNotificationConfig) || other.messageNotificationConfig == messageNotificationConfig));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,languages,appStatus,documentTypes,const DeepCollectionEquality().hash(countries),emailContent,notificationContent,productsConfig,depositConfig,withdrawalConfig,taxesConfig,creditCardCashConfig,lineOfCreditConfig,loanConfig,messageNotificationConfig);
+int get hashCode => Object.hash(runtimeType,languages,appStatus,appConfig,documentTypes,const DeepCollectionEquality().hash(countries),emailContent,notificationContent,productsConfig,depositConfig,withdrawalConfig,taxesConfig,creditCardCashConfig,lineOfCreditConfig,loanConfig,messageNotificationConfig);
 
 @override
 String toString() {
-  return 'AppConfig(languages: $languages, appStatus: $appStatus, documentTypes: $documentTypes, countries: $countries, emailContent: $emailContent, notificationContent: $notificationContent, productsConfig: $productsConfig, depositConfig: $depositConfig, withdrawalConfig: $withdrawalConfig, taxesConfig: $taxesConfig, creditCardCashConfig: $creditCardCashConfig, lineOfCreditConfig: $lineOfCreditConfig, loanConfig: $loanConfig, messageNotificationConfig: $messageNotificationConfig)';
+  return 'AppConfig(languages: $languages, appStatus: $appStatus, appConfig: $appConfig, documentTypes: $documentTypes, countries: $countries, emailContent: $emailContent, notificationContent: $notificationContent, productsConfig: $productsConfig, depositConfig: $depositConfig, withdrawalConfig: $withdrawalConfig, taxesConfig: $taxesConfig, creditCardCashConfig: $creditCardCashConfig, lineOfCreditConfig: $lineOfCreditConfig, loanConfig: $loanConfig, messageNotificationConfig: $messageNotificationConfig)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $AppConfigCopyWith<$Res>  {
   factory $AppConfigCopyWith(AppConfig value, $Res Function(AppConfig) _then) = _$AppConfigCopyWithImpl;
 @useResult
 $Res call({
- LanguageConfig languages, String appStatus, DocumentTypes documentTypes, List<Country> countries, EmailContentData emailContent, NotificationContentData notificationContent, ProductsConfig productsConfig, DepositConfig depositConfig, WithdrawalConfig withdrawalConfig, TaxesConfig taxesConfig, CreditCardCashConfig creditCardCashConfig, LineOfCreditConfig lineOfCreditConfig, LoanConfig loanConfig, MessageNotificationConfig messageNotificationConfig
+ LanguageConfig languages, String appStatus, AppConfigData appConfig, DocumentTypes documentTypes, List<Country> countries, EmailContentData emailContent, NotificationContentData notificationContent, ProductsConfig productsConfig, DepositConfig depositConfig, WithdrawalConfig withdrawalConfig, TaxesConfig taxesConfig, CreditCardCashConfig creditCardCashConfig, LineOfCreditConfig lineOfCreditConfig, LoanConfig loanConfig, MessageNotificationConfig messageNotificationConfig
 });
 
 
-$LanguageConfigCopyWith<$Res> get languages;$DocumentTypesCopyWith<$Res> get documentTypes;$EmailContentDataCopyWith<$Res> get emailContent;$NotificationContentDataCopyWith<$Res> get notificationContent;$ProductsConfigCopyWith<$Res> get productsConfig;$DepositConfigCopyWith<$Res> get depositConfig;$WithdrawalConfigCopyWith<$Res> get withdrawalConfig;$TaxesConfigCopyWith<$Res> get taxesConfig;$CreditCardCashConfigCopyWith<$Res> get creditCardCashConfig;$LineOfCreditConfigCopyWith<$Res> get lineOfCreditConfig;$LoanConfigCopyWith<$Res> get loanConfig;$MessageNotificationConfigCopyWith<$Res> get messageNotificationConfig;
+$LanguageConfigCopyWith<$Res> get languages;$AppConfigDataCopyWith<$Res> get appConfig;$DocumentTypesCopyWith<$Res> get documentTypes;$EmailContentDataCopyWith<$Res> get emailContent;$NotificationContentDataCopyWith<$Res> get notificationContent;$ProductsConfigCopyWith<$Res> get productsConfig;$DepositConfigCopyWith<$Res> get depositConfig;$WithdrawalConfigCopyWith<$Res> get withdrawalConfig;$TaxesConfigCopyWith<$Res> get taxesConfig;$CreditCardCashConfigCopyWith<$Res> get creditCardCashConfig;$LineOfCreditConfigCopyWith<$Res> get lineOfCreditConfig;$LoanConfigCopyWith<$Res> get loanConfig;$MessageNotificationConfigCopyWith<$Res> get messageNotificationConfig;
 
 }
 /// @nodoc
@@ -65,11 +65,12 @@ class _$AppConfigCopyWithImpl<$Res>
 
 /// Create a copy of AppConfig
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? languages = null,Object? appStatus = null,Object? documentTypes = null,Object? countries = null,Object? emailContent = null,Object? notificationContent = null,Object? productsConfig = null,Object? depositConfig = null,Object? withdrawalConfig = null,Object? taxesConfig = null,Object? creditCardCashConfig = null,Object? lineOfCreditConfig = null,Object? loanConfig = null,Object? messageNotificationConfig = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? languages = null,Object? appStatus = null,Object? appConfig = null,Object? documentTypes = null,Object? countries = null,Object? emailContent = null,Object? notificationContent = null,Object? productsConfig = null,Object? depositConfig = null,Object? withdrawalConfig = null,Object? taxesConfig = null,Object? creditCardCashConfig = null,Object? lineOfCreditConfig = null,Object? loanConfig = null,Object? messageNotificationConfig = null,}) {
   return _then(_self.copyWith(
 languages: null == languages ? _self.languages : languages // ignore: cast_nullable_to_non_nullable
 as LanguageConfig,appStatus: null == appStatus ? _self.appStatus : appStatus // ignore: cast_nullable_to_non_nullable
-as String,documentTypes: null == documentTypes ? _self.documentTypes : documentTypes // ignore: cast_nullable_to_non_nullable
+as String,appConfig: null == appConfig ? _self.appConfig : appConfig // ignore: cast_nullable_to_non_nullable
+as AppConfigData,documentTypes: null == documentTypes ? _self.documentTypes : documentTypes // ignore: cast_nullable_to_non_nullable
 as DocumentTypes,countries: null == countries ? _self.countries : countries // ignore: cast_nullable_to_non_nullable
 as List<Country>,emailContent: null == emailContent ? _self.emailContent : emailContent // ignore: cast_nullable_to_non_nullable
 as EmailContentData,notificationContent: null == notificationContent ? _self.notificationContent : notificationContent // ignore: cast_nullable_to_non_nullable
@@ -92,6 +93,15 @@ $LanguageConfigCopyWith<$Res> get languages {
   
   return $LanguageConfigCopyWith<$Res>(_self.languages, (value) {
     return _then(_self.copyWith(languages: value));
+  });
+}/// Create a copy of AppConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppConfigDataCopyWith<$Res> get appConfig {
+  
+  return $AppConfigDataCopyWith<$Res>(_self.appConfig, (value) {
+    return _then(_self.copyWith(appConfig: value));
   });
 }/// Create a copy of AppConfig
 /// with the given fields replaced by the non-null parameter values.
@@ -274,10 +284,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LanguageConfig languages,  String appStatus,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LanguageConfig languages,  String appStatus,  AppConfigData appConfig,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppConfig() when $default != null:
-return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
+return $default(_that.languages,_that.appStatus,_that.appConfig,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
   return orElse();
 
 }
@@ -295,10 +305,10 @@ return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LanguageConfig languages,  String appStatus,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LanguageConfig languages,  String appStatus,  AppConfigData appConfig,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)  $default,) {final _that = this;
 switch (_that) {
 case _AppConfig():
-return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
+return $default(_that.languages,_that.appStatus,_that.appConfig,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -315,10 +325,10 @@ return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LanguageConfig languages,  String appStatus,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LanguageConfig languages,  String appStatus,  AppConfigData appConfig,  DocumentTypes documentTypes,  List<Country> countries,  EmailContentData emailContent,  NotificationContentData notificationContent,  ProductsConfig productsConfig,  DepositConfig depositConfig,  WithdrawalConfig withdrawalConfig,  TaxesConfig taxesConfig,  CreditCardCashConfig creditCardCashConfig,  LineOfCreditConfig lineOfCreditConfig,  LoanConfig loanConfig,  MessageNotificationConfig messageNotificationConfig)?  $default,) {final _that = this;
 switch (_that) {
 case _AppConfig() when $default != null:
-return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
+return $default(_that.languages,_that.appStatus,_that.appConfig,_that.documentTypes,_that.countries,_that.emailContent,_that.notificationContent,_that.productsConfig,_that.depositConfig,_that.withdrawalConfig,_that.taxesConfig,_that.creditCardCashConfig,_that.lineOfCreditConfig,_that.loanConfig,_that.messageNotificationConfig);case _:
   return null;
 
 }
@@ -330,11 +340,12 @@ return $default(_that.languages,_that.appStatus,_that.documentTypes,_that.countr
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _AppConfig implements AppConfig {
-  const _AppConfig({required this.languages, required this.appStatus, required this.documentTypes, required final  List<Country> countries, required this.emailContent, required this.notificationContent, required this.productsConfig, required this.depositConfig, required this.withdrawalConfig, required this.taxesConfig, required this.creditCardCashConfig, required this.lineOfCreditConfig, required this.loanConfig, required this.messageNotificationConfig}): _countries = countries;
+  const _AppConfig({required this.languages, required this.appStatus, required this.appConfig, required this.documentTypes, required final  List<Country> countries, required this.emailContent, required this.notificationContent, required this.productsConfig, required this.depositConfig, required this.withdrawalConfig, required this.taxesConfig, required this.creditCardCashConfig, required this.lineOfCreditConfig, required this.loanConfig, required this.messageNotificationConfig}): _countries = countries;
   factory _AppConfig.fromJson(Map<String, dynamic> json) => _$AppConfigFromJson(json);
 
 @override final  LanguageConfig languages;
 @override final  String appStatus;
+@override final  AppConfigData appConfig;
 @override final  DocumentTypes documentTypes;
  final  List<Country> _countries;
 @override List<Country> get countries {
@@ -367,16 +378,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppConfig&&(identical(other.languages, languages) || other.languages == languages)&&(identical(other.appStatus, appStatus) || other.appStatus == appStatus)&&(identical(other.documentTypes, documentTypes) || other.documentTypes == documentTypes)&&const DeepCollectionEquality().equals(other._countries, _countries)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.notificationContent, notificationContent) || other.notificationContent == notificationContent)&&(identical(other.productsConfig, productsConfig) || other.productsConfig == productsConfig)&&(identical(other.depositConfig, depositConfig) || other.depositConfig == depositConfig)&&(identical(other.withdrawalConfig, withdrawalConfig) || other.withdrawalConfig == withdrawalConfig)&&(identical(other.taxesConfig, taxesConfig) || other.taxesConfig == taxesConfig)&&(identical(other.creditCardCashConfig, creditCardCashConfig) || other.creditCardCashConfig == creditCardCashConfig)&&(identical(other.lineOfCreditConfig, lineOfCreditConfig) || other.lineOfCreditConfig == lineOfCreditConfig)&&(identical(other.loanConfig, loanConfig) || other.loanConfig == loanConfig)&&(identical(other.messageNotificationConfig, messageNotificationConfig) || other.messageNotificationConfig == messageNotificationConfig));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppConfig&&(identical(other.languages, languages) || other.languages == languages)&&(identical(other.appStatus, appStatus) || other.appStatus == appStatus)&&(identical(other.appConfig, appConfig) || other.appConfig == appConfig)&&(identical(other.documentTypes, documentTypes) || other.documentTypes == documentTypes)&&const DeepCollectionEquality().equals(other._countries, _countries)&&(identical(other.emailContent, emailContent) || other.emailContent == emailContent)&&(identical(other.notificationContent, notificationContent) || other.notificationContent == notificationContent)&&(identical(other.productsConfig, productsConfig) || other.productsConfig == productsConfig)&&(identical(other.depositConfig, depositConfig) || other.depositConfig == depositConfig)&&(identical(other.withdrawalConfig, withdrawalConfig) || other.withdrawalConfig == withdrawalConfig)&&(identical(other.taxesConfig, taxesConfig) || other.taxesConfig == taxesConfig)&&(identical(other.creditCardCashConfig, creditCardCashConfig) || other.creditCardCashConfig == creditCardCashConfig)&&(identical(other.lineOfCreditConfig, lineOfCreditConfig) || other.lineOfCreditConfig == lineOfCreditConfig)&&(identical(other.loanConfig, loanConfig) || other.loanConfig == loanConfig)&&(identical(other.messageNotificationConfig, messageNotificationConfig) || other.messageNotificationConfig == messageNotificationConfig));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,languages,appStatus,documentTypes,const DeepCollectionEquality().hash(_countries),emailContent,notificationContent,productsConfig,depositConfig,withdrawalConfig,taxesConfig,creditCardCashConfig,lineOfCreditConfig,loanConfig,messageNotificationConfig);
+int get hashCode => Object.hash(runtimeType,languages,appStatus,appConfig,documentTypes,const DeepCollectionEquality().hash(_countries),emailContent,notificationContent,productsConfig,depositConfig,withdrawalConfig,taxesConfig,creditCardCashConfig,lineOfCreditConfig,loanConfig,messageNotificationConfig);
 
 @override
 String toString() {
-  return 'AppConfig(languages: $languages, appStatus: $appStatus, documentTypes: $documentTypes, countries: $countries, emailContent: $emailContent, notificationContent: $notificationContent, productsConfig: $productsConfig, depositConfig: $depositConfig, withdrawalConfig: $withdrawalConfig, taxesConfig: $taxesConfig, creditCardCashConfig: $creditCardCashConfig, lineOfCreditConfig: $lineOfCreditConfig, loanConfig: $loanConfig, messageNotificationConfig: $messageNotificationConfig)';
+  return 'AppConfig(languages: $languages, appStatus: $appStatus, appConfig: $appConfig, documentTypes: $documentTypes, countries: $countries, emailContent: $emailContent, notificationContent: $notificationContent, productsConfig: $productsConfig, depositConfig: $depositConfig, withdrawalConfig: $withdrawalConfig, taxesConfig: $taxesConfig, creditCardCashConfig: $creditCardCashConfig, lineOfCreditConfig: $lineOfCreditConfig, loanConfig: $loanConfig, messageNotificationConfig: $messageNotificationConfig)';
 }
 
 
@@ -387,11 +398,11 @@ abstract mixin class _$AppConfigCopyWith<$Res> implements $AppConfigCopyWith<$Re
   factory _$AppConfigCopyWith(_AppConfig value, $Res Function(_AppConfig) _then) = __$AppConfigCopyWithImpl;
 @override @useResult
 $Res call({
- LanguageConfig languages, String appStatus, DocumentTypes documentTypes, List<Country> countries, EmailContentData emailContent, NotificationContentData notificationContent, ProductsConfig productsConfig, DepositConfig depositConfig, WithdrawalConfig withdrawalConfig, TaxesConfig taxesConfig, CreditCardCashConfig creditCardCashConfig, LineOfCreditConfig lineOfCreditConfig, LoanConfig loanConfig, MessageNotificationConfig messageNotificationConfig
+ LanguageConfig languages, String appStatus, AppConfigData appConfig, DocumentTypes documentTypes, List<Country> countries, EmailContentData emailContent, NotificationContentData notificationContent, ProductsConfig productsConfig, DepositConfig depositConfig, WithdrawalConfig withdrawalConfig, TaxesConfig taxesConfig, CreditCardCashConfig creditCardCashConfig, LineOfCreditConfig lineOfCreditConfig, LoanConfig loanConfig, MessageNotificationConfig messageNotificationConfig
 });
 
 
-@override $LanguageConfigCopyWith<$Res> get languages;@override $DocumentTypesCopyWith<$Res> get documentTypes;@override $EmailContentDataCopyWith<$Res> get emailContent;@override $NotificationContentDataCopyWith<$Res> get notificationContent;@override $ProductsConfigCopyWith<$Res> get productsConfig;@override $DepositConfigCopyWith<$Res> get depositConfig;@override $WithdrawalConfigCopyWith<$Res> get withdrawalConfig;@override $TaxesConfigCopyWith<$Res> get taxesConfig;@override $CreditCardCashConfigCopyWith<$Res> get creditCardCashConfig;@override $LineOfCreditConfigCopyWith<$Res> get lineOfCreditConfig;@override $LoanConfigCopyWith<$Res> get loanConfig;@override $MessageNotificationConfigCopyWith<$Res> get messageNotificationConfig;
+@override $LanguageConfigCopyWith<$Res> get languages;@override $AppConfigDataCopyWith<$Res> get appConfig;@override $DocumentTypesCopyWith<$Res> get documentTypes;@override $EmailContentDataCopyWith<$Res> get emailContent;@override $NotificationContentDataCopyWith<$Res> get notificationContent;@override $ProductsConfigCopyWith<$Res> get productsConfig;@override $DepositConfigCopyWith<$Res> get depositConfig;@override $WithdrawalConfigCopyWith<$Res> get withdrawalConfig;@override $TaxesConfigCopyWith<$Res> get taxesConfig;@override $CreditCardCashConfigCopyWith<$Res> get creditCardCashConfig;@override $LineOfCreditConfigCopyWith<$Res> get lineOfCreditConfig;@override $LoanConfigCopyWith<$Res> get loanConfig;@override $MessageNotificationConfigCopyWith<$Res> get messageNotificationConfig;
 
 }
 /// @nodoc
@@ -404,11 +415,12 @@ class __$AppConfigCopyWithImpl<$Res>
 
 /// Create a copy of AppConfig
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? languages = null,Object? appStatus = null,Object? documentTypes = null,Object? countries = null,Object? emailContent = null,Object? notificationContent = null,Object? productsConfig = null,Object? depositConfig = null,Object? withdrawalConfig = null,Object? taxesConfig = null,Object? creditCardCashConfig = null,Object? lineOfCreditConfig = null,Object? loanConfig = null,Object? messageNotificationConfig = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? languages = null,Object? appStatus = null,Object? appConfig = null,Object? documentTypes = null,Object? countries = null,Object? emailContent = null,Object? notificationContent = null,Object? productsConfig = null,Object? depositConfig = null,Object? withdrawalConfig = null,Object? taxesConfig = null,Object? creditCardCashConfig = null,Object? lineOfCreditConfig = null,Object? loanConfig = null,Object? messageNotificationConfig = null,}) {
   return _then(_AppConfig(
 languages: null == languages ? _self.languages : languages // ignore: cast_nullable_to_non_nullable
 as LanguageConfig,appStatus: null == appStatus ? _self.appStatus : appStatus // ignore: cast_nullable_to_non_nullable
-as String,documentTypes: null == documentTypes ? _self.documentTypes : documentTypes // ignore: cast_nullable_to_non_nullable
+as String,appConfig: null == appConfig ? _self.appConfig : appConfig // ignore: cast_nullable_to_non_nullable
+as AppConfigData,documentTypes: null == documentTypes ? _self.documentTypes : documentTypes // ignore: cast_nullable_to_non_nullable
 as DocumentTypes,countries: null == countries ? _self._countries : countries // ignore: cast_nullable_to_non_nullable
 as List<Country>,emailContent: null == emailContent ? _self.emailContent : emailContent // ignore: cast_nullable_to_non_nullable
 as EmailContentData,notificationContent: null == notificationContent ? _self.notificationContent : notificationContent // ignore: cast_nullable_to_non_nullable
@@ -432,6 +444,15 @@ $LanguageConfigCopyWith<$Res> get languages {
   
   return $LanguageConfigCopyWith<$Res>(_self.languages, (value) {
     return _then(_self.copyWith(languages: value));
+  });
+}/// Create a copy of AppConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AppConfigDataCopyWith<$Res> get appConfig {
+  
+  return $AppConfigDataCopyWith<$Res>(_self.appConfig, (value) {
+    return _then(_self.copyWith(appConfig: value));
   });
 }/// Create a copy of AppConfig
 /// with the given fields replaced by the non-null parameter values.

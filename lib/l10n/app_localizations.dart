@@ -3824,6 +3824,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No hay solicitudes de línea de crédito para mostrar'**
   String get thereAreNotCreditLineRequestsToShow;
+
+  /// No description provided for @partner.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner'**
+  String get partner;
+
+  /// No description provided for @costOfServiceFee.
+  ///
+  /// In en, this message translates to:
+  /// **'Cost of service fee'**
+  String get costOfServiceFee;
+
+  /// No description provided for @taxableBase.
+  ///
+  /// In en, this message translates to:
+  /// **'Taxable base'**
+  String get taxableBase;
+
+  /// No description provided for @partnerFee.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner fee'**
+  String get partnerFee;
+
+  /// No description provided for @endOfPartnerShip.
+  ///
+  /// In en, this message translates to:
+  /// **'End of partnership'**
+  String get endOfPartnerShip;
+
+  /// No description provided for @manualDeferredTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual deferred transactions'**
+  String get manualDeferredTransactions;
+
+  /// No description provided for @activated.
+  ///
+  /// In en, this message translates to:
+  /// **'Activado'**
+  String get activated;
+
+  /// No description provided for @deactivated.
+  ///
+  /// In en, this message translates to:
+  /// **'Desactivado'**
+  String get deactivated;
+
+  /// No description provided for @offMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Off mode'**
+  String get offMode;
 }
 
 class _AppLocalizationsDelegate

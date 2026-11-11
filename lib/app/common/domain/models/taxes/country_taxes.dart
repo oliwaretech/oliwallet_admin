@@ -7,8 +7,10 @@ part 'country_taxes.g.dart';
 @freezed
 abstract class CountryTaxes with _$CountryTaxes {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  const factory CountryTaxes({required List<TaxData> allTransactions}) =
-      _CountryTaxes;
+  const factory CountryTaxes({
+    required List<TaxData> allTransactions,
+    List<TaxData>? serviceFees,
+  }) = _CountryTaxes;
 
   factory CountryTaxes.fromJson(Map<String, dynamic> json) =>
       _$CountryTaxesFromJson(json);

@@ -69,7 +69,25 @@ class AppFeaturesRepositoryImpl implements AppFeaturesRepository {
     );
 
     if (response.status != 200) {
-      throw Exception('No se pudo enviar el correo');
+      throw Exception('Failed to send email: ${response.data}');
     }
+  }
+
+  @override
+  Future<bool> updateManualTransactionsOffMode({
+    required int configId,
+    required String countryCode,
+    required bool enabled,
+  }) async {
+    final response = await supabaseClient.rpc(
+      'update_manual_transactions_off_mode',
+      params: {
+        'p_config_id': configId,
+        'p_country_code': countryCode,
+        'p_enabled': enabled,
+      },
+    );
+
+    return response as bool;
   }
 }

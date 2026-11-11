@@ -4,7 +4,7 @@ enum TaxApplicationMethod { multiply, sum }
 
 enum FeesIds { feePerTransaction }
 
-enum TaxIds { itf }
+enum TaxIds { itf, igv }
 
 enum AppStatus { unrestricted, restricted, maintenance }
 
@@ -25,3 +25,5 @@ enum PushNotificationTypes {
 }
 
 enum ScreenType { mobile, tablet, desktop }
+
+enum CostType { rate, amount }

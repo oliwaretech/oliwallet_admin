@@ -144,6 +144,8 @@ class OperationDetailScreen extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) {
+        print('Error fetching app config: $error');
+        print('Stack trace: $stackTrace');
         return OlwErrorScreen(
           errorMessage: appLocalizations.upsItSeemsToBeWeHaveAnError,
           primaryButton: appLocalizations.retry,

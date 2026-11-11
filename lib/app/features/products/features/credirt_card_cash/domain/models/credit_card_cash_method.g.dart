@@ -30,6 +30,9 @@ _CreditCardCashMethod _$CreditCardCashMethodFromJson(
   transactionFeesRanges: (json['transaction_fees_ranges'] as List<dynamic>)
       .map((e) => TransactionFeesRange.fromJson(e as Map<String, dynamic>))
       .toList(),
+  costs: (json['costs'] as List<dynamic>?)
+      ?.map((e) => CostItemData.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$CreditCardCashMethodToJson(
@@ -46,4 +49,5 @@ Map<String, dynamic> _$CreditCardCashMethodToJson(
   'timing': instance.timing,
   'withdrawal_methods': instance.withdrawalMethods,
   'transaction_fees_ranges': instance.transactionFeesRanges,
+  'costs': instance.costs,
 };

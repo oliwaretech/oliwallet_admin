@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CountryTaxes {
 
- List<TaxData> get allTransactions;
+ List<TaxData> get allTransactions; List<TaxData>? get serviceFees;
 /// Create a copy of CountryTaxes
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CountryTaxesCopyWith<CountryTaxes> get copyWith => _$CountryTaxesCopyWithImpl<C
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CountryTaxes&&const DeepCollectionEquality().equals(other.allTransactions, allTransactions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CountryTaxes&&const DeepCollectionEquality().equals(other.allTransactions, allTransactions)&&const DeepCollectionEquality().equals(other.serviceFees, serviceFees));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(allTransactions));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(allTransactions),const DeepCollectionEquality().hash(serviceFees));
 
 @override
 String toString() {
-  return 'CountryTaxes(allTransactions: $allTransactions)';
+  return 'CountryTaxes(allTransactions: $allTransactions, serviceFees: $serviceFees)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $CountryTaxesCopyWith<$Res>  {
   factory $CountryTaxesCopyWith(CountryTaxes value, $Res Function(CountryTaxes) _then) = _$CountryTaxesCopyWithImpl;
 @useResult
 $Res call({
- List<TaxData> allTransactions
+ List<TaxData> allTransactions, List<TaxData>? serviceFees
 });
 
 
@@ -65,10 +65,11 @@ class _$CountryTaxesCopyWithImpl<$Res>
 
 /// Create a copy of CountryTaxes
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? allTransactions = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? allTransactions = null,Object? serviceFees = freezed,}) {
   return _then(_self.copyWith(
 allTransactions: null == allTransactions ? _self.allTransactions : allTransactions // ignore: cast_nullable_to_non_nullable
-as List<TaxData>,
+as List<TaxData>,serviceFees: freezed == serviceFees ? _self.serviceFees : serviceFees // ignore: cast_nullable_to_non_nullable
+as List<TaxData>?,
   ));
 }
 
@@ -153,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<TaxData> allTransactions)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<TaxData> allTransactions,  List<TaxData>? serviceFees)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CountryTaxes() when $default != null:
-return $default(_that.allTransactions);case _:
+return $default(_that.allTransactions,_that.serviceFees);case _:
   return orElse();
 
 }
@@ -174,10 +175,10 @@ return $default(_that.allTransactions);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<TaxData> allTransactions)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<TaxData> allTransactions,  List<TaxData>? serviceFees)  $default,) {final _that = this;
 switch (_that) {
 case _CountryTaxes():
-return $default(_that.allTransactions);case _:
+return $default(_that.allTransactions,_that.serviceFees);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +195,10 @@ return $default(_that.allTransactions);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<TaxData> allTransactions)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<TaxData> allTransactions,  List<TaxData>? serviceFees)?  $default,) {final _that = this;
 switch (_that) {
 case _CountryTaxes() when $default != null:
-return $default(_that.allTransactions);case _:
+return $default(_that.allTransactions,_that.serviceFees);case _:
   return null;
 
 }
@@ -209,7 +210,7 @@ return $default(_that.allTransactions);case _:
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _CountryTaxes implements CountryTaxes {
-  const _CountryTaxes({required final  List<TaxData> allTransactions}): _allTransactions = allTransactions;
+  const _CountryTaxes({required final  List<TaxData> allTransactions, final  List<TaxData>? serviceFees}): _allTransactions = allTransactions,_serviceFees = serviceFees;
   factory _CountryTaxes.fromJson(Map<String, dynamic> json) => _$CountryTaxesFromJson(json);
 
  final  List<TaxData> _allTransactions;
@@ -217,6 +218,15 @@ class _CountryTaxes implements CountryTaxes {
   if (_allTransactions is EqualUnmodifiableListView) return _allTransactions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_allTransactions);
+}
+
+ final  List<TaxData>? _serviceFees;
+@override List<TaxData>? get serviceFees {
+  final value = _serviceFees;
+  if (value == null) return null;
+  if (_serviceFees is EqualUnmodifiableListView) return _serviceFees;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
 
@@ -233,16 +243,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CountryTaxes&&const DeepCollectionEquality().equals(other._allTransactions, _allTransactions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CountryTaxes&&const DeepCollectionEquality().equals(other._allTransactions, _allTransactions)&&const DeepCollectionEquality().equals(other._serviceFees, _serviceFees));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_allTransactions));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_allTransactions),const DeepCollectionEquality().hash(_serviceFees));
 
 @override
 String toString() {
-  return 'CountryTaxes(allTransactions: $allTransactions)';
+  return 'CountryTaxes(allTransactions: $allTransactions, serviceFees: $serviceFees)';
 }
 
 
@@ -253,7 +263,7 @@ abstract mixin class _$CountryTaxesCopyWith<$Res> implements $CountryTaxesCopyWi
   factory _$CountryTaxesCopyWith(_CountryTaxes value, $Res Function(_CountryTaxes) _then) = __$CountryTaxesCopyWithImpl;
 @override @useResult
 $Res call({
- List<TaxData> allTransactions
+ List<TaxData> allTransactions, List<TaxData>? serviceFees
 });
 
 
@@ -270,10 +280,11 @@ class __$CountryTaxesCopyWithImpl<$Res>
 
 /// Create a copy of CountryTaxes
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? allTransactions = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? allTransactions = null,Object? serviceFees = freezed,}) {
   return _then(_CountryTaxes(
 allTransactions: null == allTransactions ? _self._allTransactions : allTransactions // ignore: cast_nullable_to_non_nullable
-as List<TaxData>,
+as List<TaxData>,serviceFees: freezed == serviceFees ? _self._serviceFees : serviceFees // ignore: cast_nullable_to_non_nullable
+as List<TaxData>?,
   ));
 }
 

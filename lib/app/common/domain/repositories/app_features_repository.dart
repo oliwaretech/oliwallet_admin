@@ -16,4 +16,10 @@ abstract class AppFeaturesRepository {
   );
 
   Future<void> sendEmailNotification(SendEmailPayload sendEmailPayload);
+
+  Future<bool> updateManualTransactionsOffMode({
+    required int configId,
+    required String countryCode,
+    required bool enabled,
+  });
 }

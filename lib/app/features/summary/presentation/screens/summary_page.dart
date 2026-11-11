@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:oliwallet_admin_front_end/app/common/providers/app_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/presentation/providers/auth_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/presentation/widgets/dashboard/tools_list.dart';
 import 'package:oliwallet_admin_front_end/app/features/summary/presentation/widgets/summary_header/summary_header.dart';
@@ -13,16 +14,29 @@ class SummaryPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final getCurrentUserDataAsyncValue = ref.watch(getCurrentUserDataProvider);
+    final getAppConfigAsyncValue = ref.watch(getAppConfigProvider);
 
-    return getCurrentUserDataAsyncValue.when(
-      data: (userData) {
-        return Column(
-          children: [
-            SummaryHeader(userData: userData),
-            Expanded(
-              child: ToolsList(),
-            ), // Replace with actual UserProductsScreen when available
-          ],
+    return getAppConfigAsyncValue.when(
+      data: (appConfig) {
+        return getCurrentUserDataAsyncValue.when(
+          data: (userData) {
+            return Column(
+              children: [
+                SummaryHeader(appConfig: appConfig, userData: userData),
+                Expanded(
+                  child: ToolsList(),
+                ), // Replace with actual UserProductsScreen when available
+              ],
+            );
+          },
+          loading: () => const Center(child: OlwLoadingSpinner()),
+          error: (error, stackTrace) {
+            return OlwErrorScreen(
+              onPrimaryButtonPressed: () {
+                ref.invalidate(getCurrentUserDataProvider);
+              },
+            );
+          },
         );
       },
       loading: () => const Center(child: OlwLoadingSpinner()),

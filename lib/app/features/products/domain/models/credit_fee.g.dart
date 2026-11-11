@@ -26,4 +26,5 @@ const _$FeeTypeEnumMap = {FeeType.fixed: 'fixed', FeeType.percent: 'percent'};
 const _$FeeApplicationEnumMap = {
   FeeApplication.installment: 'installment',
   FeeApplication.capital: 'capital',
+  FeeApplication.netProfit: 'netProfit',
 };

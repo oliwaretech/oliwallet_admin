@@ -27,4 +27,5 @@ const _$FrequencyEnumMap = {
   Frequency.weekly: 'weekly',
   Frequency.monthly: 'monthly',
   Frequency.annually: 'annually',
+  Frequency.transaction: 'transaction',
 };

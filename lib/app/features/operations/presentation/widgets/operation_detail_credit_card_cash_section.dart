@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:oliwallet_admin_front_end/app/common/data/data_source/supabase/supabase_tables.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/enums/common_enums.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/app_config.dart';
+import 'package:oliwallet_admin_front_end/app/common/domain/models/language_codes.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/push_notifications/push_notification_data.dart';
 import 'package:oliwallet_admin_front_end/app/common/helpers/formatters.dart';
 import 'package:oliwallet_admin_front_end/app/common/helpers/olw_snack_bar_notification.dart';
@@ -10,8 +11,13 @@ import 'package:oliwallet_admin_front_end/app/common/helpers/operators.dart';
 import 'package:oliwallet_admin_front_end/app/common/providers/app_provider.dart';
 import 'package:oliwallet_admin_front_end/app/common/widgets/tiles/operation_detail_tile.dart';
 import 'package:oliwallet_admin_front_end/app/features/auth/domain/models/user_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/deposit/domain/models/deposit_operation_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/deposit/presentation/providers/deposit_provider.dart';
+import 'package:oliwallet_admin_front_end/app/features/operations/features/partner/domain/models/partner_data.dart';
+import 'package:oliwallet_admin_front_end/app/features/operations/features/partner/presentation/providers/partners_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/operations/presentation/providers/operations_provider.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/enums/products_enums.dart';
+import 'package:oliwallet_admin_front_end/app/features/products/domain/models/cost_item_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/domain/models/transactions/transaction_operation.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/credirt_card_cash/domain/models/credit_card_cash_message_notification_data.dart';
 import 'package:oliwallet_admin_front_end/app/features/products/features/credirt_card_cash/domain/models/credit_card_cash_operation_data.dart';
@@ -36,6 +42,9 @@ class OperationDetailCreditCardCashSection extends ConsumerWidget {
     final currentDetailScreenIsLoading = ref.watch(
       currentDetailScreenIsLoadingProvider,
     );
+    final fetchCommercialContactDataAsyncValue = ref.watch(
+      fetchCommercialContactDataProvider(userData.contactPhone),
+    );
 
     BigInt? totalFees = BigInt.zero;
     BigInt? totalTaxes = BigInt.zero;
@@ -48,343 +57,834 @@ class OperationDetailCreditCardCashSection extends ConsumerWidget {
       totalTaxes = totalTaxes! + tax.value;
     }
 
-    return Column(
-      spacing: 16,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        OlwCard(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              spacing: 2,
-              children: [
-                Text(
-                  appLocalizations.totalAmountToDisburse,
-                  style: OlwTextStyles.textSubTitle,
-                ),
-                Text(
-                  OlwFormatter.currency(
-                    BigIntParser.toDouble(creditCardCashOperationData.amount!),
-                    symbol: operation.currencySymbol,
-                  ),
-                  style: OlwTextStyles.textTitle,
-                ),
-                SizedBox(height: 8),
-                Text(
-                  appLocalizations.destinationEntity,
-                  style: OlwTextStyles.textSubTitle,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    spacing: 8,
-                    children: [
-                      ClipOval(
-                        child: Image.network(
-                          creditCardCashOperationData
-                              .externalMethod!
-                              .entityImageUrl!,
-                          width: 40,
-                          height: 40,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                      Column(
-                        spacing: 2,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            spacing: 8,
-                            children: [
-                              Text(
-                                creditCardCashOperationData
-                                    .externalMethod!
-                                    .entityShortName!
-                                    .getLocalized(appLocalizations.localeName),
-                                style: OlwTextStyles.textCardTitle,
-                              ),
-                              if (creditCardCashOperationData
-                                      .externalMethod!
-                                      .accountType !=
-                                  null)
-                                Text(
-                                  creditCardCashOperationData
-                                      .externalMethod!
-                                      .accountType!
-                                      .accountTypeName
-                                      .getLocalized(
-                                        appLocalizations.localeName,
-                                      ),
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                            ],
-                          ),
-                          if (creditCardCashOperationData
-                                  .externalMethod!
-                                  .accountNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  'A.C: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  creditCardCashOperationData
-                                      .externalMethod!
-                                      .accountNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
-                                      creditCardCashOperationData
-                                          .externalMethod!
-                                          .accountNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
-                              ],
-                            ),
-                          if (creditCardCashOperationData
-                                  .externalMethod!
-                                  .interbankAccountNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  'CCI: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  creditCardCashOperationData
-                                      .externalMethod!
-                                      .interbankAccountNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
-                                      creditCardCashOperationData
-                                          .externalMethod!
-                                          .interbankAccountNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
-                              ],
-                            ),
-                          if (creditCardCashOperationData
-                                  .externalMethod!
-                                  .phoneNumber !=
-                              null)
-                            Row(
-                              children: [
-                                Text(
-                                  '${appLocalizations.mobilePhone}: ',
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                Text(
-                                  creditCardCashOperationData
-                                      .externalMethod!
-                                      .phoneNumber!,
-                                  style: OlwTextStyles.textDescription,
-                                ),
-                                SizedBox(width: 8),
-                                OlwIconButton(
-                                  onPressed: () {
-                                    copyToClipboard(
-                                      title:
-                                          '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
-                                      creditCardCashOperationData
-                                          .externalMethod!
-                                          .phoneNumber!,
-                                    );
-                                  },
-                                  iconPath: IconAssets.copy,
-                                ),
-                              ],
-                            ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+    final igvServiceFeeTax = appConfig.taxesConfig.pe.serviceFees!.firstWhere(
+      (tax) => tax.id == TaxIds.igv,
+    );
+
+    final paymentServiceCost =
+        creditCardCashOperationData.creditCardCashMethod!.costs?.firstWhere(
+          (cost) => cost.id == 'payment_service_fee',
+          orElse: () => CostItemData(
+            id: 'payment_service_fee',
+            value: BigIntParser.fromDouble(6),
+            name: LanguageCodes(
+              es: 'Tarifa de pago de servicios',
+              en: 'Service Payment Fee',
             ),
+            type: CostType.amount,
+            frequency: Frequency.transaction,
           ),
-        ),
-        OlwCard(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              spacing: 2,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  appLocalizations.confirmationMethod,
-                  style: OlwTextStyles.textSubTitle,
-                ),
-                if (creditCardCashOperationData.confirmationMethod ==
-                    OperationConfirmationMethod.code)
-                  Column(
+        ) ??
+        CostItemData(
+          id: 'payment_service_fee',
+          value: BigIntParser.fromDouble(6),
+          name: LanguageCodes(
+            es: 'Tarifa de pago de servicios',
+            en: 'Service Payment Fee',
+          ),
+          type: CostType.amount,
+          frequency: Frequency.transaction,
+        );
+
+    final BigInt taxableBase =
+        (totalFees! - paymentServiceCost.value) *
+        BigInt.from(100) ~/
+        BigInt.from(100 + igvServiceFeeTax.value.toInt());
+
+    return fetchCommercialContactDataAsyncValue.when(
+      data: (commercialContactData) {
+        // Only watch partner data if partnerId is not null
+        if (commercialContactData?.partnerId == null) {
+          return Column(
+            spacing: 16,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              OlwCard(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
                     spacing: 2,
                     children: [
                       Text(
-                        appLocalizations.operationCode,
-                        style: OlwTextStyles.textDescription,
+                        appLocalizations.totalAmountToDisburse,
+                        style: OlwTextStyles.textSubTitle,
                       ),
                       Text(
-                        creditCardCashOperationData.operationCode!,
-                        style: OlwTextStyles.textCardTitle,
+                        OlwFormatter.currency(
+                          BigIntParser.toDouble(
+                            creditCardCashOperationData.amount!,
+                          ),
+                          symbol: operation.currencySymbol,
+                        ),
+                        style: OlwTextStyles.textTitle,
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        appLocalizations.destinationEntity,
+                        style: OlwTextStyles.textSubTitle,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          spacing: 8,
+                          children: [
+                            ClipOval(
+                              child: Image.network(
+                                creditCardCashOperationData
+                                    .externalMethod!
+                                    .entityImageUrl!,
+                                width: 40,
+                                height: 40,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Column(
+                              spacing: 2,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  spacing: 8,
+                                  children: [
+                                    Text(
+                                      creditCardCashOperationData
+                                          .externalMethod!
+                                          .entityShortName!
+                                          .getLocalized(
+                                            appLocalizations.localeName,
+                                          ),
+                                      style: OlwTextStyles.textCardTitle,
+                                    ),
+                                    if (creditCardCashOperationData
+                                            .externalMethod!
+                                            .accountType !=
+                                        null)
+                                      Text(
+                                        creditCardCashOperationData
+                                            .externalMethod!
+                                            .accountType!
+                                            .accountTypeName
+                                            .getLocalized(
+                                              appLocalizations.localeName,
+                                            ),
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                  ],
+                                ),
+                                if (creditCardCashOperationData
+                                        .externalMethod!
+                                        .accountNumber !=
+                                    null)
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'A.C: ',
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      Text(
+                                        creditCardCashOperationData
+                                            .externalMethod!
+                                            .accountNumber!,
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      SizedBox(width: 8),
+                                      OlwIconButton(
+                                        onPressed: () {
+                                          copyToClipboard(
+                                            title:
+                                                '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
+                                            creditCardCashOperationData
+                                                .externalMethod!
+                                                .accountNumber!,
+                                          );
+                                        },
+                                        iconPath: IconAssets.copy,
+                                      ),
+                                    ],
+                                  ),
+                                if (creditCardCashOperationData
+                                        .externalMethod!
+                                        .interbankAccountNumber !=
+                                    null)
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'CCI: ',
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      Text(
+                                        creditCardCashOperationData
+                                            .externalMethod!
+                                            .interbankAccountNumber!,
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      SizedBox(width: 8),
+                                      OlwIconButton(
+                                        onPressed: () {
+                                          copyToClipboard(
+                                            title:
+                                                '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
+                                            creditCardCashOperationData
+                                                .externalMethod!
+                                                .interbankAccountNumber!,
+                                          );
+                                        },
+                                        iconPath: IconAssets.copy,
+                                      ),
+                                    ],
+                                  ),
+                                if (creditCardCashOperationData
+                                        .externalMethod!
+                                        .phoneNumber !=
+                                    null)
+                                  Row(
+                                    children: [
+                                      Text(
+                                        '${appLocalizations.mobilePhone}: ',
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      Text(
+                                        creditCardCashOperationData
+                                            .externalMethod!
+                                            .phoneNumber!,
+                                        style: OlwTextStyles.textDescription,
+                                      ),
+                                      SizedBox(width: 8),
+                                      OlwIconButton(
+                                        onPressed: () {
+                                          copyToClipboard(
+                                            title:
+                                                '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
+                                            creditCardCashOperationData
+                                                .externalMethod!
+                                                .phoneNumber!,
+                                          );
+                                        },
+                                        iconPath: IconAssets.copy,
+                                      ),
+                                    ],
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                if (creditCardCashOperationData.confirmationMethod ==
-                    OperationConfirmationMethod.upload)
-                  OlwSecondaryButton(
-                    onPressed: () {
-                      showOlwBottomSheet(
-                        isFullScreen: true,
-                        context: context,
-                        title: appLocalizations.proof,
-                        content: InteractiveViewer(
-                          minScale: 1.0,
-                          maxScale: 4.0,
-                          child: Image.network(
-                            creditCardCashOperationData.proofImageUrl!,
-                            fit: BoxFit.contain,
+                ),
+              ),
+              OlwCard(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    spacing: 2,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        appLocalizations.confirmationMethod,
+                        style: OlwTextStyles.textSubTitle,
+                      ),
+                      if (creditCardCashOperationData.confirmationMethod ==
+                          OperationConfirmationMethod.code)
+                        Column(
+                          spacing: 2,
+                          children: [
+                            Text(
+                              appLocalizations.operationCode,
+                              style: OlwTextStyles.textDescription,
+                            ),
+                            Text(
+                              creditCardCashOperationData.operationCode!,
+                              style: OlwTextStyles.textCardTitle,
+                            ),
+                          ],
+                        ),
+                      if (creditCardCashOperationData.confirmationMethod ==
+                          OperationConfirmationMethod.upload)
+                        OlwSecondaryButton(
+                          onPressed: () {
+                            showOlwBottomSheet(
+                              isFullScreen: true,
+                              context: context,
+                              title: appLocalizations.proof,
+                              content: InteractiveViewer(
+                                minScale: 1.0,
+                                maxScale: 4.0,
+                                child: Image.network(
+                                  creditCardCashOperationData.proofImageUrl!,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            );
+                          },
+                          isSmall: true,
+                          text: appLocalizations.openProofOfOperation,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              Text(
+                appLocalizations.cardEntity,
+                style: OlwTextStyles.textSubTitle,
+              ),
+              Column(
+                children: [
+                  OperationDetailTile(
+                    item: appLocalizations.financialEntity,
+                    value: creditCardCashOperationData
+                        .creditCardCashMethod!
+                        .methodName
+                        .getLocalized(appLocalizations.localeName),
+                  ),
+                ],
+              ),
+              Text(
+                appLocalizations.calculationDetails,
+                style: OlwTextStyles.textSubTitle,
+              ),
+              Column(
+                children: [
+                  OperationDetailTile(
+                    item: appLocalizations.amountPaidWithCard,
+                    value: OlwFormatter.currency(
+                      BigIntParser.toDouble(
+                        creditCardCashOperationData.totalAmount!,
+                      ),
+                      symbol: operation.currencySymbol,
+                    ),
+                  ),
+                  OperationDetailTile(
+                    item: appLocalizations.serviceFee,
+                    value: OlwFormatter.currency(
+                      BigIntParser.toDouble(totalFees!),
+                      symbol: operation.currencySymbol,
+                    ),
+                  ),
+                  OperationDetailTile(
+                    item: appLocalizations.totalTaxes,
+                    value: OlwFormatter.currency(
+                      BigIntParser.toDouble(totalTaxes!),
+                      symbol: operation.currencySymbol,
+                    ),
+                  ),
+                  OperationDetailTile(
+                    isWidget: true,
+                    showDivider: false,
+                    item: appLocalizations.amountToDisburse,
+                    valueWidget: OlwTag(
+                      label: OlwFormatter.currency(
+                        BigIntParser.toDouble(
+                          creditCardCashOperationData.amount!,
+                        ),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              if (currentDetailScreenIsLoading)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  child: OlwLoadingSpinner(),
+                ),
+              if (!currentDetailScreenIsLoading)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    spacing: 16,
+                    children: [
+                      OlwPrimaryButton(
+                        onPressed: () {
+                          updateOperationStatus(
+                            ref,
+                            operation.id!,
+                            OperationStatus.completed,
+                            context,
+                            userData,
+                            creditCardCashOperationData,
+                            userData.currentCountryCode == 'PE'
+                                ? appConfig
+                                      .messageNotificationConfig
+                                      .pe
+                                      .creditCardCash
+                                : appConfig
+                                      .messageNotificationConfig
+                                      .hr!
+                                      .creditCardCash,
+                            appLocalizations,
+                          );
+                        },
+                        text: appLocalizations.confirmOperation,
+                      ),
+                      OlwSecondaryButton(
+                        onPressed: () {
+                          updateOperationStatus(
+                            ref,
+                            operation.id!,
+                            OperationStatus.rejected,
+                            context,
+                            userData,
+                            creditCardCashOperationData,
+                            userData.currentCountryCode == 'PE'
+                                ? appConfig
+                                      .messageNotificationConfig
+                                      .pe
+                                      .creditCardCash
+                                : appConfig
+                                      .messageNotificationConfig
+                                      .hr!
+                                      .creditCardCash,
+                            appLocalizations,
+                          );
+                        },
+                        text: appLocalizations.rejectOperation,
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          );
+        }
+
+        final getPartnerDataAsyncValue = ref.watch(
+          getPartnerDataProvider(commercialContactData!.partnerId!),
+        );
+
+        return getPartnerDataAsyncValue.when(
+          data: (partnerData) {
+            final BigInt partnerFee =
+                taxableBase *
+                BigInt.from(
+                  (partnerData!.creditCardCashPartnershipData!.fee.feeValue *
+                          10)
+                      .round(),
+                ) ~/
+                BigInt.from(10);
+
+            return Column(
+              spacing: 16,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                OlwCard(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      spacing: 2,
+                      children: [
+                        Text(
+                          appLocalizations.totalAmountToDisburse,
+                          style: OlwTextStyles.textSubTitle,
+                        ),
+                        Text(
+                          OlwFormatter.currency(
+                            BigIntParser.toDouble(
+                              creditCardCashOperationData.amount!,
+                            ),
+                            symbol: operation.currencySymbol,
+                          ),
+                          style: OlwTextStyles.textTitle,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          appLocalizations.destinationEntity,
+                          style: OlwTextStyles.textSubTitle,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            spacing: 8,
+                            children: [
+                              ClipOval(
+                                child: Image.network(
+                                  creditCardCashOperationData
+                                      .externalMethod!
+                                      .entityImageUrl!,
+                                  width: 40,
+                                  height: 40,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Column(
+                                spacing: 2,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    spacing: 8,
+                                    children: [
+                                      Text(
+                                        creditCardCashOperationData
+                                            .externalMethod!
+                                            .entityShortName!
+                                            .getLocalized(
+                                              appLocalizations.localeName,
+                                            ),
+                                        style: OlwTextStyles.textCardTitle,
+                                      ),
+                                      if (creditCardCashOperationData
+                                              .externalMethod!
+                                              .accountType !=
+                                          null)
+                                        Text(
+                                          creditCardCashOperationData
+                                              .externalMethod!
+                                              .accountType!
+                                              .accountTypeName
+                                              .getLocalized(
+                                                appLocalizations.localeName,
+                                              ),
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                    ],
+                                  ),
+                                  if (creditCardCashOperationData
+                                          .externalMethod!
+                                          .accountNumber !=
+                                      null)
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'A.C: ',
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        Text(
+                                          creditCardCashOperationData
+                                              .externalMethod!
+                                              .accountNumber!,
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        SizedBox(width: 8),
+                                        OlwIconButton(
+                                          onPressed: () {
+                                            copyToClipboard(
+                                              title:
+                                                  '${appLocalizations.youHaveCopied} ${appLocalizations.accountNumber}',
+                                              creditCardCashOperationData
+                                                  .externalMethod!
+                                                  .accountNumber!,
+                                            );
+                                          },
+                                          iconPath: IconAssets.copy,
+                                        ),
+                                      ],
+                                    ),
+                                  if (creditCardCashOperationData
+                                          .externalMethod!
+                                          .interbankAccountNumber !=
+                                      null)
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'CCI: ',
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        Text(
+                                          creditCardCashOperationData
+                                              .externalMethod!
+                                              .interbankAccountNumber!,
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        SizedBox(width: 8),
+                                        OlwIconButton(
+                                          onPressed: () {
+                                            copyToClipboard(
+                                              title:
+                                                  '${appLocalizations.youHaveCopied} ${appLocalizations.interbankAccountNumber}',
+                                              creditCardCashOperationData
+                                                  .externalMethod!
+                                                  .interbankAccountNumber!,
+                                            );
+                                          },
+                                          iconPath: IconAssets.copy,
+                                        ),
+                                      ],
+                                    ),
+                                  if (creditCardCashOperationData
+                                          .externalMethod!
+                                          .phoneNumber !=
+                                      null)
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '${appLocalizations.mobilePhone}: ',
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        Text(
+                                          creditCardCashOperationData
+                                              .externalMethod!
+                                              .phoneNumber!,
+                                          style: OlwTextStyles.textDescription,
+                                        ),
+                                        SizedBox(width: 8),
+                                        OlwIconButton(
+                                          onPressed: () {
+                                            copyToClipboard(
+                                              title:
+                                                  '${appLocalizations.youHaveCopied} ${appLocalizations.mobilePhone}',
+                                              creditCardCashOperationData
+                                                  .externalMethod!
+                                                  .phoneNumber!,
+                                            );
+                                          },
+                                          iconPath: IconAssets.copy,
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    },
-                    isSmall: true,
-                    text: appLocalizations.openProofOfOperation,
+                      ],
+                    ),
+                  ),
+                ),
+                if (commercialContactData.partnerId != null)
+                  OlwCard(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        spacing: 16,
+                        children: [
+                          Image.network(
+                            partnerData.themeData.logoUrl,
+                            height: 20,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  appLocalizations.partner,
+                                  style: OlwTextStyles.textCardTitle,
+                                ),
+                                Text(
+                                  partnerData.themeData.companyName,
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                                Text(
+                                  "${appLocalizations.endOfPartnerShip}: ${DateFormatter.formatFromIso(commercialContactData.partnerAgreement!.expiresAt!)}",
+                                  style: OlwTextStyles.textDescription,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                OlwCard(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      spacing: 2,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          appLocalizations.confirmationMethod,
+                          style: OlwTextStyles.textSubTitle,
+                        ),
+                        if (creditCardCashOperationData.confirmationMethod ==
+                            OperationConfirmationMethod.code)
+                          Column(
+                            spacing: 2,
+                            children: [
+                              Text(
+                                appLocalizations.operationCode,
+                                style: OlwTextStyles.textDescription,
+                              ),
+                              Text(
+                                creditCardCashOperationData.operationCode!,
+                                style: OlwTextStyles.textCardTitle,
+                              ),
+                            ],
+                          ),
+                        if (creditCardCashOperationData.confirmationMethod ==
+                            OperationConfirmationMethod.upload)
+                          OlwSecondaryButton(
+                            onPressed: () {
+                              showOlwBottomSheet(
+                                isFullScreen: true,
+                                context: context,
+                                title: appLocalizations.proof,
+                                content: InteractiveViewer(
+                                  minScale: 1.0,
+                                  maxScale: 4.0,
+                                  child: Image.network(
+                                    creditCardCashOperationData.proofImageUrl!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              );
+                            },
+                            isSmall: true,
+                            text: appLocalizations.openProofOfOperation,
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+                Text(
+                  appLocalizations.cardEntity,
+                  style: OlwTextStyles.textSubTitle,
+                ),
+                Column(
+                  children: [
+                    OperationDetailTile(
+                      item: appLocalizations.financialEntity,
+                      value: creditCardCashOperationData
+                          .creditCardCashMethod!
+                          .methodName
+                          .getLocalized(appLocalizations.localeName),
+                    ),
+                  ],
+                ),
+                Text(
+                  appLocalizations.calculationDetails,
+                  style: OlwTextStyles.textSubTitle,
+                ),
+                Column(
+                  children: [
+                    OperationDetailTile(
+                      item: appLocalizations.amountPaidWithCard,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(
+                          creditCardCashOperationData.totalAmount!,
+                        ),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      item: appLocalizations.serviceFee,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(totalFees!),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      item: appLocalizations.costOfServiceFee,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(paymentServiceCost.value),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      item: appLocalizations.taxableBase,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(taxableBase),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      item: appLocalizations.partnerFee,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(partnerFee),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      item: appLocalizations.totalTaxes,
+                      value: OlwFormatter.currency(
+                        BigIntParser.toDouble(totalTaxes!),
+                        symbol: operation.currencySymbol,
+                      ),
+                    ),
+                    OperationDetailTile(
+                      isWidget: true,
+                      showDivider: false,
+                      item: appLocalizations.amountToDisburse,
+                      valueWidget: OlwTag(
+                        label: OlwFormatter.currency(
+                          BigIntParser.toDouble(
+                            creditCardCashOperationData.amount!,
+                          ),
+                          symbol: operation.currencySymbol,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                if (currentDetailScreenIsLoading)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 16.0),
+                    child: OlwLoadingSpinner(),
+                  ),
+                if (!currentDetailScreenIsLoading)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Column(
+                      spacing: 16,
+                      children: [
+                        OlwPrimaryButton(
+                          onPressed: () {
+                            updateOperationStatus(
+                              ref,
+                              operation.id!,
+                              OperationStatus.completed,
+                              context,
+                              userData,
+                              creditCardCashOperationData,
+                              userData.currentCountryCode == 'PE'
+                                  ? appConfig
+                                        .messageNotificationConfig
+                                        .pe
+                                        .creditCardCash
+                                  : appConfig
+                                        .messageNotificationConfig
+                                        .hr!
+                                        .creditCardCash,
+                              appLocalizations,
+                              partnerData: partnerData,
+                              partnerFee: partnerFee,
+                              operation: operation,
+                            );
+                          },
+                          text: appLocalizations.confirmOperation,
+                        ),
+                        OlwSecondaryButton(
+                          onPressed: () {
+                            updateOperationStatus(
+                              ref,
+                              operation.id!,
+                              OperationStatus.rejected,
+                              context,
+                              userData,
+                              creditCardCashOperationData,
+                              userData.currentCountryCode == 'PE'
+                                  ? appConfig
+                                        .messageNotificationConfig
+                                        .pe
+                                        .creditCardCash
+                                  : appConfig
+                                        .messageNotificationConfig
+                                        .hr!
+                                        .creditCardCash,
+                              appLocalizations,
+                            );
+                          },
+                          text: appLocalizations.rejectOperation,
+                        ),
+                      ],
+                    ),
                   ),
               ],
-            ),
-          ),
-        ),
-        Text(appLocalizations.cardEntity, style: OlwTextStyles.textSubTitle),
-        Column(
-          children: [
-            OperationDetailTile(
-              item: appLocalizations.financialEntity,
-              value: creditCardCashOperationData
-                  .creditCardCashMethod!
-                  .methodName
-                  .getLocalized(appLocalizations.localeName),
-            ),
-          ],
-        ),
-        Text(
-          appLocalizations.calculationDetails,
-          style: OlwTextStyles.textSubTitle,
-        ),
-        Column(
-          children: [
-            OperationDetailTile(
-              item: appLocalizations.amountPaidWithCard,
-              value: OlwFormatter.currency(
-                BigIntParser.toDouble(creditCardCashOperationData.totalAmount!),
-                symbol: operation.currencySymbol,
-              ),
-            ),
-            OperationDetailTile(
-              item: appLocalizations.serviceFee,
-              value: OlwFormatter.currency(
-                BigIntParser.toDouble(totalFees!),
-                symbol: operation.currencySymbol,
-              ),
-            ),
-            OperationDetailTile(
-              item: appLocalizations.totalTaxes,
-              value: OlwFormatter.currency(
-                BigIntParser.toDouble(totalTaxes!),
-                symbol: operation.currencySymbol,
-              ),
-            ),
-            OperationDetailTile(
-              isWidget: true,
-              showDivider: false,
-              item: appLocalizations.amountToDisburse,
-              valueWidget: OlwTag(
-                label: OlwFormatter.currency(
-                  BigIntParser.toDouble(creditCardCashOperationData.amount!),
-                  symbol: operation.currencySymbol,
-                ),
-              ),
-            ),
-          ],
-        ),
-        if (currentDetailScreenIsLoading)
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: OlwLoadingSpinner(),
-          ),
-        if (!currentDetailScreenIsLoading)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Column(
-              spacing: 16,
-              children: [
-                OlwPrimaryButton(
-                  onPressed: () {
-                    updateOperationStatus(
-                      ref,
-                      operation.id!,
-                      OperationStatus.completed,
-                      context,
-                      userData,
-                      creditCardCashOperationData,
-                      userData.currentCountryCode == 'PE'
-                          ? appConfig
-                                .messageNotificationConfig
-                                .pe
-                                .creditCardCash
-                          : appConfig
-                                .messageNotificationConfig
-                                .hr!
-                                .creditCardCash,
-                      appLocalizations,
-                    );
-                  },
-                  text: appLocalizations.confirmOperation,
-                ),
-                OlwSecondaryButton(
-                  onPressed: () {
-                    updateOperationStatus(
-                      ref,
-                      operation.id!,
-                      OperationStatus.rejected,
-                      context,
-                      userData,
-                      creditCardCashOperationData,
-                      userData.currentCountryCode == 'PE'
-                          ? appConfig
-                                .messageNotificationConfig
-                                .pe
-                                .creditCardCash
-                          : appConfig
-                                .messageNotificationConfig
-                                .hr!
-                                .creditCardCash,
-                      appLocalizations,
-                    );
-                  },
-                  text: appLocalizations.rejectOperation,
-                ),
-              ],
-            ),
-          ),
-      ],
+            );
+          },
+          error: (error, stackTrace) {
+            print('Error fetching partner data: $error');
+            return Center(
+              child: Text(appLocalizations.upsItSeemsToBeWeHaveAnError),
+            );
+          },
+          loading: () => Center(child: OlwLoadingSpinner()),
+        );
+      },
+      error: (error, stackTrace) {
+        print('Error fetching commercial contact data: $error');
+        return Center(
+          child: Text(appLocalizations.upsItSeemsToBeWeHaveAnError),
+        );
+      },
+      loading: () => Center(child: OlwLoadingSpinner()),
     );
   }
 
@@ -396,8 +896,11 @@ class OperationDetailCreditCardCashSection extends ConsumerWidget {
     UserData userData,
     CreditCardCashOperationData creditCardCashOperationData,
     CreditCardCashMessageNotificationData messageNotificationData,
-    AppLocalizations appLocalizations,
-  ) async {
+    AppLocalizations appLocalizations, {
+    PartnerData? partnerData,
+    BigInt? partnerFee,
+    TransactionOperation? operation,
+  }) async {
     try {
       ref.read(currentDetailScreenIsLoadingProvider.notifier).state = true;
       await ref
@@ -441,6 +944,40 @@ class OperationDetailCreditCardCashSection extends ConsumerWidget {
               type: PushNotificationTypes.creditCardCashRequest,
             ),
           );
+        }
+
+        // Execute partner fee transfer if partnerData is not null
+        if (partnerData != null &&
+            partnerFee != null &&
+            partnerFee > BigInt.zero) {
+          try {
+            final depositRepository = ref.read(depositRepositoryProvider);
+            final depositOperation = TransactionOperation(
+              amount: partnerFee,
+              totalAmount: partnerFee,
+              type: OperationType.deposit,
+              status: OperationStatus.completed,
+              operationName:
+                  partnerData.creditCardCashPartnershipData!.operationName,
+              userId: partnerData.creditCardCashPartnershipData!.beneficiaryId!,
+              depositOperationData: DepositOperationData(),
+              userAccountId: partnerData
+                  .creditCardCashPartnershipData!
+                  .beneficiaryAccountId,
+              externalReference:
+                  'PRF-${DateTime.now().millisecondsSinceEpoch}-${userData.userId}',
+              currencyCode: operation!.currencyCode,
+              currencySymbol: operation.currencySymbol,
+              currencyName: operation.currencyName,
+            );
+
+            await depositRepository.createDeposit(depositOperation);
+          } catch (e) {
+            OlwSnackBarNotification.showError(
+              title: appLocalizations.upsItSeemsToBeWeHaveAnError,
+              message: 'Failed to execute partner fee transfer: $e',
+            );
+          }
         }
       } else if (status == OperationStatus.rejected) {
         if (userData.userPreferencesData?.languageCode == 'es') {

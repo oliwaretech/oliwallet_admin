@@ -43,4 +43,4 @@ Map<String, dynamic> _$DepositCurrencyDataToJson(
 
 const _$FeesIdsEnumMap = {FeesIds.feePerTransaction: 'feePerTransaction'};
 
-const _$TaxIdsEnumMap = {TaxIds.itf: 'itf'};
+const _$TaxIdsEnumMap = {TaxIds.itf: 'itf', TaxIds.igv: 'igv'};

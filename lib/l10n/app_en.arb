@@ -618,5 +618,14 @@
   "sendNotificationMessage" : "Send notification message",
   "withoutCashDisbursement" : "Without cash disbursement",
   "thereAreNotLoanRequestsToShow": "No hay solicitudes de préstamo para mostrar",
-  "thereAreNotCreditLineRequestsToShow": "No hay solicitudes de línea de crédito para mostrar"
+  "thereAreNotCreditLineRequestsToShow": "No hay solicitudes de línea de crédito para mostrar",
+  "partner" : "Partner",
+  "costOfServiceFee" : "Cost of service fee",
+  "taxableBase" : "Taxable base",
+  "partnerFee" : "Partner fee",
+  "endOfPartnerShip" : "End of partnership",
+  "manualDeferredTransactions" : "Manual deferred transactions",
+  "activated" : "Activado",
+  "deactivated" : "Desactivado",
+  "offMode" : "Off mode"
 }

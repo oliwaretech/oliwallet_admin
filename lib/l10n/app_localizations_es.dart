@@ -2043,4 +2043,31 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get thereAreNotCreditLineRequestsToShow =>
       'No hay solicitudes de línea de crédito para mostrar';
+
+  @override
+  String get partner => 'Socio';
+
+  @override
+  String get costOfServiceFee => 'Costo de la tarifa de servicio';
+
+  @override
+  String get taxableBase => 'Base imponible';
+
+  @override
+  String get partnerFee => 'Tarifa del socio';
+
+  @override
+  String get endOfPartnerShip => 'Fin de la asociación';
+
+  @override
+  String get manualDeferredTransactions => 'Transacciones diferidas manuales';
+
+  @override
+  String get activated => 'Activado';
+
+  @override
+  String get deactivated => 'Desactivado';
+
+  @override
+  String get offMode => 'Modo apagado';
 }

@@ -32,7 +32,7 @@ Map<String, dynamic> _$TaxDataToJson(_TaxData instance) => <String, dynamic>{
   'ranges': instance.ranges,
 };
 
-const _$TaxIdsEnumMap = {TaxIds.itf: 'itf'};
+const _$TaxIdsEnumMap = {TaxIds.itf: 'itf', TaxIds.igv: 'igv'};
 
 const _$TaxTypeEnumMap = {TaxType.rate: 'rate', TaxType.amount: 'amount'};
 

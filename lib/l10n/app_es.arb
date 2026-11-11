@@ -619,4 +619,13 @@
   "withoutCashDisbursement" : "Sin desembolso de efectivo",
   "thereAreNotLoanRequestsToShow": "No hay solicitudes de préstamo para mostrar",
   "thereAreNotCreditLineRequestsToShow": "No hay solicitudes de línea de crédito para mostrar",
+  "partner" : "Socio",
+  "costOfServiceFee" : "Costo de la tarifa de servicio",
+  "taxableBase" : "Base imponible",
+  "partnerFee" : "Tarifa del socio",
+  "endOfPartnerShip" : "Fin de la asociación",
+  "manualDeferredTransactions" : "Transacciones diferidas manuales",
+  "activated" : "Activado",
+  "deactivated" : "Desactivado",
+  "offMode" : "Modo apagado"
 }

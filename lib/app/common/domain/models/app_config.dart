@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:oliwallet_admin_front_end/app/common/domain/models/app_config_data.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/country.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/document_types.dart';
 import 'package:oliwallet_admin_front_end/app/common/domain/models/email_content_data.dart';
@@ -22,6 +23,7 @@ abstract class AppConfig with _$AppConfig {
   const factory AppConfig({
     required LanguageConfig languages,
     required String appStatus,
+    required AppConfigData appConfig,
     required DocumentTypes documentTypes,
     required List<Country> countries,
     required EmailContentData emailContent,

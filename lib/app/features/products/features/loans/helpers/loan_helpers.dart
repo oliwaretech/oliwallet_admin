@@ -76,6 +76,11 @@ class LoanPaymentDateCalculator {
           normalizedDate.month,
           normalizedDate.day,
         );
+
+      case Frequency.transaction:
+        throw ArgumentError(
+          'Frequency.transaction is not supported for date calculations.',
+        );
     }
   }
 }

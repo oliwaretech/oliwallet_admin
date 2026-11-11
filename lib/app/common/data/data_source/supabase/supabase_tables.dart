@@ -24,6 +24,8 @@ class SupabaseTables {
   static const String loanPaymentSchedule = 'loan_payment_schedule';
   static const String userDevices = 'user_devices';
   static const String notifications = 'notifications';
+  static const String commercialContacts = 'commercial_contacts';
+  static const String partners = 'partners';
 }
 
 class SupabaseBuckets {

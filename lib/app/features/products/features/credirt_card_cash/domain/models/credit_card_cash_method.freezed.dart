@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreditCardCashMethod {
 
- String get entityId; int get index; bool get isEnabled; bool get isVisible; LanguageCodes get methodName; List<LanguageCodes> get instructions; String? get methodImageUrl; LanguageCodes get methodShortName; MethodTiming get timing; List<TransactionMethod> get withdrawalMethods; List<TransactionFeesRange> get transactionFeesRanges;
+ String get entityId; int get index; bool get isEnabled; bool get isVisible; LanguageCodes get methodName; List<LanguageCodes> get instructions; String? get methodImageUrl; LanguageCodes get methodShortName; MethodTiming get timing; List<TransactionMethod> get withdrawalMethods; List<TransactionFeesRange> get transactionFeesRanges; List<CostItemData>? get costs;
 /// Create a copy of CreditCardCashMethod
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CreditCardCashMethodCopyWith<CreditCardCashMethod> get copyWith => _$CreditCard
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreditCardCashMethod&&(identical(other.entityId, entityId) || other.entityId == entityId)&&(identical(other.index, index) || other.index == index)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.methodName, methodName) || other.methodName == methodName)&&const DeepCollectionEquality().equals(other.instructions, instructions)&&(identical(other.methodImageUrl, methodImageUrl) || other.methodImageUrl == methodImageUrl)&&(identical(other.methodShortName, methodShortName) || other.methodShortName == methodShortName)&&(identical(other.timing, timing) || other.timing == timing)&&const DeepCollectionEquality().equals(other.withdrawalMethods, withdrawalMethods)&&const DeepCollectionEquality().equals(other.transactionFeesRanges, transactionFeesRanges));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreditCardCashMethod&&(identical(other.entityId, entityId) || other.entityId == entityId)&&(identical(other.index, index) || other.index == index)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.methodName, methodName) || other.methodName == methodName)&&const DeepCollectionEquality().equals(other.instructions, instructions)&&(identical(other.methodImageUrl, methodImageUrl) || other.methodImageUrl == methodImageUrl)&&(identical(other.methodShortName, methodShortName) || other.methodShortName == methodShortName)&&(identical(other.timing, timing) || other.timing == timing)&&const DeepCollectionEquality().equals(other.withdrawalMethods, withdrawalMethods)&&const DeepCollectionEquality().equals(other.transactionFeesRanges, transactionFeesRanges)&&const DeepCollectionEquality().equals(other.costs, costs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,entityId,index,isEnabled,isVisible,methodName,const DeepCollectionEquality().hash(instructions),methodImageUrl,methodShortName,timing,const DeepCollectionEquality().hash(withdrawalMethods),const DeepCollectionEquality().hash(transactionFeesRanges));
+int get hashCode => Object.hash(runtimeType,entityId,index,isEnabled,isVisible,methodName,const DeepCollectionEquality().hash(instructions),methodImageUrl,methodShortName,timing,const DeepCollectionEquality().hash(withdrawalMethods),const DeepCollectionEquality().hash(transactionFeesRanges),const DeepCollectionEquality().hash(costs));
 
 @override
 String toString() {
-  return 'CreditCardCashMethod(entityId: $entityId, index: $index, isEnabled: $isEnabled, isVisible: $isVisible, methodName: $methodName, instructions: $instructions, methodImageUrl: $methodImageUrl, methodShortName: $methodShortName, timing: $timing, withdrawalMethods: $withdrawalMethods, transactionFeesRanges: $transactionFeesRanges)';
+  return 'CreditCardCashMethod(entityId: $entityId, index: $index, isEnabled: $isEnabled, isVisible: $isVisible, methodName: $methodName, instructions: $instructions, methodImageUrl: $methodImageUrl, methodShortName: $methodShortName, timing: $timing, withdrawalMethods: $withdrawalMethods, transactionFeesRanges: $transactionFeesRanges, costs: $costs)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $CreditCardCashMethodCopyWith<$Res>  {
   factory $CreditCardCashMethodCopyWith(CreditCardCashMethod value, $Res Function(CreditCardCashMethod) _then) = _$CreditCardCashMethodCopyWithImpl;
 @useResult
 $Res call({
- String entityId, int index, bool isEnabled, bool isVisible, LanguageCodes methodName, List<LanguageCodes> instructions, String? methodImageUrl, LanguageCodes methodShortName, MethodTiming timing, List<TransactionMethod> withdrawalMethods, List<TransactionFeesRange> transactionFeesRanges
+ String entityId, int index, bool isEnabled, bool isVisible, LanguageCodes methodName, List<LanguageCodes> instructions, String? methodImageUrl, LanguageCodes methodShortName, MethodTiming timing, List<TransactionMethod> withdrawalMethods, List<TransactionFeesRange> transactionFeesRanges, List<CostItemData>? costs
 });
 
 
@@ -65,7 +65,7 @@ class _$CreditCardCashMethodCopyWithImpl<$Res>
 
 /// Create a copy of CreditCardCashMethod
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? entityId = null,Object? index = null,Object? isEnabled = null,Object? isVisible = null,Object? methodName = null,Object? instructions = null,Object? methodImageUrl = freezed,Object? methodShortName = null,Object? timing = null,Object? withdrawalMethods = null,Object? transactionFeesRanges = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? entityId = null,Object? index = null,Object? isEnabled = null,Object? isVisible = null,Object? methodName = null,Object? instructions = null,Object? methodImageUrl = freezed,Object? methodShortName = null,Object? timing = null,Object? withdrawalMethods = null,Object? transactionFeesRanges = null,Object? costs = freezed,}) {
   return _then(_self.copyWith(
 entityId: null == entityId ? _self.entityId : entityId // ignore: cast_nullable_to_non_nullable
 as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,8 @@ as String?,methodShortName: null == methodShortName ? _self.methodShortName : me
 as LanguageCodes,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_to_non_nullable
 as MethodTiming,withdrawalMethods: null == withdrawalMethods ? _self.withdrawalMethods : withdrawalMethods // ignore: cast_nullable_to_non_nullable
 as List<TransactionMethod>,transactionFeesRanges: null == transactionFeesRanges ? _self.transactionFeesRanges : transactionFeesRanges // ignore: cast_nullable_to_non_nullable
-as List<TransactionFeesRange>,
+as List<TransactionFeesRange>,costs: freezed == costs ? _self.costs : costs // ignore: cast_nullable_to_non_nullable
+as List<CostItemData>?,
   ));
 }
 /// Create a copy of CreditCardCashMethod
@@ -190,10 +191,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges,  List<CostItemData>? costs)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreditCardCashMethod() when $default != null:
-return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges);case _:
+return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges,_that.costs);case _:
   return orElse();
 
 }
@@ -211,10 +212,10 @@ return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges,  List<CostItemData>? costs)  $default,) {final _that = this;
 switch (_that) {
 case _CreditCardCashMethod():
-return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges);case _:
+return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges,_that.costs);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -231,10 +232,10 @@ return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String entityId,  int index,  bool isEnabled,  bool isVisible,  LanguageCodes methodName,  List<LanguageCodes> instructions,  String? methodImageUrl,  LanguageCodes methodShortName,  MethodTiming timing,  List<TransactionMethod> withdrawalMethods,  List<TransactionFeesRange> transactionFeesRanges,  List<CostItemData>? costs)?  $default,) {final _that = this;
 switch (_that) {
 case _CreditCardCashMethod() when $default != null:
-return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges);case _:
+return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that.methodName,_that.instructions,_that.methodImageUrl,_that.methodShortName,_that.timing,_that.withdrawalMethods,_that.transactionFeesRanges,_that.costs);case _:
   return null;
 
 }
@@ -246,7 +247,7 @@ return $default(_that.entityId,_that.index,_that.isEnabled,_that.isVisible,_that
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _CreditCardCashMethod implements CreditCardCashMethod {
-  const _CreditCardCashMethod({required this.entityId, required this.index, required this.isEnabled, required this.isVisible, required this.methodName, required final  List<LanguageCodes> instructions, this.methodImageUrl, required this.methodShortName, required this.timing, required final  List<TransactionMethod> withdrawalMethods, required final  List<TransactionFeesRange> transactionFeesRanges}): _instructions = instructions,_withdrawalMethods = withdrawalMethods,_transactionFeesRanges = transactionFeesRanges;
+  const _CreditCardCashMethod({required this.entityId, required this.index, required this.isEnabled, required this.isVisible, required this.methodName, required final  List<LanguageCodes> instructions, this.methodImageUrl, required this.methodShortName, required this.timing, required final  List<TransactionMethod> withdrawalMethods, required final  List<TransactionFeesRange> transactionFeesRanges, final  List<CostItemData>? costs}): _instructions = instructions,_withdrawalMethods = withdrawalMethods,_transactionFeesRanges = transactionFeesRanges,_costs = costs;
   factory _CreditCardCashMethod.fromJson(Map<String, dynamic> json) => _$CreditCardCashMethodFromJson(json);
 
 @override final  String entityId;
@@ -278,6 +279,15 @@ class _CreditCardCashMethod implements CreditCardCashMethod {
   return EqualUnmodifiableListView(_transactionFeesRanges);
 }
 
+ final  List<CostItemData>? _costs;
+@override List<CostItemData>? get costs {
+  final value = _costs;
+  if (value == null) return null;
+  if (_costs is EqualUnmodifiableListView) return _costs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
 
 /// Create a copy of CreditCardCashMethod
 /// with the given fields replaced by the non-null parameter values.
@@ -292,16 +302,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreditCardCashMethod&&(identical(other.entityId, entityId) || other.entityId == entityId)&&(identical(other.index, index) || other.index == index)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.methodName, methodName) || other.methodName == methodName)&&const DeepCollectionEquality().equals(other._instructions, _instructions)&&(identical(other.methodImageUrl, methodImageUrl) || other.methodImageUrl == methodImageUrl)&&(identical(other.methodShortName, methodShortName) || other.methodShortName == methodShortName)&&(identical(other.timing, timing) || other.timing == timing)&&const DeepCollectionEquality().equals(other._withdrawalMethods, _withdrawalMethods)&&const DeepCollectionEquality().equals(other._transactionFeesRanges, _transactionFeesRanges));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreditCardCashMethod&&(identical(other.entityId, entityId) || other.entityId == entityId)&&(identical(other.index, index) || other.index == index)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled)&&(identical(other.isVisible, isVisible) || other.isVisible == isVisible)&&(identical(other.methodName, methodName) || other.methodName == methodName)&&const DeepCollectionEquality().equals(other._instructions, _instructions)&&(identical(other.methodImageUrl, methodImageUrl) || other.methodImageUrl == methodImageUrl)&&(identical(other.methodShortName, methodShortName) || other.methodShortName == methodShortName)&&(identical(other.timing, timing) || other.timing == timing)&&const DeepCollectionEquality().equals(other._withdrawalMethods, _withdrawalMethods)&&const DeepCollectionEquality().equals(other._transactionFeesRanges, _transactionFeesRanges)&&const DeepCollectionEquality().equals(other._costs, _costs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,entityId,index,isEnabled,isVisible,methodName,const DeepCollectionEquality().hash(_instructions),methodImageUrl,methodShortName,timing,const DeepCollectionEquality().hash(_withdrawalMethods),const DeepCollectionEquality().hash(_transactionFeesRanges));
+int get hashCode => Object.hash(runtimeType,entityId,index,isEnabled,isVisible,methodName,const DeepCollectionEquality().hash(_instructions),methodImageUrl,methodShortName,timing,const DeepCollectionEquality().hash(_withdrawalMethods),const DeepCollectionEquality().hash(_transactionFeesRanges),const DeepCollectionEquality().hash(_costs));
 
 @override
 String toString() {
-  return 'CreditCardCashMethod(entityId: $entityId, index: $index, isEnabled: $isEnabled, isVisible: $isVisible, methodName: $methodName, instructions: $instructions, methodImageUrl: $methodImageUrl, methodShortName: $methodShortName, timing: $timing, withdrawalMethods: $withdrawalMethods, transactionFeesRanges: $transactionFeesRanges)';
+  return 'CreditCardCashMethod(entityId: $entityId, index: $index, isEnabled: $isEnabled, isVisible: $isVisible, methodName: $methodName, instructions: $instructions, methodImageUrl: $methodImageUrl, methodShortName: $methodShortName, timing: $timing, withdrawalMethods: $withdrawalMethods, transactionFeesRanges: $transactionFeesRanges, costs: $costs)';
 }
 
 
@@ -312,7 +322,7 @@ abstract mixin class _$CreditCardCashMethodCopyWith<$Res> implements $CreditCard
   factory _$CreditCardCashMethodCopyWith(_CreditCardCashMethod value, $Res Function(_CreditCardCashMethod) _then) = __$CreditCardCashMethodCopyWithImpl;
 @override @useResult
 $Res call({
- String entityId, int index, bool isEnabled, bool isVisible, LanguageCodes methodName, List<LanguageCodes> instructions, String? methodImageUrl, LanguageCodes methodShortName, MethodTiming timing, List<TransactionMethod> withdrawalMethods, List<TransactionFeesRange> transactionFeesRanges
+ String entityId, int index, bool isEnabled, bool isVisible, LanguageCodes methodName, List<LanguageCodes> instructions, String? methodImageUrl, LanguageCodes methodShortName, MethodTiming timing, List<TransactionMethod> withdrawalMethods, List<TransactionFeesRange> transactionFeesRanges, List<CostItemData>? costs
 });
 
 
@@ -329,7 +339,7 @@ class __$CreditCardCashMethodCopyWithImpl<$Res>
 
 /// Create a copy of CreditCardCashMethod
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? entityId = null,Object? index = null,Object? isEnabled = null,Object? isVisible = null,Object? methodName = null,Object? instructions = null,Object? methodImageUrl = freezed,Object? methodShortName = null,Object? timing = null,Object? withdrawalMethods = null,Object? transactionFeesRanges = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? entityId = null,Object? index = null,Object? isEnabled = null,Object? isVisible = null,Object? methodName = null,Object? instructions = null,Object? methodImageUrl = freezed,Object? methodShortName = null,Object? timing = null,Object? withdrawalMethods = null,Object? transactionFeesRanges = null,Object? costs = freezed,}) {
   return _then(_CreditCardCashMethod(
 entityId: null == entityId ? _self.entityId : entityId // ignore: cast_nullable_to_non_nullable
 as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
@@ -342,7 +352,8 @@ as String?,methodShortName: null == methodShortName ? _self.methodShortName : me
 as LanguageCodes,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_to_non_nullable
 as MethodTiming,withdrawalMethods: null == withdrawalMethods ? _self._withdrawalMethods : withdrawalMethods // ignore: cast_nullable_to_non_nullable
 as List<TransactionMethod>,transactionFeesRanges: null == transactionFeesRanges ? _self._transactionFeesRanges : transactionFeesRanges // ignore: cast_nullable_to_non_nullable
-as List<TransactionFeesRange>,
+as List<TransactionFeesRange>,costs: freezed == costs ? _self._costs : costs // ignore: cast_nullable_to_non_nullable
+as List<CostItemData>?,
   ));
 }
 
